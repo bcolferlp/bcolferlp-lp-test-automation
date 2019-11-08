@@ -1,0 +1,3 @@
+[submodule "end-to-end-loan-tester"]
+	path = end-to-end-loan-tester
+	url = git@github.com:loanpal-engineering/end-to-end-loan-tester.git
