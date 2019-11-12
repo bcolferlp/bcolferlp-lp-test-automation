@@ -4,7 +4,8 @@
   "description": "Repository for all LoanPal automation tests",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "report": "allure serve"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,13 @@
   "homepage": "https://github.com/loanpal-engineering/lp-test-automation#readme",
   "devDependencies": {
     "jest": "^24.9.0",
-    "jest-allure": "^0.1.1"
+    "jest-allure": "^0.1.1",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.9.0",
+    "jest-each": "^24.9.0",
+    "selenium": "^2.20.0",
+    "selenium-webdriver": "^4.0.0-alpha.5"
   }
 }
