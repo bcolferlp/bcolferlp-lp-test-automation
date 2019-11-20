@@ -6,7 +6,7 @@ each([
     ['chrome'],
     ['firefox']
 ])
-.describe('Login Test', (browser) => {
+.describe.skip('Login Test', (browser) => {
     let baseTest
 
     beforeEach(async () => {

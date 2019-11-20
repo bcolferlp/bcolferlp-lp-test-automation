@@ -12,7 +12,7 @@ export default class LoanCalcAPI extends BaseAPI {
 
     async calcStandardPayment(){
         const url = 'https://test-clientapi.loanpal.com/test/restapi/v1/loanCalc/?loanAmount='.concat(this.loanAmount,'&rate=',this.rate,'&term=',this.term,'&baseItcPct=',this.baseItcPct)
-        return await this.apiRequest(url)
+        return await this.apiGetRequest(url)
     }
 
 }
