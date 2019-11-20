@@ -28,5 +28,8 @@
     "jest-each": "^24.9.0",
     "selenium": "^2.20.0",
     "selenium-webdriver": "^4.0.0-alpha.5"
+  },
+  "dependencies": {
+    "@loanpal/lp-e2e-loans": "file:../end-to-end-loan-tester"
   }
 }
