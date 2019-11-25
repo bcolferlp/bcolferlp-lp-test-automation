@@ -1,7 +1,7 @@
 import BaseTest from "../../../src/base/baseTest";
 import IPLoginPage from "../../../src/pages/investorPortal/ipLoginPage";
 import each from "jest-each";
-require("colors");
+require("../src/utilities/imports");
 each(["chrome"]).describe("IP Login Test", browser => {
   let baseTest;
 
@@ -14,7 +14,7 @@ each(["chrome"]).describe("IP Login Test", browser => {
   });
 
   test("Positive login test", async done => {
-    const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
+    const ipLoginPage = await new IPLoginPage(baseTest.webDriver, email, pass);
     await ipLoginPage.open();
     await ipLoginPage.enterEmail();
     await ipLoginPage.enterPassword();
