@@ -48,17 +48,4 @@ export default class IPLoginPage extends BasePageObject {
     console.log("Error Message found".green);
     return errorElem;
   }
-
-  //   async negativeLogin(username, password) {
-  //     await this.loginClick(username, password);
-  //     await this.waitForErrorMessage;
-  //   }
-
-  //   async waitForErrorMessageToShow() {
-  //     await this.waitForTextContains(this.errorMessageLocator, "The", 5000);
-  //   }
-
-  //   async getErrorMessageText() {
-  //     return this.getTextFromElement(this.errorMessageLocator);
-  //   }
 }
