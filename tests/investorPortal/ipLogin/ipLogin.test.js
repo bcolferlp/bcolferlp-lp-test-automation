@@ -1,7 +1,7 @@
 import BaseTest from "../../../src/base/baseTest";
 import IPLoginPage from "../../../src/pages/investorPortal/ipLoginPage";
 import each from "jest-each";
-require("../src/utilities/imports");
+
 each(["chrome"]).describe("IP Login Test", browser => {
   let baseTest;
 

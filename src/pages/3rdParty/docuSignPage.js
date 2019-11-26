@@ -1,6 +1,5 @@
 import BasePageObject from "../../base/basePageObject";
 const { By, until } = require("selenium-webdriver");
-const { nav } = require("../../utilities/imports");
 
 export default class DocuSignPage extends BasePageObject {
   constructor(webDriver) {

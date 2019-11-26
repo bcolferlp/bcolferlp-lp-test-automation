@@ -1,7 +1,6 @@
 import BasePageObject from "../../base/basePageObject";
 const { By, until } = require("selenium-webdriver");
-const { nav } = require("../../utilities/imports");
-
+require("../../../src/utilities/imports");
 export default class EmailPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
@@ -26,7 +25,7 @@ export default class EmailPage extends BasePageObject {
     await emailInput.sendKeys(this.emailUser);
     await passwordInput.sendKeys(this.emailPass);
     await submitBtn.click();
-    await nav.waitForTarget(this.webDriver, this.emailTarget);
+    await this.waitForTarget(this.emailTarget);
   }
   async emailLogout() {
     const profileDropdown = await this.waitForElementLocated(this.profileDropdown, 5000);
