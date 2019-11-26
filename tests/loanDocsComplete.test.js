@@ -3,7 +3,7 @@ import EmailPage from "../src/pages/3rdParty/emailPage";
 import DocuSignPage from "../src/pages/3rdParty/docuSignPage";
 const { By, until } = require("selenium-webdriver");
 const { nav } = require("../src/utilities/imports");
-describe("Loan Docs comparison", () => {
+describe("Loan Docs Completion", () => {
   let baseTest;
   const emailRow = By.xpath('(//*[contains(text(),"Please sign your Solar Loan Docs")])[1]');
   const reviewDocs = By.xpath('//span[contains(text(), "REVIEW")]/../../a');
@@ -16,7 +16,7 @@ describe("Loan Docs comparison", () => {
     await baseTest.close();
   });
 
-  test("Email login", async done => {
+  test("Log into email and complete the loan docs", async done => {
     const emailPage = await new EmailPage(baseTest.webDriver);
     await emailPage.fullScreen();
     const docuSignPage = await new DocuSignPage(baseTest.webDriver);

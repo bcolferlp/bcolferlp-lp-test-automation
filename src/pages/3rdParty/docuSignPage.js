@@ -45,7 +45,7 @@ export default class DocuSignPage extends BasePageObject {
       if (docuSignAdopt.length > 0) {
         await docuSignAdopt[0].click();
         console.log("Adopt and Initial Click");
-        await this.sleep(2000);
+        await this.sleep(5000);
       }
 
       await elem.click();
