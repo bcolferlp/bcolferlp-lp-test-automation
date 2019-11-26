@@ -7,12 +7,12 @@ module.exports = {
     await tab.click();
   },
   async scrollToBottom(driver) {
-    console.log("Scroll to bottom".green);
+    console.log("Scroll to bottom");
     await driver.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     await driver.sleep(2000);
   },
   async scrollToTop(driver) {
-    console.log("Scroll to top".green);
+    console.log("Scroll to top");
     await driver.executeScript("window.scrollTo(0, 0)");
     await driver.sleep(2000);
   },
@@ -25,7 +25,7 @@ module.exports = {
   },
   async setZoom(driver, zoom) {
     // Range from 0 to 1
-    console.log(`Zoom: ${zoom}`.green);
+    console.log(`Zoom: ${zoom}`);
 
     await driver.executeScript(`document.body.style.zoom=${zoom}`);
   },
@@ -38,12 +38,12 @@ module.exports = {
     try {
       const found = await driver.findElement(locator);
       if (found) {
-        console.log("Load target found".cyan);
+        console.log("Load target found");
         return;
       }
     } catch (error) {
       if (count < max) {
-        console.log("Searching for element...".yellow);
+        console.log("Searching for element...");
         const targetFile = await this.waitForTarget(driver, locator, count);
         return targetFile;
       } else return;

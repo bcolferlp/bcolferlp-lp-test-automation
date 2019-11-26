@@ -18,7 +18,6 @@ export default class EmailPage extends BasePageObject {
   }
   async goToEmail() {
     await this.openUrl(this.emailUrl);
-    console.log("Opening URL".green, this.emailUrl);
   }
   async emailLogin() {
     const emailInput = await this.waitForElementLocated(this.emailInput, 5000);
@@ -32,10 +31,10 @@ export default class EmailPage extends BasePageObject {
   async emailLogout() {
     const profileDropdown = await this.waitForElementLocated(this.profileDropdown, 5000);
     await profileDropdown.click();
-    console.log("Dropdown clicked".green);
+    console.log("Dropdown clicked");
     const emailLogoutBtn = await this.waitForElementLocated(this.emailLogoutBtn, 5000);
     await emailLogoutBtn.click();
-    console.log("Logged out".green);
+    console.log("Logged out");
   }
   async findEmail(emailRow) {
     const elem = await this.waitForElementLocated(emailRow, 10000);

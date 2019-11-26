@@ -24,16 +24,16 @@ export default class DocuSignPage extends BasePageObject {
     await this.waitForTarget(this.docTarget);
     const agreeNoShow = await this.findElements(this.agreeNoShow);
     if (agreeNoShow.length === 0) {
-      console.log("Agree checkbox exists".yellow);
+      console.log("Agree checkbox exists");
       const agreeBox = await this.findElements(this.agreeBox);
       await agreeBox[0].click();
     }
     const docuSignContinue = await this.waitForElementLocated(this.docuSignContinue, 5000);
     await docuSignContinue.click();
-    console.log("Continue Click".yellow);
+    console.log("Continue Click");
     const docuSignStart = await this.waitForElementLocated(this.docuSignStart, 5000);
     await docuSignStart.click();
-    console.log("Start Click".yellow);
+    console.log("Start Click");
     await this.sleep(1000);
 
     const requiredSigns = await this.waitForElementsLocated(this.initialSign, 5000);
@@ -44,7 +44,7 @@ export default class DocuSignPage extends BasePageObject {
       const docuSignAdopt = await this.findElements(this.docuSignAdopt);
       if (docuSignAdopt.length > 0) {
         await docuSignAdopt[0].click();
-        console.log("Adopt and Initial Click".yellow);
+        console.log("Adopt and Initial Click");
         await this.sleep(2000);
       }
 
@@ -62,7 +62,7 @@ export default class DocuSignPage extends BasePageObject {
 
     const finishBtn = await this.waitForElementLocated(this.finishBtn, 5000);
     await finishBtn.click();
-    console.log("Finish click".yellow);
+    console.log("Finish click");
     await this.waitForTarget(this.docCompleteTarget);
   }
 }
