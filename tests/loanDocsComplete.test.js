@@ -1,6 +1,6 @@
 import BaseTest from "../src/base/baseTest";
-import EmailPage from "../src/pages/3rdParty/emailPage";
-import DocuSignPage from "../src/pages/3rdParty/docuSignPage";
+import EmailPage from "../src/pages/3rdParty/email/emailPage";
+import DocuSignPage from "../src/pages/3rdParty/docuSign/docuSignPage";
 const { By, until } = require("selenium-webdriver");
 
 describe("Loan Docs Completion", () => {

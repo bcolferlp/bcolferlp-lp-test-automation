@@ -1,4 +1,4 @@
-import BasePageObject from "../../base/basePageObject";
+import BasePageObject from "../../../base/basePageObject";
 const { By, until } = require("selenium-webdriver");
 
 export default class IPLoginPage extends BasePageObject {
