@@ -1,6 +1,6 @@
-import BasePageObject from "../../base/basePageObject";
+import BasePageObject from "../../../base/basePageObject";
 const { By, until } = require("selenium-webdriver");
-require("../../../src/utilities/imports");
+require("../../../utilities/imports");
 export default class EmailPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
