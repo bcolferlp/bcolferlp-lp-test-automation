@@ -6,12 +6,12 @@ export default class BasePageObject {
   }
 
   async openUrl(url) {
-    console.log("Opengin URL".cyan);
+    console.log("Opening URL", url);
     await this.webDriver.get(url);
   }
 
   async close() {
-    console.log("Close Driver".cyan);
+    console.log("Close Driver");
     await this.webDriver.close();
   }
 
@@ -53,36 +53,36 @@ export default class BasePageObject {
   }
 
   async getAllWindowHandles() {
-    console.log("Getting all handles".cyan);
+    console.log("Getting all handles");
     const handles = await this.webDriver.getAllWindowHandles();
     return handles;
   }
 
   async switchWindow(handles, index) {
-    console.log("Switch Handles".cyan);
+    console.log("Switch Handles");
     await this.webDriver.switchTo().window(handles[index]);
   }
 
   async refeshPage() {
     await this.webDriver.navigate().refresh();
-    console.log("Page refreshed".cyan);
+    console.log("Page refreshed");
   }
 
   async navTabs(label) {
-    console.log("Navigate tabs".cyan);
+    console.log("Navigate tabs");
     await this.webDriver.sleep(2000);
     const tab = await this.webDriver.wait(until.elementLocated(By.css(label)), 5000, "Timeout");
     await tab.click();
   }
 
   async scrollToBottom() {
-    console.log("Scroll to bottom".cyan);
+    console.log("Scroll to bottom");
     await this.webDriver.executeScript("window.scrollTo(0, document.body.scrollHeight)");
     await this.webDriver.sleep(2000);
   }
 
   async scrollToTop() {
-    console.log("Scroll to top".cyan);
+    console.log("Scroll to top");
     await this.webDriver.executeScript("window.scrollTo(0, 0)");
     await this.webDriver.sleep(2000);
   }
@@ -93,7 +93,7 @@ export default class BasePageObject {
   }
 
   async fullScreen() {
-    console.log("Full Screen".cyan);
+    console.log("Full Screen");
     await this.webDriver
       .manage()
       .window()
@@ -103,7 +103,7 @@ export default class BasePageObject {
 
   async setZoom(zoom) {
     // Range from 0 to 1
-    console.log(`Zoom: ${zoom}`.cyan);
+    console.log(`Zoom: ${zoom}`);
 
     await this.webDriver.executeScript(`document.body.style.zoom=${zoom}`);
   }
@@ -114,7 +114,7 @@ export default class BasePageObject {
   }
 
   async closeTabs() {
-    console.log("Closing Tabs".cyan);
+    console.log("Closing Tabs");
     const tabs = await this.webDriver.getAllWindowHandles();
     if (Array.isArray(tabs) && tabs.length > 1) {
       await this.webDriver.switchTo().window(tabs[1]);
@@ -125,17 +125,17 @@ export default class BasePageObject {
 
   async waitForTarget(locator, count = 0, max = 5) {
     count += 1;
-    console.log("waitForTarget", locator.value ? locator.value : locator, "Attempt:", `${count}/${max}`.yellow);
+    console.log("waitForTarget", locator.value ? locator.value : locator, "Attempt:", `${count}/${max}`);
     await this.webDriver.sleep(5000);
     try {
       const found = await this.webDriver.findElement(locator);
       if (found) {
-        console.log("Load target found".cyan);
+        console.log("Load target found");
         return;
       }
     } catch (error) {
       if (count < max) {
-        console.log("Searching for element...".yellow);
+        console.log("Searching for element...");
         const targetFile = await this.waitForTarget(locator, count);
         return targetFile;
       } else return;
