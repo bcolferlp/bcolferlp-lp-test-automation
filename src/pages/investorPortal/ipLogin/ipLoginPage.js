@@ -1,11 +1,11 @@
 import BasePageObject from "../../../base/basePageObject";
 const { By, until } = require("selenium-webdriver");
-
+require("dotenv").config();
 export default class IPLoginPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
     // Url
-    this.loginPageUrl = "https://dev-investors.loanpal.com/login";
+    this.loginPageUrl = process.env.investorPortal;
     // Xpath
     this.emailInput = By.xpath('//input[@id="email"]');
     this.passwordInput = By.xpath('//input[@id="password"]');

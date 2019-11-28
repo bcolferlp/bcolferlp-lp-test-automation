@@ -14,7 +14,7 @@ each(["chrome"]).describe("IP Login Test", browser => {
   });
 
   test("Positive login test", async done => {
-    const ipLoginPage = await new IPLoginPage(baseTest.webDriver, email, pass);
+    const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.open();
     await ipLoginPage.enterEmail();
     await ipLoginPage.enterPassword();

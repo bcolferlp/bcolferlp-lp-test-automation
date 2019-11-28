@@ -141,4 +141,42 @@ export default class BasePageObject {
       } else return;
     }
   }
+  async cellText(tableRows) {
+    console.log("Gathering table element text...");
+    const tableCells = await Promise.all(
+      tableRows.map(async elem => {
+        const cells = await elem.findElements(By.tagName("td"));
+        const cellTextMap = await Promise.all(
+          cells.map(async cell => {
+            if (typeof cell.getText() === "object") {
+              const cellText = await cell.getText();
+              return cellText;
+            }
+          })
+        );
+        return cellTextMap;
+      })
+    );
+    console.log("Gathering complete");
+    return tableCells;
+  }
+  async cellElement(tableRows, tag, returnAll = true) {
+    console.log("Gathering table elements...");
+    let tableCells;
+    if (returnAll) {
+      tableCells = await Promise.all(
+        tableRows.map(async elem => {
+          const cells = await elem.findElements(By.tagName(tag));
+
+          return cells;
+        })
+      );
+      console.log("Gathering complete");
+      return tableCells;
+    }
+    tableCells = await tableRows[0].findElements(By.tagName(tag));
+
+    console.log("Gathering complete");
+    return tableCells;
+  }
 }
