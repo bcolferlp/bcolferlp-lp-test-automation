@@ -35,10 +35,9 @@
     "selenium-webdriver": "^4.0.0-alpha.5"
   },
   "dependencies": {
-    "@loanpal/lp-e2e-loans": "file:../end-to-end-loan-tester",
     "dotenv": "^8.2.0",
-    "underscore": "^1.9.1",
     "moment": "^2.24.0",
-    "numeral": "^2.0.6"
+    "numeral": "^2.0.6",
+    "underscore": "^1.9.1"
   }
 }
