@@ -6,7 +6,6 @@ export default class IPProfilePage extends BasePageObject {
     super(webDriver);
     this.url = `${process.env.investorPortal}/profile`;
     // Xpath
-
     this.username = By.xpath('//*[contains(text(), "Username")]/..//p');
     this.firstname = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');
     this.lastName = By.xpath('//div[contains(@class,"__qa_div_lastName")]//input');
@@ -19,10 +18,10 @@ export default class IPProfilePage extends BasePageObject {
     this.saveNewPassword = By.xpath('//button[contains(text(), "Save New Password")]');
     this.logout = By.xpath('//a[@data-tip="Logout"]');
     this.clientId = By.xpath('//div[@aria-haspopup="true"]');
-    (this.listedClient = text => {
+    this.listedClient = text => {
       return By.xpath(`//li[@data-value="${text}"]`);
-    }),
-      (this.clientChangeElem = By.xpath('//div[@role="alert"]'));
+    };
+    this.clientChangeElem = By.xpath('//div[@role="alert"]');
     this.clientChangeText =
       "Warning!\nYou will be automatically logged out and you will need to login again for changes to take effect.";
     this.formControlClient = By.xpath('//div[contains(@class, "_qa_FormControl_generalSwitchToggle")]//label');
