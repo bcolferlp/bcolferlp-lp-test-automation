@@ -13,7 +13,7 @@ each(["chrome"]).describe("IP Login Test", browser => {
     await baseTest.close();
   });
 
-  test("Positive login test", async done => {
+  test.skip("Positive login test", async done => {
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.open();
     await ipLoginPage.enterEmail();
