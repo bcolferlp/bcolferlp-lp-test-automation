@@ -4,7 +4,7 @@ import LoansbyStatePage from "../../../src/pages/investorPortal/ipDashboard/ipLo
 import each from "jest-each";
 const { By, until } = require("selenium-webdriver");
 
-describe("Loans By States", () => {
+describe.skip("Loans By States", () => {
   let baseTest;
   let stateNames;
   beforeEach(async () => {

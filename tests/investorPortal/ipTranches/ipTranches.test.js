@@ -3,7 +3,7 @@ import IPLoginPage from "../../../src/pages/investorPortal/ipLogin/ipLoginPage";
 import IPTranchesPage from "../../../src/pages/investorPortal/ipTranches/ipTranchesPage";
 import each from "jest-each";
 const { By, until } = require("selenium-webdriver");
-describe("Tranches", () => {
+describe.skip("Tranches", () => {
   let baseTest;
   beforeEach(async () => {
     baseTest = await new BaseTest("chrome");
