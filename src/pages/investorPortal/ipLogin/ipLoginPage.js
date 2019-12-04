@@ -16,6 +16,14 @@ export default class IPLoginPage extends BasePageObject {
     this.username = "test_manager@loanpal.com";
     this.password = "Abcd1234!";
   }
+  async completelogin() {
+    console.log("Complete Login");
+    await this.fullScreen();
+    await this.open();
+    await this.enterEmail();
+    await this.enterPassword();
+    await this.loginClick();
+  }
 
   async open() {
     await this.openUrl(this.loginPageUrl);
