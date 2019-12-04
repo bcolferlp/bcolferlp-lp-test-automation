@@ -4,6 +4,7 @@ require("dotenv").config();
 // LIBRARIES
 const fs = require("fs");
 const path = require("path");
+const { By, until } = require("selenium-webdriver");
 
 // SCRIPTS
 const { main: getNewestFile } = require("./getNewestFile");
@@ -16,5 +17,7 @@ module.exports = {
   fs,
   path,
   getNewestFile,
-  format
+  format,
+  By,
+  until
 };
