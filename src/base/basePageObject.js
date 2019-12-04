@@ -179,4 +179,8 @@ export default class BasePageObject {
     console.log("Gathering complete");
     return tableCells;
   }
+  async waitForURL(url) {
+    await this.webDriver.wait(until.urlIs(url), 5000);
+    console.log("Url found");
+  }
 }
