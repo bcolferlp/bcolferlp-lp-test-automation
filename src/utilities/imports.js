@@ -5,10 +5,10 @@ require("dotenv").config();
 const fs = require("fs");
 const path = require("path");
 const { By, until } = require("selenium-webdriver");
-
+const csv = require("fast-csv");
 // SCRIPTS
 const { main: getNewestFile } = require("./getNewestFile");
-
+const { main: parseCSV } = require("./parseCSV");
 // SUPPORT
 const format = require("./format");
 
@@ -19,5 +19,7 @@ module.exports = {
   getNewestFile,
   format,
   By,
-  until
+  until,
+  csv,
+  parseCSV
 };
