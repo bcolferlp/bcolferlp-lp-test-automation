@@ -27,12 +27,14 @@ export default class EmailPage extends BasePageObject {
   }
   async emailLogin() {
     const emailInput = await this.waitForElementLocated(this.emailInput, 5000);
-    const passwordInput = await this.waitForElementLocated(this.passwordInput, 5000);
-    const submitBtn = await this.waitForElementLocated(this.emailSignIn, 5000);
     await emailInput.sendKeys(this.emailUser);
-    await this.sleep(1000);
+    const passwordInput = await this.waitForElementLocated(this.passwordInput, 5000);
     await passwordInput.sendKeys(this.emailPass);
-    await this.sleep(1000);
+    const submitBtn = await this.waitForElementLocated(this.emailSignIn, 5000);
+    
+    // await this.sleep(1000);
+    
+    // await this.sleep(1000);
 
     await submitBtn.click();
     await this.waitForTarget(this.emailTarget);
