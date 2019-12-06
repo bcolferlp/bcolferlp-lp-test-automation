@@ -1,12 +1,9 @@
 import BaseTest from "../src/base/baseTest";
 import EmailPage from "../src/pages/3rdParty/email/emailPage";
 import DocuSignPage from "../src/pages/3rdParty/docuSign/docuSignPage";
-const { By, until } = require("selenium-webdriver");
 
 describe("Loan Docs Completion", () => {
   let baseTest;
-  const emailRow = By.xpath('(//*[contains(text(),"Please sign your Solar Loan Docs")])[1]');
-  const reviewDocs = By.xpath('//span[contains(text(), "REVIEW")]/../../a');
 
   beforeEach(async () => {
     baseTest = await new BaseTest("chrome");
@@ -18,15 +15,18 @@ describe("Loan Docs Completion", () => {
 
   test("Log into email and complete the loan docs", async done => {
     const emailPage = await new EmailPage(baseTest.webDriver);
-    await emailPage.fullScreen();
     const docuSignPage = await new DocuSignPage(baseTest.webDriver);
+    // Email
+    await emailPage.fullScreen();
     await emailPage.goToEmail();
     await emailPage.emailLogin();
-    await emailPage.findEmail(emailRow);
-    await emailPage.findEmailLink(reviewDocs);
+    await emailPage.getDocuSignEmail();
+    // DocuSign
     await docuSignPage.completeDocs();
-    await docuSignPage.closeTabs(baseTest.webDriver);
+    await docuSignPage.closeTabs();
+    // Email
+    await emailPage.deleteMail();
     await emailPage.emailLogout();
     done();
-  }, 120000);
+  }, 300000);
 });
