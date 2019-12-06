@@ -1,13 +1,14 @@
 const jsonload = require('jsonload')
 
-export default class TemplateJSON{
+export default class SingleBorrowerJSON{
 
     constructor(){
-        this.jsonFile = '../../data/singleBorrowerLoan.json'
+        this.jsonFile = '../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoan.json'
     }
 
-    updateJson(clientId, firstName, lastName, street, state, email, spokenLanguage, source){
+    updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail){
         let jsonData = jsonload.sync(this.jsonFile)
+        jsonData["productType"] = productType
         jsonData["clientId"] = clientId
         jsonData["applicant"]["firstName"] = firstName
         jsonData["applicant"]["lastName"] = lastName
@@ -16,6 +17,7 @@ export default class TemplateJSON{
         jsonData["applicant"]["email"] = email
         jsonData["applicant"]["spokenLanguage"] = spokenLanguage
         jsonData["source"] = source
+        jsonData["salesRep"]["email"] = salesRepEmail
         return jsonData
     }
 }
