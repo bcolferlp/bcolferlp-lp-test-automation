@@ -1,7 +1,6 @@
-import ParsePDF from '../src/utilities/parsePDF'
 var jsdiff = require('diff')
 
-class CompareFiles{
+export default class CompareFiles{
     constructor(source, dest){
         this.source = source
         this.dest = dest

@@ -11,6 +11,7 @@ const singleBorrData = require("../data/loanDocs/singleBorrowerData")
 const globals  = require('../src/utilities/globals')
 const { By, until } = require("selenium-webdriver");
 const folderTestFiles = "C:\\Users\\jreyes\\JS-Projects\\lp-test-automation\\data\\tests\\"
+import CompareFiles from '../src/utilities/compareFiles'
 
 describe('DocuSign Test Suite', () => {
     let baseTest;
@@ -27,7 +28,7 @@ describe('DocuSign Test Suite', () => {
 
     //Note: SunRun loans must have 'source' value. Look at dynamodb>dev-client-config>loanOptionsMap for values. e,g "Costco"
     each(singleBorrData)
-        .test('Create Loan', async ({loanType, clientId, firstName, lastName, street, state, email, spokenLanguage, source}, done) => {
+        .test.skip('Create Loan', async ({loanType, clientId, firstName, lastName, street, state, email, spokenLanguage, source}, done) => {
             // console.log(email)
             let jsonData = new TemplateJSON().updateJson(clientId, firstName, lastName, street, state, email, spokenLanguage, source)
             console.log(jsonData)
@@ -72,9 +73,9 @@ describe('DocuSign Test Suite', () => {
 
 
     each([
-        ['./data/tests/singleBorrSunRun.pdf', './data/templates/singleBorrSunRunTemplate.pdf']
+        ['./data/tests/singleBorrSunRun.pdf', './data/docuSignTemplates/singleBorrSunRunTemplate.pdf']
     ])
-        .test.skip('Number of Pages comparison pdfs', async (fileToTest, expectedFile, done) => {
+        .test('Number of Pages comparison pdfs', async (fileToTest, expectedFile, done) => {
             const numberofPagesTestFile = await new ParsePDF(fileToTest).getNumberOfPages()
             const numberofPagesExpected = await new ParsePDF(expectedFile).getNumberOfPages()
             expect(numberofPagesTestFile).toBe(numberofPagesExpected)
@@ -82,12 +83,13 @@ describe('DocuSign Test Suite', () => {
         }, 5000)
 
     each([
-        ['./data/tests/singleBorrSunRun.pdf', './data/templates/singleBorrSunRunTemplate.pdf']
+        ['./data/tests/singleBorrSunRun.pdf', './data/docuSignTemplates/singleBorrSunRunTemplate.pdf']
     ])
-        .test.skip('PDF text comparison', async (fileToTest, expectedFile, done) => {
+        .test('PDF text comparison', async (fileToTest, expectedFile, done) => {
             const textTestFile = await new ParsePDF(fileToTest).getPdfText()
             const textExpected = await new ParsePDF(expectedFile).getPdfText()
-            expect(textTestFile).toBe(textExpected)
+            let compareFiles = new CompareFiles(textTestFile, textExpected)
+            compareFiles.compare()
             done()
         }, 5000)
 
