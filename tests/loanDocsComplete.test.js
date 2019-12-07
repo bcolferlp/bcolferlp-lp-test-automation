@@ -1,19 +1,19 @@
-import BaseTest from "../src/base/baseTest";
-import EmailPage from "../src/pages/3rdParty/email/emailPage";
-import DocuSignPage from "../src/pages/3rdParty/docuSign/docuSignPage";
+import BaseTest from '../src/base/baseTest';
+import EmailPage from '../src/pages/3rdParty/email/emailPage';
+import DocuSignPage from '../src/pages/3rdParty/docuSign/docuSignPage';
 
-describe("Loan Docs Completion", () => {
+describe('Loan Docs Completion', () => {
   let baseTest;
 
   beforeEach(async () => {
-    baseTest = await new BaseTest("chrome");
+    baseTest = await new BaseTest('chrome');
   });
 
   afterEach(async () => {
     await baseTest.close();
   });
 
-  test("Log into email and complete the loan docs", async done => {
+  test('Log into email and complete the loan docs', async done => {
     const emailPage = await new EmailPage(baseTest.webDriver);
     const docuSignPage = await new DocuSignPage(baseTest.webDriver);
     // Email

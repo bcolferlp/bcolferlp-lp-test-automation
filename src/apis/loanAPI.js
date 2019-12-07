@@ -1,43 +1,44 @@
-import BaseAPI from '../base/baseApi'
+import BaseAPI from '../base/baseApi';
 
 export default class LoanAPI extends BaseAPI {
+  constructor(dataJson) {
+    super();
+    this.dataJson = dataJson;
+    this.loanData = this.createLoan();
+  }
 
-    constructor(dataJson){
-        super()
-        this.dataJson = dataJson
-        this.loanData = this.createLoan()      
-    }
+  async createLoan() {
+    const url = 'https://api.loanpal.com/dev/restapi/v1/public/applications/';
+    const result = await this.apiPostRequest(url, this.dataJson);
+    console.log(result);
+    return result;
+  }
 
-    async createLoan(){
-        const url = 'https://api.loanpal.com/dev/restapi/v1/public/applications/'
-        let result = await this.apiPostRequest(url, this.dataJson)
-        console.log(result)
-        return result
-    }
+  async getError() {
+    const ld = await this.loanData;
+    const error = await ld.get('error');
+    return error;
+  }
 
-    async getError(){
-        let ld = await this.loanData
-        return await ld.get("error")
-    }
+  async getStatusCode() {
+    const ld = await this.loanData;
+    const statusCode = await ld.get('statuscode');
+    return statusCode;
+  }
 
-    async getStatusCode(){
-        let ld = await this.loanData
-        return await ld.get("statuscode")
-    }
+  async getBody() {
+    const ld = await this.loanData;
+    const body = await JSON.parse(ld.get('body'));
+    return body;
+  }
 
-    async getBody(){
-        let ld = await this.loanData
-        return await JSON.parse(ld.get("body"))
-    }
+  async getLoanId() {
+    const body = await this.getBody();
+    return body.loanId;
+  }
 
-    async getLoanId(){
-        let body = await this.getBody()
-        return body.loanId
-    }
-
-    async getLoanStatus(){
-        let body = await this.getBody()
-        return body.status
-    }
-
+  async getLoanStatus() {
+    const body = await this.getBody();
+    return body.status;
+  }
 }

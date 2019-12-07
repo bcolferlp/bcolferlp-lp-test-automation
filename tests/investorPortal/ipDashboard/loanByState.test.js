@@ -1,21 +1,18 @@
-import BaseTest from "../../../src/base/baseTest";
-import IPLoginPage from "../../../src/pages/investorPortal/ipLogin/ipLoginPage";
-import LoansbyStatePage from "../../../src/pages/investorPortal/ipDashboard/ipLoansByStatePage";
-import each from "jest-each";
-const { By, until } = require("selenium-webdriver");
+import BaseTest from '../../../src/base/baseTest';
+import IPLoginPage from '../../../src/pages/investorPortal/ipLogin/ipLoginPage';
+import LoansbyStatePage from '../../../src/pages/investorPortal/ipDashboard/ipLoansByStatePage';
 
-describe.skip("Loans By States", () => {
+describe('Loans By States', () => {
   let baseTest;
-  let stateNames;
   beforeEach(async () => {
-    baseTest = await new BaseTest("chrome");
+    baseTest = await new BaseTest('chrome');
   });
 
   afterEach(async () => {
     await baseTest.close();
   });
 
-  test("State state matches the state map", async done => {
+  test('State state matches the state map', async done => {
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.fullScreen();
     await ipLoginPage.open();
