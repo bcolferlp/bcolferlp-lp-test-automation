@@ -1,19 +1,20 @@
-import BasePageObject from "../base/basePageObject"
-const { By, until } = require('selenium-webdriver');
+import BasePageObject from '../base/basePageObject';
 
-export default class PPLoansPage extends BasePageObject{
-    constructor(webDriver){
-        super(webDriver);
-        this.exportButtonLocator = By.xpath("//span[.='Export']")
-    }
+const { By } = require('selenium-webdriver');
 
-    async waitForLoansPage(){
-        await this.waitForElementLocated(this.exportButtonLocator)
-    }
+export default class PPLoansPage extends BasePageObject {
+  constructor(webDriver) {
+    super(webDriver);
+    this.exportButtonLocator = By.xpath("//span[.='Export']");
+  }
 
-    async isExportButtonVisible(){
-        const elemExportButton = await this.findElement(this.exportButtonLocator)
-        const isDisplayed = await elemExportButton.isDisplayed()
-        return isDisplayed
-    }
+  async waitForLoansPage() {
+    await this.waitForElementLocated(this.exportButtonLocator);
+  }
+
+  async isExportButtonVisible() {
+    const elemExportButton = await this.findElement(this.exportButtonLocator);
+    const isDisplayed = await elemExportButton.isDisplayed();
+    return isDisplayed;
+  }
 }

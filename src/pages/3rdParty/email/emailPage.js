@@ -1,6 +1,9 @@
 import BasePageObject from '../../../base/basePageObject';
-const { By, until } = require('selenium-webdriver');
+
 require('../../../utilities/imports');
+
+const { By } = require('selenium-webdriver');
+
 export default class EmailPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
@@ -22,9 +25,11 @@ export default class EmailPage extends BasePageObject {
     this.emailUser = process.env.emailUser;
     this.emailPass = process.env.emailPass;
   }
+
   async goToEmail() {
     await this.openUrl(this.emailUrl);
   }
+
   async emailLogin() {
     const emailInput = await this.waitForElementLocated(this.emailInput, 5000);
     await emailInput.sendKeys(this.emailUser);
@@ -37,6 +42,7 @@ export default class EmailPage extends BasePageObject {
     await submitBtn.click();
     await this.waitForTarget(this.emailTarget);
   }
+
   async emailLogout() {
     const profileDropdown = await this.waitForElementLocated(this.profileDropdown, 5000);
     await profileDropdown.click();
@@ -45,14 +51,17 @@ export default class EmailPage extends BasePageObject {
     await emailLogoutBtn.click();
     console.log('Logged out');
   }
+
   async findEmail(emailRow) {
     const elem = await this.waitForElementLocated(emailRow, 10000);
     await elem.click();
   }
+
   async findEmailLink(emailLink) {
     const link = await this.waitForElementLocated(emailLink, 10000);
     await link.click();
   }
+
   async getDocuSignEmail() {
     // locates latest docusign email
     const docuSignEmail = await this.waitForElementLocated(this.docuSignEmail, 10000);
@@ -62,10 +71,12 @@ export default class EmailPage extends BasePageObject {
     const reviewDocsBtn = await this.waitForElementLocated(this.reviewDocs, 10000);
     await reviewDocsBtn.click();
   }
+
   async refreshEmail() {
     const refreshBtn = await this.waitForElementLocated(this.refreshBtn, 10000);
     await refreshBtn.click();
   }
+
   async deleteMail() {
     // Selects all emails in the list
     const checkAllBox = await this.waitForElementLocated(this.checkAllBox, 10000);

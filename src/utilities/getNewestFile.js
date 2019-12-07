@@ -11,7 +11,7 @@ const mainDir = `${getUserHome()}\\Downloads`;
 function getMostRecentFileName(dir) {
   const files = fs.readdirSync(dir);
   // use underscore for max()
-  return _.max(files, function (f) {
+  return _.max(files, function(f) {
     const fullpath = path.join(dir, f);
 
     // ctime = creation time is used
