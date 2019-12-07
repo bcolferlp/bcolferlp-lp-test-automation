@@ -6,7 +6,8 @@ module.exports = {
     'comma-dangle': ['error', 'never'],
     'import/prefer-default-export': 'off',
     'consistent-return': 'off',
-    'filenames/match-regex': [2, '^[a-z-.]+$', true]
+    'no-console': 'off',
+    'no-shadow': 'off'
   },
   globals: {
     LOCAL: true

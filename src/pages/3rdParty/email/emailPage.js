@@ -1,10 +1,10 @@
-import BasePageObject from "../../../base/basePageObject";
-const { By, until } = require("selenium-webdriver");
-require("../../../utilities/imports");
+import BasePageObject from '../../../base/basePageObject';
+const { By, until } = require('selenium-webdriver');
+require('../../../utilities/imports');
 export default class EmailPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
-    this.emailUrl = "https://mail.testemail.loanpal.com/webmail/";
+    this.emailUrl = 'https://mail.testemail.loanpal.com/webmail/';
     // XPath
     this.emailTarget = By.xpath(`//div[contains(text(),"${process.env.emailUser}")]`);
     this.emailInput = By.xpath('//input[@type="email"]');
@@ -28,13 +28,11 @@ export default class EmailPage extends BasePageObject {
   async emailLogin() {
     const emailInput = await this.waitForElementLocated(this.emailInput, 5000);
     await emailInput.sendKeys(this.emailUser);
+    await this.sleep(1000);
     const passwordInput = await this.waitForElementLocated(this.passwordInput, 5000);
     await passwordInput.sendKeys(this.emailPass);
+    await this.sleep(1000);
     const submitBtn = await this.waitForElementLocated(this.emailSignIn, 5000);
-    
-    // await this.sleep(1000);
-    
-    // await this.sleep(1000);
 
     await submitBtn.click();
     await this.waitForTarget(this.emailTarget);
@@ -42,10 +40,10 @@ export default class EmailPage extends BasePageObject {
   async emailLogout() {
     const profileDropdown = await this.waitForElementLocated(this.profileDropdown, 5000);
     await profileDropdown.click();
-    console.log("Dropdown clicked");
+    console.log('Dropdown clicked');
     const emailLogoutBtn = await this.waitForElementLocated(this.emailLogoutBtn, 5000);
     await emailLogoutBtn.click();
-    console.log("Logged out");
+    console.log('Logged out');
   }
   async findEmail(emailRow) {
     const elem = await this.waitForElementLocated(emailRow, 10000);
