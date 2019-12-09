@@ -189,4 +189,14 @@ export default class BasePageObject {
     await this.webDriver.wait(until.urlIs(url), 5000);
     console.log('Url found');
   }
+
+  async executeScript(script) {
+    this.webDriver.executeScript(script);
+  }
+
+  async enterText(element, string) {
+    for (const letter of string) {
+      await element.sendKeys(letter);
+    }
+  }
 }
