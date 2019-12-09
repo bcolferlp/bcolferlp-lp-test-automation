@@ -6,11 +6,11 @@ import LoanAPI from '../src/apis/loanAPI';
 import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
-import CompareFiles from '../src/utilities/compareFiles';
+import CompareLoanDocs from '../src/utilities/compareLoanDocs';
 
 const { path } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
-const singleBorrData = require('../data/loanDocs/testData/singleBorrowerData');
+const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose');
 
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
@@ -26,7 +26,7 @@ describe('DocuSign Test Suite', () => {
   });
 
   // Note: SunRun loans must have 'source' value. Look at dynamodb>dev-client-config>loanOptionsMap for values. e,g "Costco"
-  each(singleBorrData).test(
+  each(singleBorrData).test.skip(
     'Create Loan',
     async ({ loanType, productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
@@ -79,10 +79,9 @@ describe('DocuSign Test Suite', () => {
       expect(numberofPagesTestFile).toBe(numberofPagesExpected);
       // PDF text comparison
       console.log('PDF text comparison');
-      const textTestFile = await new ParsePDF(filename).getPdfText();
-      const textExpected = await new ParsePDF(expectedFile).getPdfText();
-      const compareFiles = new CompareFiles(textTestFile, textExpected);
-      compareFiles.compare();
+      const compareLoans = await new CompareLoanDocs(filename, expectedFile);
+      let result = await compareLoans.compare();
+      expect(result).toEqual([])
       done();
     },
     300000
@@ -105,7 +104,7 @@ describe('DocuSign Test Suite', () => {
     5000
   );
 
-  each([['./data/tests/singleBorrSunRun.pdf', './data/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
     'Number of Pages comparison pdfs',
     async (fileToTest, expectedFile, done) => {
       const numberofPagesTestFile = await new ParsePDF(fileToTest).getNumberOfPages();
@@ -116,13 +115,12 @@ describe('DocuSign Test Suite', () => {
     5000
   );
 
-  each([['./data/tests/singleBorrSunRun.pdf', './data/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test(
     'PDF text comparison',
     async (fileToTest, expectedFile, done) => {
-      const textTestFile = await new ParsePDF(fileToTest).getPdfText();
-      const textExpected = await new ParsePDF(expectedFile).getPdfText();
-      const compareFiles = new CompareFiles(textTestFile, textExpected);
-      compareFiles.compare();
+      const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
+      let result = await compareLoans.compare();
+      expect(result).toEqual([])
       done();
     },
     5000
