@@ -1,5 +1,7 @@
-import CompareText from './compareText'
+import CompareData from './compareData'
 import ParsePDF from './parsePDF'
+import { fstat } from 'fs';
+const fs = require('fs');
 
 export default class CompareLoanDocs {
     constructor(fileToTest, expectedFile) {
@@ -7,12 +9,18 @@ export default class CompareLoanDocs {
         this.expectedFile = expectedFile
     }
 
-    async analyzeComparison(resultComp){
+    async analyzeComparison(addedArray, removedArray){
         let finalArray=[]
-        resultComp.forEach(element => {
+        addedArray.forEach(element => {
             if (element.includes('Envelope ID')) {}
             else {
-                finalArray.push(element)
+                finalArray.push('(+) '+element)
+            }
+        })
+        removedArray.forEach(element => {
+            if (element.includes('Envelope ID')) {}
+            else {
+                finalArray.push('(-) '+element)
             }
         })
         return finalArray
@@ -20,10 +28,15 @@ export default class CompareLoanDocs {
 
     async compare() {
         const textTestFile = await new ParsePDF(this.fileToTest).getPdfText();
+        //fs.writeFileSync(`testedloan.txt`, textTestFile)
         const textExpected = await new ParsePDF(this.expectedFile).getPdfText();
-        const compareText = new CompareText(textTestFile, textExpected);
-        let result = await compareText.compare();
-        let finalComp = await this.analyzeComparison(result)
+        //fs.writeFileSync(`expectedloan.txt`, textExpected)
+        // compare text results
+        const compareText =  new CompareData(textTestFile, textExpected);
+        let [addedArray, removedArray] = await compareText.compare();
+        console.log("added:",addedArray)
+        console.log("removed",removedArray)
+        let finalComp = await this.analyzeComparison(addedArray, removedArray)
         return finalComp
     }
 }

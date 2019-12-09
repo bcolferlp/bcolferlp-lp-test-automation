@@ -13,7 +13,7 @@ const LoanData = require('../src/utilities/loanData');
 const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose');
 
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
-const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
+const folderExpectedFiles = path.join(__dirname, '../data/loanDocs/docuSignTemplates/');
 describe('DocuSign Test Suite', () => {
   let baseTest;
 
@@ -26,7 +26,7 @@ describe('DocuSign Test Suite', () => {
   });
 
   // Note: SunRun loans must have 'source' value. Look at dynamodb>dev-client-config>loanOptionsMap for values. e,g "Costco"
-  each(singleBorrData).test.skip(
+  each(singleBorrData).test(
     'Create Loan',
     async ({ loanType, productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
@@ -41,37 +41,42 @@ describe('DocuSign Test Suite', () => {
         source,
         salesRepEmail
       );
-      const loan = new LoanAPI(jsonData);
-      const loanStatus = await loan.getLoanStatus();
-      expect(loanStatus).toBe('Approved');
-      const loanId = await loan.getLoanId();
-      console.log(loanId);
+      // const loan = new LoanAPI(jsonData);
+      // const loanStatus = await loan.getLoanStatus();
+      // expect(loanStatus).toBe('Approved');
+      // const loanId = await loan.getLoanId();
+      // console.log(loanId);
+      const loanId = '19-02-000966'
 
-      const emailPage = await new EmailPage(baseTest.webDriver);
-      const docuSignPage = await new DocuSignPage(baseTest.webDriver);
-      //   await emailPage.sleep(10000);
-      // Email
-      await emailPage.fullScreen();
-      await emailPage.goToEmail();
-      await emailPage.emailLogin();
-      await emailPage.getDocuSignEmail();
-      // DocuSign
-      await docuSignPage.completeDocs();
-      await docuSignPage.closeTabs();
-      // Email
-      await emailPage.deleteMail();
-      await emailPage.emailLogout();
+      // const emailPage = await new EmailPage(baseTest.webDriver);
+      // const docuSignPage = await new DocuSignPage(baseTest.webDriver);
+      // await emailPage.sleep(10000);
+      // // Email
+      // await emailPage.fullScreen();
+      // await emailPage.goToEmail();
+      // await emailPage.emailLogin();
+      // await emailPage.getDocuSignEmail();
+      // // DocuSign
+      // await docuSignPage.completeDocs();
+      // await docuSignPage.closeTabs();
+      // // Email
+      // await emailPage.deleteMail();
+      // await emailPage.emailLogout();
 
       // Envelope Download
-      console.log('Envelope Download');
-      const loanData = new LoanData(loanId);
-      const envelopeId = await loanData.getEnvelopeId();
-      console.log(envelopeId);
-      const filename = `${folderTestFiles + loanType}.pdf`;
-      const docuSignAPI = new DocuSignAPI(envelopeId);
-      const download = await docuSignAPI.downloadDocument(filename);
+      // console.log('Envelope Download');
+      // const loanData = new LoanData(loanId);
+      // const envelopeId = await loanData.getEnvelopeId();
+      // console.log(envelopeId);
+      const filename = `${folderTestFiles + loanId + '-' + loanType}.pdf`;
+      const expectedFile = `${folderExpectedFiles + loanType + '-template'}.pdf`;
+      // const docuSignAPI = new DocuSignAPI(envelopeId);
+      // const download = await docuSignAPI.downloadDocument(filename);
+      // expect(download).toBeTruthy();
+
       // compare with golden template
-      expect(download).toBeTruthy();
+      console.log(filename)
+      console.log(expectedFile)      
       // Number of Pages comparison pdfs
       console.log('Number of Pages comparison pdfs');
       const numberofPagesTestFile = await new ParsePDF(filename).getNumberOfPages();
@@ -87,42 +92,42 @@ describe('DocuSign Test Suite', () => {
     300000
   );
 
-  each([['singleBorrSunRun', '19-09-000980']]).test.skip(
-    'Download DocuSign Documents',
-    async (loanType, loanId, done) => {
-      const loanData = new LoanData(loanId);
-      const envelopeId = await loanData.getEnvelopeId();
-      console.log(envelopeId);
-      // download docusign
-      const filename = `${folderTestFiles + loanType}.pdf`;
-      const docuSignAPI = new DocuSignAPI(envelopeId);
-      const download = await docuSignAPI.downloadDocument(filename);
-      // compare with golden template
-      expect(download).toBeTruthy();
-      done();
-    },
-    5000
-  );
+  // each([['singleBorrSunRun', '19-09-000980']]).test.skip(
+  //   'Download DocuSign Documents',
+  //   async (loanType, loanId, done) => {
+  //     const loanData = new LoanData(loanId);
+  //     const envelopeId = await loanData.getEnvelopeId();
+  //     console.log(envelopeId);
+  //     // download docusign
+  //     const filename = `${loanId + '-' + folderTestFiles + loanType}.pdf`;
+  //     const docuSignAPI = new DocuSignAPI(envelopeId);
+  //     const download = await docuSignAPI.downloadDocument(filename);
+  //     // compare with golden template
+  //     expect(download).toBeTruthy();
+  //     done();
+  //   },
+  //   5000
+  // );
 
-  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
-    'Number of Pages comparison pdfs',
-    async (fileToTest, expectedFile, done) => {
-      const numberofPagesTestFile = await new ParsePDF(fileToTest).getNumberOfPages();
-      const numberofPagesExpected = await new ParsePDF(expectedFile).getNumberOfPages();
-      expect(numberofPagesTestFile).toBe(numberofPagesExpected);
-      done();
-    },
-    5000
-  );
+  // each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+  //   'Number of Pages comparison pdfs',
+  //   async (fileToTest, expectedFile, done) => {
+  //     const numberofPagesTestFile = await new ParsePDF(fileToTest).getNumberOfPages();
+  //     const numberofPagesExpected = await new ParsePDF(expectedFile).getNumberOfPages();
+  //     expect(numberofPagesTestFile).toBe(numberofPagesExpected);
+  //     done();
+  //   },
+  //   5000
+  // );
 
-  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test(
-    'PDF text comparison',
-    async (fileToTest, expectedFile, done) => {
-      const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
-      let result = await compareLoans.compare();
-      expect(result).toEqual([])
-      done();
-    },
-    5000
-  );
+  // each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+  //   'PDF text comparison',
+  //   async (fileToTest, expectedFile, done) => {
+  //     const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
+  //     let result = await compareLoans.compare();
+  //     expect(result).toEqual([])
+  //     done();
+  //   },
+  //   5000
+  // );
 });
