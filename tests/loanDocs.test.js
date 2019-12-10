@@ -8,12 +8,14 @@ import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
 
-const { path } = require('../src/utilities/imports');
+const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
 const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose');
 
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
+const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
+
 describe('DocuSign Test Suite', () => {
   let baseTest;
 
@@ -24,6 +26,12 @@ describe('DocuSign Test Suite', () => {
   afterEach(async () => {
     await baseTest.close();
   });
+
+  test.skip('testing csv data', async done => {
+    const parsedData = await parseCSV(csvFile);
+    console.log('parsedData', parsedData);
+    done();
+  }, 30000);
 
   // Note: SunRun loans must have 'source' value. Look at dynamodb>dev-client-config>loanOptionsMap for values. e,g "Costco"
   each(singleBorrData).test.skip(
@@ -80,8 +88,8 @@ describe('DocuSign Test Suite', () => {
       // PDF text comparison
       console.log('PDF text comparison');
       const compareLoans = await new CompareLoanDocs(filename, expectedFile);
-      let result = await compareLoans.compare();
-      expect(result).toEqual([])
+      const result = await compareLoans.compare();
+      expect(result).toEqual([]);
       done();
     },
     300000
@@ -115,12 +123,12 @@ describe('DocuSign Test Suite', () => {
     5000
   );
 
-  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test(
+  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
     'PDF text comparison',
     async (fileToTest, expectedFile, done) => {
       const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
-      let result = await compareLoans.compare();
-      expect(result).toEqual([])
+      const result = await compareLoans.compare();
+      expect(result).toEqual([]);
       done();
     },
     5000
