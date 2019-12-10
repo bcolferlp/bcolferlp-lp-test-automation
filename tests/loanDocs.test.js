@@ -88,7 +88,7 @@ describe('DocuSign Test Suite', () => {
       // PDF text comparison
       console.log('PDF text comparison');
       const compareLoans = await new CompareLoanDocs(filename, expectedFile);
-      let result = await compareLoans.compare();
+      const result = await compareLoans.compare();
       expect(result).toEqual([]);
       done();
     },
@@ -127,7 +127,7 @@ describe('DocuSign Test Suite', () => {
     'PDF text comparison',
     async (fileToTest, expectedFile, done) => {
       const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
-      let result = await compareLoans.compare();
+      const result = await compareLoans.compare();
       expect(result).toEqual([]);
       done();
     },
