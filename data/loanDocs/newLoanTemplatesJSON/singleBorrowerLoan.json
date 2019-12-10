@@ -1,0 +1,36 @@
+{
+    "overrideResponse": {
+        "Bucket": "dev-core.loanpal.com",
+        "Key": "equifax-dev-mocks/approved/Solar/700.json"
+    },
+    "productType": "Solar",
+    "clientId": "clientId",
+        "applicant": {
+            "firstName": "firstName",
+            "lastName": "lastName",
+            "address": {
+                "street": "street",
+                "city": "Sacramento",
+                "state": "CA",
+                "zip": "95825"
+            },
+            "phone": "+18182415942",
+            "email": "email",
+            "dob": "1966-12-29",
+            "ssn": "1010",
+            "annualIncome": "$50,000",
+            "spokenLanguage": "english",
+            "electronicConsent": true
+        },
+        "salesRep": {
+            "firstName": "Test ",
+            "lastName": "Tester",
+            "email": "sales.rep@gmail.com"
+        },
+        "totalSystemCost": "23000",
+        "selectedLoanOption": "1",
+        "source": "",
+        "referenceNumber": "deleteMe",
+        "isOwner": true,
+        "isOccupant": true
+  }

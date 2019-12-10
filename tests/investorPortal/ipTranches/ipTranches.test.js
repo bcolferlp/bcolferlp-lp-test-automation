@@ -1,12 +1,11 @@
-import BaseTest from "../../../src/base/baseTest";
-import IPLoginPage from "../../../src/pages/investorPortal/ipLogin/ipLoginPage";
-import IPTranchesPage from "../../../src/pages/investorPortal/ipTranches/ipTranchesPage";
-import each from "jest-each";
-const { By, until } = require("selenium-webdriver");
-describe("Tranches", () => {
+import BaseTest from '../../../src/base/baseTest';
+import IPLoginPage from '../../../src/pages/investorPortal/ipLogin/ipLoginPage';
+import IPTranchesPage from '../../../src/pages/investorPortal/ipTranches/ipTranchesPage';
+
+describe.skip('Tranches', () => {
   let baseTest;
   beforeEach(async () => {
-    baseTest = await new BaseTest("chrome");
+    baseTest = await new BaseTest('chrome');
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.fullScreen();
     await ipLoginPage.open();
@@ -19,8 +18,8 @@ describe("Tranches", () => {
     await baseTest.close();
   });
 
-  //trancheOrder
-  test("the rows should be in descending order", async done => {
+  // trancheOrder
+  test('the rows should be in descending order', async done => {
     const ipTranchesPage = await new IPTranchesPage(baseTest.webDriver);
     const trancheRows = await ipTranchesPage.getTrancheRows();
     const trancheIds = await ipTranchesPage.getTrancheIds(trancheRows);
@@ -30,20 +29,20 @@ describe("Tranches", () => {
   }, 300000);
 
   // trancheTable
-  test("all the headers should display", async done => {
+  test('all the headers should display', async done => {
     const validHeaders = [
-      "Tranche ID",
-      "Partner",
-      "10 yr",
-      "12 yr",
-      "15 yr",
-      "20 yr",
-      "25 yr",
-      "Total Loans",
-      "Purchase Date",
-      "Avg. FICO",
-      "Avg. rate",
-      "Org. Principal Amt"
+      'Tranche ID',
+      'Partner',
+      '10 yr',
+      '12 yr',
+      '15 yr',
+      '20 yr',
+      '25 yr',
+      'Total Loans',
+      'Purchase Date',
+      'Avg. FICO',
+      'Avg. rate',
+      'Org. Principal Amt'
     ];
     const ipTranchesPage = await new IPTranchesPage(baseTest.webDriver);
     const trancheHeaders = await ipTranchesPage.getTrancheHeaders();
@@ -52,7 +51,7 @@ describe("Tranches", () => {
   }, 300000);
 
   // trancheView
-  test("the tranche view is displayed and the data is downloaded", async done => {
+  test('the tranche view is displayed and the data is downloaded', async done => {
     const ipTranchesPage = await new IPTranchesPage(baseTest.webDriver);
     const trancheRows = await ipTranchesPage.getTrancheRows();
     const trancheIds = await ipTranchesPage.getTrancheIds(trancheRows);

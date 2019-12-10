@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const numeral = require('numeral');
 const moment = require('moment');
 
@@ -12,7 +13,7 @@ module.exports = {
   numFormat: num => numeral(num).format('0,0'),
   numFormate2Decimals: num => numeral(num).format('0.00'),
   numFormatNoDecimails: num => numeral(num).format('0'),
-  phone: (phone) => {
+  phone: phone => {
     if (!phone) return '';
     phone = phone.replace(/\D/g, '').substring(1, 11);
     phone = phone
@@ -26,9 +27,10 @@ module.exports = {
   dateFormat: date => moment(date).format('MM-DD-YYYY'),
   dateFormatDot: date => moment(date).format('MM.DD.YYYY'),
   dateFormatReverse: date => moment(date).format('YYYY-MM-DD'),
-  capitalizeFirstChar: str => str
-    .toLowerCase()
-    .split(' ')
-    .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-    .join(' ')
+  capitalizeFirstChar: str =>
+    str
+      .toLowerCase()
+      .split(' ')
+      .map(s => s.charAt(0).toUpperCase() + s.substring(1))
+      .join(' ')
 };

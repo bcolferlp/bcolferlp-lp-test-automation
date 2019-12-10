@@ -1,5 +1,6 @@
-
-const { By, until } = require("selenium-webdriver");
+/* eslint-disable no-useless-return */
+/* eslint-disable no-else-return */
+const { By, until } = require('selenium-webdriver');
 
 export default class BasePageObject {
   constructor(webDriver) {
@@ -7,12 +8,12 @@ export default class BasePageObject {
   }
 
   async openUrl(url) {
-    console.log("Opening URL", url);
+    console.log('Opening URL', url);
     await this.webDriver.get(url);
   }
 
   async close() {
-    console.log("Close Driver");
+    console.log('Close Driver');
     await this.webDriver.close();
   }
 
@@ -54,47 +55,47 @@ export default class BasePageObject {
   }
 
   async getAllWindowHandles() {
-    console.log("Getting all handles");
+    console.log('Getting all handles');
     const handles = await this.webDriver.getAllWindowHandles();
     return handles;
   }
 
   async switchWindow(handles, index) {
-    console.log("Switch Handles");
+    console.log('Switch Handles');
     await this.webDriver.switchTo().window(handles[index]);
   }
 
   async refeshPage() {
     await this.webDriver.navigate().refresh();
-    console.log("Page refreshed");
+    console.log('Page refreshed');
   }
 
   async navTabs(label) {
-    console.log("Navigate tabs");
+    console.log('Navigate tabs');
     await this.webDriver.sleep(2000);
-    const tab = await this.webDriver.wait(until.elementLocated(By.css(label)), 5000, "Timeout");
+    const tab = await this.webDriver.wait(until.elementLocated(By.css(label)), 5000, 'Timeout');
     await tab.click();
   }
 
   async scrollToBottom() {
-    console.log("Scroll to bottom");
-    await this.webDriver.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    console.log('Scroll to bottom');
+    await this.webDriver.executeScript('window.scrollTo(0, document.body.scrollHeight)');
     await this.webDriver.sleep(2000);
   }
 
   async scrollToTop() {
-    console.log("Scroll to top");
-    await this.webDriver.executeScript("window.scrollTo(0, 0)");
+    console.log('Scroll to top');
+    await this.webDriver.executeScript('window.scrollTo(0, 0)');
     await this.webDriver.sleep(2000);
   }
 
   async scrollIntoView(element) {
-    console.log("Scroll to element");
-    await this.webDriver.executeScript("arguments[0].scrollIntoView(true);", element);
+    console.log('Scroll to element');
+    await this.webDriver.executeScript('arguments[0].scrollIntoView(true);', element);
   }
 
   async fullScreen() {
-    console.log("Full Screen");
+    console.log('Full Screen');
     await this.webDriver
       .manage()
       .window()
@@ -110,12 +111,12 @@ export default class BasePageObject {
   }
 
   async directClick(element) {
-    console.log("Direct Click");
-    await this.webDriver.executeScript("arguments[0].click();", element);
+    console.log('Direct Click');
+    await this.webDriver.executeScript('arguments[0].click();', element);
   }
 
   async closeTabs() {
-    console.log("Closing Tabs");
+    console.log('Closing Tabs');
     const tabs = await this.webDriver.getAllWindowHandles();
     if (Array.isArray(tabs) && tabs.length > 1) {
       await this.webDriver.switchTo().window(tabs[1]);
@@ -125,31 +126,33 @@ export default class BasePageObject {
   }
 
   async waitForTarget(locator, count = 0, max = 5) {
+    // eslint-disable-next-line no-param-reassign
     count += 1;
-    console.log("waitForTarget", locator.value ? locator.value : locator, "Attempt:", `${count}/${max}`);
+    console.log('waitForTarget', locator.value ? locator.value : locator, 'Attempt:', `${count}/${max}`);
     await this.webDriver.sleep(5000);
     try {
       const found = await this.webDriver.findElement(locator);
       if (found) {
-        console.log("Load target found");
+        console.log('Load target found');
         return;
       }
     } catch (error) {
       if (count < max) {
-        console.log("Searching for element...");
+        console.log('Searching for element...');
         const targetFile = await this.waitForTarget(locator, count);
         return targetFile;
       } else return;
     }
   }
+
   async cellText(tableRows) {
-    console.log("Gathering table element text...");
+    console.log('Gathering table element text...');
     const tableCells = await Promise.all(
       tableRows.map(async elem => {
-        const cells = await elem.findElements(By.tagName("td"));
+        const cells = await elem.findElements(By.tagName('td'));
         const cellTextMap = await Promise.all(
           cells.map(async cell => {
-            if (typeof cell.getText() === "object") {
+            if (typeof cell.getText() === 'object') {
               const cellText = await cell.getText();
               return cellText;
             }
@@ -158,11 +161,12 @@ export default class BasePageObject {
         return cellTextMap;
       })
     );
-    console.log("Gathering complete");
+    console.log('Gathering complete');
     return tableCells;
   }
+
   async cellElement(tableRows, tag, returnAll = true) {
-    console.log("Gathering table elements...");
+    console.log('Gathering table elements...');
     let tableCells;
     if (returnAll) {
       tableCells = await Promise.all(
@@ -172,12 +176,27 @@ export default class BasePageObject {
           return cells;
         })
       );
-      console.log("Gathering complete");
+      console.log('Gathering complete');
       return tableCells;
     }
     tableCells = await tableRows[0].findElements(By.tagName(tag));
 
-    console.log("Gathering complete");
+    console.log('Gathering complete');
     return tableCells;
+  }
+
+  async waitForURL(url) {
+    await this.webDriver.wait(until.urlIs(url), 5000);
+    console.log('Url found');
+  }
+
+  async executeScript(script) {
+    this.webDriver.executeScript(script);
+  }
+
+  async enterText(element, string) {
+    for (const letter of string) {
+      await element.sendKeys(letter);
+    }
   }
 }

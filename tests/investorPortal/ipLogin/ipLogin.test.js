@@ -1,8 +1,10 @@
-import BaseTest from "../../../src/base/baseTest";
-import IPLoginPage from "../../../src/pages/investorPortal/ipLogin/ipLoginPage";
-import each from "jest-each";
+import each from 'jest-each';
+import BaseTest from '../../../src/base/baseTest';
+import IPLoginPage from '../../../src/pages/investorPortal/ipLogin/ipLoginPage';
 
-each(["chrome"]).describe("IP Login Test", browser => {
+const loginFile = require('../../../data/investorPortal/ipLogin/ipLogin.js');
+
+each(['chrome']).describe('IP Login Test', browser => {
   let baseTest;
 
   beforeEach(async () => {
@@ -13,7 +15,7 @@ each(["chrome"]).describe("IP Login Test", browser => {
     await baseTest.close();
   });
 
-  test("Positive login test", async done => {
+  test.skip('Positive login test', async done => {
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.open();
     await ipLoginPage.enterEmail();
@@ -24,8 +26,8 @@ each(["chrome"]).describe("IP Login Test", browser => {
     done();
   }, 30000);
 
-  each(require("../../../data/investorPortal/ipLogin/ipLogin.js")).test(
-    "Negative login test",
+  each(loginFile).test(
+    'Negative login test',
     async ({ username, password, errorMessage }, done) => {
       const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
       await ipLoginPage.open();
@@ -34,7 +36,7 @@ each(["chrome"]).describe("IP Login Test", browser => {
       await ipLoginPage.loginClick();
       await baseTest.webDriver.sleep(2000);
       const errorElem = await ipLoginPage.getErrorElement();
-      const errorText = await errorElem.getAttribute("textContent");
+      const errorText = await errorElem.getAttribute('textContent');
       expect(errorText).toBe(errorMessage);
       done();
     },
