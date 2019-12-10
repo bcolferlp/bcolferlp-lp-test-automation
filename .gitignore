@@ -63,4 +63,4 @@ typings/
 
 allure-results
 
-data/files
+data/files/*
