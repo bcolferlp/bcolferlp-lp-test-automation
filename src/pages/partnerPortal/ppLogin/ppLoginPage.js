@@ -14,8 +14,9 @@ export default class PPLoginPage extends BasePageObject {
     this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
     this.errorMessage = By.xpath('//div[@id="errorMessage"]');
     // Values
-    this.username = "cr.shivapriya+3DSolar@gmail.com";
-    this.password = "Naga1982@";
+  
+    this.username = process.env.ppEmail;
+    this.password = process.env.ppPass;
   }
 
   async open() {

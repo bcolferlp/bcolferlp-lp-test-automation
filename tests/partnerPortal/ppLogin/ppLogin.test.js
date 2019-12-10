@@ -13,18 +13,20 @@ each(["chrome"]).describe("PP Login Test", browser => {
     await baseTest.close();
   });
 
-  test.only("Positive login test", async done => {
+  test("Positive login test", async done => {
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
     await ppLoginPage.open();
     await ppLoginPage.enterEmail();
     await ppLoginPage.enterPassword();
     await ppLoginPage.loginClick();
+    await ppLoginPage.sleep(2000);
     // logout
     await ppLoginPage.logOut();
     // make sure the button exists
     const logoutConfirmation = await ppLoginPage.validateLogout();
     expect(logoutConfirmation).toBeTruthy();
+    await ppLoginPage.sleep(2000);
     done();
   }, 30000);
 
