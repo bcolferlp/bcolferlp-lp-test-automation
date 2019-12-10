@@ -14,7 +14,7 @@ const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose
 
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
-const csvFile = require('../data/loanDocs/testData/loanDocsData.csv');
+const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
 
 describe('DocuSign Test Suite', () => {
   let baseTest;
@@ -27,7 +27,7 @@ describe('DocuSign Test Suite', () => {
     await baseTest.close();
   });
 
-  test('testing csv data', async done => {
+  test.skip('testing csv data', async done => {
     const parsedData = await parseCSV(csvFile);
     console.log('parsedData', parsedData);
     done();
