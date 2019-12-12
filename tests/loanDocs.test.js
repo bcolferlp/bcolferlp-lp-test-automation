@@ -7,6 +7,7 @@ import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
+import EmailAPI from '../src/apis/emailAPI';
 
 const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
@@ -19,7 +20,26 @@ const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData
 
 describe('loan docs', () => {
   // Parse test block
-  describe('Parse data', () => {
+  describe('Email test', () => {
+    test('testing email return', async () => {
+      const emailConfig = {
+        imap: {
+          user: process.env.emailUser,
+          password: process.env.emailPass,
+          host: 'mail.testemail.loanpal.com',
+          port: 993,
+          tls: true
+        }
+      };
+      const email = new EmailAPI(emailConfig);
+      const inbox = await email.getInbox();
+      const message = email.getMessage(inbox, '2');
+      const line = email.getLine(message, 'useful');
+      console.log('line:', line);
+      expect(line).toEqual('this will be a useful class');
+    }, 30000);
+  });
+  describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
       console.log('parsedData', parsedData);
@@ -128,20 +148,21 @@ describe('loan docs', () => {
       5000
     );
 
-  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
-    'PDF text comparison',
-    async (fileToTest, expectedFile, done) => {
-      const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
-      const result = await compareLoans.compare();
-      expect(result).toEqual([]);
-      done();
-    },
-    5000
-  );
+    each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+      'PDF text comparison',
+      async (fileToTest, expectedFile, done) => {
+        const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
+        const result = await compareLoans.compare();
+        expect(result).toEqual([]);
+        done();
+      },
+      5000
+    );
 
-  test('testing csv data for CO BO', async done => {
-    const parsedData = await parseCSV(csvFileCoBo);
-    console.log('parsedData', parsedData);
-    done();
-  }, 5000);
-},300000);
+    test('testing csv data for CO BO', async done => {
+      const parsedData = await parseCSV(csvFileCoBo);
+      console.log('parsedData', parsedData);
+      done();
+    }, 5000);
+  }, 300000);
+});
