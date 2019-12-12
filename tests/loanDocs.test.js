@@ -7,6 +7,7 @@ import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
+import EmailAPI from '../src/apis/emailAPI';
 
 const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
@@ -17,14 +18,37 @@ const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/si
 const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
 
 describe('loan docs', () => {
+  // Email test
+  describe('Email test', () => {
+    test('testing email return', async done => {
+      const emailConfig = {
+        imap: {
+          user: process.env.emailUser,
+          password: process.env.emailPass,
+          host: 'mail.testemail.loanpal.com',
+          port: 993,
+          tls: true
+        }
+      };
+      const email = await new EmailAPI(emailConfig);
+      const inbox = await email.getInbox();
+      const message = email.getMessage(inbox, '2');
+      const line = email.getLine(message, 'useful');
+      console.log('line:', line);
+      expect(line).toEqual('this will be a useful class');
+      done();
+    }, 30000);
+  });
+
   // Parse test block
-  describe('Parse data', () => {
+  describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
       console.log('parsedData', parsedData);
       done();
     }, 30000);
   });
+
   // Test suite
   describe.skip('DocuSign Test Suite', () => {
     let baseTest;
