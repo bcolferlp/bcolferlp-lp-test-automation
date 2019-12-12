@@ -15,6 +15,7 @@ const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
 const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
+const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData-co-bo.csv');
 
 describe('loan docs', () => {
   // Parse test block
@@ -127,15 +128,20 @@ describe('loan docs', () => {
       5000
     );
 
-    each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
-      'PDF text comparison',
-      async (fileToTest, expectedFile, done) => {
-        const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
-        const result = await compareLoans.compare();
-        expect(result).toEqual([]);
-        done();
-      },
-      5000
-    );
-  });
-});
+  each([['./data/loanDocs/downloads/ESSolar-SB-CA-EN.pdf', './data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf']]).test.skip(
+    'PDF text comparison',
+    async (fileToTest, expectedFile, done) => {
+      const compareLoans = await new CompareLoanDocs(fileToTest, expectedFile);
+      const result = await compareLoans.compare();
+      expect(result).toEqual([]);
+      done();
+    },
+    5000
+  );
+
+  test('testing csv data for CO BO', async done => {
+    const parsedData = await parseCSV(csvFileCoBo);
+    console.log('parsedData', parsedData);
+    done();
+  }, 5000);
+},300000);
