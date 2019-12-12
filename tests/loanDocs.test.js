@@ -39,7 +39,7 @@ describe('loan docs', () => {
       expect(line).toEqual('this will be a useful class');
     }, 30000);
   });
-  describe('Parse data', () => {
+  describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
       console.log('parsedData', parsedData);
