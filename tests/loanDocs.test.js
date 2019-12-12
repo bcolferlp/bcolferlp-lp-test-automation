@@ -16,9 +16,10 @@ const singleBorrData = require('../data/loanDocs/testData/singleBorrowerDataJose
 const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
 const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
+const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData-co-bo.csv');
 
 describe('loan docs', () => {
-  // Email test
+  // Parse test block
   describe('Email test', () => {
     test('testing email return', async () => {
       const emailConfig = {
@@ -38,16 +39,13 @@ describe('loan docs', () => {
       expect(line).toEqual('this will be a useful class');
     }, 30000);
   });
-
-  // Parse test block
-  describe.skip('Parse data', () => {
+  describe('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
       console.log('parsedData', parsedData);
       done();
     }, 30000);
   });
-
   // Test suite
   describe.skip('DocuSign Test Suite', () => {
     let baseTest;
@@ -160,5 +158,11 @@ describe('loan docs', () => {
       },
       5000
     );
-  });
+
+    test('testing csv data for CO BO', async done => {
+      const parsedData = await parseCSV(csvFileCoBo);
+      console.log('parsedData', parsedData);
+      done();
+    }, 5000);
+  }, 300000);
 });
