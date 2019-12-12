@@ -39,21 +39,25 @@ export default class EmailAPI {
     return mail;
   }
 
-  async getInbox() {
+  getInbox() {
     // Returns entire inbox
-    const mail = await this.mailConnect();
-    return mail;
+    const mail = this.mailConnect();
+    if (mail) return mail;
+    throw new Error('Unable to retrieve emails');
   }
 
   getSubjects(inbox) {
+    // Returns all email subjects in an arry
     return inbox.map(item => item.subject);
   }
 
   getBodies(inbox) {
+    // Returns all email text as an array
     return inbox.map(item => item.text);
   }
 
   getMessage(inbox, subjectText) {
+    // Returns email text if subject is found
     for (const mail of inbox) {
       const { subject } = mail;
       if (subject.includes(subjectText)) {
@@ -64,6 +68,7 @@ export default class EmailAPI {
   }
 
   getLine(message, lineText) {
+    // Returns specific line in the message if the text is included
     const messageSplit = message.split('\n');
     const line = messageSplit[messageSplit.findIndex(e => e.includes(lineText))];
     if (line) return line;

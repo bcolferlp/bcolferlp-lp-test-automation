@@ -30,7 +30,7 @@ describe('loan docs', () => {
           tls: true
         }
       };
-      const email = await new EmailAPI(emailConfig);
+      const email = new EmailAPI(emailConfig);
       const inbox = await email.getInbox();
       const message = email.getMessage(inbox, '2');
       const line = email.getLine(message, 'useful');
