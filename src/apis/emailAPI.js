@@ -17,7 +17,7 @@ const { simpleParser } = require('mailparser');
 export default class EmailAPI {
   constructor(config) {
     this.config = config;
-    this.searchCriteria = ['1:100'];
+    this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
     };
