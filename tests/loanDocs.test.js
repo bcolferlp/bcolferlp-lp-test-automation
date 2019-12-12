@@ -20,7 +20,7 @@ const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv
 describe('loan docs', () => {
   // Email test
   describe('Email test', () => {
-    test('testing email return', async done => {
+    test('testing email return', async () => {
       const emailConfig = {
         imap: {
           user: process.env.emailUser,
@@ -36,7 +36,6 @@ describe('loan docs', () => {
       const line = email.getLine(message, 'useful');
       console.log('line:', line);
       expect(line).toEqual('this will be a useful class');
-      done();
     }, 30000);
   });
 
