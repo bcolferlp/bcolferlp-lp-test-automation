@@ -32,9 +32,9 @@ const emailConfig = {
 describe('loan docs', () => {
   // Email text test block ##################################################################
   describe('Email test', () => {
-    test('get message text', async () => {
+    test.only('get message text', async () => {
       const email = new LoanEmailPage(emailConfig);
-      const mail = await email.getEmail('approvalNotification');
+      const mail = await email.getEmail('docsSentNotification');
       console.log(mail);
     }, 30000);
     test('validate docusign email text', async () => {
@@ -64,12 +64,21 @@ describe('loan docs', () => {
       }
     }, 30000);
 
-    test.only('validate Approval notification email text', async () => {
+    test('validate Approval notification email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const approvalNotification = await email.getEmail('approvalNotification');
       // console.log('solarFinancingDecision', solarFinancingDecision);
       for (const i in approvalNotification) {
         expect(approvalNotification[i]).toMatch(emailRegex.approvalNotification[i]);
+      }
+    }, 30000);
+
+    test('validate Docs Sent email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const docsSentNotification = await email.getEmail('docsSentNotification');
+      // console.log('solarFinancingDecision', solarFinancingDecision);
+      for (const i in docsSentNotification) {
+        expect(docsSentNotification[i]).toMatch(emailRegex.docsSentNotification[i]);
       }
     }, 30000);
   });

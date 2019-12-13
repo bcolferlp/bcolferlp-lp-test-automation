@@ -79,6 +79,22 @@ module.exports = {
     /Best Regards,$/,
     /The Loanpal Team$/
   ],
+  docsSentNotification: [
+    '',
+    /Status: DocsSent$/,
+    /Customer Info$/,
+    /Customer # .*$/,
+    /..[A-z]* [A-z]*$/,
+    /..[0-9 A-z.:]*$/,
+    /..[A-z, 0-9]*$/,
+    / /,
+    /Application ID: \d{2}-\d{2}-\d{6} *Sales Rep: .*@.*\..*$/,
+    '',
+    '',
+    /Best Regards,$/,
+    /The Loanpal Team$/
+  ],
+
   todo: [
     '',
     'Status: Approval',

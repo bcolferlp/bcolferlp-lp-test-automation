@@ -4,7 +4,8 @@ const subject = {
   docusign: 'Please sign your Solar Loan Docs',
   solarFinancingDecision: 'Solar Financing Decision',
   applicationSubmittedNotification: 'ApplicationSubmitted notification',
-  approvalNotification: 'Approval notification'
+  approvalNotification: 'Approval notification',
+  docsSentNotification: 'DocsSent notification'
 };
 export default class LoanEmailPage extends EmailAPI {
   async getEmail(mailType) {
