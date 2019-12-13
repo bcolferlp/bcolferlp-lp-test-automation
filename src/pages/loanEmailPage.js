@@ -10,6 +10,7 @@ const subject = {
   docsCompletedNotifcation: 'DocsCompleted notification',
   ntpCompleteNotification: 'NtpComplete notification'
 };
+
 export default class LoanEmailPage extends EmailAPI {
   async getEmail(mailType) {
     const inbox = await this.getInbox();

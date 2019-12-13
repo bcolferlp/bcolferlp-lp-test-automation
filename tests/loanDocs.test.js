@@ -8,7 +8,6 @@ import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
-import LoanEmailPage from '../src/pages/loanEmailPage';
 
 const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
@@ -18,98 +17,8 @@ const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
 const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
 const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData-co-bo.csv');
-const emailRegex = require('../src/utilities/emailRegex');
 
-const emailConfig = {
-  imap: {
-    user: process.env.emailUser,
-    password: process.env.emailPass,
-    host: 'mail.testemail.loanpal.com',
-    port: 993,
-    tls: true
-  }
-};
 describe('loan docs', () => {
-  // Email text test block ##################################################################
-  describe('Email test', () => {
-    test('get message text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const mail = await email.getEmail('completedDocuSign');
-      console.log(mail);
-    }, 30000);
-    test('validate docusign email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docuSignEmail = await email.getEmail('docusign');
-      // console.log('docuSignEmail', docuSignEmail);
-      for (const i in docuSignEmail) {
-        expect(docuSignEmail[i]).toMatch(emailRegex.docuSignEmail[i]);
-      }
-    }, 30000);
-
-    test('validate Solar Financing Decision email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const solarFinancingDecision = await email.getEmail('solarFinancingDecision');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in solarFinancingDecision) {
-        expect(solarFinancingDecision[i]).toMatch(emailRegex.solarFinancingDecision[i]);
-      }
-    }, 30000);
-
-    test('validate Application Submitted notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const applicationSubmittedNotification = await email.getEmail('applicationSubmittedNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in applicationSubmittedNotification) {
-        expect(applicationSubmittedNotification[i]).toMatch(emailRegex.applicationSubmittedNotification[i]);
-      }
-    }, 30000);
-
-    test('validate Approval notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const approvalNotification = await email.getEmail('approvalNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in approvalNotification) {
-        expect(approvalNotification[i]).toMatch(emailRegex.approvalNotification[i]);
-      }
-    }, 30000);
-
-    test('validate Docs Sent email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docsSentNotification = await email.getEmail('docsSentNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in docsSentNotification) {
-        expect(docsSentNotification[i]).toMatch(emailRegex.docsSentNotification[i]);
-      }
-    }, 30000);
-
-    test('validate Completed Docs email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const completedDocuSign = await email.getEmail('completedDocuSign');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in completedDocuSign) {
-        expect(completedDocuSign[i]).toMatch(emailRegex.completedDocuSign[i]);
-      }
-    }, 30000);
-
-    test('validate Docs Completed Notifcation email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docsCompletedNotifcation = await email.getEmail('docsCompletedNotifcation');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in docsCompletedNotifcation) {
-        expect(docsCompletedNotifcation[i]).toMatch(emailRegex.docsCompletedNotifcation[i]);
-      }
-    }, 30000);
-
-    test.only('validate NTP Completed Notifcation email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const ntpCompleteNotification = await email.getEmail('ntpCompleteNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
-      for (const i in ntpCompleteNotification) {
-        expect(ntpCompleteNotification[i]).toMatch(emailRegex.ntpCompleteNotification[i]);
-      }
-    }, 30000);
-  });
-
   describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
