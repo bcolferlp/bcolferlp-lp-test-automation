@@ -32,9 +32,9 @@ const emailConfig = {
 describe('loan docs', () => {
   // Email text test block ##################################################################
   describe('Email test', () => {
-    test.only('get message text', async () => {
+    test('get message text', async () => {
       const email = new LoanEmailPage(emailConfig);
-      const mail = await email.getEmail('docsSentNotification');
+      const mail = await email.getEmail('completedDocuSign');
       console.log(mail);
     }, 30000);
     test('validate docusign email text', async () => {
@@ -79,6 +79,33 @@ describe('loan docs', () => {
       // console.log('solarFinancingDecision', solarFinancingDecision);
       for (const i in docsSentNotification) {
         expect(docsSentNotification[i]).toMatch(emailRegex.docsSentNotification[i]);
+      }
+    }, 30000);
+
+    test('validate Completed Docs email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const completedDocuSign = await email.getEmail('completedDocuSign');
+      // console.log('solarFinancingDecision', solarFinancingDecision);
+      for (const i in completedDocuSign) {
+        expect(completedDocuSign[i]).toMatch(emailRegex.completedDocuSign[i]);
+      }
+    }, 30000);
+
+    test('validate Docs Completed Notifcation email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const docsCompletedNotifcation = await email.getEmail('docsCompletedNotifcation');
+      // console.log('solarFinancingDecision', solarFinancingDecision);
+      for (const i in docsCompletedNotifcation) {
+        expect(docsCompletedNotifcation[i]).toMatch(emailRegex.docsCompletedNotifcation[i]);
+      }
+    }, 30000);
+
+    test.only('validate NTP Completed Notifcation email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const ntpCompleteNotification = await email.getEmail('ntpCompleteNotification');
+      // console.log('solarFinancingDecision', solarFinancingDecision);
+      for (const i in ntpCompleteNotification) {
+        expect(ntpCompleteNotification[i]).toMatch(emailRegex.ntpCompleteNotification[i]);
       }
     }, 30000);
   });
