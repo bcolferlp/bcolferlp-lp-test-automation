@@ -14,6 +14,7 @@ const emailConfig = {
     tls: true
   }
 };
+
 describe('Email', () => {
   describe('Email text validation', () => {
     // Get message
@@ -27,7 +28,7 @@ describe('Email', () => {
     test('validate docusign email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const docuSignEmail = await email.getEmail('docusign');
-      // console.log('docuSignEmail', docuSignEmail);
+      expect(docuSignEmail).toBeTruthy();
       for (const i in docuSignEmail) {
         expect(docuSignEmail[i]).toMatch(emailRegex.docuSignEmail[i]);
       }
@@ -37,7 +38,7 @@ describe('Email', () => {
     test('validate Solar Financing Decision email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const solarFinancingDecision = await email.getEmail('solarFinancingDecision');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(solarFinancingDecision).toBeTruthy();
       for (const i in solarFinancingDecision) {
         expect(solarFinancingDecision[i]).toMatch(emailRegex.solarFinancingDecision[i]);
       }
@@ -47,7 +48,7 @@ describe('Email', () => {
     test('validate Application Submitted notification email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const applicationSubmittedNotification = await email.getEmail('applicationSubmittedNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(applicationSubmittedNotification).toBeTruthy();
       for (const i in applicationSubmittedNotification) {
         expect(applicationSubmittedNotification[i]).toMatch(emailRegex.applicationSubmittedNotification[i]);
       }
@@ -57,7 +58,7 @@ describe('Email', () => {
     test('validate Approval notification email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const approvalNotification = await email.getEmail('approvalNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(approvalNotification).toBeTruthy();
       for (const i in approvalNotification) {
         expect(approvalNotification[i]).toMatch(emailRegex.approvalNotification[i]);
       }
@@ -67,7 +68,7 @@ describe('Email', () => {
     test('validate Docs Sent notification email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const docsSentNotification = await email.getEmail('docsSentNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(docsSentNotification).toBeTruthy();
       for (const i in docsSentNotification) {
         expect(docsSentNotification[i]).toMatch(emailRegex.docsSentNotification[i]);
       }
@@ -77,7 +78,7 @@ describe('Email', () => {
     test('validate Completed Docs email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const completedDocuSign = await email.getEmail('completedDocuSign');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(completedDocuSign).toBeTruthy();
       for (const i in completedDocuSign) {
         expect(completedDocuSign[i]).toMatch(emailRegex.completedDocuSign[i]);
       }
@@ -87,7 +88,7 @@ describe('Email', () => {
     test('validate Docs Completed Notification email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const docsCompletedNotifcation = await email.getEmail('docsCompletedNotifcation');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(docsCompletedNotifcation).toBeTruthy();
       for (const i in docsCompletedNotifcation) {
         expect(docsCompletedNotifcation[i]).toMatch(emailRegex.docsCompletedNotifcation[i]);
       }
@@ -97,7 +98,7 @@ describe('Email', () => {
     test('validate NTP Completed Notifcation email text', async () => {
       const email = new LoanEmailPage(emailConfig);
       const ntpCompleteNotification = await email.getEmail('ntpCompleteNotification');
-      // console.log('solarFinancingDecision', solarFinancingDecision);
+      expect(ntpCompleteNotification).toBeTruthy();
       for (const i in ntpCompleteNotification) {
         expect(ntpCompleteNotification[i]).toMatch(emailRegex.ntpCompleteNotification[i]);
       }
