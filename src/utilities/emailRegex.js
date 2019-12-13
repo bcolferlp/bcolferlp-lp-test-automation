@@ -41,5 +41,34 @@ module.exports = {
     /If you are having trouble signing the document, please visit the Help with Signing page on our Support Center\.$/,
     /https:\/\/support.docusign.com\/articles\/How-do-I-sign-a-DocuSign-document-Basic-Signing$/
   ],
-  todo: []
+  applicationSubmittedNotification: [
+    '',
+    /Status: ApplicationSubmitted$/,
+    /Customer Info$/,
+    /Customer # .*$/,
+    /..[A-z]* [A-z]*$/,
+    /..[0-9 A-z.:]*$/,
+    /..[A-z, 0-9]*$/,
+    / /,
+    /Application ID: \d{2}-\d{2}-\d{6} *Sales Rep: .*@.*\..*$/,
+    '',
+    '',
+    /Best Regards,$/,
+    /The Loanpal Team$/
+  ],
+  todo: [
+    '',
+    'Status: ApplicationSubmitted',
+    'Customer Info',
+    'Customer # deleteMe',
+    '  Stanley Martin',
+    '  587644 E Duke Dr',
+    '  Tempe, CA 85283',
+    ' ',
+    'Application ID: 19-05-000996      Sales Rep: test2@testemail.loanpal.com',
+    '',
+    '',
+    'Best Regards,',
+    'The Loanpal Team'
+  ]
 };
