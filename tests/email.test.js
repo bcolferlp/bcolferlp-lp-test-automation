@@ -5,18 +5,9 @@ require('dotenv').config();
 
 const emailRegex = require('../src/utilities/emailRegex');
 
-const emailConfig = {
-  imap: {
-    user: process.env.emailUser,
-    password: process.env.emailPass,
-    host: 'mail.testemail.loanpal.com',
-    port: 993,
-    tls: true
-  }
-};
-
 describe('Email', () => {
   describe('Email text validation', () => {
+    const emailConfig = 'rainloop';
     // Get message
     test.skip('get message text', async () => {
       const email = new LoanEmailPage(emailConfig);

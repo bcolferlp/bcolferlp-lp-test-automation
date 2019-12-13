@@ -1,22 +1,17 @@
-/*
-Initialize class with config
-config = {
-    imap: {
-      user: <EMAIL>,
-      password: <PASSWORD>,
-      host: 'mail.testemail.loanpal.com',
-      port: 993,
-      tls: true
-    }
-  };
-*/
-const _ = require('underscore');
-const imaps = require('imap-simple');
-const { simpleParser } = require('mailparser');
+import _ from 'underscore';
+import imaps from 'imap-simple';
+import { simpleParser } from 'mailparser';
+import EmailConfigs from '../utilities/emailConfigs';
 
-export default class EmailAPI {
+export default class EmailAPI extends EmailConfigs {
+  /**
+   * Class requires config name to instatiate
+   * @param EmailAPI config (options) => rainloop
+   * @param EmailConfigs uses dotenv
+   */
   constructor(config) {
-    this.config = config;
+    super(config);
+    this.config = this[config];
     this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
