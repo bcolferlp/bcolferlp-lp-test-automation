@@ -3,7 +3,8 @@ import EmailAPI from '../apis/emailAPI';
 const subject = {
   docusign: 'Please sign your Solar Loan Docs',
   solarFinancingDecision: 'Solar Financing Decision',
-  applicationSubmittedNotification: 'ApplicationSubmitted notification'
+  applicationSubmittedNotification: 'ApplicationSubmitted notification',
+  approvalNotification: 'Approval notification'
 };
 export default class LoanEmailPage extends EmailAPI {
   async getEmail(mailType) {
