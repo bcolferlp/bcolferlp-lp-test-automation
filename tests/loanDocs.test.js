@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 import each from 'jest-each';
 import BaseTest from '../src/base/baseTest';
 import EmailPage from '../src/pages/3rdParty/email/emailPage';
@@ -7,7 +8,7 @@ import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
-import EmailAPI from '../src/apis/emailAPI';
+import LoanEmailPage from '../src/pages/loanEmailPage';
 
 const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
@@ -17,28 +18,44 @@ const folderTestFiles = path.join(__dirname, '../data/loanDocs/downloads/');
 const expectedFile = path.join(__dirname, '../data/loanDocs/docuSignTemplates/singleBorrSunRunTemplate.pdf');
 const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv');
 const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData-co-bo.csv');
+const emailRegex = require('../src/utilities/emailRegex');
 
+const emailConfig = {
+  imap: {
+    user: process.env.emailUser,
+    password: process.env.emailPass,
+    host: 'mail.testemail.loanpal.com',
+    port: 993,
+    tls: true
+  }
+};
 describe('loan docs', () => {
-  // Parse test block
+  // Email text test block ##################################################################
   describe('Email test', () => {
-    test('testing email return', async () => {
-      const emailConfig = {
-        imap: {
-          user: process.env.emailUser,
-          password: process.env.emailPass,
-          host: 'mail.testemail.loanpal.com',
-          port: 993,
-          tls: true
-        }
-      };
-      const email = new EmailAPI(emailConfig);
-      const inbox = await email.getInbox();
-      const message = email.getMessage(inbox, '2');
-      const line = email.getLine(message, 'useful');
-      console.log('line:', line);
-      expect(line).toEqual('this will be a useful class');
+    test.only('get message text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const mail = await email.getEmail('docusign');
+      console.log('docuSignEmail', mail);
+    }, 30000);
+    test('validate docusign email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const docuSignEmail = await email.getEmail('docusign');
+      // console.log('docuSignEmail', docuSignEmail);
+      for (const i in docuSignEmail) {
+        expect(docuSignEmail[i]).toMatch(emailRegex.docuSignEmail[i]);
+      }
+    }, 30000);
+
+    test('validate Solar Financing Decision email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const solarFinancingDecision = await email.getEmail('solarFinancingDecision');
+      // console.log('solarFinancingDecision', solarFinancingDecision);
+      for (const i in solarFinancingDecision) {
+        expect(solarFinancingDecision[i]).toMatch(emailRegex.solarFinancingDecision[i]);
+      }
     }, 30000);
   });
+
   describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);
