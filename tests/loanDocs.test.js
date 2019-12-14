@@ -1,3 +1,4 @@
+/* eslint-disable guard-for-in */
 import each from 'jest-each';
 import BaseTest from '../src/base/baseTest';
 import EmailPage from '../src/pages/3rdParty/email/emailPage';
@@ -7,7 +8,6 @@ import ParsePDF from '../src/utilities/parsePDF';
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import DocuSignAPI from '../src/apis/docuSignAPI';
 import CompareLoanDocs from '../src/utilities/compareLoanDocs';
-import EmailAPI from '../src/apis/emailAPI';
 
 const { path, parseCSV } = require('../src/utilities/imports');
 const LoanData = require('../src/utilities/loanData');
@@ -19,26 +19,6 @@ const csvFile = path.join(__dirname, '../data/loanDocs/testData/loanDocsData.csv
 const csvFileCoBo = path.join(__dirname, '../data/loanDocs/testData/loanDocsData-co-bo.csv');
 
 describe('loan docs', () => {
-  // Parse test block
-  describe('Email test', () => {
-    test('testing email return', async () => {
-      const emailConfig = {
-        imap: {
-          user: process.env.emailUser,
-          password: process.env.emailPass,
-          host: 'mail.testemail.loanpal.com',
-          port: 993,
-          tls: true
-        }
-      };
-      const email = new EmailAPI(emailConfig);
-      const inbox = await email.getInbox();
-      const message = email.getMessage(inbox, '2');
-      const line = email.getLine(message, 'useful');
-      console.log('line:', line);
-      expect(line).toEqual('this will be a useful class');
-    }, 30000);
-  });
   describe.skip('Parse data', () => {
     test('testing csv data', async done => {
       const parsedData = await parseCSV(csvFile);

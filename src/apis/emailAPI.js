@@ -1,22 +1,23 @@
-/*
-Initialize class with config
-config = {
-    imap: {
-      user: <EMAIL>,
-      password: <PASSWORD>,
-      host: 'mail.testemail.loanpal.com',
-      port: 993,
-      tls: true
-    }
-  };
-*/
-const _ = require('underscore');
-const imaps = require('imap-simple');
-const { simpleParser } = require('mailparser');
+import _ from 'underscore';
+import imaps from 'imap-simple';
+import { simpleParser } from 'mailparser';
 
 export default class EmailAPI {
-  constructor(config) {
-    this.config = config;
+  /**
+   * Class requires an Object for the email connection
+   * @param user
+   * @param password
+   */
+  constructor({ user, password }) {
+    this.config = {
+      imap: {
+        user,
+        password,
+        host: 'mail.testemail.loanpal.com',
+        port: 993,
+        tls: true
+      }
+    };
     this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
