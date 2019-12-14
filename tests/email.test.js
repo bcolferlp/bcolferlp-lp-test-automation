@@ -5,16 +5,10 @@ require('dotenv').config();
 
 const emailRegex = require('../src/utilities/emailRegex');
 
+const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
+
 describe('Email', () => {
   describe('Email text validation', () => {
-    const emailConfig = 'rainloop';
-    // Get message
-    test.skip('get message text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const mail = await email.getEmail('completedDocuSign');
-      console.log(mail);
-    }, 30000);
-
     // DocuSign email
     test('validate docusign email text', async () => {
       const email = new LoanEmailPage(emailConfig);

@@ -1,17 +1,23 @@
 import _ from 'underscore';
 import imaps from 'imap-simple';
 import { simpleParser } from 'mailparser';
-import EmailConfigs from '../utilities/emailConfigs';
 
-export default class EmailAPI extends EmailConfigs {
+export default class EmailAPI {
   /**
-   * Class requires config name to instatiate
-   * @param EmailAPI config (options) => rainloop
-   * @param EmailConfigs uses dotenv
+   * Class requires an Object for the email connection
+   * @param user
+   * @param password
    */
-  constructor(config) {
-    super(config);
-    this.config = this[config];
+  constructor({ user, password }) {
+    this.config = {
+      imap: {
+        user,
+        password,
+        host: 'mail.testemail.loanpal.com',
+        port: 993,
+        tls: true
+      }
+    };
     this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
