@@ -169,27 +169,5 @@ module.exports = {
     /Best Regards,$/,
     /The Loanpal Team$/
   ],
-  todo: [
-    '',
-    'Status: DocsSigned',
-    'Customer Info',
-    'Customer # deleteMe',
-    '  Stanley Martin',
-    '  587644 E Duke Dr',
-    '  Tempe, CA 85283',
-    ' ',
-    'Application ID: 19-05-000996      Sales Rep: test2@testemail.loanpal.com',
-    '',
-    'Current Loan Amount: $30,000.00',
-    'Loan Options: 10 year, 2.99% interest rate loan',
-    '',
-    'Max Loan Amount: $100,000.00',
-    '',
-    'Credit Exp. Date: 6/10/2020',
-    '',
-    '',
-    '',
-    'Best Regards,',
-    'The Loanpal Team'
-  ]
+  todo: []
 };
