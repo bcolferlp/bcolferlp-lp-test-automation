@@ -1,0 +1,20 @@
+import EmailAPI from '../apis/emailAPI';
+
+const subject = {
+  docusign: 'Please sign your Solar Loan Docs',
+  completedDocuSign: 'Completed: Please sign your Solar Loan Docs',
+  solarFinancingDecision: 'Solar Financing Decision',
+  applicationSubmittedNotification: 'ApplicationSubmitted notification',
+  approvalNotification: 'Approval notification',
+  docsSentNotification: 'DocsSent notification',
+  docsCompletedNotifcation: 'DocsCompleted notification',
+  ntpCompleteNotification: 'NtpComplete notification'
+};
+
+export default class LoanEmailPage extends EmailAPI {
+  async getEmail(mailType) {
+    const inbox = await this.getInbox();
+    const message = this.getMessage(inbox, subject[mailType]);
+    return message.split('\n');
+  }
+}
