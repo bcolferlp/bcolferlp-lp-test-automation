@@ -7,6 +7,7 @@ const subject = {
   applicationSubmittedNotification: 'ApplicationSubmitted notification',
   approvalNotification: 'Approval notification',
   docsSentNotification: 'DocsSent notification',
+  docsSignedNotification: 'DocsSigned notification',
   docsCompletedNotifcation: 'DocsCompleted notification',
   ntpCompleteNotification: 'NtpComplete notification'
 };
@@ -16,5 +17,12 @@ export default class LoanEmailPage extends EmailAPI {
     const inbox = await this.getInbox();
     const message = this.getMessage(inbox, subject[mailType]);
     return message.split('\n');
+  }
+
+  async getloanId(mailType, lineText) {
+    const inbox = await this.getInbox();
+    const message = this.getMessage(inbox, subject[mailType]);
+    const line = this.getLine(message, lineText);
+    return line;
   }
 }
