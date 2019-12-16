@@ -15,7 +15,8 @@ export default class EmailAPI {
         password,
         host: 'mail.testemail.loanpal.com',
         port: 993,
-        tls: true
+        tls: true,
+        authTimeout: 20000
       }
     };
     this.searchCriteria = ['ALL'];

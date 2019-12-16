@@ -13,8 +13,7 @@ const subject = {
 };
 
 export default class LoanEmailPage extends EmailAPI {
-  async getEmail(mailType) {
-    const inbox = await this.getInbox();
+  async getEmail(inbox, mailType) {
     const message = this.getMessage(inbox, subject[mailType]);
     return message.split('\n');
   }

@@ -9,10 +9,15 @@ const emailConfig = { user: process.env.emailUser, password: process.env.emailPa
 
 describe('Email', () => {
   describe('Email text validation', () => {
+    let email;
+    let inbox;
+    beforeAll(async () => {
+      email = new LoanEmailPage(emailConfig);
+      inbox = await email.getInbox();
+    });
     // DocuSign email
     test('validate docusign email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docuSignEmail = await email.getEmail('docusign');
+      const docuSignEmail = await email.getEmail(inbox, 'docusign');
       expect(docuSignEmail).toBeTruthy();
       for (const i in docuSignEmail) {
         expect(docuSignEmail[i]).toMatch(emailRegex.docuSignEmail[i]);
@@ -21,8 +26,7 @@ describe('Email', () => {
 
     // Solar Financing Decision email
     test('validate Solar Financing Decision email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const solarFinancingDecision = await email.getEmail('solarFinancingDecision');
+      const solarFinancingDecision = await email.getEmail(inbox, 'solarFinancingDecision');
       expect(solarFinancingDecision).toBeTruthy();
       for (const i in solarFinancingDecision) {
         expect(solarFinancingDecision[i]).toMatch(emailRegex.solarFinancingDecision[i]);
@@ -31,8 +35,7 @@ describe('Email', () => {
 
     // Application Submitted Notification email
     test('validate Application Submitted notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const applicationSubmittedNotification = await email.getEmail('applicationSubmittedNotification');
+      const applicationSubmittedNotification = await email.getEmail(inbox, 'applicationSubmittedNotification');
       expect(applicationSubmittedNotification).toBeTruthy();
       for (const i in applicationSubmittedNotification) {
         expect(applicationSubmittedNotification[i]).toMatch(emailRegex.applicationSubmittedNotification[i]);
@@ -41,8 +44,7 @@ describe('Email', () => {
 
     // Approval Notification email
     test('validate Approval notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const approvalNotification = await email.getEmail('approvalNotification');
+      const approvalNotification = await email.getEmail(inbox, 'approvalNotification');
       expect(approvalNotification).toBeTruthy();
       for (const i in approvalNotification) {
         expect(approvalNotification[i]).toMatch(emailRegex.approvalNotification[i]);
@@ -51,8 +53,7 @@ describe('Email', () => {
 
     // Docs Sent Notification email
     test('validate Docs Sent notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docsSentNotification = await email.getEmail('docsSentNotification');
+      const docsSentNotification = await email.getEmail(inbox, 'docsSentNotification');
       expect(docsSentNotification).toBeTruthy();
       for (const i in docsSentNotification) {
         expect(docsSentNotification[i]).toMatch(emailRegex.docsSentNotification[i]);
@@ -61,8 +62,7 @@ describe('Email', () => {
 
     // DocsSigned Notification email
     test('validate DocsSigned Notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docsSignedNotification = await email.getEmail('docsSignedNotification');
+      const docsSignedNotification = await email.getEmail(inbox, 'docsSignedNotification');
       expect(docsSignedNotification).toBeTruthy();
       for (const i in docsSignedNotification) {
         expect(docsSignedNotification[i]).toMatch(emailRegex.docsSignedNotification[i]);
@@ -71,8 +71,7 @@ describe('Email', () => {
 
     // Completed DocuSign email
     test('validate Completed Docs email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const completedDocuSign = await email.getEmail('completedDocuSign');
+      const completedDocuSign = await email.getEmail(inbox, 'completedDocuSign');
       expect(completedDocuSign).toBeTruthy();
       for (const i in completedDocuSign) {
         expect(completedDocuSign[i]).toMatch(emailRegex.completedDocuSign[i]);
@@ -81,8 +80,7 @@ describe('Email', () => {
 
     // Docs Completed Notication email
     test('validate Docs Completed Notification email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const docsCompletedNotifcation = await email.getEmail('docsCompletedNotifcation');
+      const docsCompletedNotifcation = await email.getEmail(inbox, 'docsCompletedNotifcation');
       expect(docsCompletedNotifcation).toBeTruthy();
       for (const i in docsCompletedNotifcation) {
         expect(docsCompletedNotifcation[i]).toMatch(emailRegex.docsCompletedNotifcation[i]);
@@ -91,8 +89,7 @@ describe('Email', () => {
 
     // NTP Complteted Notification email
     test('validate NTP Completed Notifcation email text', async () => {
-      const email = new LoanEmailPage(emailConfig);
-      const ntpCompleteNotification = await email.getEmail('ntpCompleteNotification');
+      const ntpCompleteNotification = await email.getEmail(inbox, 'ntpCompleteNotification');
       expect(ntpCompleteNotification).toBeTruthy();
       for (const i in ntpCompleteNotification) {
         expect(ntpCompleteNotification[i]).toMatch(emailRegex.ntpCompleteNotification[i]);
