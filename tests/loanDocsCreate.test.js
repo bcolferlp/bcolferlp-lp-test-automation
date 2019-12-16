@@ -2,7 +2,7 @@ import each from 'jest-each'
 const fs = require('fs')
 const { path } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber')
-const folderResults = path.join(__dirname, '../data/results/');
+const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 const loanidsArray = ['loan1']
 const singleBorrData = require('../data/loanDocs/testData/singleBorrowerData');
