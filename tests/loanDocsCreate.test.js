@@ -2,11 +2,16 @@ import each from 'jest-each'
 const fs = require('fs')
 const { path } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber')
+import LoanAPI from '../src/apis/loanAPI';
 const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
 import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
-const loanidsArray = ['loan1']
-const singleBorrData = require('../data/loanDocs/testData/singleBorrowerData');
-const coBorrData = require('../data/loanDocs/testData/coBorrowerData');
+import CoBorrowerJSON from '../src/utilities/coBorrowerJSON';
+import { longStackTraces } from 'bluebird';
+const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
+const singleBorrNonSunRunData = require('../data/loanDocs/testData/singleBorrowerNonSunRunData');
+const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
+const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunRunData');
+
 
 describe('Create Loans', () => {
     // testNumber format yyyymmddhhmmss
@@ -16,64 +21,62 @@ describe('Create Loans', () => {
     // write testNumber on file latestTestNumber.txt in results folder
     fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber)
     // create file loanids
-    let loanIdSingleBorrSunRun = []
-    let loanIdCoBorrSunRun = []
-    let loanIdSingleBorrNoSunRun = []
-    let loanIdCoBorrNoSunRun = []
+    let loanSingleBorrSunRun = []
+    let loanSingleBorrNoSunRun = []
+    let loanCoBorrSunRun = []
+    let loanCoBorrNonSunRun = []
     // create loansid file (js obj, txt ??)
 
-    each(singleBorrSunRun)
-        .test('Create Single Borrower SunRun Loans',
-            async ({ loanType, productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
-                const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail);
-                //create Loan
-                const loan = new LoanAPI(jsonData);
-                const loanStatus = await loan.getLoanStatus();
-                expect(loanStatus).toBe('Approved');
-                const loanId = await loan.getLoanId();
-                loanIdSingleBorrSunRun.push(loanId);
-                fs.writeFileSync(`${folderResults}${testNumber}/loanIdSingleBorrSunRun.txt`, loanIdSingleBorrSunRun);
-            })
+    each(singleBorrSunRunData).test.skip('Create Single Borrower SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
+        const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail);
+        //create Loan
+        const loan = new LoanAPI(jsonData);
+        const loanStatus = await loan.getLoanStatus();
+        expect(loanStatus).toBe('Approved');
+        const loanId = await loan.getLoanId();
+        loanSingleBorrSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, loanSingleBorrSunRun);
+        done();
+    }, 10000)
 
-    each(coBorrSunRun)
-        .test('create Combined SunRun Loans',
-            (element) => {
-                const jsonData = new CoBorrowerJSON().updateJson(productType, language, state, client, borrowerFname, borrowerLname, address, borrowerEmail, coboFname,
-                    coboLname, coboAddress, coboState, coboEmail, salesRepEmail, bucket, key);
-                //create Loan
-                const loan = new LoanAPI(jsonData);
-                const loanStatus = await loan.getLoanStatus();
-                expect(loanStatus).toBe('Approved');
-                const loanId = await loan.getLoanId();
-                loanIdCoBorrSunRun.push(loanId);
-                fs.writeFileSync(`${folderResults}${testNumber}/loanIdCoBorrSunRun.txt`, loanIdCoBorrSunRun);
-            })
+    each(singleBorrNonSunRunData).test.skip('Create Single Borrower Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
+        const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail);
+        //create Loan
+        const loan = new LoanAPI(jsonData);
+        const loanStatus = await loan.getLoanStatus();
+        expect(loanStatus).toBe('Approved');
+        const loanId = await loan.getLoanId();
+        loanSingleBorrNoSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.json`, loanSingleBorrNoSunRun);
+        done();
+    }, 10000)
 
-    each(singleBorrNoSunRun)
-        .test('Create Single Borrower No SunRun Loans',
-            async ({ loanType, productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
-                const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail);
-                //create Loan
-                const loan = new LoanAPI(jsonData);
-                const loanStatus = await loan.getLoanStatus();
-                expect(loanStatus).toBe('Approved');
-                const loanId = await loan.getLoanId();
-                loanIdSingleBorrNoSunRun.push(loanId);
-                fs.writeFileSync(`${folderResults}${testNumber}/loanIdSingleBorrNoSunRun.txt`, loanIdSingleBorrNoSunRun);
-            })
 
-    each(coBorrNoSunRun)
-        .test('create Combined SunRun Loans',
-            (element) => {
-                const jsonData = new CoBorrowerJSON().updateJson(productType, language, state, client, borrowerFname, borrowerLname, address, borrowerEmail, coboFname,
-                    coboLname, coboAddress, coboState, coboEmail, salesRepEmail, bucket, key);
-                //create Loan
-                const loan = new LoanAPI(jsonData);
-                const loanStatus = await loan.getLoanStatus();
-                expect(loanStatus).toBe('Approved');
-                const loanId = await loan.getLoanId();
-                loanIdCoBorrNoSunRun.push(loanId);
-                fs.writeFileSync(`${folderResults}${testNumber}/loanIdCoBorrNoSunRun.txt`, loanIdCoBorrNoSunRun);
-            })
+    each(coBorrSunRunData).test('create Combined SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail }, done) => {
+        const jsonData = new CoBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail);
+        //create Loan
+        const loan = new LoanAPI(jsonData);
+        const loanStatus = await loan.getLoanStatus();
+        expect(loanStatus).toBe('Approved');
+        const loanId = await loan.getLoanId();
+        const temp = new Array(loanId, firstName)
+        loanCoBorrSunRun.push(JSON.stringify(temp))
+        //loanCoBorrSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.txt`, loanCoBorrSunRun);
+        done()
+    }, 10000)
+
+
+    each(coBorrNonSunRunData).test.skip('create Combined Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail }, done) => {
+        const jsonData = new CoBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail);
+        //create Loan
+        const loan = new LoanAPI(jsonData);
+        const loanStatus = await loan.getLoanStatus();
+        expect(loanStatus).toBe('Approved');
+        const loanId = await loan.getLoanId();
+        loanCoBorrNonSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.json`, loanCoBorrNonSunRun);
+        done()
+    }, 10000)
 
 })

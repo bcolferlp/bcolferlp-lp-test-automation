@@ -2,7 +2,7 @@ const jsonload = require('jsonload');
 
 export default class SingleBorrowerJSON {
   constructor() {
-    this.jsonFile = '../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoan.json';
+    this.jsonFile = '../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json';
   }
 
   updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail) {

@@ -29,7 +29,7 @@
             "lastName": "Smith",
             "dob": "1956-12-09",
             "annualIncome": "$60,000.00",
-            "email": "admin@testemail.loanpal.com",
+            "email": "co-borrower-automation@testmail.loanpal.com",
             "phone": "+14654654564",
             "electronicConsent": true,
             "spokenLanguage": "english",
@@ -42,14 +42,14 @@
         }
     ],
     "salesRep": {
-        "firstName": "Test ",
+        "firstName": "SalesRepTest",
         "lastName": "Tester",
-        "email": "sales.rep@gmail.com"
+        "email": "salesrep-automation@testmail.loanpal.com"
     },
     "totalSystemCost": "23000",
     "selectedLoanOption": "1",
     "source": "",
-    "referenceNumber": "deleteMe",
+    "referenceNumber": "automated-run",
     "isOwner": true,
     "isOccupant": true
 }

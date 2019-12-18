@@ -23,14 +23,14 @@
             "electronicConsent": true
         },
         "salesRep": {
-            "firstName": "Test ",
+            "firstName": "SalesRepTest",
             "lastName": "Tester",
-            "email": "sales.rep@gmail.com"
+            "email": "salesrep-automation@testmail.loanpal.com"
         },
         "totalSystemCost": "23000",
         "selectedLoanOption": "1",
         "source": "",
-        "referenceNumber": "deleteMe",
+        "referenceNumber": "automated-run",
         "isOwner": true,
         "isOccupant": true
   }
