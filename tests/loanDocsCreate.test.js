@@ -34,7 +34,9 @@ describe('Create Loans', () => {
         const loanStatus = await loan.getLoanStatus();
         expect(loanStatus).toBe('Approved');
         const loanId = await loan.getLoanId();
-        loanSingleBorrSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        const temp = new Array(loanId, firstName)
+        loanSingleBorrSunRun.push(JSON.stringify(temp))
+        //loanSingleBorrSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
         fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, loanSingleBorrSunRun);
         done();
     }, 10000)
@@ -46,7 +48,9 @@ describe('Create Loans', () => {
         const loanStatus = await loan.getLoanStatus();
         expect(loanStatus).toBe('Approved');
         const loanId = await loan.getLoanId();
-        loanSingleBorrNoSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        const temp = new Array(loanId, firstName)
+        loanSingleBorrNoSunRun.push(JSON.stringify(temp))
+        //loanSingleBorrNoSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
         fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.json`, loanSingleBorrNoSunRun);
         done();
     }, 10000)
@@ -74,7 +78,9 @@ describe('Create Loans', () => {
         const loanStatus = await loan.getLoanStatus();
         expect(loanStatus).toBe('Approved');
         const loanId = await loan.getLoanId();
-        loanCoBorrNonSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
+        const temp = new Array(loanId, firstName)
+        loanCoBorrNonSunRun.push(JSON.stringify(temp))
+        //loanCoBorrNonSunRun.push(JSON.stringify({ 'loanId': loanId, 'firstName': firstName }));
         fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.json`, loanCoBorrNonSunRun);
         done()
     }, 10000)
