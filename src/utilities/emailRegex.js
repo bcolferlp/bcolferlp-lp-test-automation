@@ -146,5 +146,28 @@ module.exports = {
     /Best Regards,$/,
     /The Loanpal Team$/
   ],
+  docsSignedNotification: [
+    '',
+    /Status: DocsSigned$/,
+    /Customer Info$/,
+    /Customer # .*$/,
+    /..[A-z]* [A-z]*$/,
+    /..[0-9 A-z.:]*$/,
+    /..[A-z, 0-9]*$/,
+    / /,
+    /Application ID: \d{2}-\d{2}-\d{6} *Sales Rep: .*@.*\..*$/,
+    '',
+    /Current Loan Amount: \$[0-9,.]*$/,
+    /Loan Options: [0-9]* year, [0-9.%]* interest rate loan$/,
+    '',
+    /Max Loan Amount: \$[0-9,.]*$/,
+    '',
+    /Credit Exp\. Date: \d*\/\d*\/\d{4}$/,
+    '',
+    '',
+    '',
+    /Best Regards,$/,
+    /The Loanpal Team$/
+  ],
   todo: []
 };

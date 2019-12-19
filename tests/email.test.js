@@ -59,6 +59,16 @@ describe('Email', () => {
       }
     }, 30000);
 
+    // DocsSigned Notification email
+    test('validate DocsSigned Notification email text', async () => {
+      const email = new LoanEmailPage(emailConfig);
+      const docsSignedNotification = await email.getEmail('docsSignedNotification');
+      expect(docsSignedNotification).toBeTruthy();
+      for (const i in docsSignedNotification) {
+        expect(docsSignedNotification[i]).toMatch(emailRegex.docsSignedNotification[i]);
+      }
+    }, 30000);
+
     // Completed DocuSign email
     test('validate Completed Docs email text', async () => {
       const email = new LoanEmailPage(emailConfig);
