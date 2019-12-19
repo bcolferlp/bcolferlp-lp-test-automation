@@ -56,6 +56,7 @@ export default class EmailAPI {
     for (const mail of inbox) {
       const { subject, text } = mail;
       if (subject.includes(subjectText)) {
+        console.log("text", subject);
         return text;
       }
     }

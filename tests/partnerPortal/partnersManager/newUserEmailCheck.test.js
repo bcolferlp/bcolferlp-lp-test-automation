@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 /* eslint-disable new-cap */
 /* eslint-disable guard-for-in */
-import newUserInvites from '../../../src/pages/partnerPortal/ppLogin/newUserInviteEmailCheckPage';
+// import newUserInvites from '../../../src/pages/partnerPortal/ppLogin/newUserInviteEmailCheckPage';
+import LoanEmailPage from '../../../src/pages/loanEmailPage';
 
 require('dotenv').config();
 
@@ -11,10 +12,16 @@ const emailConfig = { user: process.env.harmonyEmailID, password: process.env.ha
 
 describe('Email', () => {
   describe('Email text validation', () => {
+    let email;
+    let inbox;
+    beforeAll(async () => {
+      email = new LoanEmailPage(emailConfig);
+      inbox = await email.getInbox();
+    });
     // New User Invitation - partners-manager
     test('Validate New User Invitation', async () => {
-      const email = new newUserInvites(emailConfig);
-      const newUserInviteEmail = await email.getEmail('newUserFrom');
+     
+      const newUserInviteEmail = await email.getSplitEmail(inbox, 'newUserFrom');
       expect(newUserInviteEmail).toBeTruthy();
       for (const i in newUserInviteEmail) {
         expect(newUserInviteEmail[i]).toMatch(emailHarmony.newUserInviteEmail[i]);

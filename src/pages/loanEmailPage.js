@@ -9,7 +9,8 @@ const subject = {
   docsSentNotification: 'DocsSent notification',
   docsSignedNotification: 'DocsSigned notification',
   docsCompletedNotifcation: 'DocsCompleted notification',
-  ntpCompleteNotification: 'NtpComplete notification'
+  ntpCompleteNotification: 'NtpComplete notification',
+  newUserFrom: 'Your temporary password for Loanpal'
 };
 
 export default class LoanEmailPage extends EmailAPI {
@@ -19,7 +20,9 @@ export default class LoanEmailPage extends EmailAPI {
   }
 
   async getSplitEmail(inbox, mailType) {
+    // console.log("inbox",inbox);
     const message = this.getMessage(inbox, subject[mailType]);
+    console.log("Message",message);
     return message.split('\n');
   }
 
