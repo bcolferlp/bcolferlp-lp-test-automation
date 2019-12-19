@@ -15,7 +15,8 @@ export default class EmailAPI {
         password,
         host: 'mail.testemail.loanpal.com',
         port: 993,
-        tls: true
+        tls: true,
+        authTimeout: 20000
       }
     };
     this.searchCriteria = ['ALL'];
@@ -53,12 +54,16 @@ export default class EmailAPI {
   // Returns email text if subject is found
   getMessage(inbox, subjectText) {
     for (const mail of inbox) {
-      const { subject } = mail;
+      const { subject, text } = mail;
       if (subject.includes(subjectText)) {
-        return mail.text;
+        return text;
       }
     }
     throw new Error('Unable to find email');
+  }
+
+  getMessagesBySubjects(inbox, subjectText) {
+    return inbox.filter(mail => mail.subject.includes(subjectText)).map(mail => mail.text);
   }
 
   // Returns specific line in the message if the text is included

@@ -17,6 +17,17 @@ export default class DocuSignPage extends BasePageObject {
     this.docCompleteTarget = By.xpath('//h1[contains(text(), "Save a Copy of Your Document")]');
   }
 
+  async goToDocuSign(link) {
+    await this.openUrl(link);
+  }
+
+  async signLoanDocs(docuSignLink) {
+    await this.fullScreen();
+    await this.goToDocuSign(docuSignLink);
+    await this.completeDocs();
+    await this.closeTabs();
+  }
+
   async completeDocs() {
     const handles = await this.getAllWindowHandles();
     if (handles.length > 1) await this.switchWindow(handles, 1);
