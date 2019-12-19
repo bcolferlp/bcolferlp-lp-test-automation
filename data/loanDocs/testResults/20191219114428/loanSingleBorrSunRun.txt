@@ -1,1 +1,0 @@
-["19-02-000975","SunRun-SB-CA-EN"],["19-11-001043","SunRun-SB-AZ-EN"],["19-04-000977","SunRun-SB-NY-EN"],["19-03-001053","SunRun-SB-CA-SP"],["19-12-001083","SunRun-SB-AZ-SP"],["19-11-001044","SunRun-SB-NY-SP"]
