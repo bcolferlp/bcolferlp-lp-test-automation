@@ -6,15 +6,15 @@ module.exports = [
         lastName: "Test", 
         street: "13 test street", 
         state: "CA", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "english",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-CA-EN", 
         coLastName: "Test",
         coStreet: "1 test street", 
         coState: "CA", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     },
     {
         productType: "Solar",
@@ -23,15 +23,15 @@ module.exports = [
         lastName: "Test", 
         street: "15 test street", 
         state: "AZ", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "english",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-AZ-EN", 
         coLastName: "Test",
         coStreet: "3 test street", 
         coState: "AZ", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     },
     {
         productType: "Solar",
@@ -40,15 +40,15 @@ module.exports = [
         lastName: "Test", 
         street: "17 test street", 
         state: "NY", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "english",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-NY-EN", 
         coLastName: "Test",
         coStreet: "5 test street", 
         coState: "NY", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     },
     {
         productType: "Solar",
@@ -57,15 +57,15 @@ module.exports = [
         lastName: "Test", 
         street: "19 test street", 
         state: "CA", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "spanish",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-CA-SP", 
         coLastName: "Test",
         coStreet: "7 test street", 
         coState: "CA", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     },
     {
         productType: "Solar",
@@ -74,15 +74,15 @@ module.exports = [
         lastName: "Test", 
         street: "21 test street", 
         state: "AZ", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "spanish",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-AZ-SP", 
         coLastName: "Test",
         coStreet: "9 test street", 
         coState: "AZ", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     },
     {
         productType: "Solar",
@@ -91,14 +91,14 @@ module.exports = [
         lastName: "Test", 
         street: "23 test street", 
         state: "NY", 
-        email: "borrower-automation@testmail.loanpal.com", 
+        email: "borrower-automation@testemail.loanpal.com", 
         spokenLanguage: "spanish",
         source: "", 
-        salesRepEmail: "salesrep-automation@testmail.loanpal.com", 
+        salesRepEmail: "salesrep-automation@testemail.loanpal.com", 
         coFirstName: "testSolarSingleMilestone-CB-NY-SP", 
         coLastName: "Test",
         coStreet: "11 test street", 
         coState: "NY", 
-        coEmail: "co-borrower-automation@testmail.loanpal.com"
+        coEmail: "co-borrower-automation@testemail.loanpal.com"
     }
 ]
