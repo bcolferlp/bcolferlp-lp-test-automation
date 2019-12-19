@@ -1,22 +1,25 @@
-/*
-Initialize class with config
-config = {
-    imap: {
-      user: <EMAIL>,
-      password: <PASSWORD>,
-      host: 'mail.testemail.loanpal.com',
-      port: 993,
-      tls: true
-    }
-  };
-*/
-const _ = require('underscore');
-const imaps = require('imap-simple');
-const { simpleParser } = require('mailparser');
+import _ from 'underscore';
+import imaps from 'imap-simple';
+import { simpleParser } from 'mailparser';
+import h2t from 'html-to-text';
 
 export default class EmailAPI {
-  constructor(config) {
-    this.config = config;
+  /**
+   * Class requires an Object for the email connection
+   * @param user
+   * @param password
+   */
+  constructor({ user, password }) {
+    this.config = {
+      imap: {
+        user,
+        password,
+        host: 'mail.testemail.loanpal.com',
+        port: 993,
+        tls: true,
+        authTimeout: 20000
+      }
+    };
     this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
@@ -52,12 +55,18 @@ export default class EmailAPI {
   // Returns email text if subject is found
   getMessage(inbox, subjectText) {
     for (const mail of inbox) {
-      const { subject } = mail;
+      const { subject, text, html } = mail;
+      let newText = text;
       if (subject.includes(subjectText)) {
-        return mail.text;
+        if (!newText) newText = h2t.fromString(html);
+        return newText;
       }
     }
     throw new Error('Unable to find email');
+  }
+
+  getMessagesBySubjects(inbox, subjectText) {
+    return inbox.filter(mail => mail.subject.includes(subjectText)).map(mail => mail.text);
   }
 
   // Returns specific line in the message if the text is included

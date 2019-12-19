@@ -30,6 +30,12 @@ export default class EmailPage extends BasePageObject {
     await this.openUrl(this.emailUrl);
   }
 
+  async launch() {
+    await this.fullScreen();
+    await this.goToEmail();
+    await this.emailLogin();
+  }
+
   async emailLogin() {
     await this.waitForTarget(this.emailInput);
     const emailInput = await this.waitForElementLocated(this.emailInput, 5000);
