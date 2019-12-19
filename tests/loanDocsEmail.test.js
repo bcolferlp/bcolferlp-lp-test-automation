@@ -15,7 +15,7 @@ describe('Loan Docs Email', () => {
   describe('me first', () => {
     test('make the json', () => {
       console.log('Making the json');
-      const results = [{ loanId: '19-07-001021', fName: 'Stanley' }];
+      const results = [{ loanId: '19-04-000973', fName: 'Stanley' }];
       fs.writeFileSync(path.join(__dirname, '../data/loanDocs/testData/test.json'), JSON.stringify(results));
     }, 30000);
   });
