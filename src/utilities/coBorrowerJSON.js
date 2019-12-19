@@ -6,7 +6,7 @@ export default class CoBorrowerJSON {
   }
 
   updateJson(
-    productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail
+    productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail, testNumber
   ) {
     const jsonData = jsonload.sync(this.jsonFile);
     jsonData.productType = productType;
@@ -19,6 +19,7 @@ export default class CoBorrowerJSON {
     jsonData.applicant.spokenLanguage = spokenLanguage;
     jsonData.source = source;
     jsonData.salesRep.email = salesRepEmail;
+    jsonData.referenceNumber = `automated-${testNumber}`;
     // co applicant
     jsonData.coApplicants[0].firstName = coFirstName;
     jsonData.coApplicants[0].lastName = coLastName;

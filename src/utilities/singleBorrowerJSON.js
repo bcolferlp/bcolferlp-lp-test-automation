@@ -5,7 +5,7 @@ export default class SingleBorrowerJSON {
     this.jsonFile = '../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json';
   }
 
-  updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail) {
+  updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber) {
     const jsonData = jsonload.sync(this.jsonFile);
     jsonData.productType = productType;
     jsonData.clientId = clientId;
@@ -17,6 +17,7 @@ export default class SingleBorrowerJSON {
     jsonData.applicant.spokenLanguage = spokenLanguage;
     jsonData.source = source;
     jsonData.salesRep.email = salesRepEmail;
+    jsonData.referenceNumber = `automated-${testNumber}`;
     return jsonData;
   }
 }
