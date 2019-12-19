@@ -1,1 +1,0 @@
-["19-01-000981","testSolarSingleMilestone-PB-CA-EN"],["19-09-001007","testSolarSingleMilestone-PB-AZ-EN"],["19-09-001008","testSolarSingleMilestone-PB-NY-EN"],["19-13-000998","testSolarSingleMilestone-PB-CA-SP"],["19-11-001042","testSolarSingleMilestone-PB-AZ-SP"],["19-13-000999","testSolarSingleMilestone-PB-NY-SP"]
