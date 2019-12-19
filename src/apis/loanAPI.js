@@ -1,14 +1,17 @@
 import BaseAPI from '../base/baseApi';
 
+require("dotenv").config();
+
 export default class LoanAPI extends BaseAPI {
   constructor(dataJson) {
     super();
     this.dataJson = dataJson;
     this.loanData = this.createLoan();
+    
   }
 
   async createLoan() {
-    const url = 'https://api.loanpal.com/dev/restapi/v1/public/applications/';
+    const url = 'https://test-clientapi.loanpal.com/test/restapi/v1/public/applications/';
     const result = await this.apiPostRequest(url, this.dataJson);
     console.log(result);
     return result;
