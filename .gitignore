@@ -64,3 +64,5 @@ typings/
 allure-results
 
 data/files/*
+
+*.png
