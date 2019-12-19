@@ -9,7 +9,8 @@ import CoBorrowerJSON from '../src/utilities/coBorrowerJSON';
 import { longStackTraces } from 'bluebird';
 const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
 const singleBorrNonSunRunData = require('../data/loanDocs/testData/singleBorrowerNonSunRunData');
-const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
+//const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
+const coBorrSunRunData = require('../data/loanDocs/testData/joseTestData/coBorrowerSunRunDataJose');
 const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunRunData');
 
 
@@ -26,7 +27,7 @@ describe('Create Loans', () => {
     let loanCoBorrSunRun = []
     let loanCoBorrNonSunRun = []
 
-    each(singleBorrSunRunData).test('Create Single Borrower SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
+    each(singleBorrSunRunData).test.skip('Create Single Borrower SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
         const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
         //create Loan
         const loan = new LoanAPI(jsonData);
@@ -40,7 +41,7 @@ describe('Create Loans', () => {
         done();
     }, 10000)
 
-    each(singleBorrNonSunRunData).test('Create Single Borrower Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
+    each(singleBorrNonSunRunData).test.skip('Create Single Borrower Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
         const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
         //create Loan
         const loan = new LoanAPI(jsonData);
@@ -70,7 +71,7 @@ describe('Create Loans', () => {
     }, 10000)
 
 
-    each(coBorrNonSunRunData).test('create Combined Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail }, done) => {
+    each(coBorrNonSunRunData).test.skip('create Combined Non SunRun Loans', async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail }, done) => {
         const jsonData = new CoBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail, testNumber);
         //create Loan
         const loan = new LoanAPI(jsonData);
