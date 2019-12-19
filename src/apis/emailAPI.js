@@ -1,6 +1,7 @@
 import _ from 'underscore';
 import imaps from 'imap-simple';
 import { simpleParser } from 'mailparser';
+import h2t from 'html-to-text';
 
 export default class EmailAPI {
   /**
@@ -54,9 +55,11 @@ export default class EmailAPI {
   // Returns email text if subject is found
   getMessage(inbox, subjectText) {
     for (const mail of inbox) {
-      const { subject, text } = mail;
+      const { subject, text, html } = mail;
+      let newText = text;
       if (subject.includes(subjectText)) {
-        return text;
+        if (!newText) newText = h2t.fromString(html);
+        return newText;
       }
     }
     throw new Error('Unable to find email');
