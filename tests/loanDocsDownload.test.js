@@ -1,6 +1,6 @@
 import each from 'jest-each';
 
-const LoanDocsResultsFiles = require('../src/utilities/loanDocsResultFiles');
+import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 describe('Download DocuSign PDF files', () => {
   const loanResults = new LoanDocsResultsFiles();
