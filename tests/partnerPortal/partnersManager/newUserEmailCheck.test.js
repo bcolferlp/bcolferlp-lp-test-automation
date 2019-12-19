@@ -24,7 +24,7 @@ describe('Email', () => {
       const newUserInviteEmail = await email.getSplitEmail(inbox, 'newUserFrom');
       expect(newUserInviteEmail).toBeTruthy();
       for (const i in newUserInviteEmail) {
-        expect(newUserInviteEmail[i]).toMatch(emailHarmony.newUserInviteEmail[i]);
+        expect(newUserInviteEmail[i]).toMatch(emailHarmony.newUserFrom[i]);
       }
     }, 30000);
   });
