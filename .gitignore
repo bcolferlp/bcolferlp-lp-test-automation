@@ -64,5 +64,7 @@ typings/
 allure-results
 
 data/files/*
+data/loanDocs/testData/joseTestData/*
 
 *.png
+
