@@ -4,36 +4,31 @@ import BaseTest from '../src/base/baseTest';
 import LoanEmailPage from '../src/pages/loanEmailPage';
 import RequestLoanDocsPage from '../src/pages/requestLoanDocsPage';
 import DocuSignPage from '../src/pages/3rdParty/docuSign/docuSignPage';
+import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 // require('dotenv').config();
 
 const { fs, path } = require('../src/utilities/imports');
 
-const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
+const emailConfig = { user: process.env.borrowerUser, password: process.env.emailPass };
 
 describe('Loan Docs Email', () => {
-  describe('me first', () => {
-    test('make the json', () => {
-      console.log('Making the json');
-      const results = [{ loanId: '19-04-000973', fName: 'Stanley' }];
-      fs.writeFileSync(path.join(__dirname, '../data/loanDocs/testData/test.json'), JSON.stringify(results));
-    }, 30000);
-  });
-  describe('SunRun Single Borrower', () => {});
-  describe('SunRun CoBorrower', () => {});
-  describe('Non-SunRun Single Borrower', () => {
+  const loanResults = new LoanDocsResultsFiles();
+  const loanSingleBorrSunRun = loanResults.getLoanSingleBorrSunRun();
+  const loanSingleBorrNonSunRun = loanResults.getLoanSingleBorrNonSunRun();
+  const loanCoBorrSunRun = loanResults.getLoanCoBorrSunRun();
+  const loanCoBorrNonSunRun = loanResults.getLoanCoBorrNonSunRun();
+  describe('SunRun Single Borrower', () => {
     let email;
     let inbox;
     let baseTest;
-    const results = require('../data/loanDocs/testData/test.json');
 
     beforeAll(async () => {
       email = new LoanEmailPage(emailConfig);
-      inbox = await email.getInbox();
-      // console.log(inbox);
     });
 
     beforeEach(async () => {
+      inbox = await email.getInbox();
       baseTest = await new BaseTest('chrome');
     });
 
@@ -41,27 +36,75 @@ describe('Loan Docs Email', () => {
       await baseTest.close();
     });
 
-    test.each(results)(
-      'Request loan docs',
-      async ({ loanId, fName }) => {
-        // const fName = 'Stanley';
-        // const loanId = '19-13-000991';
+    test.each(loanSingleBorrSunRun)(
+      'SunRun Request loan docs',
+      async borrower => {
+        console.log(`Requesting loan docs for ${borrower.loanId}, ${borrower.firstName}, ${borrower.language}`);
 
         // Return link from headless email message
-        const requestLoanDocsLink = await email.getLoanDocsLink(inbox, loanId);
+        const requestLoanDocsLink = await email.getLoanDocsLink(inbox, borrower);
 
         // Launch the Request Loan Docs page
         const requestLoanDocsPage = new RequestLoanDocsPage(baseTest.webDriver);
         await requestLoanDocsPage.requestDocuments(requestLoanDocsLink);
-
-        console.log('Waiting 10 seconds for email to generate');
-        await requestLoanDocsPage.sleep(10000);
-
-        // Grab the inbox again
-        inbox = await email.getInbox();
+      },
+      300000
+    );
+    test.each(loanSingleBorrSunRun)(
+      'SunRun Sign loan docs',
+      async borrower => {
+        console.log(`Signing loan docs for ${borrower.loanId}, ${borrower.firstName}`);
 
         // Return link from headless email message
-        const docuSignLink = await email.getDocuSignLink(inbox, fName);
+        const docuSignLink = await email.getDocuSignLink(inbox, borrower);
+
+        // Launch DocuSign Page
+        const docuSignPage = await new DocuSignPage(baseTest.webDriver);
+        await docuSignPage.signLoanDocs(docuSignLink);
+      },
+      300000
+    );
+  });
+  describe('SunRun CoBorrower', () => {});
+  describe('Non-SunRun Single Borrower', () => {
+    let email;
+    let inbox;
+    let baseTest;
+
+    beforeAll(async () => {
+      email = new LoanEmailPage(emailConfig);
+    });
+
+    beforeEach(async () => {
+      inbox = await email.getInbox();
+      baseTest = await new BaseTest('chrome');
+    });
+
+    afterEach(async () => {
+      await baseTest.close();
+    });
+
+    test.each(loanSingleBorrNonSunRun)(
+      'Non-SunRun Request loan docs',
+      async borrower => {
+        console.log(`Requesting loan docs for ${borrower.loanId}, ${borrower.firstName}, ${borrower.language}`);
+
+        // Return link from headless email message
+        const requestLoanDocsLink = await email.getLoanDocsLink(inbox, borrower);
+
+        // Launch the Request Loan Docs page
+        const requestLoanDocsPage = new RequestLoanDocsPage(baseTest.webDriver);
+        await requestLoanDocsPage.requestDocuments(requestLoanDocsLink);
+      },
+      300000
+    );
+    test.each(loanSingleBorrNonSunRun)(
+      'Non-SunRun Sign loan docs',
+      async borrower => {
+        console.log(`Signing loan docs for ${borrower.loanId}, ${borrower.firstName}`);
+
+        // Return link from headless email message
+        const docuSignLink = await email.getDocuSignLink(inbox, borrower);
 
         // Launch DocuSign Page
         const docuSignPage = await new DocuSignPage(baseTest.webDriver);
