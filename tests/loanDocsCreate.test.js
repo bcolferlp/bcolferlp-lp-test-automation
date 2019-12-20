@@ -13,18 +13,21 @@ const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunR
 
 const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
 
+// create file loanids
+const loanSingleBorrSunRun = [];
+const loanSingleBorrNoSunRun = [];
+const loanCoBorrSunRun = [];
+const loanCoBorrNonSunRun = [];
 describe('Create Loans', () => {
-  // testNumber format yyyymmddhhmmss
-  const testNumber = new TestNumber().getTestNumber();
-  // Create folder <testnumber> in results directory
-  fs.mkdirSync(`${folderResults}${testNumber}`);
-  // write testNumber on file latestTestNumber.txt in results folder
-  fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber);
-  // create file loanids
-  const loanSingleBorrSunRun = [];
-  const loanSingleBorrNoSunRun = [];
-  const loanCoBorrSunRun = [];
-  const loanCoBorrNonSunRun = [];
+  let testNumber;
+  beforeAll(() => {
+    // testNumber format yyyymmddhhmmss
+    testNumber = new TestNumber().getTestNumber();
+    // Create folder <testnumber> in results directory
+    fs.mkdirSync(`${folderResults}${testNumber}`);
+    // write testNumber on file latestTestNumber.txt in results folder
+    fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber);
+  });
 
   each(singleBorrSunRunData).test(
     'Create Single Borrower SunRun Loans',
@@ -47,8 +50,8 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanSingleBorrSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.txt`, JSON.stringify(loanSingleBorrSunRun));
+      loanSingleBorrSunRun.push({ loanId, firstName, spokenLanguage });
+      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, JSON.stringify(loanSingleBorrSunRun));
       done();
     },
     10000
@@ -75,8 +78,8 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanSingleBorrNoSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.txt`, JSON.stringify(loanSingleBorrNoSunRun));
+      loanSingleBorrNoSunRun.push({ loanId, firstName, spokenLanguage });
+      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.json`, JSON.stringify(loanSingleBorrNoSunRun));
       done();
     },
     10000
@@ -127,8 +130,8 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanCoBorrSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.txt`, JSON.stringify(loanCoBorrSunRun));
+      loanCoBorrSunRun.push({ loanId, firstName, spokenLanguage });
+      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.json`, JSON.stringify(loanCoBorrSunRun));
       done();
     },
     10000
@@ -179,8 +182,8 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanCoBorrNonSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.txt`, JSON.stringify(loanCoBorrNonSunRun));
+      loanCoBorrNonSunRun.push({ loanId, firstName, spokenLanguage });
+      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.json`, JSON.stringify(loanCoBorrNonSunRun));
       done();
     },
     10000

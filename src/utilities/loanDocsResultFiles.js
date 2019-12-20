@@ -10,22 +10,30 @@ class LoanDocsResultsFiles {
   }
 
   getLoanSingleBorrSunRun() {
-    const loanSingleBorrSunRun = require(`${folderResults}${this.testNumber}/loanSingleBorrSunRun.json`);
+    let loanSingleBorrSunRun = [];
+    const path = `${folderResults}${this.testNumber}/loanSingleBorrSunRun.json`;
+    if (fs.existsSync(path)) loanSingleBorrSunRun = require(path);
     return loanSingleBorrSunRun;
   }
 
   getLoanSingleBorrNonSunRun() {
-    const loanSingleBorrNonSunRun = require(`${folderResults}${this.testNumber}/loanSingleBorrNonSunRun.json`);
+    let loanSingleBorrNonSunRun = [];
+    const path = `${folderResults}${this.testNumber}/loanSingleBorrNonSunRun.json`;
+    if (fs.existsSync(path)) loanSingleBorrNonSunRun = require(path);
     return loanSingleBorrNonSunRun;
   }
 
   getLoanCoBorrSunRun() {
-    const loanCoBorrSunRun = require(`${folderResults}${this.testNumber}/loanCoBorrSunRun.json`);
+    let loanCoBorrSunRun = [];
+    const path = `${folderResults}${this.testNumber}/loanCoBorrSunRun.json`;
+    if (fs.existsSync(path)) loanCoBorrSunRun = require(path);
     return loanCoBorrSunRun;
   }
 
   getLoanCoBorrNonSunRun() {
-    const loanCoBorrNonSunRun = require(`${folderResults}${this.testNumber}/loanCoBorrNonSunRun.json`);
+    let loanCoBorrNonSunRun = [];
+    const path = `${folderResults}${this.testNumber}/loanCoBorrNonSunRun.json`;
+    if (fs.existsSync(path)) loanCoBorrNonSunRun = require(path);
     return loanCoBorrNonSunRun;
   }
 }
