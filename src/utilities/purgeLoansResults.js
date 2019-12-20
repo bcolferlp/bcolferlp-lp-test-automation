@@ -10,19 +10,19 @@ const loanCoBorrNonSunRun = loanResults.getLoanCoBorrNonSunRun();
 const loanIds = [];
 
 loanSingleBorrSunRun.forEach(element => {
-  loanIds.push(element[0]);
+  loanIds.push(element);
 });
 
 loanSingleBorrNonSunRun.forEach(element => {
-  loanIds.push(element[0]);
+  loanIds.push(element);
 });
 
 loanCoBorrSunRun.forEach(element => {
-  loanIds.push(element[0]);
+  loanIds.push(element);
 });
 
 loanCoBorrNonSunRun.forEach(element => {
-  loanIds.push(element[0]);
+  loanIds.push(element);
 });
 
 const purgeLoan = new PurgeLoansById(loanIds);
