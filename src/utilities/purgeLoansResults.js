@@ -9,20 +9,20 @@ const loanCoBorrNonSunRun = loanResults.getLoanCoBorrNonSunRun();
 
 let loanIds = [];
 
-loanSingleBorrSunRun.forEach(element => {
-  loanIds.push(element[0]);
+loanSingleBorrSunRun.forEach(({ loanId }) => {
+  loanIds.push(loanId);
 });
 
-loanSingleBorrNonSunRun.forEach(element => {
-  loanIds.push(element[0]);
+loanSingleBorrNonSunRun.forEach(({ loanId }) => {
+  loanIds.push(loanId);
 });
 
-loanCoBorrSunRun.forEach(element => {
-  loanIds.push(element[0]);
+loanCoBorrSunRun.forEach(({ loanId }) => {
+  loanIds.push(loanId);
 });
 
-loanCoBorrNonSunRun.forEach(element => {
-  loanIds.push(element[0]);
+loanCoBorrNonSunRun.forEach(({ loanId }) => {
+  loanIds.push(loanId);
 });
 
 console.log(loanResults.testNumber)

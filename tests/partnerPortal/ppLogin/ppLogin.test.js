@@ -1,8 +1,9 @@
-import BaseTest from "../../../src/base/baseTest";
-import PPLoginPage from "../../../src/pages/partnerPortal/ppLogin/ppLoginPage";
-import each from "jest-each";
+/* eslint-disable global-require */
+import each from 'jest-each';
+import BaseTest from '../../../src/base/baseTest';
+import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 
-each(["chrome"]).describe("PP Login Test", browser => {
+each(['chrome']).describe('PP Login Test', browser => {
   let baseTest;
 
   beforeEach(async () => {
@@ -13,7 +14,7 @@ each(["chrome"]).describe("PP Login Test", browser => {
     await baseTest.close();
   });
 
-  test("Positive login test", async done => {
+  test('Positive login test', async done => {
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
     await ppLoginPage.open();
@@ -30,10 +31,8 @@ each(["chrome"]).describe("PP Login Test", browser => {
     done();
   }, 30000);
 
-  
-
-  each(require("../../../data/partnerPortal/ppLogin/ppLogin.js")).test(
-    "Negative login test",
+  each(require('../../../data/partnerPortal/ppLogin/ppLogin.js')).test(
+    'Negative login test',
     async ({ username, password, errorMessage }, done) => {
       const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
       await ppLoginPage.open();
@@ -42,7 +41,7 @@ each(["chrome"]).describe("PP Login Test", browser => {
       await ppLoginPage.loginClick();
       await baseTest.webDriver.sleep(2000);
       const errorElem = await ppLoginPage.getErrorElement();
-      const errorText = await errorElem.getAttribute("textContent");
+      const errorText = await errorElem.getAttribute('textContent');
       expect(errorText).toBe(errorMessage);
       done();
     },
