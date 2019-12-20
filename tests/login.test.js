@@ -2,7 +2,7 @@ import each from 'jest-each';
 import BaseTest from '../src/base/baseTest';
 import PPLoginPage from '../src/pages/ppLoginPage';
 
-each([['chrome'], ['firefox']]).describe.skip('Login Test', browser => {
+each([['chrome'], ['firefox']]).describe('Login Test', browser => {
   let baseTest;
 
   beforeEach(async () => {
