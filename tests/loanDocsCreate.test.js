@@ -8,8 +8,7 @@ const { fs, path } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber');
 const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
 const singleBorrNonSunRunData = require('../data/loanDocs/testData/singleBorrowerNonSunRunData');
-//const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
-const coBorrSunRunData = require('../data/loanDocs/testData/joseTestData/coBorrowerSunRunDataJose');
+const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
 const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunRunData');
 
 const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
