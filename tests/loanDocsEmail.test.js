@@ -11,7 +11,11 @@ import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 const { fs, path } = require('../src/utilities/imports');
 
 const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
+<<<<<<< HEAD
 jest.setTimeout(300000);
+=======
+
+>>>>>>> d18b6bdd692b1ca81e6552461ed4ba6a94f975d9
 describe('Loan Docs Email', () => {
   const loanResults = new LoanDocsResultsFiles();
   const loanSingleBorrSunRun = loanResults.getLoanSingleBorrSunRun();

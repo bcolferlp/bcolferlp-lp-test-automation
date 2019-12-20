@@ -1,8 +1,0 @@
-[
-  { "loanId": "19-02-000976", "firstName": "testSolarSingleMilestone-PB-CA-EN" },
-  { "loanId": "19-10-001055", "firstName": "testSolarSingleMilestone-PB-AZ-EN" },
-  { "loanId": "19-13-001001", "firstName": "testSolarSingleMilestone-PB-NY-EN" },
-  { "loanId": "19-02-000977", "firstName": "testSolarSingleMilestone-PB-CA-SP" },
-  { "loanId": "19-15-001087", "firstName": "testSolarSingleMilestone-PB-AZ-SP" },
-  { "loanId": "19-04-000978", "firstName": "testSolarSingleMilestone-PB-NY-SP" }
-]
