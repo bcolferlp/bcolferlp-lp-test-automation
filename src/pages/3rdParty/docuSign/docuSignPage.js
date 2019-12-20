@@ -5,6 +5,9 @@ const { By } = require('selenium-webdriver');
 export default class DocuSignPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
+    this.securityNewLink = By.xpath('//span[contains(text(),"For Your Security")]');
+    this.closeDocs = By.xpath('//button[contains(text(), "Close")]');
+    this.otherActions = By.xpath('//span[contains(text(), "Other Actions")]');
     this.docTarget = By.xpath('//span[contains(text(), "Please Review & Act on These Documents")]');
     this.agreeNoShow = By.xpath('//label[contains(text(), "I agree")]/../../../../..//div[@id="action-bar-consent-control" and contains(@style, "none")]');
     this.agreeBox = By.xpath('//span[@class="screen-reader-text"]');
@@ -31,7 +34,12 @@ export default class DocuSignPage extends BasePageObject {
   async completeDocs() {
     const handles = await this.getAllWindowHandles();
     if (handles.length > 1) await this.switchWindow(handles, 1);
-    await this.waitForTarget(this.docTarget);
+    await this.waitForTarget(this.otherActions);
+    const isSigned = await this.findElements(this.closeDocs);
+    if (isSigned.length > 0) {
+      console.log('Docs are already signed');
+      return;
+    }
     const agreeNoShow = await this.findElements(this.agreeNoShow);
     if (agreeNoShow.length === 0) {
       console.log('Agree checkbox exists');

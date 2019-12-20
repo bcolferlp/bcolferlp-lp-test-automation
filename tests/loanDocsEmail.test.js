@@ -10,8 +10,8 @@ import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 const { fs, path } = require('../src/utilities/imports');
 
-const emailConfig = { user: process.env.borrowerUser, password: process.env.emailPass };
-
+const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
+jest.setTimeout(300000);
 describe('Loan Docs Email', () => {
   const loanResults = new LoanDocsResultsFiles();
   const loanSingleBorrSunRun = loanResults.getLoanSingleBorrSunRun();
@@ -102,7 +102,6 @@ describe('Loan Docs Email', () => {
       'Non-SunRun Sign loan docs',
       async borrower => {
         console.log(`Signing loan docs for ${borrower.loanId}, ${borrower.firstName}`);
-
         // Return link from headless email message
         const docuSignLink = await email.getDocuSignLink(inbox, borrower);
 
