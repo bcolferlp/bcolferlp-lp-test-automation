@@ -33,15 +33,15 @@ export default class LoanEmailPage extends EmailAPI {
     return line;
   }
 
-  async getAllMessages(inbox, mailType, language) {
-    const subjectText = _.get(subject, `${mailType}.${language}`);
+  async getAllMessages(inbox, mailType, spokenLanguage) {
+    const subjectText = _.get(subject, `${mailType}.${spokenLanguage}`);
     const messages = this.getMessagesBySubjects(inbox, subjectText);
     return messages;
   }
 
-  async getLoanDocsLink(inbox, { loanId, language }) {
+  async getLoanDocsLink(inbox, { loanId, spokenLanguage }) {
     console.log('Getting loan docs link');
-    const emailBodies = await this.getAllMessages(inbox, 'solarFinancingDecision', language);
+    const emailBodies = await this.getAllMessages(inbox, 'solarFinancingDecision', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(loanId));
     const emailLink = await this.getLineToValidate(emailBod[0], 'https://dev-partner-admin.loanpal.com');
     const test = emailLink.match(/http.*$/g);
@@ -50,9 +50,9 @@ export default class LoanEmailPage extends EmailAPI {
     return newLink;
   }
 
-  async getDocuSignLink(inbox, { firstName, language }) {
+  async getDocuSignLink(inbox, { firstName, spokenLanguage }) {
     console.log('Getting DocuSign link');
-    const emailBodies = await this.getAllMessages(inbox, 'docusign', language);
+    const emailBodies = await this.getAllMessages(inbox, 'docusign', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(firstName));
     const emailLink = await this.getLineToValidate(emailBod[0], 'https://demo.docusign.net');
     return emailLink;
