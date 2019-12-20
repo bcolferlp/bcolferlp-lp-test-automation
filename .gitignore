@@ -65,7 +65,7 @@ allure-results
 
 data/files/*
 data/loanDocs/testData/joseTestData/*
+data/loanDocs/testResults/*
 
 *.png
 
-data/loanDocs/testData/joseTestData/*
