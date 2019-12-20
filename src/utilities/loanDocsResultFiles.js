@@ -4,7 +4,7 @@ const { fs, path } = require('./imports');
 
 const folderResults = path.join(__dirname, '../../data/loanDocs/testResults/');
 
-class LoanDocsResultsFiles {
+export default class LoanDocsResultsFiles {
   constructor() {
     this.testNumber = fs.readFileSync(`${folderResults}latestTestNumber.txt`).toString();
   }

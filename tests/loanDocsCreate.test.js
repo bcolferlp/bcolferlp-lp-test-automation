@@ -30,7 +30,7 @@ describe('Create Loans', () => {
     fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber);
   });
 
-  each(singleBorrSunRunData).test.skip('Create Single Borrower SunRun Loans',
+  each(singleBorrSunRunData).test('Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
       // create Loan
@@ -45,7 +45,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(singleBorrNonSunRunData).test.skip('Create Single Borrower Non SunRun Loans',
+  each(singleBorrNonSunRunData).test('Create Single Borrower Non SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
       // create Loan
@@ -60,7 +60,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrSunRunData).test('create Combined SunRun Loans',
+  each(coBorrSunRunData).test.skip('create Combined SunRun Loans',
     async ({productType,clientId,firstName,lastName,street,state,email,spokenLanguage,source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail}, done) => {
       const jsonData = new CoBorrowerJSON().updateJson(productType,clientId,firstName,lastName,street,state,email,spokenLanguage,
         source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail,testNumber);
