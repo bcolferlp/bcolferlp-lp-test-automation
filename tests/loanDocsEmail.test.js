@@ -10,7 +10,7 @@ import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 const { fs, path } = require('../src/utilities/imports');
 
-const emailConfig = { user: process.env.borrowerUser, password: process.env.emailPass };
+const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
 
 describe('Loan Docs Email', () => {
   const loanResults = new LoanDocsResultsFiles();

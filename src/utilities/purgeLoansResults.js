@@ -25,7 +25,5 @@ loanCoBorrNonSunRun.forEach(({ loanId }) => {
   loanIds.push(loanId);
 });
 
-console.log(loanResults.testNumber)
-console.log(loanIds)
-// const purgeLoan = new PurgeLoansById(loanIds);
-// purgeLoan.purgeLoans();
+const purgeLoan = new PurgeLoansById(loanIds);
+purgeLoan.purgeLoans();
