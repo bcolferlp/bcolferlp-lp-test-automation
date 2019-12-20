@@ -1,7 +1,7 @@
 {
     "overrideResponse": {
         "Bucket": "dev-core.loanpal.com",
-        "Key": "equifax-dev-mocks/approved/Solar/700.json"
+        "Key": "equifax-dev-mocks/combined/approved/820-810.json"
     },
     "productType": "Solar",
     "clientId": "clientId",

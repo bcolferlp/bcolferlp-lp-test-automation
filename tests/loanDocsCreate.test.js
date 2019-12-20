@@ -27,161 +27,62 @@ describe('Create Loans', () => {
   const loanCoBorrSunRun = [];
   const loanCoBorrNonSunRun = [];
 
-  each(singleBorrSunRunData).test(
-    'Create Single Borrower SunRun Loans',
+  each(singleBorrSunRunData).test.skip('Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
-      const jsonData = new SingleBorrowerJSON().updateJson(
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        testNumber
-      );
+      const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
       loanSingleBorrSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.txt`, JSON.stringify(loanSingleBorrSunRun));
+      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, JSON.stringify(loanSingleBorrSunRun));
       done();
     },
     10000
   );
 
-  each(singleBorrNonSunRunData).test(
-    'Create Single Borrower Non SunRun Loans',
+  each(singleBorrNonSunRunData).test.skip('Create Single Borrower Non SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
-      const jsonData = new SingleBorrowerJSON().updateJson(
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        testNumber
-      );
+      const jsonData = new SingleBorrowerJSON().updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber);
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
       loanSingleBorrNoSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.txt`, JSON.stringify(loanSingleBorrNoSunRun));
+      fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrNonSunRun.json`, JSON.stringify(loanSingleBorrNoSunRun));
       done();
     },
     10000
   );
 
-  each(coBorrSunRunData).test(
-    'create Combined SunRun Loans',
-    async (
-      {
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        coFirstName,
-        coLastName,
-        coStreet,
-        coState,
-        coEmail
-      },
-      done
-    ) => {
-      const jsonData = new CoBorrowerJSON().updateJson(
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        coFirstName,
-        coLastName,
-        coStreet,
-        coState,
-        coEmail,
-        testNumber
-      );
+  each(coBorrSunRunData).test('create Combined SunRun Loans',
+    async ({productType,clientId,firstName,lastName,street,state,email,spokenLanguage,source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail}, done) => {
+      const jsonData = new CoBorrowerJSON().updateJson(productType,clientId,firstName,lastName,street,state,email,spokenLanguage,
+        source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail,testNumber);
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
       loanCoBorrSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.txt`, JSON.stringify(loanCoBorrSunRun));
+      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.json`, JSON.stringify(loanCoBorrSunRun));
       done();
     },
     10000
   );
 
-  each(coBorrNonSunRunData).test(
-    'create Combined Non SunRun Loans',
-    async (
-      {
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        coFirstName,
-        coLastName,
-        coStreet,
-        coState,
-        coEmail
-      },
-      done
-    ) => {
-      const jsonData = new CoBorrowerJSON().updateJson(
-        productType,
-        clientId,
-        firstName,
-        lastName,
-        street,
-        state,
-        email,
-        spokenLanguage,
-        source,
-        salesRepEmail,
-        coFirstName,
-        coLastName,
-        coStreet,
-        coState,
-        coEmail,
-        testNumber
-      );
+  each(coBorrNonSunRunData).test.skip('create Combined Non SunRun Loans',
+    async ({productType,clientId,firstName,lastName,street,state,email,spokenLanguage,source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail}, done) => {
+      const jsonData = new CoBorrowerJSON().updateJson(productType,clientId,firstName,lastName,street,state,email,spokenLanguage,source,salesRepEmail,coFirstName,coLastName,coStreet,coState,coEmail,testNumber);
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
       loanCoBorrNonSunRun.push({ loanId, firstName });
-      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.txt`, JSON.stringify(loanCoBorrNonSunRun));
+      fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.json`, JSON.stringify(loanCoBorrNonSunRun));
       done();
     },
     10000
