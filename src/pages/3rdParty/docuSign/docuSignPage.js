@@ -47,6 +47,7 @@ export default class DocuSignPage extends BasePageObject {
       await agreeBox[0].click();
     }
     const docuSignContinue = await this.waitForElementLocated(this.docuSignContinue, 5000);
+    await this.waitForTarget(docuSignContinue)
     await docuSignContinue.click();
     console.log('Continue Click');
     const docuSignStart = await this.waitForElementLocated(this.docuSignStart, 5000);
