@@ -1,5 +1,5 @@
 const PurgeLoansById = require('./purgeByLoanId');
 
-const loanId = ['19-07-001030', '19-09-001018'];
+const loanId = [''];
 const purgeLoan = new PurgeLoansById(loanId);
 purgeLoan.purgeLoans();
