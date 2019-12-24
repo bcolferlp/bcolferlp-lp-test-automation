@@ -43,6 +43,41 @@ export default class EmailAPI {
     return mail;
   };
 
+  deleteMail = async () => {
+    const connection = await imaps.connect(this.config);
+    await connection.openBox('INBOX');
+    const messages = await connection.search(this.searchCriteria, this.fetchOptions);
+    const taskList = messages.map(message => {
+      return new Promise((resolve, reject) => {
+        try {
+          connection.delFlags(message.attributes.uid, '\\Flagged', err => {
+            if (err) console.info(err);
+          });
+          connection.addFlags(message.attributes.uid, ['\\Seen', '\\Deleted'], err => {
+            if (err) {
+              console.warn('Error deleting email %s msg: %s', message.attributes.uid, err);
+              reject(err);
+            }
+            resolve();
+          });
+        } catch (err) {
+          console.warn(err);
+        }
+      });
+    });
+    return Promise.all(taskList).then(() => {
+      connection.imap.closeBox(true, err => {
+        if (err) {
+          console.warn({
+            msg: 'Could not delete messages!',
+            erro: err
+          });
+        }
+      });
+      connection.end();
+    });
+  };
+
   // Returns entire inbox
   getInbox = () => this.mailConnect().then(mail => mail || Promise.reject(new Error('Unable to retrieve emails')));
 
