@@ -45,11 +45,13 @@ export default class DocuSignPage extends BasePageObject {
       console.log('Agree checkbox exists');
       const agreeBox = await this.findElements(this.agreeBox);
       await agreeBox[0].click();
+      console.log('Agree checkbox clicked');
     }
+    await this.sleep(1000);
     const docuSignContinue = await this.waitForElementLocated(this.docuSignContinue, 5000);
-    await this.waitForTarget(docuSignContinue)
     await docuSignContinue.click();
     console.log('Continue Click');
+    await this.sleep(1000);
     const docuSignStart = await this.waitForElementLocated(this.docuSignStart, 5000);
     await docuSignStart.click();
     console.log('Start Click');

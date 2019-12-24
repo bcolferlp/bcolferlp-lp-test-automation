@@ -37,7 +37,7 @@ describe('Loan Docs Email', () => {
     });
 
     test.each(loanSingleBorrSunRun)(
-      'SunRun Request loan docs',
+      'Request loan docs for SunRun',
       async borrower => {
         console.log(`Requesting loan docs for ${borrower.loanId}, ${borrower.firstName}, ${borrower.language}`);
 
@@ -51,7 +51,7 @@ describe('Loan Docs Email', () => {
       300000
     );
     test.each(loanSingleBorrSunRun)(
-      'SunRun Sign loan docs',
+      'Sign loan docs for SunRun',
       async borrower => {
         console.log(`Signing loan docs for ${borrower.loanId}, ${borrower.firstName}`);
 
@@ -66,7 +66,7 @@ describe('Loan Docs Email', () => {
     );
   });
   describe('SunRun CoBorrower', () => {});
-  describe('Non-SunRun Single Borrower', () => {
+  describe('NonSunRun Single Borrower', () => {
     let email;
     let inbox;
     let baseTest;
@@ -85,7 +85,7 @@ describe('Loan Docs Email', () => {
     });
 
     test.each(loanSingleBorrNonSunRun)(
-      'Non-SunRun Request loan docs',
+      'Request loan docs for NonSunRun',
       async borrower => {
         console.log(`Requesting loan docs for ${borrower.loanId}, ${borrower.firstName}, ${borrower.language}`);
 
@@ -99,7 +99,7 @@ describe('Loan Docs Email', () => {
       300000
     );
     test.each(loanSingleBorrNonSunRun)(
-      'Non-SunRun Sign loan docs',
+      'Sign loan docs for NonSunRun',
       async borrower => {
         console.log(`Signing loan docs for ${borrower.loanId}, ${borrower.firstName}`);
         // Return link from headless email message
@@ -112,5 +112,5 @@ describe('Loan Docs Email', () => {
       300000
     );
   });
-  describe('Non-SunRun CoBorrower', () => {});
+  describe('NonSunRun CoBorrower', () => {});
 });
