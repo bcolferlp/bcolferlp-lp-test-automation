@@ -85,7 +85,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrSunRunData).test(
+  each(coBorrSunRunData).test.skip(
     'create Combined SunRun Loans',
     async (
       {
@@ -137,7 +137,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrNonSunRunData).test(
+  each(coBorrNonSunRunData).test.skip(
     'create Combined Non SunRun Loans',
     async (
       {

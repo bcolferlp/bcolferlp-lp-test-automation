@@ -47,14 +47,16 @@ export default class LoanEmailPage extends EmailAPI {
     const test = emailLink.match(/http.*$/g);
     let newLink = test[0].replace(/&#x3D;/, '=');
     if (newLink[newLink.length - 1] === '.') newLink = newLink.slice(0, -1);
+    console.log(newLink);
     return newLink;
   }
 
   async getDocuSignLink(inbox, { firstName, spokenLanguage }) {
-    console.log('Getting DocuSign link');
+    //console.log('Getting DocuSign link');
     const emailBodies = await this.getAllMessages(inbox, 'docusign', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(firstName));
     const emailLink = await this.getLineToValidate(emailBod[0], 'https://demo.docusign.net');
+    console.log(emailLink);
     return emailLink;
   }
 }
