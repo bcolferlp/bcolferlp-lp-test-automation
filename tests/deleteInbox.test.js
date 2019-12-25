@@ -5,7 +5,7 @@ require('dotenv').config();
 const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
 const coboConfig = { user: process.env.coboUser, password: process.env.emailPass };
 
-describe.skip('Delete Email', () => {
+describe('Delete Email', () => {
   test('Delete inbox for Single Borrower', async () => {
     const email = new LoanEmailPage(emailConfig);
     await email.deleteMail();
