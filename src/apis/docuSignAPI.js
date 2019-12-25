@@ -20,7 +20,7 @@ export default class DocuSignAPI {
           }
         },
         function(error) {
-          console.log('error:', error);
+          if (error) console.log('error:', error);
           resolve();
         }
       ).pipe(fs.createWriteStream(filename).on('close', callback));

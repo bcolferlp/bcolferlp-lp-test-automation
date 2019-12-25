@@ -68,19 +68,21 @@ export default class DocuSignPage extends BasePageObject {
         console.log('Adopt and Initial Click');
         await this.sleep(5000);
       }
-
       await elem.click();
-      console.log('Click sign');
+      console.log(`Click sign: ${count}/${requiredSigns.length}`);
       if (count === 1) await this.waitForTarget(this.docuSignAdopt);
     }
-    const bankElems = await this.waitForElementsLocated(this.bankElements, 5000);
-    await bankElems[0].sendKeys('Chase');
     await this.sleep(1000);
-    await bankElems[1].sendKeys('322271627'); // CA chase
-    await this.sleep(1000);
-    await bankElems[2].sendKeys('123456789');
-    await this.sleep(1000);
-
+    const bankElems = await this.findElements(this.bankElements);
+    if (bankElems.length > 0) {
+      console.log('Entering bank information');
+      await bankElems[0].sendKeys('Chase');
+      await this.sleep(1000);
+      await bankElems[1].sendKeys('322271627'); // CA chase
+      await this.sleep(1000);
+      await bankElems[2].sendKeys('123456789');
+      await this.sleep(1000);
+    }
     const finishBtn = await this.waitForElementLocated(this.finishBtn, 5000);
     await finishBtn.click();
     console.log('Finish click');

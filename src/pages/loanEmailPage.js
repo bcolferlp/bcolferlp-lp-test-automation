@@ -52,7 +52,7 @@ export default class LoanEmailPage extends EmailAPI {
   }
 
   async getDocuSignLink(inbox, { firstName, spokenLanguage }) {
-    //console.log('Getting DocuSign link');
+    // console.log('Getting DocuSign link', firstName, spokenLanguage);
     const emailBodies = await this.getAllMessages(inbox, 'docusign', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(firstName));
     const emailLink = await this.getLineToValidate(emailBod[0], 'https://demo.docusign.net');
