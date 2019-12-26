@@ -79,7 +79,7 @@ describe('Loan Docs Email', () => {
     test.each(allLoans)(
       'Sign loan docs for Primary Borrowers',
       async borrower => {
-        console.log(`Signing loan docs for Primary SunRun ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
+        console.log(`Signing loan docs for Primary Borrower: ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 
         // Return link from headless email message
         const docuSignLink = await email.getDocuSignLink(inbox, borrower);
@@ -95,7 +95,7 @@ describe('Loan Docs Email', () => {
     test.each(allCoboLoans)(
       'Sign loan docs for Secondary Borrowers',
       async borrower => {
-        console.log(`Signing loan docs for Secondary SunRun ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
+        console.log(`Signing loan docs for Secondary Borrower: ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 
         // Return link from headless email message
         const coboDocuSignLink = await coboEmail.getDocuSignLink(coboInbox, borrower);
