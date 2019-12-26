@@ -10,6 +10,7 @@ const _ = require('lodash');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
 const { main: parseCSV } = require('./parseCSV');
+const { main: getRandomNum } = require('./getRandomNum');
 // SUPPORT
 const format = require('./format');
 
@@ -23,5 +24,6 @@ module.exports = {
   By,
   until,
   csv,
-  parseCSV
+  parseCSV,
+  getRandomNum
 };
