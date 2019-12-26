@@ -85,7 +85,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrSunRunData).test.skip(
+  each(coBorrSunRunData).test(
     'create Combined SunRun Loans',
     async (
       {
@@ -130,14 +130,14 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanCoBorrSunRun.push({ loanId, firstName, spokenLanguage });
+      loanCoBorrSunRun.push({ loanId, firstName: `${firstName} & ${coFirstName}`, spokenLanguage });
       fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrSunRun.json`, JSON.stringify(loanCoBorrSunRun));
       done();
     },
     10000
   );
 
-  each(coBorrNonSunRunData).test.skip(
+  each(coBorrNonSunRunData).test(
     'create Combined Non SunRun Loans',
     async (
       {
@@ -182,7 +182,7 @@ describe('Create Loans', () => {
       const loanStatus = await loan.getLoanStatus();
       expect(loanStatus).toBe('Approved');
       const loanId = await loan.getLoanId();
-      loanCoBorrNonSunRun.push({ loanId, firstName, spokenLanguage });
+      loanCoBorrNonSunRun.push({ loanId, firstName: `${firstName} & ${coFirstName}`, spokenLanguage });
       fs.writeFileSync(`${folderResults}${testNumber}/loanCoBorrNonSunRun.json`, JSON.stringify(loanCoBorrNonSunRun));
       done();
     },

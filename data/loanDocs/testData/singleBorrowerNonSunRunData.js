@@ -64,7 +64,7 @@ module.exports = [
     clientId: 'testSolarOneM',
     firstName: 'testSolarOneM-SB-NY-SP',
     lastName: 'Test',
-    street: '11 test street',
+    street: '111 test street',
     state: 'NY',
     email: 'borrower-automation@testemail.loanpal.com',
     spokenLanguage: 'spanish',

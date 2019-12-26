@@ -12,7 +12,7 @@ module.exports = [
     salesRepEmail: 'salesrep-automation@testemail.loanpal.com',
     coFirstName: 'testSolarOneM-CB-CA-EN',
     coLastName: 'Test',
-    coStreet: '1 test street',
+    coStreet: '201 test street',
     coState: 'CA',
     coEmail: 'co-borrower-automation@testemail.loanpal.com'
   },
@@ -29,7 +29,7 @@ module.exports = [
     salesRepEmail: 'salesrep-automation@testemail.loanpal.com',
     coFirstName: 'testSolarOneM-CB-AZ-EN',
     coLastName: 'Test',
-    coStreet: '3 test street',
+    coStreet: '203 test street',
     coState: 'AZ',
     coEmail: 'co-borrower-automation@testemail.loanpal.com'
   },
@@ -46,7 +46,7 @@ module.exports = [
     salesRepEmail: 'salesrep-automation@testemail.loanpal.com',
     coFirstName: 'testSolarOneM-CB-NY-EN',
     coLastName: 'Test',
-    coStreet: '5 test street',
+    coStreet: '205 test street',
     coState: 'NY',
     coEmail: 'co-borrower-automation@testemail.loanpal.com'
   },
@@ -80,7 +80,7 @@ module.exports = [
     salesRepEmail: 'salesrep-automation@testemail.loanpal.com',
     coFirstName: 'testSolarOneM-CB-AZ-SP',
     coLastName: 'Test',
-    coStreet: '9 test street',
+    coStreet: '209 test street',
     coState: 'AZ',
     coEmail: 'co-borrower-automation@testemail.loanpal.com'
   },
@@ -97,7 +97,7 @@ module.exports = [
     salesRepEmail: 'salesrep-automation@testemail.loanpal.com',
     coFirstName: 'testSolarOneM-CB-NY-SP',
     coLastName: 'Test',
-    coStreet: '11 test street',
+    coStreet: '2011 test street',
     coState: 'NY',
     coEmail: 'co-borrower-automation@testemail.loanpal.com'
   }
