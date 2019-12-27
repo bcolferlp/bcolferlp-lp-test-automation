@@ -2,16 +2,31 @@ const { AWS, path, fs } = require('../utilities/imports');
 
 const s3 = new AWS.S3();
 
-const bucket = 'lp-test-automation';
-
 export default class S3API {
   /**
    * Class has optional parameter
-   * @param location S3/lp-test-automation/<location>
+   * @param bucket Name of the S3 bucket
+   * @param location S3/lp-test-automation/<location> (OPTIONAL)
    */
-  constructor(location = '') {
-    this.bucketName = path.join(bucket, location).replace(/\\/g, '/');
+  constructor(bucket, location = '') {
+    this.bucket = bucket;
+    this.bucketName = path.join(this.bucket, location).replace(/\\/g, '/');
   }
+
+  checkBucketExists = async () => {
+    const options = {
+      Bucket: this.bucket
+    };
+    try {
+      await s3.headBucket(options).promise();
+      return true;
+    } catch (error) {
+      if (error.statusCode === 404) {
+        return false;
+      }
+      throw error;
+    }
+  };
 
   uploadFile = async (file, filePath) => {
     let bucketPath = path.basename(file);
