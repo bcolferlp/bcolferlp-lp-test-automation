@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 // LIBRARIES
+const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
 const { By, until } = require('selenium-webdriver');
@@ -16,6 +17,7 @@ const format = require('./format');
 // EXPORTS
 module.exports = {
   _,
+  AWS,
   fs,
   path,
   getNewestFile,
