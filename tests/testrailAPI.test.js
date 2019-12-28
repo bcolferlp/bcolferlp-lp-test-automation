@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable spaced-comment */
 /* eslint-disable camelcase */
 // Test rail Documentation  http://docs.gurock.com/testrail-api2/start
