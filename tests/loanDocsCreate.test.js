@@ -4,6 +4,7 @@ import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import CoBorrowerJSON from '../src/utilities/coBorrowerJSON';
 // import { longStackTraces } from 'bluebird';
 
+const TestRail = require('testrail-api');
 const { fs, path } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber');
 const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
@@ -13,14 +14,27 @@ const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunR
 
 const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
 
+const testrail = new TestRail({
+  host: process.env.trHost,
+  user: process.env.trUser,
+  password: process.env.trPassword
+});
+jest.setTimeout(300000);
 // create file loanids
 const loanSingleBorrSunRun = [];
 const loanSingleBorrNoSunRun = [];
 const loanCoBorrSunRun = [];
 const loanCoBorrNonSunRun = [];
+const trProject = 30;
+const trSuite = 1827;
 describe('Create Loans', () => {
   let testNumber;
-  beforeAll(() => {
+  let runResponse;
+  let trRunId;
+  beforeAll(async () => {
+    runResponse = await testrail.addRun(/*PROJECT_ID=*/ trProject, /*CONTENT=*/ { suite_id: trSuite, name: `Create loans` });
+    trRunId = runResponse.body.id;
+    expect(runResponse).toBeTruthy();
     // testNumber format yyyymmddhhmmss
     testNumber = new TestNumber().getTestNumber();
     // Create folder <testnumber> in results directory
@@ -28,7 +42,36 @@ describe('Create Loans', () => {
     // write testNumber on file latestTestNumber.txt in results folder
     fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber);
   });
-
+  afterEach(async results => {
+    console.log('results', results);
+    // const resultResponse = await testrail.addResult(/*TEST_ID=*/ trTestId, /*CONTENT=*/ { status_id: 1 });
+    // expect(resultResponse).toBeTruthy();
+  });
+  afterAll(async () => {
+    const trClose = await testrail.closeRun(trRunId);
+    expect(trClose).toBeTruthy();
+  });
+  test.only('This is only a test', () => {
+    const testResponse = {
+      body: [
+        {
+          id: 1,
+          title: 'Test conditional formatting with basic value range'
+        },
+        {
+          id: 2,
+          title: 'Verify line spacing on multi-page document'
+        },
+        {
+          id: 3,
+          title: 'Create Single Borrower SunRun Loans'
+        }
+      ]
+    };
+    const trTest = testResponse.body.filter(item => item.title.includes('Create Single Borrower SunRun Loans')).map(item => item.id);
+    expect(trTest).toBeTruthy();
+    // console.log(trTest);
+  });
   each(singleBorrSunRunData).test(
     'Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
@@ -45,6 +88,11 @@ describe('Create Loans', () => {
         salesRepEmail,
         testNumber
       );
+
+      const testResponse = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
+      expect(testResponse).toBeTruthy();
+      const trTest = testResponse.body.filter(item => item.title.includes('Create Single Borrower SunRun Loans')).map(item => item.id);
+      const trTestId = trTest[0];
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
@@ -52,6 +100,7 @@ describe('Create Loans', () => {
       const loanId = await loan.getLoanId();
       loanSingleBorrSunRun.push({ loanId, firstName, spokenLanguage });
       fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, JSON.stringify(loanSingleBorrSunRun));
+
       done();
     },
     10000
