@@ -5,6 +5,9 @@ const { By } = require('selenium-webdriver');
 export default class DocuSignPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
+    this.securityNewLink = By.xpath('//span[contains(text(),"For Your Security")]');
+    this.closeDocs = By.xpath('//button[contains(text(), "Close")]');
+    this.otherActions = By.xpath('//span[contains(text(), "Other Actions")]');
     this.docTarget = By.xpath('//span[contains(text(), "Please Review & Act on These Documents")]');
     this.agreeNoShow = By.xpath('//label[contains(text(), "I agree")]/../../../../..//div[@id="action-bar-consent-control" and contains(@style, "none")]');
     this.agreeBox = By.xpath('//span[@class="screen-reader-text"]');
@@ -31,16 +34,24 @@ export default class DocuSignPage extends BasePageObject {
   async completeDocs() {
     const handles = await this.getAllWindowHandles();
     if (handles.length > 1) await this.switchWindow(handles, 1);
-    await this.waitForTarget(this.docTarget);
+    await this.waitForTarget(this.otherActions);
+    const isSigned = await this.findElements(this.closeDocs);
+    if (isSigned.length > 0) {
+      console.log('Docs are already signed');
+      return;
+    }
     const agreeNoShow = await this.findElements(this.agreeNoShow);
     if (agreeNoShow.length === 0) {
       console.log('Agree checkbox exists');
       const agreeBox = await this.findElements(this.agreeBox);
       await agreeBox[0].click();
+      console.log('Agree checkbox clicked');
     }
+    await this.sleep(1000);
     const docuSignContinue = await this.waitForElementLocated(this.docuSignContinue, 5000);
     await docuSignContinue.click();
     console.log('Continue Click');
+    await this.sleep(1000);
     const docuSignStart = await this.waitForElementLocated(this.docuSignStart, 5000);
     await docuSignStart.click();
     console.log('Start Click');
@@ -57,19 +68,21 @@ export default class DocuSignPage extends BasePageObject {
         console.log('Adopt and Initial Click');
         await this.sleep(5000);
       }
-
       await elem.click();
-      console.log('Click sign');
+      console.log(`Click sign: ${count}/${requiredSigns.length}`);
       if (count === 1) await this.waitForTarget(this.docuSignAdopt);
     }
-    const bankElems = await this.waitForElementsLocated(this.bankElements, 5000);
-    await bankElems[0].sendKeys('Chase');
     await this.sleep(1000);
-    await bankElems[1].sendKeys('322271627'); // CA chase
-    await this.sleep(1000);
-    await bankElems[2].sendKeys('123456789');
-    await this.sleep(1000);
-
+    const bankElems = await this.findElements(this.bankElements);
+    if (bankElems.length > 0) {
+      console.log('Entering bank information');
+      await bankElems[0].sendKeys('Chase');
+      await this.sleep(1000);
+      await bankElems[1].sendKeys('322271627'); // CA chase
+      await this.sleep(1000);
+      await bankElems[2].sendKeys('123456789');
+      await this.sleep(1000);
+    }
     const finishBtn = await this.waitForElementLocated(this.finishBtn, 5000);
     await finishBtn.click();
     console.log('Finish click');

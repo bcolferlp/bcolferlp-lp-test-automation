@@ -1,0 +1,55 @@
+{
+    "overrideResponse": {
+        "Bucket": "dev-core.loanpal.com",
+        "Key": "equifax-dev-mocks/combined/approved/820-810.json"
+    },
+    "productType": "Solar",
+    "clientId": "clientId",
+    "applicant": {
+        "firstName": "firstName",
+        "lastName": "lastName",
+        "address": {
+            "street": "street",
+            "city": "Sacramento",
+            "state": "CA",
+            "zip": "95825"
+        },
+        "phone": "+18182415942",
+        "email": "email",
+        "dob": "1966-12-29",
+        "ssn": "1010",
+        "annualIncome": "$50,000",
+        "spokenLanguage": "english",
+        "electronicConsent": true
+    },
+    "coApplicants": [
+        {
+            "ssn": "123456987",
+            "firstName": "Mary",
+            "lastName": "Smith",
+            "dob": "1956-12-09",
+            "annualIncome": "$60,000.00",
+            "email": "email",
+            "phone": "+14654654564",
+            "electronicConsent": true,
+            "spokenLanguage": "english",
+            "address": {
+                "street": "102 Alezane Drive",
+                "city": "Folsom",
+                "state": "CA",
+                "zip": "95630"
+            }
+        }
+    ],
+    "salesRep": {
+        "firstName": "SalesRepTest",
+        "lastName": "Tester",
+        "email": "salesrep-automation@testemail.loanpal.com"
+    },
+    "totalSystemCost": "23000",
+    "selectedLoanOption": "1",
+    "source": "",
+    "referenceNumber": "automated-run",
+    "isOwner": true,
+    "isOccupant": true
+}
