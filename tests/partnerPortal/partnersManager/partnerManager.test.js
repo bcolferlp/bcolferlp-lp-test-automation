@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-identical-title */
 /* eslint-disable guard-for-in */
 import each from 'jest-each';
 import BaseTest from '../../../src/base/baseTest';
@@ -202,7 +203,7 @@ each(['chrome']).describe('PP Login Test', browser => {
   }, 300000);
 
   test("sales-rep", async done => {
-    console.log('Logging in as BlueRaven as sales-rep & Inviting sales-rep Users');
+    console.log('Logging in as BlueRaven as Partner-Manager & Inviting sales-rep Users');
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
     await ppLoginPage.open();
