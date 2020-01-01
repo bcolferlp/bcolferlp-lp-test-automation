@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-identical-title */
 /* eslint-disable guard-for-in */
 import each from 'jest-each';
 import BaseTest from '../../../src/base/baseTest';
@@ -35,7 +36,7 @@ each(['chrome']).describe('PP Login Test', browser => {
 
     const inviteButtonPath = By.xpath('//button[@id="inviteUserButton"]');
     const inviteButton = await ppLoginPage.findElement(inviteButtonPath);
-    inviteButton.click();
+    await inviteButton.click();
     console.log('Invite Button is clicked');
     await ppLoginPage.sleep(2000);
 
@@ -112,7 +113,7 @@ each(['chrome']).describe('PP Login Test', browser => {
   }, 300000);
 
   test("partner-read-only", async done => {
-    console.log('Logging in as BlueRaven as Partner-Manager & Inviting Partner-read-only Users');
+    console.log('Logging in as BlueRaven as Partner-read-only & Inviting Partner-read-only Users');
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
     await ppLoginPage.open();
@@ -201,8 +202,8 @@ each(['chrome']).describe('PP Login Test', browser => {
     done();
   }, 300000);
 
-  test("partner-read-only", async done => {
-    console.log('Logging in as BlueRaven as Partner-Manager & Inviting Partner-read-only Users');
+  test("sales-rep", async done => {
+    console.log('Logging in as BlueRaven as Partner-Manager & Inviting sales-rep Users');
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
     await ppLoginPage.open();
