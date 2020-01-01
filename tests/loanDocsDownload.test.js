@@ -13,11 +13,11 @@ describe('Download DocuSign PDF files', () => {
   const loanCoBorrSunRun = loanResults.getLoanCoBorrSunRun();
   const loanCoBorrNonSunRun = loanResults.getLoanCoBorrNonSunRun();
 
-  const allLoans = _.concat([],loanSingleBorrSunRun,loanSingleBorrNonSunRun,loanCoBorrSunRun,loanCoBorrNonSunRun)
-  console.log(allLoans)
+  const allLoans = _.concat([], loanSingleBorrSunRun, loanSingleBorrNonSunRun, loanCoBorrSunRun, loanCoBorrNonSunRun);
+  console.log(allLoans);
 
   each(allLoans).test(
-    'Download DocuSign PDFs',
+    '75671: Download DocuSign PDFs',
     async ({ loanId, firstName }) => {
       const loanData = new LoanData(loanId);
       const envelopeId = await loanData.getEnvelopeId();

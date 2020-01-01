@@ -2,7 +2,6 @@
 /* eslint-disable guard-for-in */
 import BaseTest from '../src/base/baseTest';
 import LoanEmailPage from '../src/pages/loanEmailPage';
-import RequestLoanDocsPage from '../src/pages/requestLoanDocsPage';
 import DocuSignPage from '../src/pages/3rdParty/docuSign/docuSignPage';
 import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
@@ -25,7 +24,6 @@ describe('Loan Docs Email', () => {
   const loanSingleBorrNonSunRun = loanResults.getLoanSingleBorrNonSunRun();
   const loanCoBorrSunRun = loanResults.getLoanCoBorrSunRun();
   const loanCoBorrNonSunRun = loanResults.getLoanCoBorrNonSunRun();
-  const allNonSunRunLoans = _.concat([], loanSingleBorrNonSunRun, loanCoBorrNonSunRun);
   const allLoans = _.concat([], loanSingleBorrSunRun, loanSingleBorrNonSunRun, loanCoBorrSunRun, loanCoBorrNonSunRun);
   const allCoboLoans = _.concat([], loanCoBorrSunRun, loanCoBorrNonSunRun);
 
@@ -33,34 +31,6 @@ describe('Loan Docs Email', () => {
   beforeAll(() => {
     email = new LoanEmailPage(emailConfig);
     coboEmail = new LoanEmailPage(coboConfig);
-  });
-
-  // Request Loans
-  describe('Request Loans', () => {
-    beforeEach(async () => {
-      inbox = await email.getInbox();
-      baseTest = await new BaseTest('chrome');
-    });
-
-    afterEach(async () => {
-      await baseTest.close();
-    });
-
-    // Request: NonSunRun loans
-    test.each(allNonSunRunLoans)(
-      '75667: Request loan docs for all NonSunRun loans',
-      async borrower => {
-        console.log(`Requesting loan docs for NonSunRun ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
-
-        // Return link from headless email message
-        const requestLoanDocsLink = await email.getLoanDocsLink(inbox, borrower);
-
-        // Launch the Request Loan Docs page
-        const requestLoanDocsPage = new RequestLoanDocsPage(baseTest.webDriver);
-        await requestLoanDocsPage.requestDocuments(requestLoanDocsLink);
-      },
-      300000
-    );
   });
 
   // Sign Loan Docs
