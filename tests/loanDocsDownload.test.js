@@ -19,10 +19,12 @@ describe('Download DocuSign PDF files', () => {
   each(allLoans).test(
     '75671: Download DocuSign PDFs',
     async ({ loanId, firstName }) => {
+      console.log('Downloading docs for', firstName);
+      const replacedName = firstName.replace(' & ', '-and-');
       const loanData = new LoanData(loanId);
       const envelopeId = await loanData.getEnvelopeId();
       console.log(envelopeId);
-      const filename = `${folderResults}${loanResults.testNumber}/${firstName}.pdf`;
+      const filename = `${folderResults}${loanResults.testNumber}/${replacedName}.pdf`;
       const docuSignAPI = new DocuSignAPI(envelopeId);
       const download = await docuSignAPI.downloadDocument(filename);
       expect(download).toBeTruthy();
