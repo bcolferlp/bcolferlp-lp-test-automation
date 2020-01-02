@@ -13,14 +13,16 @@ const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunR
 
 const folderResults = path.join(__dirname, '../data/loanDocs/testResults/');
 
+jest.setTimeout(300000);
 // create file loanids
 const loanSingleBorrSunRun = [];
 const loanSingleBorrNoSunRun = [];
 const loanCoBorrSunRun = [];
 const loanCoBorrNonSunRun = [];
+
 describe('Create Loans', () => {
   let testNumber;
-  beforeAll(() => {
+  beforeAll(async () => {
     // testNumber format yyyymmddhhmmss
     testNumber = new TestNumber().getTestNumber();
     // Create folder <testnumber> in results directory
@@ -30,7 +32,7 @@ describe('Create Loans', () => {
   });
 
   each(singleBorrSunRunData).test(
-    'Create Single Borrower SunRun Loans',
+    '75431: Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
         productType,
@@ -45,6 +47,7 @@ describe('Create Loans', () => {
         salesRepEmail,
         testNumber
       );
+
       // create Loan
       const loan = new LoanAPI(jsonData);
       const loanStatus = await loan.getLoanStatus();
@@ -52,13 +55,14 @@ describe('Create Loans', () => {
       const loanId = await loan.getLoanId();
       loanSingleBorrSunRun.push({ loanId, firstName, spokenLanguage });
       fs.writeFileSync(`${folderResults}${testNumber}/loanSingleBorrSunRun.json`, JSON.stringify(loanSingleBorrSunRun));
+
       done();
     },
     10000
   );
 
   each(singleBorrNonSunRunData).test(
-    'Create Single Borrower Non SunRun Loans',
+    '75432: Create Single Borrower Non SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
         productType,
@@ -86,7 +90,7 @@ describe('Create Loans', () => {
   );
 
   each(coBorrSunRunData).test(
-    'create Combined SunRun Loans',
+    '75433: Create Combined SunRun Loans',
     async (
       {
         productType,
@@ -138,7 +142,7 @@ describe('Create Loans', () => {
   );
 
   each(coBorrNonSunRunData).test(
-    'create Combined Non SunRun Loans',
+    '75434: Create Combined Non SunRun Loans',
     async (
       {
         productType,

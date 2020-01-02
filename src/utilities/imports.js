@@ -13,7 +13,7 @@ const { main: getNewestFile } = require('./getNewestFile');
 const { main: parseCSV } = require('./parseCSV');
 // SUPPORT
 const format = require('./format');
-
+const globals = require('./globals');
 // EXPORTS
 module.exports = {
   _,
@@ -25,5 +25,6 @@ module.exports = {
   By,
   until,
   csv,
-  parseCSV
+  parseCSV,
+  globals
 };
