@@ -17,7 +17,7 @@ describe('Download DocuSign PDF files', () => {
   console.log(allLoans);
 
   each(allLoans).test(
-    '75671: Download DocuSign PDFs',
+    '75905: Download DocuSign PDFs',
     async ({ loanId, firstName }) => {
       console.log('Downloading docs for', firstName);
       const replacedName = firstName.replace(' & ', '-and-');

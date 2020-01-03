@@ -32,7 +32,7 @@ describe('Create Loans', () => {
   });
 
   each(singleBorrSunRunData).test(
-    '75431: Create Single Borrower SunRun Loans',
+    '75898: Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
         productType,
@@ -62,7 +62,7 @@ describe('Create Loans', () => {
   );
 
   each(singleBorrNonSunRunData).test(
-    '75432: Create Single Borrower Non SunRun Loans',
+    '75899: Create Single Borrower Non SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
         productType,
@@ -90,7 +90,7 @@ describe('Create Loans', () => {
   );
 
   each(coBorrSunRunData).test(
-    '75433: Create Combined SunRun Loans',
+    '75900: Create Combined SunRun Loans',
     async (
       {
         productType,
@@ -142,7 +142,7 @@ describe('Create Loans', () => {
   );
 
   each(coBorrNonSunRunData).test(
-    '75434: Create Combined Non SunRun Loans',
+    '75901: Create Combined Non SunRun Loans',
     async (
       {
         productType,
