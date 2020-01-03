@@ -2,7 +2,6 @@
 /* eslint-disable spaced-comment */
 require('dotenv').config();
 const _ = require('lodash');
-const fs = require('fs');
 const TestRail = require('testrail-api');
 
 const testrail = new TestRail({
@@ -75,7 +74,6 @@ class MyCustomReporter {
 
         await Promise.all(addResultPromises);
       } catch (e) {
-        // fs.writeFileSync('output.json', JSON.stringify(e));
         console.error('ERROR:', e.message.error);
         console.error('ERROR:', e.response.request.href);
       }
