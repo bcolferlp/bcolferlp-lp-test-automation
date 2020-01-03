@@ -40,5 +40,17 @@ module.exports = {
     trProject: 30,
     trSuite: 1723,
     active: true
+  },
+  7: {
+    name: 'Loan Docs E2E',
+    trProject: 30,
+    trSuite: 1879,
+    active: true
+  },
+  8: {
+    name: 'Test Suite',
+    trProject: 30,
+    trSuite: 1697,
+    active: true
   }
 };

@@ -18,7 +18,7 @@ describe('Compare DocuSign PDF files', () => {
   const allLoans = _.concat([], loanSingleBorrSunRun, loanSingleBorrNonSunRun, loanCoBorrSunRun, loanCoBorrNonSunRun);
 
   each(allLoans).test(
-    'Compare DocuSign PDFs',
+    '75906: Compare DocuSign PDFs',
     async ({ firstName }) => {
       console.log('Comparing docs for', firstName);
       const replacedName = firstName.replace(' & ', '-and-');

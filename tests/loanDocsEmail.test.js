@@ -48,7 +48,7 @@ describe('Loan Docs Email', () => {
 
     // Request: NonSunRun loans
     test.each(allNonSunRunLoans)(
-      '75667: Request loan docs for all NonSunRun loans',
+      '75902: Request loan docs for all NonSunRun loans',
       async borrower => {
         console.log(`Requesting loan docs for NonSunRun ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 
@@ -77,7 +77,7 @@ describe('Loan Docs Email', () => {
 
     // Sign: Primary Borrower for Single and CoBo loans
     test.each(allLoans)(
-      '75668: Sign loan docs for Primary Borrowers',
+      '75903: Sign loan docs for Primary Borrowers',
       async borrower => {
         console.log(`Signing loan docs for Primary Borrower: ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 
@@ -93,7 +93,7 @@ describe('Loan Docs Email', () => {
 
     // Sign: Secondary Borrowers
     test.each(allCoboLoans)(
-      '75669: Sign loan docs for Secondary Borrowers',
+      '75904: Sign loan docs for Secondary Borrowers',
       async borrower => {
         console.log(`Signing loan docs for Secondary Borrower: ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 

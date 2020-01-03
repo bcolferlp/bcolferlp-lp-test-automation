@@ -2,18 +2,8 @@
 /* eslint-disable spaced-comment */
 require('dotenv').config();
 const _ = require('lodash');
+const fs = require('fs');
 const TestRail = require('testrail-api');
-const testRailConfig = require('./testRailconfig');
-
-let argChosen;
-const args = process.argv;
-args.forEach(arg => {
-  const attribute = _.find(testRailConfig, ['name', arg]);
-  // console.log('attribute', attribute);
-  if (attribute !== undefined) {
-    argChosen = attribute;
-  }
-});
 
 const testrail = new TestRail({
   host: process.env.trHost,
@@ -21,66 +11,87 @@ const testrail = new TestRail({
   password: process.env.trPassword
 });
 
-let trRunId;
-
 class MyCustomReporter {
   constructor(globalConfig, options) {
     this.globalConfig = globalConfig;
     this.options = options;
   }
 
-  async onRunComplete() {
-    if (trRunId) {
-      await testrail.closeRun(trRunId);
-      console.log(`Test Run: ${trRunId} complete`);
-    }
-  }
-
   async onTestResult(test, testResult, aggregatedResult) {
-    if (argChosen && trRunId) {
-      console.log('onTestResult:');
-      // console.log('test: ', test);
-      // console.log('testResult: ', testResult);
-      // console.log('aggregatedResult: ', aggregatedResult);
-      const { testResults } = testResult;
-      const { body } = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
-      // console.log('testResponse', body);
-      const promises = testResults.map(item => {
-        // console.log(item, 'item');
-        const { title, status } = item;
-        const splitTitle = title.split(':');
-        const sendStatus = status === 'passed' ? 1 : status === 'failed' ? 5 : 3;
-        return new Promise((resolve, reject) => {
-          return body.map(async bodyItem => {
-            // console.log(bodyItem.case_id, splitTitle[0], bodyItem.case_id === splitTitle[0]);
-            if (bodyItem.case_id === +splitTitle[0]) {
-              // console.log('MATCH', bodyItem.id);
-              try {
-                const resultResponse = await testrail.addResult(/*TEST_ID=*/ bodyItem.id, /*CONTENT=*/ { status_id: sendStatus });
-                if (resultResponse) resolve();
-              } catch (e) {
-                reject();
-              }
-            }
-          });
-        });
-      });
-      await Promise.all(promises);
-    }
-  }
+    console.log('onTestResult:');
+    let trRunId;
+    const runsToClose = [];
+    const { testResults } = testResult;
 
-  async onRunStart(results, options) {
-    if (argChosen) {
-      const { name = '', trProject = '', trSuite = '' } = argChosen;
-      console.log(`onRunStart: Project ${trProject}, Suite ${trSuite}`);
-      if (!trRunId) {
-        const runResponse = await testrail.addRun(/*PROJECT_ID=*/ trProject, /*CONTENT=*/ { suite_id: trSuite, name });
-        trRunId = runResponse.body.id;
+    const caseResults = testResults.reduce((acc, testResult) => {
+      const { title, status, failureMessages } = testResult;
+      if (title.includes(':')) {
+        const caseId = title.split(':')[0].trim();
+        const caseName = title.split(':')[1].trim();
+        const sendStatus = status === 'passed' ? 1 : status === 'failed' ? 5 : 3;
+        const key = caseId;
+        if (acc[key]) {
+          acc[key].caseName = caseName;
+          acc[key].results.push(sendStatus);
+          acc[key].failureMessages = acc[key].failureMessages.concat(failureMessages);
+        } else {
+          acc[key] = { caseName, results: [sendStatus], failureMessages };
+        }
       }
-      // console.log('trRunId', results);
-      // console.log('results: ', results);
-      // console.log('Options: ', options);
-    } else console.log('No TestRail suite chosen');
+      return acc;
+    }, {});
+
+    const casePromises = Object.keys(caseResults).map(async caseId => {
+      try {
+        const caseReponse = await testrail.getCase(caseId);
+        const suiteResponse = await testrail.getSuite(caseReponse.body.suite_id);
+        const date = new Date().toLocaleString();
+        const runResponse = await testrail.addRun(
+          /*PROJECT_ID=*/ suiteResponse.body.project_id,
+          /*CONTENT=*/ {
+            suite_id: caseReponse.body.suite_id,
+            name: `${caseResults[caseId].caseName} (${date})`,
+            include_all: false,
+            case_ids: Object.keys(caseResults).map(c => +c)
+          }
+        );
+        trRunId = runResponse.body.id;
+        runsToClose.push(trRunId);
+        console.log('Adding Result for run', trRunId);
+        const { body } = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
+
+        const addResultPromises = Object.entries(caseResults).map(async ([caseId, item], i) => {
+          const { results, failureMessages } = item;
+
+          const caseNum = +caseId;
+          const failed = results.findIndex(r => r === 5) > -1;
+          const testrailRun = body.find(tr => tr.case_id === caseNum);
+
+          if (testrailRun) {
+            console.log('Add Result for', testrailRun.id);
+            await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
+          }
+        });
+
+        await Promise.all(addResultPromises);
+      } catch (e) {
+        // fs.writeFileSync('output.json', JSON.stringify(e));
+        console.error('ERROR:', e.message.error);
+        console.error('ERROR:', e.response.request.href);
+      }
+    });
+    await Promise.all(casePromises);
+
+    // Close the runs
+    const closePromises = runsToClose.map(async runId => {
+      try {
+        console.log('closing run', runId);
+        await testrail.closeRun(runId);
+      } catch (e) {
+        console.error(e);
+      }
+    });
+    await Promise.all(closePromises);
   }
 }
 

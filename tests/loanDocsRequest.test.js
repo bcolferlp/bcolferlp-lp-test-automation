@@ -39,7 +39,7 @@ describe('Loan Docs Email', () => {
 
     // Request: NonSunRun loans
     test.each(allNonSunRunLoans)(
-      '75667: Request loan docs for all NonSunRun loans',
+      '75902: Request loan docs for all NonSunRun loans',
       async borrower => {
         console.log(`Requesting loan docs for NonSunRun ${borrower.loanId}, ${borrower.firstName}, ${borrower.spokenLanguage}`);
 
