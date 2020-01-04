@@ -1,8 +1,8 @@
 import S3API from '../src/apis/s3API';
 import RunCommand from '../src/utilities/runCommand';
-import { MarketplaceCommerceAnalytics } from 'aws-sdk';
 
 const { fs, path } = require('../src/utilities/imports');
+
 jest.setTimeout(60000 * 30);
 describe('S3', () => {
   const bucket = 'lp-test-automation';
