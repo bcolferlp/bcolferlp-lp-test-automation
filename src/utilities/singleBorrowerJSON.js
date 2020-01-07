@@ -1,3 +1,4 @@
+require('dotenv').config();
 const jsonload = require('jsonload');
 
 export default class SingleBorrowerJSON {
@@ -7,6 +8,7 @@ export default class SingleBorrowerJSON {
 
   updateJson(productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, testNumber) {
     const jsonData = jsonload.sync(this.jsonFile);
+    jsonData.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
     jsonData.productType = productType;
     jsonData.clientId = clientId;
     jsonData.applicant.firstName = firstName;

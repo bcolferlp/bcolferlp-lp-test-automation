@@ -15,7 +15,7 @@ class PurgeLoansById {
   constructor(loanids) {
     this.loanids = loanids;
     this.docClient = new DocumentClient();
-    this.stage = 'dev';
+    this.stage = process.env.STAGE;
   }
 
   purgeLoans() {

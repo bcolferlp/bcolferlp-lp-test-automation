@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "report": "allure serve",
+    "purge": "node src/utilities/purgeLoansResults.js && jest tests/deleteInbox.test.js",
     "e2eloans": "jest tests/loanDocsCreate.test.js && jest --runInBand tests/loanDocsEmail.test.js && jest tests/loanDocsDownload.test.js && jest tests/loanDocsComparePDF.test.js"
   },
   "repository": {

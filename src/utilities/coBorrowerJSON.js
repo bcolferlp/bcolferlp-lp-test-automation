@@ -6,9 +6,25 @@ export default class CoBorrowerJSON {
   }
 
   updateJson(
-    productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail, coFirstName, coLastName, coStreet, coState, coEmail, testNumber
+    productType,
+    clientId,
+    firstName,
+    lastName,
+    street,
+    state,
+    email,
+    spokenLanguage,
+    source,
+    salesRepEmail,
+    coFirstName,
+    coLastName,
+    coStreet,
+    coState,
+    coEmail,
+    testNumber
   ) {
     const jsonData = jsonload.sync(this.jsonFile);
+    jsonData.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
     jsonData.productType = productType;
     jsonData.clientId = clientId;
     jsonData.applicant.firstName = firstName;
