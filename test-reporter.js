@@ -24,17 +24,19 @@ class MyCustomReporter {
 
     const caseResults = testResults.reduce((acc, testResult) => {
       const { title, status, failureMessages } = testResult;
-      if (title.includes(':')) {
-        const caseId = title.split(':')[0].trim();
-        const caseName = title.split(':')[1].trim();
-        const sendStatus = status === 'passed' ? 1 : status === 'failed' ? 5 : 3;
-        const key = caseId;
-        if (acc[key]) {
-          acc[key].caseName = caseName;
-          acc[key].results.push(sendStatus);
-          acc[key].failureMessages = acc[key].failureMessages.concat(failureMessages);
-        } else {
-          acc[key] = { caseName, results: [sendStatus], failureMessages };
+      if (status !== 'pending') {
+        if (title.includes(':')) {
+          const caseId = title.split(':')[0].trim();
+          const caseName = title.split(':')[1].trim();
+          const sendStatus = status === 'passed' ? 1 : status === 'failed' ? 5 : 3;
+          const key = caseId;
+          if (acc[key]) {
+            acc[key].caseName = caseName;
+            acc[key].results.push(sendStatus);
+            acc[key].failureMessages = acc[key].failureMessages.concat(failureMessages);
+          } else {
+            acc[key] = { caseName, results: [sendStatus], failureMessages };
+          }
         }
       }
       return acc;
