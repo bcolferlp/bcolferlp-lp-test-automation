@@ -36,4 +36,11 @@ describe('S3', () => {
     expect(bucketExist).toBeTruthy();
     await s3API.uploadDir(filePath);
   });
+
+  test('Download File from S3', async () => {
+    let didDownload = await s3API.downloadFile('index.html');
+    expect(didDownload).toBe(true);
+    //let result = await s3API.getBucketNotificationConfiguration();
+    //console.log(result);
+  }, 300000);
 });
