@@ -17,7 +17,6 @@ class MyCustomReporter {
   }
 
   async onTestResult(test, testResult, aggregatedResult) {
-    console.log(testResult, 'testResult');
     let trRunId;
     const runsToClose = [];
     const { testResults } = testResult;
