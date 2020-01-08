@@ -1,5 +1,4 @@
 import S3API from '../src/apis/s3API';
-import RunCommand from '../src/utilities/runCommand';
 import Archiver from '../src/utilities/archiver';
 
 const { fs, path } = require('../src/utilities/imports');
@@ -17,22 +16,14 @@ describe('S3', () => {
 
   beforeAll(async () => {
     bucketExist = await s3API.checkBucketExists();
-  });
-  test('can I archive', async () => {
-    const archive = new Archiver(filePath);
-    const zipPath = await archive.zip();
-    await s3API.uploadFile(zipPath, filePath);
-    console.log(zipPath, 'test');
+    expect(bucketExist).toBeTruthy();
   });
 
   test('Upload zipped file to S3', async () => {
-    expect(bucketExist).toBeTruthy();
-    const command = `node src/utilities/archiver.js`;
-    const runComm = new RunCommand(command);
-    const result = await runComm.execute();
-    const [memory, zipPath] = result.stdout.split('\n');
+    const archive = new Archiver(filePath);
+    const zipPath = await archive.zip();
     expect(zipPath).toBeTruthy();
-    console.log(`Uploading zipped file: ${zipPath}, ${memory}`);
+    console.log(`Uploading zipped file: ${zipPath}`);
     await s3API.uploadFile(zipPath, filePath);
   });
 
