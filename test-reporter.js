@@ -17,7 +17,6 @@ class MyCustomReporter {
   }
 
   async onTestResult(test, testResult, aggregatedResult) {
-    console.log('onTestResult:');
     let trRunId;
     const runsToClose = [];
     const { testResults } = testResult;
@@ -42,56 +41,59 @@ class MyCustomReporter {
       return acc;
     }, {});
 
-    const casePromises = Object.keys(caseResults).map(async caseId => {
-      try {
-        const caseReponse = await testrail.getCase(caseId);
-        const suiteResponse = await testrail.getSuite(caseReponse.body.suite_id);
-        const date = new Date().toLocaleString();
-        const runResponse = await testrail.addRun(
-          /*PROJECT_ID=*/ suiteResponse.body.project_id,
-          /*CONTENT=*/ {
-            suite_id: caseReponse.body.suite_id,
-            name: `${caseResults[caseId].caseName} (${date})`,
-            include_all: false,
-            case_ids: Object.keys(caseResults).map(c => +c)
-          }
-        );
-        trRunId = runResponse.body.id;
-        runsToClose.push(trRunId);
-        console.log('Adding Result for run', trRunId);
-        const { body } = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
+    if (Object.keys(caseResults).length > 0) {
+      console.log('Test Results');
+      const casePromises = Object.keys(caseResults).map(async caseId => {
+        try {
+          const caseReponse = await testrail.getCase(caseId);
+          const suiteResponse = await testrail.getSuite(caseReponse.body.suite_id);
+          const date = new Date().toLocaleString();
+          const runResponse = await testrail.addRun(
+            /*PROJECT_ID=*/ suiteResponse.body.project_id,
+            /*CONTENT=*/ {
+              suite_id: caseReponse.body.suite_id,
+              name: `${caseResults[caseId].caseName} (${date})`,
+              include_all: false,
+              case_ids: Object.keys(caseResults).map(c => +c)
+            }
+          );
+          trRunId = runResponse.body.id;
+          runsToClose.push(trRunId);
+          console.log('Adding Run:', trRunId);
+          const { body } = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
 
-        const addResultPromises = Object.entries(caseResults).map(async ([caseId, item], i) => {
-          const { results, failureMessages } = item;
+          const addResultPromises = Object.entries(caseResults).map(async ([caseId, item], i) => {
+            const { results, failureMessages } = item;
 
-          const caseNum = +caseId;
-          const failed = results.findIndex(r => r === 5) > -1;
-          const testrailRun = body.find(tr => tr.case_id === caseNum);
+            const caseNum = +caseId;
+            const failed = results.findIndex(r => r === 5) > -1;
+            const testrailRun = body.find(tr => tr.case_id === caseNum);
 
-          if (testrailRun) {
-            console.log('Add Result for', testrailRun.id);
-            await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
-          }
-        });
+            if (testrailRun) {
+              console.log('Add Result:', testrailRun.id);
+              await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
+            }
+          });
 
-        await Promise.all(addResultPromises);
-      } catch (e) {
-        console.error('ERROR:', e.message.error);
-        console.error('ERROR:', e.response.request.href);
-      }
-    });
-    await Promise.all(casePromises);
+          await Promise.all(addResultPromises);
+        } catch (e) {
+          console.error('ERROR:', e.message.error);
+          console.error('ERROR:', e.response.request.href);
+        }
+      });
+      await Promise.all(casePromises);
 
-    // Close the runs
-    const closePromises = runsToClose.map(async runId => {
-      try {
-        console.log('closing run', runId);
-        await testrail.closeRun(runId);
-      } catch (e) {
-        console.error(e);
-      }
-    });
-    await Promise.all(closePromises);
+      // Close the runs
+      const closePromises = runsToClose.map(async runId => {
+        try {
+          console.log('Closing run:', runId);
+          await testrail.closeRun(runId);
+        } catch (e) {
+          console.error('ERROR:', e.message.error);
+        }
+      });
+      await Promise.all(closePromises);
+    }
   }
 }
 
