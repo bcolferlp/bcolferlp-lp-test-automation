@@ -69,3 +69,5 @@ data/loanDocs/testResults/*
 
 *.png
 
+*temp*.test.js
+
