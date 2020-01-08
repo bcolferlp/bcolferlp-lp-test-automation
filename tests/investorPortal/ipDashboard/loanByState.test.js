@@ -12,7 +12,7 @@ describe('Loans By States', () => {
     await baseTest.close();
   });
 
-  test('State state matches the state map', async done => {
+  test('89797: State table matches the state map', async done => {
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.fullScreen();
     await ipLoginPage.open();

@@ -87,4 +87,11 @@ export default class IPProfilePage extends BasePageObject {
     const currentClientText = await currentClient.getText();
     return currentClientText;
   }
+
+  async changeClient({ clientId, clientVerify }) {
+    await this.goToProfilePage();
+    const clientResults = await this.selectClient(clientId, clientVerify);
+    await this.clickSaveChanges(clientResults.change);
+    await this.verifyLogout();
+  }
 }

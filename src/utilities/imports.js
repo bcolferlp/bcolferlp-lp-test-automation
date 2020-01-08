@@ -11,6 +11,7 @@ const _ = require('lodash');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
 const { main: parseCSV } = require('./parseCSV');
+const { main: auroraQuery } = require('./aurora');
 // SUPPORT
 const format = require('./format');
 const globals = require('./globals');
@@ -26,5 +27,6 @@ module.exports = {
   until,
   csv,
   parseCSV,
-  globals
+  globals,
+  auroraQuery
 };
