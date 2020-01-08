@@ -20,8 +20,9 @@ describe('S3', () => {
   });
   test('can I archive', async () => {
     const archive = new Archiver(filePath);
-    const test = await archive.zip();
-    console.log(test, 'test');
+    const zipPath = await archive.zip();
+    await s3API.uploadFile(zipPath, filePath);
+    console.log(zipPath, 'test');
   });
 
   test('Upload zipped file to S3', async () => {
