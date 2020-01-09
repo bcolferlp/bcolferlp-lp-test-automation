@@ -5,7 +5,7 @@ if (process.env.STAGE === 'prod') {
 }
 
 module.exports = {
-  reporters: ['default', './test-reporter.js'],
+  reporters: ['default', './reporter.js'],
   setupFilesAfterEnv: ['jest-allure/dist/setup'],
   testEnvironment: 'node'
 };
