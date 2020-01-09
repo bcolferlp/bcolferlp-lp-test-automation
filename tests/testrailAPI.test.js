@@ -12,7 +12,7 @@ const testrail = new TestRail({
   password: process.env.trPassword
 });
 jest.setTimeout(300000);
-describe('testrail api', () => {
+describe.skip('testrail api', () => {
   const project_id = 31;
   let suite_id;
   let section_id;
