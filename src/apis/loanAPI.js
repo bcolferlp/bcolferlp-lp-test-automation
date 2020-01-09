@@ -10,9 +10,13 @@ export default class LoanAPI extends BaseAPI {
   }
 
   async createLoan() {
-    // test environment
-    // const url = 'https://test-clientapi.loanpal.com/test/restapi/v1/public/applications/';
-    const url = `https://api.loanpal.com/${process.env.STAGE}/restapi/v1/public/applications/`;
+    // Constructs the url request based on stage
+    const stage = process.env.STAGE;
+    let preface = '';
+    if (stage !== 'dev' && stage !== 'prod') {
+      preface = `${stage}-client`;
+    }
+    const url = `https://${preface}api.loanpal.com/${stage}/restapi/v1/public/applications/`;
     const result = await this.apiPostRequest(url, this.dataJson);
     console.log(result);
     return result;
