@@ -1,6 +1,10 @@
 const { AWS, path, fs } = require('../utilities/imports');
 
-const s3 = new AWS.S3();
+// AWS.config.update(
+//   {
+//     accessKeyId: ".. your key ..",
+//     secretAccessKey: ".. your secret key ..",
+//   }
 
 export default class S3API {
   /**
@@ -9,6 +13,7 @@ export default class S3API {
    * @param location S3/lp-test-automation/<location> (OPTIONAL)
    */
   constructor(bucket, location = '') {
+    this.s3 = new AWS.S3();
     this.bucket = bucket;
     this.bucketName = path.join(this.bucket, location).replace(/\\/g, '/');
   }
@@ -18,7 +23,7 @@ export default class S3API {
       Bucket: this.bucket
     };
     try {
-      await s3.headBucket(options).promise();
+      await this.s3.headBucket(options).promise();
       return true;
     } catch (error) {
       if (error.statusCode === 404) {
@@ -35,7 +40,7 @@ export default class S3API {
     }
     const params = { Bucket: this.bucketName, Key: bucketPath, Body: fs.readFileSync(file) };
     try {
-      await s3.putObject(params).promise();
+      await this.s3.putObject(params).promise();
       console.log(`Successfully uploaded ${bucketPath} to ${this.bucketName}`);
     } catch (e) {
       console.log(e);
@@ -57,5 +62,37 @@ export default class S3API {
     };
 
     return walkSync(filePath);
+  }
+
+  async downloadFile(file, locationToDropFile = './') {
+    try {
+      const params = {
+        Bucket: this.bucket,
+        Key: `${file}`
+      };
+      const data = await this.s3.getObject(params).promise();
+      fs.writeFileSync(locationToDropFile + file, data.Body.toString('utf-8'));
+      return true;
+    } catch (e) {
+      return `${file} does not exist. Error: ${e}`;
+    }
+  }
+
+  getBucketNotificationConfiguration() {
+    return this.s3.getBucketNotificationConfiguration({
+      Bucket: this.bucket
+    });
+  }
+
+  async getListObjects() {
+    try {
+      const params = {
+        Bucket: this.bucket
+      };
+      const data = await this.s3.listObjects(params).promise();
+      return data;
+    } catch (e) {
+      return e;
+    }
   }
 }
