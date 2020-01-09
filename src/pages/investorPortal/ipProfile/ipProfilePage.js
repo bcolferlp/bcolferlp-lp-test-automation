@@ -1,11 +1,11 @@
 import BasePageObject from '../../../base/basePageObject';
 
-const { By } = require('../../../utilities/imports');
+const { By, urls } = require('../../../utilities/imports');
 
 export default class IPProfilePage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
-    this.url = `${process.env.investorPortal}/profile`;
+    this.url = `${urls.investorPortal}/profile`;
     // Xpath
     this.username = By.xpath('//*[contains(text(), "Username")]/..//p');
     this.firstname = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');

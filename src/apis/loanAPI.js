@@ -1,6 +1,6 @@
 import BaseAPI from '../base/baseApi';
 
-require('dotenv').config();
+const { urls } = require('../utilities/imports');
 
 export default class LoanAPI extends BaseAPI {
   constructor(dataJson) {
@@ -11,12 +11,7 @@ export default class LoanAPI extends BaseAPI {
 
   async createLoan() {
     // Constructs the url request based on stage
-    const stage = process.env.STAGE;
-    let preface = '';
-    if (stage !== 'dev' && stage !== 'prod') {
-      preface = `${stage}-client`;
-    }
-    const url = `https://${preface}api.loanpal.com/${stage}/restapi/v1/public/applications/`;
+    const url = urls.loanCreate;
     const result = await this.apiPostRequest(url, this.dataJson);
     console.log(result);
     return result;
