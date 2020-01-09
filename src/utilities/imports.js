@@ -10,7 +10,6 @@ const csv = require('fast-csv');
 const _ = require('lodash');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
-const { main: parseCSV } = require('./parseCSV');
 // SUPPORT
 const format = require('./format');
 const globals = require('./globals');
@@ -25,6 +24,5 @@ module.exports = {
   By,
   until,
   csv,
-  parseCSV,
   globals
 };

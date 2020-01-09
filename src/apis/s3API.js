@@ -83,4 +83,16 @@ export default class S3API {
       Bucket: this.bucket
     });
   }
+
+  async getListObjects() {
+    try {
+      const params = {
+        Bucket: this.bucket
+      };
+      const data = await this.s3.listObjects(params).promise();
+      return data;
+    } catch (e) {
+      return e;
+    }
+  }
 }
