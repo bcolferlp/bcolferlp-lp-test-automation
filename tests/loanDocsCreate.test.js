@@ -31,7 +31,7 @@ describe('Create Loans', () => {
     fs.writeFileSync(`${folderResults}latestTestNumber.txt`, testNumber);
   });
 
-  each(singleBorrSunRunData).test.skip(
+  each(singleBorrSunRunData).test(
     '75898: Create Single Borrower SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
@@ -89,7 +89,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrSunRunData).test.skip(
+  each(coBorrSunRunData).test(
     '75900: Create Combined SunRun Loans',
     async (
       {
