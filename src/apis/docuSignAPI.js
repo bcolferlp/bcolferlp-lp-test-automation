@@ -27,7 +27,7 @@ export default class DocuSignAPI {
   }
 
   async downloadDocument(filename) {
-    const url = `${urls.docuSign}/restapi/v2/accounts/2786952/envelopes/${this.envelopeId}/documents/combined`;
+    const url = `${urls.docuSign}/envelopes/${this.envelopeId}/documents/combined`;
     try {
       await this.doGetRequest(url, filename);
       return true;
