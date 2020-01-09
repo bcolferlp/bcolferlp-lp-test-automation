@@ -54,7 +54,9 @@ class MyCustomReporter {
               suite_id: caseReponse.body.suite_id,
               name: `${caseResults[caseId].caseName} (${date})`,
               include_all: false,
-              case_ids: Object.keys(caseResults).map(c => +c)
+              case_ids: Object.keys(caseResults)
+                .filter(c => c === caseId)
+                .map(c => +c)
             }
           );
           trRunId = runResponse.body.id;
