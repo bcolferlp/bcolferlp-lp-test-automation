@@ -14,8 +14,8 @@ export default class IPLoginPage extends BasePageObject {
     this.logoutBtn = By.xpath('//a[@data-tip="Logout"]');
     this.errorMessage = By.xpath('//div[@id="errorMessage"]');
     // Values
-    this.username = 'test_manager@loanpal.com';
-    this.password = 'Abcd1234!';
+    this.username = process.env.testEmail;
+    this.password = process.env.emailPass;
   }
 
   async completelogin() {

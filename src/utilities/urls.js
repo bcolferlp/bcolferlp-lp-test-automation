@@ -6,5 +6,8 @@ module.exports = {
   docuSign: `https://${process.env.STAGE === 'prod' ? 'na3' : 'demo'}.docusign.net`,
   loanCreate: `https://${process.env.STAGE !== 'dev' && process.env.STAGE !== 'prod' ? `${process.env.STAGE}-client` : ''}api.loanpal.com/${
     process.env.STAGE
-  }/restapi/v1/public/applications/`
+  }/restapi/v1/public/applications/`,
+  loanCalc: `https://${process.env.STAGE !== 'dev' && process.env.STAGE !== 'prod' ? `${process.env.STAGE}-client` : ''}api.loanpal.com/${
+    process.env.STAGE
+  }/restapi/v1/loanCalc`
 };

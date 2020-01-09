@@ -40,8 +40,8 @@ describe('S3', () => {
   test.skip('Download File from S3', async () => {
     const didDownload = await s3API.downloadFile('index.html');
     expect(didDownload).toBe(true);
-    //let result = await s3API.getBucketNotificationConfiguration();
-    //console.log(result);
+    // let result = await s3API.getBucketNotificationConfiguration();
+    // console.log(result);
   }, 300000);
 
   test('List objects from S3 bucket', async () => {
