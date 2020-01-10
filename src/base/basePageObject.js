@@ -199,4 +199,15 @@ export default class BasePageObject {
       await element.sendKeys(letter);
     }
   }
+
+  async eText(elements, tag) {
+    const elementText = await Promise.all(
+      elements.map(async e => {
+        const tagName = await e.findElement(By.tagName(tag));
+        const tagText = await tagName.getText();
+        return tagText;
+      })
+    );
+    return elementText;
+  }
 }

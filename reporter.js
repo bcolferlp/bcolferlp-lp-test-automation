@@ -43,7 +43,7 @@ class MyCustomReporter {
 
     if (Object.keys(caseResults).length > 0) {
       console.log('Test Results');
-      const casePromises = Object.keys(caseResults).map(async caseId => {
+      const casePromises = Object.entries(caseResults).map(async ([caseId, item], i) => {
         try {
           const caseReponse = await testrail.getCase(caseId);
           const suiteResponse = await testrail.getSuite(caseReponse.body.suite_id);
@@ -63,21 +63,15 @@ class MyCustomReporter {
           runsToClose.push(trRunId);
           console.log('Adding Run:', trRunId);
           const { body } = await testrail.getTests(/*RUN_ID=*/ trRunId, /*FILTERS=*/ {});
+          const { results, failureMessages } = item;
+          const caseNum = +caseId;
+          const failed = results.findIndex(r => r === 5) > -1;
+          const testrailRun = body.find(tr => tr.case_id === caseNum);
 
-          const addResultPromises = Object.entries(caseResults).map(async ([caseId, item], i) => {
-            const { results, failureMessages } = item;
-
-            const caseNum = +caseId;
-            const failed = results.findIndex(r => r === 5) > -1;
-            const testrailRun = body.find(tr => tr.case_id === caseNum);
-
-            if (testrailRun) {
-              console.log('Add Result:', testrailRun.id);
-              await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
-            }
-          });
-
-          await Promise.all(addResultPromises);
+          if (testrailRun) {
+            console.log('Add Result:', testrailRun.id);
+            await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
+          }
         } catch (e) {
           console.error('ERROR:', e.message.error);
           console.error('ERROR:', e.response.request.href);
