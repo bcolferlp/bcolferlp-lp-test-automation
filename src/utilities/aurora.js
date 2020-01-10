@@ -2,7 +2,7 @@ const AWS = require('aws-sdk');
 
 const Lambda = new AWS.Lambda();
 
-export default class Aurora {
+class Aurora {
   constructor(sqlQuery) {
     this.sqlQuery = sqlQuery;
   }
@@ -16,7 +16,7 @@ export default class Aurora {
           multiple: true
         })
       }).promise()) || {};
-    // console.log(JSON.parse(Payload));
     return Payload ? JSON.parse(Payload) : [];
   }
 }
+module.exports = Aurora;

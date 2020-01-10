@@ -66,7 +66,6 @@ export default class IPProfilePage extends BasePageObject {
   }
 
   async clickSaveChanges(change) {
-    console.log('change', change);
     if (change) {
       await this.sleep(1000);
       const saveChangesBtn = await this.waitForElementLocated(this.saveChanges, 5000);

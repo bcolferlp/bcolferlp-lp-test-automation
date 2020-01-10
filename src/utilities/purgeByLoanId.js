@@ -19,7 +19,7 @@ class PurgeLoansById {
   }
 
   purgeLoans() {
-    console.log(`Clearing Loans by LonaId from Stage: ${this.stage}`);
+    console.log(`Clearing Loans by LoanId from Stage: ${this.stage}`);
     Promise.resolve(this.loanids).each(id => {
       return new Promise(resolve => {
         Promise.bind()

@@ -11,7 +11,6 @@ const _ = require('lodash');
 const request = require('request');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
-const { main: auroraQuery } = require('./aurora');
 // SUPPORT
 const format = require('./format');
 const globals = require('./globals');
@@ -29,6 +28,5 @@ module.exports = {
   csv,
   globals,
   urls,
-  request,
-  auroraQuery
+  request
 };

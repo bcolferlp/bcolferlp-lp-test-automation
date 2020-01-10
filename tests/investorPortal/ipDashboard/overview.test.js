@@ -16,7 +16,7 @@ describe('overview', () => {
     await baseTest.close();
   });
 
-  test.each(profileData)('89796: the overview values should be accurate', async (data, done) => {
+  test.each(profileData)('89796: the overview values should be accurate', async data => {
     // Login
     const ipLoginPage = new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.completelogin();
@@ -36,6 +36,5 @@ describe('overview', () => {
     expect(overviewResults.convertedElemNums[1]).toEqual(overviewResults.totalLoan);
     expect(overviewResults.convertedElemNums[2]).toEqual(overviewResults.avgLoanAmt);
     expect(overviewResults.convertedElemNums[3]).toEqual(overviewResults.avgFico);
-    done();
   });
 });

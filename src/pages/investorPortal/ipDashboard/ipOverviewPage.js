@@ -1,7 +1,7 @@
 import BasePageObject from '../../../base/basePageObject';
 import Aurora from '../../../utilities/aurora';
 
-const { By, format, auroraQuery } = require('../../../utilities/imports');
+const { By, format } = require('../../../utilities/imports');
 
 export default class OverviewPage extends BasePageObject {
   constructor(webDriver) {
