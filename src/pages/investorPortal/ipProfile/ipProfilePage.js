@@ -6,6 +6,7 @@ export default class IPProfilePage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
     this.url = `${urls.investorPortal}/profile`;
+    this.logoutVerify = `${urls.investorPortal}/login`;
     // Xpath
     this.username = By.xpath('//*[contains(text(), "Username")]/..//p');
     this.firstname = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');
@@ -65,6 +66,7 @@ export default class IPProfilePage extends BasePageObject {
   }
 
   async clickSaveChanges(change) {
+    console.log('change', change);
     if (change) {
       await this.sleep(1000);
       const saveChangesBtn = await this.waitForElementLocated(this.saveChanges, 5000);
@@ -78,7 +80,7 @@ export default class IPProfilePage extends BasePageObject {
   }
 
   async verifyLogout() {
-    await this.waitForURL(this.url);
+    await this.waitForURL(this.logoutVerify);
     console.log('Logged out successfully');
   }
 

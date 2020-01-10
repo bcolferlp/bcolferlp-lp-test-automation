@@ -1,4 +1,5 @@
 import BasePageObject from '../../../base/basePageObject';
+import Aurora from '../../../utilities/aurora';
 
 const { By, format, auroraQuery } = require('../../../utilities/imports');
 
@@ -25,8 +26,9 @@ export default class OverviewPage extends BasePageObject {
   }
 
   async verifyOverview(trancheRows, overviewCards, clientId) {
-    const query = `select originalloanamount from dev.sale_transaction where partner = "${clientId}";`;
-    const auroraResults = await auroraQuery(query, 'dev');
+    const query = `select originalloanamount from ${process.env.STAGE}.sale_transaction where partner = "${clientId}";`;
+    const aurora = new Aurora(query);
+    const auroraResults = await aurora.getPayload();
     let loanAmt = 0;
     auroraResults.forEach(({ originalloanamount: num }) => {
       loanAmt += num;
