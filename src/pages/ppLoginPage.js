@@ -1,9 +1,11 @@
 import LoginPage from './loginPage';
 import PPLoansPage from './ppLoansPage';
 
+const { urls } = require('../utilities/imports');
+
 export default class PPLoginPage extends LoginPage {
   constructor(webDriver) {
-    super(webDriver, 'https://dev-partner-admin.loanpal.com/login');
+    super(webDriver, `${urls.partnerPortal}/login`);
   }
 
   async landLoanPage() {

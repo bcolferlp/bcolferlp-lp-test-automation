@@ -19,7 +19,7 @@ describe('S3', () => {
     expect(bucketExist).toBeTruthy();
   });
 
-  test('Upload zipped file to S3', async () => {
+  test.skip('Upload zipped file to S3', async () => {
     const archive = new Archiver(filePath);
     const zipPath = await archive.zip();
     expect(zipPath).toBeTruthy();
@@ -27,13 +27,25 @@ describe('S3', () => {
     await s3API.uploadFile(zipPath, filePath);
   });
 
-  test('Upload file to S3', async () => {
+  test.skip('Upload file to S3', async () => {
     expect(bucketExist).toBeTruthy();
     await s3API.uploadFile(file, filePath);
   });
 
-  test('Upload directory to S3', async () => {
+  test.skip('Upload directory to S3', async () => {
     expect(bucketExist).toBeTruthy();
     await s3API.uploadDir(filePath);
   });
+
+  test.skip('Download File from S3', async () => {
+    const didDownload = await s3API.downloadFile('index.html');
+    expect(didDownload).toBe(true);
+    // let result = await s3API.getBucketNotificationConfiguration();
+    // console.log(result);
+  }, 300000);
+
+  test('List objects from S3 bucket', async () => {
+    const listObjects = await s3API.getListObjects();
+    console.log(listObjects);
+  }, 300000);
 });

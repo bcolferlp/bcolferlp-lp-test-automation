@@ -1,12 +1,11 @@
 import BasePageObject from '../../../base/basePageObject';
 
-const { By } = require('selenium-webDriver');
-const { fs, path, getNewestFile, format } = require('../../../utilities/imports');
+const { By, urls, fs, path, getNewestFile, format } = require('../../../utilities/imports');
 
 export default class IPTranchesPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
-    this.url = process.env.investorPortal;
+    this.url = urls.investorPortal;
     // Xpath
     this.trancheHeaders = By.xpath('//div[contains(@class, "__qa_div_tranchesTable")]//thead//th');
     this.trancheRows = By.xpath('//div[contains(@class, "__qa_div_tranchesTable")]//tbody/tr');
