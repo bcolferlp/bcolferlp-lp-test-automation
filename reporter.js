@@ -22,7 +22,7 @@ class MyCustomReporter {
     const { testResults } = testResult;
 
     const caseResults = testResults.reduce((acc, testResult) => {
-      const { title, status, failureMessages } = testResult;
+      const { fullName, title, status, failureMessages } = testResult;
       if (status !== 'pending') {
         if (title.includes(':')) {
           const caseId = title.split(':')[0].trim();
@@ -30,11 +30,12 @@ class MyCustomReporter {
           const sendStatus = status === 'passed' ? 1 : status === 'failed' ? 5 : 3;
           const key = caseId;
           if (acc[key]) {
+            acc[key].fullName = fullName;
             acc[key].caseName = caseName;
             acc[key].results.push(sendStatus);
             acc[key].failureMessages = acc[key].failureMessages.concat(failureMessages);
           } else {
-            acc[key] = { caseName, results: [sendStatus], failureMessages };
+            acc[key] = { fullName, caseName, results: [sendStatus], failureMessages };
           }
         }
       }
@@ -70,7 +71,10 @@ class MyCustomReporter {
 
           if (testrailRun) {
             console.log('Add Result:', testrailRun.id);
-            await testrail.addResult(/*TEST_ID=*/ testrailRun.id, /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: failureMessages.join('\n') });
+            await testrail.addResult(
+              /*TEST_ID=*/ testrailRun.id,
+              /*CONTENT=*/ { status_id: failed ? 5 : 1, comment: `${caseResults[caseId].fullName}\n\n${failureMessages.join('\n')}` }
+            );
           }
         } catch (e) {
           console.error('ERROR:', e.message.error);
