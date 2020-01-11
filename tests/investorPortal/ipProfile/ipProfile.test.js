@@ -19,9 +19,9 @@ each(['chrome']).describe('Profile Settings', browser => {
   each(profileData).test(
     'Change a client id',
     async ({ clientId, clientVerify }, done) => {
-      const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
+      const ipLoginPage = new IPLoginPage(baseTest.webDriver);
       await ipLoginPage.completelogin();
-      const ipProfilePage = await new IPProfilePage(baseTest.webDriver);
+      const ipProfilePage = new IPProfilePage(baseTest.webDriver);
       await ipProfilePage.goToProfilePage();
       const { cwText, ccText, change } = await ipProfilePage.selectClient(clientId, clientVerify);
 

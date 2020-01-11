@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "report": "allure serve"
+    "report": "allure serve",
+    "purge": "node src/utilities/purgeLoansResults.js && jest tests/deleteInbox.test.js",
+    "e2eloans": "jest tests/loanDocsCreate.test.js && jest tests/loanDocsRequest.test.js && jest --runInBand tests/loanDocsSign.test.js && jest tests/loanDocsDownload.test.js && jest tests/loanDocsComparePDF.test.js"
   },
   "repository": {
     "type": "git",
@@ -45,6 +47,7 @@
     "selenium-webdriver": "^4.0.0-alpha.5"
   },
   "dependencies": {
+    "archiver": "^3.1.1",
     "babel-eslint": "^10.0.3",
     "dotenv": "^8.2.0",
     "fast-csv": "^3.4.0",
@@ -53,6 +56,7 @@
     "imap-simple": "^4.3.0",
     "jest-2-testrail": "^1.0.8",
     "lodash": "^4.17.15",
+    "log-update": "^3.3.0",
     "mailparser": "^2.7.7",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",

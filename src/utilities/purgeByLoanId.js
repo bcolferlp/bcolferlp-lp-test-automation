@@ -15,11 +15,11 @@ class PurgeLoansById {
   constructor(loanids) {
     this.loanids = loanids;
     this.docClient = new DocumentClient();
-    this.stage = 'dev';
+    this.stage = process.env.STAGE;
   }
 
   purgeLoans() {
-    console.log(`Clearing Loans by LonaId from Stage: ${this.stage}`);
+    console.log(`Clearing Loans by LoanId from Stage: ${this.stage}`);
     Promise.resolve(this.loanids).each(id => {
       return new Promise(resolve => {
         Promise.bind()

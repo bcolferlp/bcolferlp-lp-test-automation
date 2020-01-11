@@ -1,16 +1,30 @@
 // Parse CSV Script
 const fs = require('fs');
-const csv = require('fast-csv');
+const csvParser = require('fast-csv');
 
-async function main(file) {
-  const data = [];
-  const parsedFile = await new Promise(resolve => {
-    fs.createReadStream(file)
-      .pipe(csv.parse({ headers: true }))
-      .on('data', row => data.push(row))
-      .on('end', () => resolve(data));
-  });
-  return parsedFile;
+export default class CSVParser {
+  constructor(file) {
+    this.file = file;
+  }
+
+  async parseFile() {
+    const data = [];
+    const readCSVData = await new Promise(resolve => {
+      fs.createReadStream(this.file)
+        .pipe(csvParser.parse({ headers: false }))
+        .on('data', row => data.push(row))
+        .on('end', () => resolve(data));
+    });
+    return readCSVData;
+  }
+
+  async getNumberRows() {
+    const rows = await this.parseFile();
+    return rows.length;
+  }
+
+  async getHeaders() {
+    const rows = await this.parseFile();
+    return rows[0];
+  }
 }
-
-module.exports.main = main;

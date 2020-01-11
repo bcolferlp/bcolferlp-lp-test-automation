@@ -1,3 +1,4 @@
+require('dotenv').config();
 const AWS = require('aws-sdk');
 const Promise = require('bluebird');
 
@@ -14,7 +15,7 @@ class LoanData {
   constructor(loanid) {
     this.loanId = loanid;
     this.docClient = new DocumentClient();
-    this.stage = 'dev';
+    this.stage = process.env.STAGE;
   }
 
   async getSrcLoan() {

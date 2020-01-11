@@ -17,10 +17,7 @@ each(['chrome']).describe('IP Login Test', browser => {
 
   test.skip('Positive login test', async done => {
     const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
-    await ipLoginPage.open();
-    await ipLoginPage.enterEmail();
-    await ipLoginPage.enterPassword();
-    await ipLoginPage.loginClick();
+    await ipLoginPage.completelogin();
     const logoutBtn = await ipLoginPage.validateLogin();
     expect(logoutBtn).toBeTruthy();
     done();
@@ -34,7 +31,7 @@ each(['chrome']).describe('IP Login Test', browser => {
       await ipLoginPage.enterEmail(username);
       await ipLoginPage.enterPassword(password);
       await ipLoginPage.loginClick();
-      await baseTest.webDriver.sleep(2000);
+      await ipLoginPage.sleep(2000);
       const errorElem = await ipLoginPage.getErrorElement();
       const errorText = await errorElem.getAttribute('textContent');
       expect(errorText).toBe(errorMessage);

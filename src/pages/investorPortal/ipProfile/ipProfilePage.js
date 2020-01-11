@@ -1,11 +1,12 @@
 import BasePageObject from '../../../base/basePageObject';
 
-const { By } = require('../../../utilities/imports');
+const { By, urls } = require('../../../utilities/imports');
 
 export default class IPProfilePage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
-    this.url = `${process.env.investorPortal}/profile`;
+    this.url = `${urls.investorPortal}/profile`;
+    this.logoutVerify = `${urls.investorPortal}/login`;
     // Xpath
     this.username = By.xpath('//*[contains(text(), "Username")]/..//p');
     this.firstname = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');
@@ -78,7 +79,7 @@ export default class IPProfilePage extends BasePageObject {
   }
 
   async verifyLogout() {
-    await this.waitForURL(this.url);
+    await this.waitForURL(this.logoutVerify);
     console.log('Logged out successfully');
   }
 
@@ -86,5 +87,12 @@ export default class IPProfilePage extends BasePageObject {
     const currentClient = await this.waitForElementLocated(this.formControlClient, 10000);
     const currentClientText = await currentClient.getText();
     return currentClientText;
+  }
+
+  async changeClient({ clientId, clientVerify }) {
+    await this.goToProfilePage();
+    const clientResults = await this.selectClient(clientId, clientVerify);
+    await this.clickSaveChanges(clientResults.change);
+    await this.verifyLogout();
   }
 }

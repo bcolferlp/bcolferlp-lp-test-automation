@@ -43,7 +43,7 @@ export default class LoanEmailPage extends EmailAPI {
     console.log('Getting loan docs link');
     const emailBodies = await this.getAllMessages(inbox, 'solarFinancingDecision', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(loanId));
-    const emailLink = await this.getLineToValidate(emailBod[0], 'https://dev-partner-admin.loanpal.com');
+    const emailLink = await this.getLineToValidate(emailBod[0], 'partner-admin');
     const test = emailLink.match(/http.*$/g);
     let newLink = test[0].replace(/&#x3D;/, '=');
     if (newLink[newLink.length - 1] === '.') newLink = newLink.slice(0, -1);
@@ -55,7 +55,7 @@ export default class LoanEmailPage extends EmailAPI {
     // console.log('Getting DocuSign link', firstName, spokenLanguage);
     const emailBodies = await this.getAllMessages(inbox, 'docusign', spokenLanguage);
     const emailBod = emailBodies.filter(item => item.includes(firstName));
-    const emailLink = await this.getLineToValidate(emailBod[0], 'https://demo.docusign.net');
+    const emailLink = await this.getLineToValidate(emailBod[0], 'docusign');
     console.log(emailLink);
     return emailLink;
   }
