@@ -1,4 +1,4 @@
-import BasePageObject from "../../../base/basePageObject";
+import BasePageObject from "../../../base/partner-manager/basePageObjectbasePageObject";
 
 const { By, until } = require("selenium-webdriver");
 require("dotenv").config();
@@ -11,10 +11,10 @@ export default class PPLoginPage extends BasePageObject {
     // Xpath
     this.emailInput = By.xpath('//input[@id="username"]');
     this.passwordInput = By.xpath('//input[@id="password"]');
-    this.loginBtn = By.xpath('//button[@id ="login-button"]');
-   // this.logoutBtn = By.xpath('//a[@title="Logout"]');
-    // this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
-    // this.errorMessage = By.xpath('//div[@id="errorMessage"]');
+    this.loginBtn = By.xpath('//*[@id="form-access"]/form/div/button');
+    this.logoutBtn = By.xpath('//a[@title="Logout"]');
+    this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
+    this.errorMessage = By.xpath('//div[@id="errorMessage"]');
     // Values
   
     this.username = process.env.ppEmail;
