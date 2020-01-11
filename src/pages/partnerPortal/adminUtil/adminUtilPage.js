@@ -1,5 +1,6 @@
 import BasePageObject from '../../../base/basePageObject';
 
+
 const { By, Key } = require('selenium-webdriver');
 require('dotenv').config();
 
@@ -83,15 +84,23 @@ export default class ADMINLoginPage extends BasePageObject {
     const clickButtonPath = By.xpath(`(//button[@id="${buttonClickID}"])[2]`);
     const clickButton = await this.findElement(clickButtonPath);
     await clickButton.click();
-    await this.sleep(10000);
+   
   }
 
 //  //a[contains(@class,"__qa_row_partner-url")]
   async clickPartnerLink(clickPPLink) {
     const clickPartnerLinkPath = By.xpath(`(//a[contains(@class,"${clickPPLink}")])[1]`);
+    await this.waitForTarget(clickPartnerLinkPath);
     const clickPartnerLink = await this.findElement(clickPartnerLinkPath);
     await clickPartnerLink.click();
     await this.sleep(200);
+  }
+
+  async validateThePPPage()
+  {
+      const loanpalLogoPath = By.xpath('//img[contains(@alt, "Loanpal Logo")]');
+      await this.waitForTarget(loanpalLogoPath);
+      console.log('PP login successful');
   }
 
   //   async validateLogout() {

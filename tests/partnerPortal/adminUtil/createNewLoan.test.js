@@ -2,6 +2,7 @@
 import each from 'jest-each';
 import BaseTest from '../../../src/base/baseTest';
 import ADMINLoginPage from '../../../src/pages/partnerPortal/adminUtil/adminUtilPage';
+import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 
 each(['chrome']).describe('Admin Login Test', browser => {
   let baseTest;
@@ -15,7 +16,7 @@ each(['chrome']).describe('Admin Login Test', browser => {
   });
 
   test('Positive login test', async done => {
-    const adminLoginPage = await new ADMINLoginPage(baseTest.webDriver);
+    const adminLoginPage = new ADMINLoginPage(baseTest.webDriver);
     await adminLoginPage.fullScreen();
     await adminLoginPage.open();
     await adminLoginPage.sleep(3000);
@@ -30,6 +31,12 @@ each(['chrome']).describe('Admin Login Test', browser => {
     // const logoutConfirmation = await ppLoginPage.validateLogout();
     // expect(logoutConfirmation).toBeTruthy();
     await adminLoginPage.sleep(2000);
+   
+    const ppLoginPage = new PPLoginPage(baseTest.webDriver);
+    await ppLoginPage.completelogin();
+    await adminLoginPage.validateThePPPage();
     done();
   }, 3000000);
+
+  
 });

@@ -1,6 +1,6 @@
 import BasePageObject from '../../../base/basePageObject';
 
-const { By, urls } = require('selenium-webdriver');
+const { By, urls } = require('../../../utilities/imports');
 
 export default class PPLoginPage extends BasePageObject {
   constructor(webDriver) {
@@ -10,7 +10,7 @@ export default class PPLoginPage extends BasePageObject {
     // Xpath
     this.emailInput = By.xpath('//input[@id="username"]');
     this.passwordInput = By.xpath('//input[@id="password"]');
-    this.loginBtn = By.xpath('//button[@id ="login-button"]');
+    this.loginBtn = By.xpath('//button[@id ="loginButton"]');
    // this.logoutBtn = By.xpath('//a[@title="Logout"]');
     // this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
     // this.errorMessage = By.xpath('//div[@id="errorMessage"]');
@@ -18,6 +18,15 @@ export default class PPLoginPage extends BasePageObject {
 
     this.username = process.env.ppEmail;
     this.password = process.env.ppPass;
+  }
+
+  async completelogin() {
+    console.log('Complete Login');
+    await this.fullScreen();
+    await this.open();
+    await this.enterEmail();
+    await this.enterPassword();
+    await this.loginClick();
   }
 
   async open() {
