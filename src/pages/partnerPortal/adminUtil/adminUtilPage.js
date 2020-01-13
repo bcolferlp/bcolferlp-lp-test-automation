@@ -14,10 +14,6 @@ export default class ADMINLoginPage extends BasePageObject {
     this.emailInput = By.xpath('//input[@id ="username"]');
     this.passwordInput = By.xpath('//input[@id="password"]');
     this.loginBtn = By.xpath('//button[@id ="login-button"]');
-    // this.logoutBtn = By.xpath('//a[@title="Logout"]');
-    // this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
-    // this.errorMessage = By.xpath('//div[@id="errorMessage"]');
-    // Values
 
     this.username = process.env.adminUser;
     this.password = process.env.adminPass;
@@ -52,9 +48,9 @@ export default class ADMINLoginPage extends BasePageObject {
     // await this.selectDropDown('Solar', 'Solar');
     await this.selectDropDown('Loanpal', 'BlueRaven');
     await this.enterText('referenceId', 'HARM-AUTOMATION');
-    // await this.selectDropDown('Approved', 'Approved');
-    // await this.selectDropDown('English', 'English');
-    // await this.selectDropDown('California', 'California');
+    await this.selectDropDown('Approved', 'Approved');
+    await this.selectDropDown('English', 'English');
+    await this.selectDropDown('California', 'California');
     await this.selectDropDown('Use UAT - no mock', '800.json');
     await this.enterText('borrowerEmail', 'PRavichandran@loanpal.com');
     await this.enterText('salesRepEmail', 'PRavichandran@loanpal.com');
@@ -63,8 +59,10 @@ export default class ADMINLoginPage extends BasePageObject {
     await this.clickPartnerLink('__qa_row_partner-url');
   }
 
+
   async selectDropDown(dropDownID, dropDownText) {
     const dropDownPath = By.xpath(`//div[contains(text(),"${dropDownID}")]/following-sibling::*//input`);
+    await this.waitForTarget(dropDownPath);
     const dropDown = await this.findElement(dropDownPath);
     dropDown.sendKeys(`${dropDownText}`);
     await this.sleep(200);
@@ -87,7 +85,6 @@ export default class ADMINLoginPage extends BasePageObject {
    
   }
 
-//  //a[contains(@class,"__qa_row_partner-url")]
   async clickPartnerLink(clickPPLink) {
     const clickPartnerLinkPath = By.xpath(`(//a[contains(@class,"${clickPPLink}")])[1]`);
     await this.waitForTarget(clickPartnerLinkPath);
@@ -101,23 +98,6 @@ export default class ADMINLoginPage extends BasePageObject {
       const loanpalLogoPath = By.xpath('//img[contains(@alt, "Loanpal Logo")]');
       await this.waitForTarget(loanpalLogoPath);
       console.log('PP login successful');
+      await this.sleep(200);
   }
-
-  //   async validateLogout() {
-  //     const logoutConf = await this.waitForElementLocated(this.logoutConf, 20000);
-  //     console.log("Logout Confirmed");
-  //     return logoutConf;
-  //   }
-
-  //   async logOut() {
-  //     const logoutBtn = await this.waitForElementLocated(this.logoutBtn, 20000);
-  //     await logoutBtn.click();
-
-  //   }
-
-  //   async getErrorElement() {
-  //     const errorElem = await this.waitForElementLocated(this.errorMessage, 20000);
-  //     console.log("Error Message found");
-  //     return errorElem;
-  //   }
 }

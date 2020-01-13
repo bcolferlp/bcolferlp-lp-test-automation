@@ -11,13 +11,9 @@ export default class PPLoginPage extends BasePageObject {
     this.emailInput = By.xpath('//input[@id="username"]');
     this.passwordInput = By.xpath('//input[@id="password"]');
     this.loginBtn = By.xpath('//button[@id ="loginButton"]');
-   // this.logoutBtn = By.xpath('//a[@title="Logout"]');
-    // this.logoutConf = By.xpath('//button[contains(text(),"Let me in")]');
-    // this.errorMessage = By.xpath('//div[@id="errorMessage"]');
-    // Values
 
-    this.username = process.env.ppEmail;
-    this.password = process.env.ppPass;
+    this.username = process.env.ppBlueRaven;
+    this.password = process.env.ppBlueRavenPass;
   }
 
   async completelogin() {

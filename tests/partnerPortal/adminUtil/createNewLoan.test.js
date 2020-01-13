@@ -25,11 +25,6 @@ each(['chrome']).describe('Admin Login Test', browser => {
     await adminLoginPage.loginClick();
     await adminLoginPage.sleep(5000);
     await adminLoginPage.createNewLoan();
-    // logout
-    // await ppLoginPage.logOut();
-    // make sure the button exists
-    // const logoutConfirmation = await ppLoginPage.validateLogout();
-    // expect(logoutConfirmation).toBeTruthy();
     await adminLoginPage.sleep(2000);
    
     const ppLoginPage = new PPLoginPage(baseTest.webDriver);
