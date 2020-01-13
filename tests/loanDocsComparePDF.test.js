@@ -2,6 +2,7 @@
 import each from 'jest-each';
 import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 import RunCommand from '../src/utilities/runCommand';
+import ParsePDF from '../src/utilities/parsePDF';
 
 const { fs, path, _ } = require('../src/utilities/imports');
 
@@ -18,6 +19,20 @@ describe('Compare DocuSign PDF files', () => {
   const allLoans = _.concat([], loanSingleBorrSunRun, loanSingleBorrNonSunRun, loanCoBorrSunRun, loanCoBorrNonSunRun);
 
   each(allLoans).test(
+    '90354: Validate Number of Pages DocuSign PDFs',
+    async ({ firstName }) => {
+      console.log('Comparing docs for', firstName);
+      const replacedName = firstName.replace(' & ', '-and-');
+      const testFile = `${folderResults}${loanResults.testNumber}/${replacedName}.pdf`;
+      const expectedFile = `${folderDocuSignTemplates}${replacedName}-template.pdf`;
+      const testFilePages = await new ParsePDF(testFile).getNumberOfPages();
+      const expectedFilePages = await new ParsePDF(expectedFile).getNumberOfPages();
+      expect(testFilePages).toBe(expectedFilePages);
+    },
+    300000
+  );
+
+  each(allLoans).test.skip(
     '75906: Compare DocuSign PDFs',
     async ({ firstName }) => {
       console.log('Comparing docs for', firstName);
