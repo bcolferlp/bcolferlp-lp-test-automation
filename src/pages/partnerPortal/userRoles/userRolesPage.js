@@ -3,7 +3,7 @@ import BasePageObject from '../../../base/basePageObject';
 const { By, Key } = require('selenium-webdriver');
 require('dotenv').config();
 
-export default class PartnerManager extends BasePageObject {
+export default class UserPermission extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
     // Url
@@ -27,9 +27,9 @@ export default class PartnerManager extends BasePageObject {
     this.sendInvitationInviteButtonPath = By.xpath('//button[contains(text(),"INVITE")]');
     this.invitationSentPath = By.xpath('//h2[contains(text(),"Invitations Sent")]');
     this.finishButtonPath = By.xpath('//button[contains(text(), "FINISH")]');
+    this.validateTheLoginPath = By.xpath('//img[contains(@alt, "Loanpal Logo")]');
 
     // Values
-
     this.username = process.env.ppEmail;
     this.password = process.env.ppPass;
   }
@@ -76,10 +76,20 @@ export default class PartnerManager extends BasePageObject {
     return errorElem;
   }
 
-  async validateUserManager() {
+  async validateTheLogin() {
+    const validateTheLogin = await this.waitForTarget(this.validateTheLoginPath, 5000);
+    console.log('Login validated');
+    return validateTheLogin;
+  }
+
+  async validateUserRoles(userRoles) {
+    await this.validateUserRolesActions(userRoles);
+  }
+
+  async validateUserRolesActions(userRoles) {
     const userManagementIcon = await this.waitForElementLocated(this.userManagementIconPath, 5000);
     await userManagementIcon.click();
-    console.log('user management icon clicked');
+    console.log('User management icon clicked');
 
     await this.waitForTarget(this.inviteButtonPath);
     const inviteButton = await this.waitForElementLocated(this.inviteButtonPath, 5000);
@@ -90,7 +100,7 @@ export default class PartnerManager extends BasePageObject {
     console.log('Add Employees Modal Exists');
 
     const selectUserRole = await this.waitForElementLocated(this.selectUserRolePath, 5000);
-    await this.enterText(selectUserRole, 'partner-manager');
+    await this.enterText(selectUserRole, userRoles);
 
     await selectUserRole.sendKeys(Key.ENTER);
     console.log('Select and Create User Group Drop Down Exist');
@@ -114,7 +124,7 @@ export default class PartnerManager extends BasePageObject {
     console.log('Send Invitation Label exists');
 
     await this.waitForElementLocated(this.nextNewUsersAsPartnerManagerPath, 5000);
-    console.log('NEXT button for entering New Users emal IDs for partner-manager');
+    console.log(`NEXT button for entering New Users emal IDs for ${userRoles}`);
 
     await this.waitForElementLocated(this.emailAddressListLeftPanelPath, 5000);
     console.log('Email Address in Left Panel Exists');
@@ -127,5 +137,15 @@ export default class PartnerManager extends BasePageObject {
     console.log('Invitations Sent');
     const finishButton = await this.waitForElementLocated(this.finishButtonPath, 5000);
     await finishButton.click();
+  }
+
+  async completeLogin() {
+    await this.fullScreen();
+    await this.open();
+    await this.sleep(3000);
+    await this.enterEmail(process.env.ppBlueRaven);
+    await this.enterPassword(process.env.ppBlueRavenPass);
+    await this.loginClick();
+    await this.validateTheLogin();
   }
 }
