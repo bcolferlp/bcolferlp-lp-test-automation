@@ -16,7 +16,7 @@ export default class PPLoginPage extends BasePageObject {
     this.password = process.env.ppBlueRavenPass;
   }
 
-  async completelogin() {
+  async completeLogin() {
     console.log('Complete Login');
     await this.fullScreen();
     await this.open();
