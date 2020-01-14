@@ -22,51 +22,53 @@ export default class ReportsPage extends BasePageObject {
   }
 
   async gatherProviders() {
+    console.log(`Gathering providers`);
     const providers = await this.waitForElementsLocated(this.providerOption, 10000);
-    console.log(`${providers.length} Gathered`);
     return providers;
   }
 
   async verifyGraph(providers) {
     /* eslint-disable no-restricted-syntax */
     /* eslint-disable no-await-in-loop */
+    console.log('Verifying graph');
     const expectResult = [];
-    // const actions = this.webDriver.actions({ bridge: true });
     let providerCount = 0;
 
     // Iterate through provider elements
-    for (const row of providers) {
-      providerCount += 1;
-      const storedValue = await row.getAttribute('value');
+    if (providers) {
+      for (const row of providers) {
+        providerCount += 1;
+        const storedValue = await row.getAttribute('value');
 
-      if (providerCount === 1) {
-        // Click the first row in  the provider list
-        await row.click();
-        logUpdate('First Provider:', storedValue);
-      } else {
-        // Double Click through the rest of the providers
-        await this.webDriver
-          .actions({ bridge: true })
-          .doubleClick(row)
-          .perform();
-        logUpdate('Next Provider:', storedValue);
-      }
+        if (providerCount === 1) {
+          // Click the first row in  the provider list
+          await row.click();
+          logUpdate('First Provider:', storedValue);
+        } else {
+          // Double Click through the rest of the providers
+          await this.webDriver
+            .actions({ bridge: true })
+            .doubleClick(row)
+            .perform();
+          logUpdate('Next Provider:', storedValue);
+        }
 
-      await this.sleep(1000);
-      const dots = await this.waitForElementsLocated(this.dot, 10000);
-      const prePayRates = await this.waitForElementsLocated(this.prePayTable, 10000);
+        await this.sleep(1000);
+        const dots = await this.waitForElementsLocated(this.dot, 10000);
+        const prePayRates = await this.waitForElementsLocated(this.prePayTable, 10000);
 
-      let count = -1;
+        let count = -1;
 
-      // Iterate through points on the graph
-      for (const point of dots) {
-        count += 1;
-        const title = await point.getAttribute('textContent');
-        const dotText = title.split(' ')[1];
-        const rateValue = await prePayRates[count].getAttribute('textContent');
-        let rateText = rateValue.replace('%', '');
-        if (rateText === '0.00') rateText = '0';
-        expectResult.push({ name: storedValue, graphValue: dotText, tableValue: rateText, result: dotText === rateText });
+        // Iterate through points on the graph
+        for (const point of dots) {
+          count += 1;
+          const title = await point.getAttribute('textContent');
+          const dotText = title.split(' ')[1];
+          const rateValue = await prePayRates[count].getAttribute('textContent');
+          let rateText = rateValue.replace('%', '');
+          if (rateText === '0.00') rateText = '0';
+          expectResult.push({ name: storedValue, graphValue: dotText, tableValue: rateText, result: dotText === rateText });
+        }
       }
     }
     return expectResult;
