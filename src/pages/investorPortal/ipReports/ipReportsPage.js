@@ -1,12 +1,13 @@
 import BasePageObject from '../../../base/basePageObject';
 
-const { By, urls } = require('../../../utilities/imports');
+const { By, urls, logUpdate } = require('../../../utilities/imports');
 
 export default class ReportsPage extends BasePageObject {
   constructor(webDriver) {
     super(webDriver);
     this.prepay = `${urls.investorPortal}/reports/prepaySpeeds`;
     // XPath
+    this.downloadBtn = By.xpath('//button[contains(text(), "Download")]');
     this.dot = By.xpath('//*[@class="dot"]/*');
     this.provider = By.xpath('//select[@class="dc-select-menu"]');
     this.providerOption = By.xpath('//option[@class="dc-select-option"]');
@@ -17,6 +18,7 @@ export default class ReportsPage extends BasePageObject {
     // Navigate to profile settings page
     await this.sleep(2000);
     await this.openUrl(this.prepay);
+    await this.waitForTarget(this.downloadBtn);
   }
 
   async gatherProviders() {
@@ -29,7 +31,7 @@ export default class ReportsPage extends BasePageObject {
     /* eslint-disable no-restricted-syntax */
     /* eslint-disable no-await-in-loop */
     const expectResult = [];
-    const actions = this.webDriver.actions({ bridge: true });
+    // const actions = this.webDriver.actions({ bridge: true });
     let providerCount = 0;
 
     // Iterate through provider elements
@@ -40,10 +42,14 @@ export default class ReportsPage extends BasePageObject {
       if (providerCount === 1) {
         // Click the first row in  the provider list
         await row.click();
+        logUpdate('First Provider:', storedValue);
       } else {
         // Double Click through the rest of the providers
-        await actions.doubleClick(row).perform();
-        console.log('Next Provider');
+        await this.webDriver
+          .actions({ bridge: true })
+          .doubleClick(row)
+          .perform();
+        logUpdate('Next Provider:', storedValue);
       }
 
       await this.sleep(1000);
@@ -60,10 +66,7 @@ export default class ReportsPage extends BasePageObject {
         const rateValue = await prePayRates[count].getAttribute('textContent');
         let rateText = rateValue.replace('%', '');
         if (rateText === '0.00') rateText = '0';
-        expectResult.push({ name: storedValue, result: dotText === rateText });
-        // const conCheck = `dotText: ${dotText}, rateText: ${rateText}, expectResult: ${expectResult}`;
-
-        // expect(dotText).to.equal(rateText);
+        expectResult.push({ name: storedValue, graphValue: dotText, tableValue: rateText, result: dotText === rateText });
       }
     }
     return expectResult;

@@ -13,7 +13,7 @@ describe('ipReports', () => {
   afterEach(async () => {
     await baseTest.close();
   });
-  test('Pre Pay Graph', async () => {
+  test('90355: Pre Pay Graph', async () => {
     // Login
     const ipLoginPage = new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.completelogin();
@@ -22,6 +22,13 @@ describe('ipReports', () => {
     await reportsPage.goToPrePayPage();
     const providers = await reportsPage.gatherProviders();
     const results = await reportsPage.verifyGraph(providers);
-    console.log(results);
+    expect(results).not.toContainEqual(
+      expect.objectContaining({
+        name: expect.any(String),
+        graphValue: expect.any(String),
+        tableValue: expect.any(String),
+        result: false
+      })
+    );
   });
 });
