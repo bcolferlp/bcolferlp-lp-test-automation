@@ -1,7 +1,10 @@
 # lp-test-automation
 Repository for all LoanPal automation tests
-
-## Run jest
+### Pre-req
 ```
-npm test
+npm install
+```
+### Run jest
+```
+STAGE=<stage> npm test
 ```
