@@ -27,7 +27,8 @@ module.exports = {
     'jest/no-disabled-tests': 'off',
     'jest/no-standalone-expect': 'off',
     'no-shadow': 'off',
-    'jest/expect-expect': 'off'
+    'jest/expect-expect': 'off',
+    'jest/no-focused-tests': 'off'
   },
   overrides: [
     {
