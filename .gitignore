@@ -71,3 +71,7 @@ data/loanDocs/testResults/*
 
 *temp*.test.js
 
+package-lock.json
+
+yarn.lock
+
