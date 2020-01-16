@@ -11,7 +11,8 @@ export default class ReportsPage extends BasePageObject {
     this.dot = By.xpath('//*[@class="dot"]/*');
     this.provider = By.xpath('//select[@class="dc-select-menu"]');
     this.providerOption = By.xpath('//option[@class="dc-select-option"]');
-    this.prePayTable = By.xpath('//section[@data-qa="summary-table"]//span[contains(text(), "%")]'); // multiple
+    this.prePayTableHeaders = By.xpath('//section[@data-qa= "summary-table"]//thead//td');
+    this.prePayTable = i => By.xpath(`//section[@data-qa="summary-table"]//tbody//td[${i}]`); // multiple
   }
 
   async goToPrePayPage() {
@@ -27,15 +28,17 @@ export default class ReportsPage extends BasePageObject {
     return providers;
   }
 
-  async verifyGraph(providers) {
+  async verifyGraph(providers, headerText) {
     /* eslint-disable no-restricted-syntax */
     /* eslint-disable no-await-in-loop */
     console.log('Verifying graph');
     const expectResult = [];
     let providerCount = 0;
+    const headersElements = await this.waitForElementsLocated(this.prePayTableHeaders, 5000);
+    const position = await this.getColumnPosition(headersElements, headerText);
+    if (providers && position) {
+      // Iterate through provider elements
 
-    // Iterate through provider elements
-    if (providers) {
       for (const row of providers) {
         providerCount += 1;
         const storedValue = await row.getAttribute('value');
@@ -55,19 +58,20 @@ export default class ReportsPage extends BasePageObject {
 
         await this.sleep(1000);
         const dots = await this.waitForElementsLocated(this.dot, 10000);
-        const prePayRates = await this.waitForElementsLocated(this.prePayTable, 10000);
+        const columnValue = await this.waitForElementsLocated(this.prePayTable(position), 10000);
 
         let count = -1;
-
-        // Iterate through points on the graph
-        for (const point of dots) {
-          count += 1;
-          const title = await point.getAttribute('textContent');
-          const dotText = title.split(' ')[1];
-          const rateValue = await prePayRates[count].getAttribute('textContent');
-          let rateText = rateValue.replace('%', '');
-          if (rateText === '0.00') rateText = '0';
-          expectResult.push({ name: storedValue, graphValue: dotText, tableValue: rateText, result: dotText === rateText });
+        if (dots.length > 0 && columnValue.length > 0) {
+          // Iterate through points on the graph
+          for (const point of dots) {
+            count += 1;
+            const title = await point.getAttribute('textContent');
+            const dotText = title.split(' ')[1];
+            const rateValue = await columnValue[count].getAttribute('textContent');
+            let rateText = rateValue.replace('%', '');
+            if (rateText === '0.00') rateText = '0';
+            expectResult.push({ name: storedValue, graphValue: dotText, tableValue: rateText, result: dotText === rateText });
+          }
         }
       }
     }

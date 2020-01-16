@@ -30,7 +30,7 @@ describe('ipReports', () => {
     const providers = await reportsPage.gatherProviders();
     expect(providers.length).toBeGreaterThan(0);
     console.log(`${providers.length} Gathered`);
-    const results = await reportsPage.verifyGraph(providers);
+    const results = await reportsPage.verifyGraph(providers, 'Prepay Rate');
     expect(results.length).toBeGreaterThan(0);
     expect(results).not.toContainEqual(
       expect.objectContaining({
