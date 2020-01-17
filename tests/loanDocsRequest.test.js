@@ -30,7 +30,7 @@ describe('Loan Docs Email', () => {
   describe('Request Loans', () => {
     beforeEach(async () => {
       inbox = await email.getInbox();
-      baseTest = await new BaseTest('chrome');
+      baseTest = new BaseTest('chrome');
     });
 
     afterEach(async () => {

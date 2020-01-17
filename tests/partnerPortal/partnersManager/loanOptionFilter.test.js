@@ -11,8 +11,8 @@ const { By } = require('selenium-webdriver');
 each(['chrome']).describe('PP Login Test', browser => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest(browser);
+  beforeEach(() => {
+    baseTest = new BaseTest(browser);
   });
 
   afterEach(async () => {
@@ -38,14 +38,13 @@ each(['chrome']).describe('PP Login Test', browser => {
     viewFilter.click();
     console.log('View FIlters Button is clicked');
     await ppLoginPage.sleep(2000);
-    
+
     // VALIDATE PRODUCT TYPE FILTER FOR PARTNER-MANAGER
     const checkForProductTypePath = By.xpath('//*[contains(text(), "Product Type")]');
     const checkForProductTypeFilter = await ppLoginPage.findElements(checkForProductTypePath);
     expect(checkForProductTypeFilter.length).toEqual(0);
-    console.log("Product Type is not visible for `Partner-Manager` roles");
-  
-    
+    console.log('Product Type is not visible for `Partner-Manager` roles');
+
     // VALIDATE THE LOAN TERM FILTER
     await ppLoginPage.sleep(2000);
     const checkForLoanOptionsPath = By.xpath('//div[@id="loanOptions_heading"]');
@@ -54,7 +53,6 @@ each(['chrome']).describe('PP Login Test', browser => {
     await checkForLoanOptionFilter.click();
     console.log('Loan Options Filter is present');
     await ppLoginPage.sleep(2000);
-
 
     // VALIDATE THE LOAN TERM / RATE DROP DOWN
     await ppLoginPage.sleep(2000);
@@ -76,8 +74,8 @@ each(['chrome']).describe('PP Login Test', browser => {
     await enterAValueLO.click();
     await ppLoginPage.sleep(2000);
     console.log('Chose 10 Year loan 2.99 loans to view');
-    
-   // CLOSE THE FILTER
+
+    // CLOSE THE FILTER
     const closeTheFilterPath = By.xpath('//button[@id = "filtersClose"]');
     const closeTheFilter = await ppLoginPage.findElement(closeTheFilterPath);
     await closeTheFilter.click();
@@ -86,7 +84,7 @@ each(['chrome']).describe('PP Login Test', browser => {
     // VALIDATING only 10 YEAR 2.99 loans appears in the loanListView
     const validateTheRatePath = By.xpath('//label[contains(text(),"Rate")]');
     await ppLoginPage.findElement(validateTheRatePath);
-    console.log("Only 2.99% loans are present in loanListView");
+    console.log('Only 2.99% loans are present in loanListView');
     await ppLoginPage.sleep(2000);
 
     const validateTheTermPath = By.xpath('//label[contains(text(),"Term")]');

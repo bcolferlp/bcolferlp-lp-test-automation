@@ -6,8 +6,8 @@ import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 each(['chrome']).describe('PP Login Test', browser => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest(browser);
+  beforeEach(() => {
+    baseTest = new BaseTest(browser);
   });
 
   afterEach(async () => {

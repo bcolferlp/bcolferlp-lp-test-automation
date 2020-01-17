@@ -10,8 +10,8 @@ const { By, Key } = require('selenium-webdriver');
 each(['chrome']).describe('PP Login Test', browser => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest(browser);
+  beforeEach(() => {
+    baseTest = new BaseTest(browser);
   });
 
   afterEach(async () => {
@@ -63,7 +63,7 @@ each(['chrome']).describe('PP Login Test', browser => {
 
     for (let i = 1; i <= maxCount; i++) {
       // console.log('num',i)
-      sendKeyEmails +=`harmony.test+${i}@testemail.loanpal.com,`;
+      sendKeyEmails += `harmony.test+${i}@testemail.loanpal.com,`;
     }
     await userEmails.sendKeys(sendKeyEmails);
     await ppLoginPage.sleep(5000);
@@ -99,7 +99,6 @@ each(['chrome']).describe('PP Login Test', browser => {
     await inviteButton2.click();
     await ppLoginPage.sleep(2000);
 
-
     const invitationSentPath = By.xpath('//h2[contains(text(),"Invitations Sent")]');
     await ppLoginPage.waitForTarget(invitationSentPath);
     await ppLoginPage.findElement(invitationSentPath);
@@ -112,7 +111,7 @@ each(['chrome']).describe('PP Login Test', browser => {
     done();
   }, 300000);
 
-  test("partner-read-only", async done => {
+  test('partner-read-only', async done => {
     console.log('Logging in as BlueRaven as Partner-read-only & Inviting Partner-read-only Users');
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
@@ -157,7 +156,7 @@ each(['chrome']).describe('PP Login Test', browser => {
 
     for (let i = 1; i <= maxCount; i++) {
       // console.log('num',i)
-      sendKeyEmails +=`harmony.test+${i}@testemail.loanpal.com,`;
+      sendKeyEmails += `harmony.test+${i}@testemail.loanpal.com,`;
     }
     await userEmails.sendKeys(sendKeyEmails);
     await ppLoginPage.sleep(5000);
@@ -189,7 +188,6 @@ each(['chrome']).describe('PP Login Test', browser => {
     await inviteButton2.click();
     await ppLoginPage.sleep(2000);
 
-
     const invitationSentPath = By.xpath('//h2[contains(text(),"Invitations Sent")]');
     await ppLoginPage.waitForTarget(invitationSentPath);
     await ppLoginPage.findElement(invitationSentPath);
@@ -202,7 +200,7 @@ each(['chrome']).describe('PP Login Test', browser => {
     done();
   }, 300000);
 
-  test("sales-rep", async done => {
+  test('sales-rep', async done => {
     console.log('Logging in as BlueRaven as Partner-Manager & Inviting sales-rep Users');
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
     await ppLoginPage.fullScreen();
@@ -247,7 +245,7 @@ each(['chrome']).describe('PP Login Test', browser => {
 
     for (let i = 1; i <= maxCount; i++) {
       // console.log('num',i)
-      sendKeyEmails +=`harmony.test+${i}@testemail.loanpal.com,`;
+      sendKeyEmails += `harmony.test+${i}@testemail.loanpal.com,`;
     }
     await userEmails.sendKeys(sendKeyEmails);
     await ppLoginPage.sleep(5000);
@@ -279,7 +277,6 @@ each(['chrome']).describe('PP Login Test', browser => {
     await inviteButton2.click();
     await ppLoginPage.sleep(2000);
 
-
     const invitationSentPath = By.xpath('//h2[contains(text(),"Invitations Sent")]');
     await ppLoginPage.waitForTarget(invitationSentPath);
     await ppLoginPage.findElement(invitationSentPath);
@@ -291,5 +288,4 @@ each(['chrome']).describe('PP Login Test', browser => {
 
     done();
   }, 300000);
-
 });

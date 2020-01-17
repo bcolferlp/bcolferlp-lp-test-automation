@@ -32,7 +32,7 @@ describe('Compare DocuSign PDF files', () => {
     300000
   );
 
-  each(allLoans).test.skip(
+  each(allLoans).test(
     '75906: Compare DocuSign PDFs',
     async ({ firstName }) => {
       console.log('Comparing docs for', firstName);
