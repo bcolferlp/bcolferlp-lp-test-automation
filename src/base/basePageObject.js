@@ -210,4 +210,19 @@ export default class BasePageObject {
     );
     return elementText;
   }
+
+  async getColumnPosition(headerElements, headerText) {
+    let index = 0;
+    if (headerElements.length > 0) {
+      for (const column in headerElements) {
+        if (headerElements[column]) {
+          const label = await headerElements[column].getAttribute('textContent');
+          if (label === headerText) {
+            index = +column + 1;
+          }
+        }
+      }
+    }
+    return index;
+  }
 }

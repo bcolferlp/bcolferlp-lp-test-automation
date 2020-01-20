@@ -9,6 +9,7 @@ const { By, until } = require('selenium-webdriver');
 const csv = require('fast-csv');
 const _ = require('lodash');
 const request = require('request');
+const logUpdate = require('log-update');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
 // SUPPORT
@@ -28,5 +29,6 @@ module.exports = {
   csv,
   globals,
   urls,
-  request
+  request,
+  logUpdate
 };
