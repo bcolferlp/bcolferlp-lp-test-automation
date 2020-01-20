@@ -4,8 +4,8 @@ import LoansbyStatePage from '../../../src/pages/investorPortal/ipDashboard/ipLo
 
 describe('Loans By States', () => {
   let baseTest;
-  beforeEach(async () => {
-    baseTest = await new BaseTest('chrome');
+  beforeEach(() => {
+    baseTest = new BaseTest('chrome');
   });
 
   afterEach(async () => {

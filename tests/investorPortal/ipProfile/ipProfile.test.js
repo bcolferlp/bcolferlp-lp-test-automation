@@ -8,8 +8,8 @@ const profileData = require('../../../data/investorPortal/ipProfile/ipProfileDat
 each(['chrome']).describe('Profile Settings', browser => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest(browser);
+  beforeEach(() => {
+    baseTest = new BaseTest(browser);
   });
 
   afterEach(async () => {

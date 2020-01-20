@@ -5,8 +5,8 @@ import IPTranchesPage from '../../../src/pages/investorPortal/ipTranches/ipTranc
 describe.skip('Tranches', () => {
   let baseTest;
   beforeEach(async () => {
-    baseTest = await new BaseTest('chrome');
-    const ipLoginPage = await new IPLoginPage(baseTest.webDriver);
+    baseTest = new BaseTest('chrome');
+    const ipLoginPage = new IPLoginPage(baseTest.webDriver);
     await ipLoginPage.fullScreen();
     await ipLoginPage.open();
     await ipLoginPage.enterEmail();

@@ -7,8 +7,8 @@ const loginFile = require('../../../data/investorPortal/ipLogin/ipLogin.js');
 each(['chrome']).describe('IP Login Test', browser => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest(browser);
+  beforeEach(() => {
+    baseTest = new BaseTest(browser);
   });
 
   afterEach(async () => {

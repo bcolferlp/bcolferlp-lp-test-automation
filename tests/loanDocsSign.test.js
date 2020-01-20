@@ -38,7 +38,7 @@ describe('Loan Docs Email', () => {
     beforeEach(async () => {
       inbox = await email.getInbox();
       coboInbox = await coboEmail.getInbox();
-      baseTest = await new BaseTest('chrome');
+      baseTest = new BaseTest('chrome');
     });
 
     afterEach(async () => {
