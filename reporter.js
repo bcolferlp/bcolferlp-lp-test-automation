@@ -137,8 +137,6 @@ class CustomTestRailReporter {
 
   // Method that run after jest test suite
   async onTestResult(test, testResult, aggregatedResult) {
-    // console.log(test, 'test');
-    // console.log(testResult, 'testResult');
     const { testResults } = testResult;
 
     const caseResults = this.getCaseResults(testResults);
