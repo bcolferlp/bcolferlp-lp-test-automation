@@ -8,8 +8,8 @@ const profileData = require('../../../data/investorPortal/ipProfile/ipProfileDat
 jest.setTimeout(60000 * 30);
 describe('overview', () => {
   let baseTest;
-  beforeEach(async () => {
-    baseTest = await new BaseTest('chrome');
+  beforeEach(() => {
+    baseTest = new BaseTest('chrome');
   });
 
   afterEach(async () => {

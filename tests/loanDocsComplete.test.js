@@ -5,8 +5,8 @@ import DocuSignPage from '../src/pages/3rdParty/docuSign/docuSignPage';
 describe('Loan Docs Completion', () => {
   let baseTest;
 
-  beforeEach(async () => {
-    baseTest = await new BaseTest('chrome');
+  beforeEach(() => {
+    baseTest = new BaseTest('chrome');
   });
 
   afterEach(async () => {
