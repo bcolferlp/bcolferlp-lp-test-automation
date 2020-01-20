@@ -1,0 +1,14 @@
+[
+    {
+        "productType": "Solar",
+        "partner": "BlueRaven",
+        "referenceId": "HARM-AUTOMATION",
+        "status": "Approved",
+        "language": "English",
+        "state": "California",
+        "equifaxResponse": "800.json",
+        "borrowerEmail": "PRavichandran@loanpal.com",
+        "salesRepEmail": "PRavichandran@loanpal.com",
+        "milestone": "Docs Complete"
+    }
+]
