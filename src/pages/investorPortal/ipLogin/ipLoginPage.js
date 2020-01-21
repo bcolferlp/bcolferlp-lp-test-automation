@@ -13,9 +13,20 @@ export default class IPLoginPage extends BasePageObject {
     this.loginBtn = By.xpath('//div[@id="form-access"]//button');
     this.logoutBtn = By.xpath('//a[@data-tip="Logout"]');
     this.errorMessage = By.xpath('//div[@id="errorMessage"]');
+    this.dashboardTarget = By.xpath('//h6[contains(text(), "Dashboard")]');
     // Values
     this.username = process.env.testEmail;
     this.password = process.env.emailPass;
+  }
+
+  async standardLogin({ username, password }) {
+    console.log('Standard User Login');
+    await this.fullScreen();
+    await this.open();
+    await this.enterEmail(username);
+    await this.enterPassword(password);
+    await this.loginClick();
+    await this.waitForTarget(this.dashboardTarget);
   }
 
   async completelogin() {
@@ -25,6 +36,7 @@ export default class IPLoginPage extends BasePageObject {
     await this.enterEmail();
     await this.enterPassword();
     await this.loginClick();
+    await this.waitForTarget(this.dashboardTarget);
   }
 
   async open() {
@@ -62,5 +74,11 @@ export default class IPLoginPage extends BasePageObject {
     const errorElem = await this.waitForElementLocated(this.errorMessage, 20000);
     console.log('Error Message found');
     return errorElem;
+  }
+
+  async logout() {
+    const logoutBtn = await this.waitForElementLocated(this.logoutBtn, 5000);
+    await logoutBtn.click();
+    console.log('Logging out');
   }
 }

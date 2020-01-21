@@ -9,7 +9,7 @@ export default class IPProfilePage extends BasePageObject {
     this.logoutVerify = `${urls.investorPortal}/login`;
     // Xpath
     this.username = By.xpath('//*[contains(text(), "Username")]/..//p');
-    this.firstname = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');
+    this.firstName = By.xpath('//div[contains(@class,"__qa_div_firstName")]//input');
     this.lastName = By.xpath('//div[contains(@class,"__qa_div_lastName")]//input');
     this.fullName = By.xpath('//div[contains(@class,"__qa_div_fullName")]//input');
     this.phone = By.xpath('//div[contains(@class,"__qa_div_phoneNumber")]//input');
@@ -26,13 +26,21 @@ export default class IPProfilePage extends BasePageObject {
     this.clientChangeElem = By.xpath('//div[@role="alert"]');
     this.clientChangeText = 'Warning!\nYou will be automatically logged out and you will need to login again for changes to take effect.';
     this.formControlClient = By.xpath('//div[contains(@class, "_qa_FormControl_generalSwitchToggle")]//label');
+    this.profileTarget = By.xpath('//h4[contains(text(), "Profile Settings")]');
+    this.settingsSaveMessage = By.xpath('//div[contains(text(), "Settings Saved!")]');
+    this.validateText = text => By.xpath(`//input[contains(@value, "${text}")]`);
   }
 
   async goToProfilePage() {
     // Navigate to profile settings page
     console.log('Go to profile settings');
-    await this.sleep(2000);
     await this.openUrl(this.url);
+    await this.waitForTarget(this.profileTarget);
+  }
+
+  async standardUserClient() {
+    const clientSelector = await this.findElements(this.clientId);
+    return clientSelector;
   }
 
   async selectClient(clientId, clientVerify) {
@@ -94,5 +102,43 @@ export default class IPProfilePage extends BasePageObject {
     const clientResults = await this.selectClient(clientId, clientVerify);
     await this.clickSaveChanges(clientResults.change);
     await this.verifyLogout();
+  }
+
+  async verifyUserName() {
+    const userName = await this.waitForElementLocated(this.username, 5000);
+    const userNametext = await userName.getText();
+    return userNametext;
+  }
+
+  async enterPersonalData(data) {
+    const { firstName, lastName, fullName, phone } = data;
+    const firstNameInput = await this.waitForElementLocated(this.firstName, 5000);
+    const lastNameInput = await this.waitForElementLocated(this.lastName, 5000);
+    const fullNameInput = await this.waitForElementLocated(this.fullName, 5000);
+    const phoneInput = await this.waitForElementLocated(this.phone, 5000);
+    const saveChangesBtn = await this.waitForElementLocated(this.saveChanges, 5000);
+
+    await firstNameInput.clear();
+    await this.enterText(firstNameInput, firstName);
+    await lastNameInput.clear();
+    await this.enterText(lastNameInput, lastName);
+    await fullNameInput.clear();
+    await this.enterText(fullNameInput, fullName);
+    await phoneInput.clear();
+    await this.enterText(phoneInput, phone);
+
+    await saveChangesBtn.click();
+    await this.waitForTarget(this.settingsSaveMessage);
+    const settingsSavedMessage = await this.waitForElementLocated(this.settingsSaveMessage, 5000);
+    const savedMessageText = await settingsSavedMessage.getText();
+    return savedMessageText;
+  }
+
+  async validatePersonalData(data) {
+    const { firstName, lastName, fullName, phone } = data;
+    await this.waitForElementLocated(this.validateText(firstName), 5000);
+    await this.waitForElementLocated(this.validateText(lastName), 5000);
+    await this.waitForElementLocated(this.validateText(fullName), 5000);
+    await this.waitForElementLocated(this.validateText(phone), 5000);
   }
 }
