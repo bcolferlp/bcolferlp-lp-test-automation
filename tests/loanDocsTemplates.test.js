@@ -26,7 +26,7 @@ describe('Loan Doc Templates', () => {
     for (const temp of templates) {
       const template = await docuSignAPI.getDocTemplate(temp.templateId);
       const exp = template.notification.expirations.expireAfter;
-      console.log('Expiration:', temp.templateId, exp);
+      console.log(`Name: ${temp.name}, ID: ${temp.templateId}, Expiration: ${exp}`);
       expect(exp).toBe('360');
     }
   });
