@@ -52,8 +52,8 @@ describe('GraphQL', () => {
 
   test.only('getStuff', async () => {
     const config = {
-      UserPoolId: 'us-west-2_pG1y9C2Dq',
-      ClientId: '3jhc8h6f4qscr9kvrmj64n51hg',
+      UserPoolId: process.env.cognitoUserPoolId,
+      ClientId: process.env.cognitoClientId,
       Username: process.env.testEmail,
       Password: process.env.emailPass
     };

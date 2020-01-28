@@ -28,6 +28,7 @@ export default class Cognito {
     const user = new CognitoUser({ Username, Pool });
     const authData = { Username, Password };
     const authDetails = new AuthenticationDetails(authData);
+    console.log('how neat', authDetails);
     return new Promise((resolve, reject) => {
       user.authenticateUser(authDetails, {
         onSuccess: result => resolve(result),
