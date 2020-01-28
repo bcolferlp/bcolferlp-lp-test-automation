@@ -1,5 +1,5 @@
 import GraphQL from '../../src/apis/graphQLAPI';
-import Cognito from '../../src/apis/getStuff';
+import Cognito from '../../src/apis/cognitoAPI';
 
 require('dotenv').config();
 

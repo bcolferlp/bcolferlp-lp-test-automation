@@ -24,9 +24,7 @@ export default class Cognito {
 
   login() {
     const { UserPoolId, ClientId, Username, Password } = this.config;
-    console.log(UserPoolId, ClientId, Username, Password);
     const Pool = this.getUserPool(UserPoolId, ClientId);
-    console.log(Pool, 'Pool');
     const user = new CognitoUser({ Username, Pool });
     const authData = { Username, Password };
     const authDetails = new AuthenticationDetails(authData);
