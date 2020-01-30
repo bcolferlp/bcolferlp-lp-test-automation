@@ -1,5 +1,7 @@
 import { CognitoUserPool, AuthenticationDetails, CognitoUser, CognitoUserSession } from 'amazon-cognito-identity-js';
 
+const { _ } = require('../../src/utilities/imports');
+
 let currentUser;
 
 export default class Cognito {
@@ -22,13 +24,18 @@ export default class Cognito {
     return currentUser;
   }
 
+  async getToken() {
+    const result = await this.login();
+    const found = _.find(result, 'jwtToken');
+    return found.jwtToken;
+  }
+
   login() {
     const { UserPoolId, ClientId, Username, Password } = this.config;
     const Pool = this.getUserPool(UserPoolId, ClientId);
     const user = new CognitoUser({ Username, Pool });
     const authData = { Username, Password };
     const authDetails = new AuthenticationDetails(authData);
-    console.log('how neat', authDetails);
     return new Promise((resolve, reject) => {
       user.authenticateUser(authDetails, {
         onSuccess: result => resolve(result),
