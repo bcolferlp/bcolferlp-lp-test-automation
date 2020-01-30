@@ -16,6 +16,9 @@ export default class DocuSignPage extends BasePageObject {
     this.initialSign = By.xpath('//span[contains(text(),"Initial Here") or contains(text(),"Sign Here")]/../../button'); // elements
     this.docuSignAdopt = By.xpath('//button[contains(text(), "Adopt and Initial")]');
     this.bankElements = By.xpath('//input[@type="text"]');
+    this.bankName = By.xpath('//div[@class="page-tabs"]//div[4][contains(@data-label, "bankName")]//input');
+    this.routingNumber = By.xpath('//div[@class="page-tabs"]//div[5][contains(@data-label, "routingNumber")]//input');
+    this.accountNumber = By.xpath('//div[@class="page-tabs"]//div[6][contains(@data-label, "accountNumber")]//input');
     this.finishBtn = By.xpath('//button[text() = "Finish"]');
     this.docCompleteTarget = By.xpath('//h1[contains(text(), "Save a Copy of Your Document")]');
   }
@@ -32,14 +35,19 @@ export default class DocuSignPage extends BasePageObject {
   }
 
   async completeDocs() {
+    // Switch browser tabs
     const handles = await this.getAllWindowHandles();
     if (handles.length > 1) await this.switchWindow(handles, 1);
     await this.waitForTarget(this.otherActions);
+
+    // Check if doc is already signed
     const isSigned = await this.findElements(this.closeDocs);
     if (isSigned.length > 0) {
       console.log('Docs are already signed');
       return;
     }
+
+    // Validate if agree checkbox exists
     const agreeNoShow = await this.findElements(this.agreeNoShow);
     if (agreeNoShow.length === 0) {
       console.log('Agree checkbox exists');
@@ -48,6 +56,8 @@ export default class DocuSignPage extends BasePageObject {
       console.log('Agree checkbox clicked');
     }
     await this.sleep(1000);
+
+    // Click through begin steps
     const docuSignContinue = await this.waitForElementLocated(this.docuSignContinue, 5000);
     await docuSignContinue.click();
     console.log('Continue Click');
@@ -57,6 +67,7 @@ export default class DocuSignPage extends BasePageObject {
     console.log('Start Click');
     await this.sleep(1000);
 
+    // Click through all required signature boxes
     const requiredSigns = await this.waitForElementsLocated(this.initialSign, 5000);
     let count = 0;
     for (const elem of requiredSigns) {
@@ -73,16 +84,16 @@ export default class DocuSignPage extends BasePageObject {
       if (count === 1) await this.waitForTarget(this.docuSignAdopt);
     }
     await this.sleep(1000);
-    const bankElems = await this.findElements(this.bankElements);
-    if (bankElems.length > 0) {
-      console.log('Entering bank information');
-      await bankElems[0].sendKeys('Chase');
-      await this.sleep(1000);
-      await bankElems[1].sendKeys('322271627'); // CA chase
-      await this.sleep(1000);
-      await bankElems[2].sendKeys('123456789');
-      await this.sleep(1000);
-    }
+
+    // Enter Bank info
+    const bankName = await this.waitForElementLocated(this.bankName, 5000);
+    await this.enterText(bankName, 'Chase');
+    const routingNumber = await this.waitForElementLocated(this.routingNumber, 5000);
+    await this.enterText(routingNumber, '322271627');
+    const accountNumber = await this.waitForElementLocated(this.accountNumber, 5000);
+    await this.enterText(accountNumber, '234567890');
+
+    // Finish doc signing
     const finishBtn = await this.waitForElementLocated(this.finishBtn, 5000);
     await finishBtn.click();
     console.log('Finish click');
