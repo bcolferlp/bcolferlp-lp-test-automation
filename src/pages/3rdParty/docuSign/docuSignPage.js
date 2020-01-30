@@ -16,9 +16,9 @@ export default class DocuSignPage extends BasePageObject {
     this.initialSign = By.xpath('//span[contains(text(),"Initial Here") or contains(text(),"Sign Here")]/../../button'); // elements
     this.docuSignAdopt = By.xpath('//button[contains(text(), "Adopt and Initial")]');
     this.bankElements = By.xpath('//input[@type="text"]');
-    this.bankName = By.xpath('//div[contains(@data-label, "bankName")]//input');
-    this.routingNumber = By.xpath('//div[contains(@data-label, "routingNumber")]//input');
-    this.accountNumber = By.xpath('//div[contains(@data-label, "accountNumber")]//input');
+    this.bankName = By.xpath('//div[@class="page-tabs"]//div[4][contains(@data-label, "bankName")]//input');
+    this.routingNumber = By.xpath('//div[@class="page-tabs"]//div[5][contains(@data-label, "routingNumber")]//input');
+    this.accountNumber = By.xpath('//div[@class="page-tabs"]//div[6][contains(@data-label, "accountNumber")]//input');
     this.finishBtn = By.xpath('//button[text() = "Finish"]');
     this.docCompleteTarget = By.xpath('//h1[contains(text(), "Save a Copy of Your Document")]');
   }
