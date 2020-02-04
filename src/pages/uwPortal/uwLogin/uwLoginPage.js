@@ -29,40 +29,6 @@ export default class UWLoginPage extends BasePageObject {
     this.password = process.env.emailPass;
   }
 
-  async getUsernameTextbox() {
-    const usernameTextbox = await this.waitForElementLocated(this.textBox.username, 5000);
-    return usernameTextbox;
-  }
-
-  async getPasswordTextbox() {
-    const passwordTextbox = await this.waitForElementLocated(this.textBox.password, 5000);
-    return passwordTextbox;
-  }
-
-  async getErrorMessage() {
-    const errorMessage = await this.waitForElementLocated(this.label.errorMessage, 5000);
-    return errorMessage;
-  }
-
-  async getForgotPasswordButton() {
-    const forgotPasswordButton = await this.waitForElementLocated(this.link.forgotPassword, 5000);
-    return forgotPasswordButton;
-  }
-
-  async getBackToLoginButton() {
-    const backToLoginButton = await this.waitForElementLocated(this.link.backToLogin, 5000);
-    return backToLoginButton;
-  }
-
-  async signIn(username, password) {
-    const usernameTextbox = await this.waitForElementLocated(this.textBox.username, 5000);
-    const passwordTextbox = await this.waitForElementLocated(this.textBox.password, 5000);
-    await usernameTextbox.sendKeys(username);
-    await passwordTextbox.sendKeys(password);
-    await this.waitForElementLocated(this.button.login, 5000).click();
-  }
-  // ******************************
-
   async completelogin() {
     console.log('Complete Login');
     await this.fullScreen();
