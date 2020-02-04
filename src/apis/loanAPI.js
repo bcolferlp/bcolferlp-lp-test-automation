@@ -5,14 +5,15 @@ const { urls } = require('../utilities/imports');
 export default class LoanAPI extends BaseAPI {
   constructor(dataJson) {
     super();
-    this.dataJson = dataJson;
+    this.dataJson = JSON.stringify(dataJson, null, 1);
     this.loanData = this.createLoan();
+    this.headers = { 'content-type': 'application/json' };
   }
 
   async createLoan() {
     // Constructs the url request based on stage
     const url = urls.loanCreate;
-    const result = await this.apiPostRequest(url, this.dataJson);
+    const result = await this.apiPostRequest(url, this.dataJson, this.headers);
     console.log(result);
     return result;
   }
