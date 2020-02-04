@@ -1,3 +1,4 @@
+import moment from 'moment';
 import GraphQL from '../../src/apis/graphQLAPI';
 import Cognito from '../../src/apis/cognitoAPI';
 
@@ -52,12 +53,12 @@ describe('GraphQL', () => {
           }
         }
       }`;
-    const regex = /\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/g;
+    const date = moment().format('YYYY-MM-DD');
     const variable = { termId: 'TRMS-ddd9dec5-1ea8-46ef-b103-7ff74bd66456' };
     const result = await graphQL.request(query, variable);
     const allTerms = result.acceptTerms.acceptedTerms;
     const latestTerm = allTerms[allTerms.length - 1];
     console.log('latestTerm', latestTerm);
-    expect(latestTerm).toEqual(expect.objectContaining({ termsAndConditionsId: variable.termId, dateAccepted: expect.stringMatching(regex) }));
+    expect(latestTerm).toEqual(expect.objectContaining({ termsAndConditionsId: variable.termId, dateAccepted: expect.stringMatching(date) }));
   });
 });
