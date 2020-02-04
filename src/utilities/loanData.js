@@ -35,6 +35,17 @@ class LoanData {
     const envelopeId = loanItem.paymentInfo.docusignEnvelopeId;
     return envelopeId;
   }
+
+  async getContractReview() {
+    return dynamodb
+      .query({
+        TableName: `${process.env.STAGE}-contract-review`,
+        KeyConditionExpression: 'loanId = :loanId',
+        ExpressionAttributeValues: { ':loanId': this.loanId }
+      })
+      .promise()
+      .get('Items');
+  }
 }
 
 module.exports = LoanData;
