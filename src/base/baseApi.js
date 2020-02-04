@@ -20,13 +20,13 @@ export default class BaseAPI {
     return JSON.parse(result);
   }
 
-  doPostRequest(url, bodyJson) {
+  doPostRequest(url, bodyJson, headers) {
     return new Promise(function(resolve) {
       request.post(
         {
-          headers: { 'content-type': 'application/json' },
+          headers,
           url,
-          body: JSON.stringify(bodyJson, null, 1)
+          body: bodyJson
         },
         function(error, response, body) {
           const result = new Map();
@@ -41,8 +41,8 @@ export default class BaseAPI {
     });
   }
 
-  async apiPostRequest(url, bodyJson) {
-    const request = await this.doPostRequest(url, bodyJson);
+  async apiPostRequest(url, bodyJson, headers) {
+    const request = await this.doPostRequest(url, bodyJson, headers);
     return request;
   }
 }
