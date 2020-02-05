@@ -1,3 +1,4 @@
+import moment from 'moment';
 import BaseTest from '../../../src/base/baseTest';
 import UWLoginPage from '../../../src/pages/uwPortal/uwLogin/uwLoginPage';
 import UWContractReviewPage from '../../../src/pages/uwPortal/uwContractReview/uwContractReviewPage';
@@ -20,7 +21,7 @@ describe('Underwriter Contract Review', () => {
     if (baseTest) await baseTest.quit();
   });
 
-  test('Complete a contract review', async () => {
+  test('97882: Complete a contract review', async () => {
     baseTest = new BaseTest('chrome');
     uwPage = new UWLoginPage(baseTest.webDriver);
     await uwPage.completelogin();
@@ -29,16 +30,19 @@ describe('Underwriter Contract Review', () => {
     await uwContractReview.completeContractReview();
   });
   // LPL-1534
-  test.only('Matching tables from Dynamo to Aurora', async () => {
+  test('104811: Matching tables from Dynamo to Aurora', async () => {
+    const date = moment().format('YYYY-MM-DD');
     const uwContractValidate = new UWContractValidatePage(loanId);
     const [dynamoContract] = await uwContractValidate.verifyDynamo();
     expect(dynamoContract).toBeTruthy();
     const [auroraContract] = await uwContractValidate.verifyAurora();
     expect(auroraContract).toBeTruthy();
-    const { dLoan, aLoan, dynamoDate, auroraDate } = await uwContractValidate.verifyRecords(dynamoContract, auroraContract);
+    const { dLoan, aLoan, dynamoDate, auroraDate } = uwContractValidate.verifyRecords(dynamoContract, auroraContract);
     console.log(`Compare Ids: ${dLoan}, ${aLoan}`);
-    console.log('dynamoDate:', dynamoDate, 'auroraDate:', auroraDate);
     expect(dLoan).toEqual(loanId);
     expect(aLoan).toEqual(loanId);
+    console.log('dynamoDate:', dynamoDate, 'auroraDate:', auroraDate);
+    expect(`Dynamo date: ${dynamoDate.toISOString()}`).toEqual(expect.stringContaining(date));
+    expect(`Aurora date: ${auroraDate.toISOString()}`).toEqual(expect.stringContaining(date));
   });
 });

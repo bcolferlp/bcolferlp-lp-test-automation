@@ -17,11 +17,11 @@ class UWContractValidatePage {
     const sqlQuery = `SELECT * FROM ${process.env.STAGE}.cf_contract_review where loanid='${this.loanId}'`;
     const aurora = new Aurora(sqlQuery);
     const auroraContract = await aurora.getPayload();
-    console.log('Got Aurora Contract Review record:');
+    console.log('Got Aurora Contract Review record');
     return auroraContract;
   }
 
-  async verifyRecords(dynamo, aurora) {
+  verifyRecords(dynamo, aurora) {
     const { loanId: dLoan = '', timestamp = '' } = dynamo;
     const { loanid: aLoan = '', createddt = '' } = aurora;
     const dynamoDate = new Date(timestamp);
