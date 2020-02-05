@@ -22,8 +22,8 @@ class UWContractValidatePage {
   }
 
   async verifyRecords(dynamo, aurora) {
-    const { loanId: dLoan = '', timestamp = '' } = dynamo[0];
-    const { loanid: aLoan = '', createddt = '' } = aurora[0];
+    const { loanId: dLoan = '', timestamp = '' } = dynamo;
+    const { loanid: aLoan = '', createddt = '' } = aurora;
     const dynamoDate = new Date(timestamp);
     const auroraDate = new Date(createddt);
 
