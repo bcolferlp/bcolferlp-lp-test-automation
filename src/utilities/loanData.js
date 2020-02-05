@@ -35,6 +35,18 @@ class LoanData {
     const envelopeId = loanItem.paymentInfo.docusignEnvelopeId;
     return envelopeId;
   }
+
+  async getContractReview() {
+    console.log('getContractReview', this.loanId);
+    return this.docClient
+      .query({
+        TableName: `${this.stage}-contract-review`,
+        KeyConditionExpression: 'loanId = :loanId',
+        ExpressionAttributeValues: { ':loanId': this.loanId }
+      })
+      .promise()
+      .get('Items');
+  }
 }
 
 module.exports = LoanData;
