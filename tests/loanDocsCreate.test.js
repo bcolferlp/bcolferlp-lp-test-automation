@@ -6,7 +6,8 @@ import CoBorrowerJSON from '../src/utilities/coBorrowerJSON';
 
 const { fs, path } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber');
-const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
+//const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
+const singleBorrSunRunData = require('../data/loanDocs/testData/joseTestData/singleBorrowerSunRunDataJose');
 const singleBorrNonSunRunData = require('../data/loanDocs/testData/singleBorrowerNonSunRunData');
 const coBorrSunRunData = require('../data/loanDocs/testData/coBorrowerSunRunData');
 const coBorrNonSunRunData = require('../data/loanDocs/testData/coBorrowerNonSunRunData');
@@ -61,7 +62,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(singleBorrNonSunRunData).test(
+  each(singleBorrNonSunRunData).test.skip(
     '75899: Create Single Borrower Non SunRun Loans',
     async ({ productType, clientId, firstName, lastName, street, state, email, spokenLanguage, source, salesRepEmail }, done) => {
       const jsonData = new SingleBorrowerJSON().updateJson(
@@ -89,7 +90,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrSunRunData).test(
+  each(coBorrSunRunData).test.skip(
     '75900: Create Combined SunRun Loans',
     async (
       {
@@ -141,7 +142,7 @@ describe('Create Loans', () => {
     10000
   );
 
-  each(coBorrNonSunRunData).test(
+  each(coBorrNonSunRunData).test.skip(
     '75901: Create Combined Non SunRun Loans',
     async (
       {
