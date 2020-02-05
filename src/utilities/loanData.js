@@ -37,9 +37,10 @@ class LoanData {
   }
 
   async getContractReview() {
-    return dynamodb
+    console.log('getContractReview', this.loanId);
+    return this.docClient
       .query({
-        TableName: `${process.env.STAGE}-contract-review`,
+        TableName: `${this.stage}-contract-review`,
         KeyConditionExpression: 'loanId = :loanId',
         ExpressionAttributeValues: { ':loanId': this.loanId }
       })

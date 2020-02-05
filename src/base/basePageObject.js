@@ -145,6 +145,25 @@ export default class BasePageObject {
     }
   }
 
+  async waitForTargetRemoval(locator, count = 0, max = 10) {
+    // eslint-disable-next-line no-param-reassign
+    count += 1;
+    console.log('waitForTargetRemoval', locator.value ? locator.value : locator, 'Attempt:', `${count}/${max}`);
+    await this.webDriver.sleep(5000);
+    try {
+      const found = await this.webDriver.findElement(locator);
+      if (found && count < max) {
+        console.log('Target still exists');
+        const targetFile = await this.waitForTargetRemoval(locator, count);
+        return targetFile;
+      }
+      return new Error('Target removal timed out');
+    } catch (error) {
+      console.log('Target is gone');
+      return;
+    }
+  }
+
   async cellText(tableRows) {
     console.log('Gathering table element text...');
     const tableCells = await Promise.all(
