@@ -48,6 +48,7 @@ class CustomTestRailReporter {
     return Object.entries(caseResults).map(async ([caseId, item], i) => {
       // Gather failures, if applicable
       let trRunId;
+      let existingPlanTest;
       let existingTest;
       const { results, failureMessages } = item;
       const failed = results.findIndex(r => r === 5) > -1;
@@ -66,11 +67,12 @@ class CustomTestRailReporter {
             for (const entry of plan.body.entries) {
               for (const run of entry.runs) {
                 const r = await testrail.getTests(run.id, {});
-                existingTest = r.body.find(i => i.case_id === +caseId);
+                existingPlanTest = r.body.find(i => i.case_id === +caseId);
               }
             }
           }
-        } else {
+        }
+        if (!existingPlanTest) {
           // Returns any existing runs
           const runs = await testrail.getRuns(
             /*PROJECT_ID=*/ suiteResponse.body.project_id,
@@ -83,7 +85,7 @@ class CustomTestRailReporter {
               existingTest = r.body.find(i => i.case_id === +caseId);
             }
           }
-        }
+        } else existingTest = existingPlanTest;
         // Determine if a test already exists
         if (!existingTest) {
           const runResponse = await testrail.addRun(
