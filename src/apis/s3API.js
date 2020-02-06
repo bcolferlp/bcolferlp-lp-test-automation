@@ -78,6 +78,11 @@ export default class S3API {
     }
   }
 
+  async downloadFileFromS3AsString(key) {
+    const { Body: buffer } = await this.s3.getObject({ Bucket: this.bucket, Key: key }).promise();
+    return buffer.toString();
+  }
+
   getBucketNotificationConfiguration() {
     return this.s3.getBucketNotificationConfiguration({
       Bucket: this.bucket
