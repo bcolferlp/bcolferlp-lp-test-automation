@@ -3,7 +3,7 @@ const fs = require('fs');
 const csvParser = require('fast-csv');
 
 export default class CSVParser {
-  constructor(file) {
+  constructor(file = '') {
     this.file = file;
   }
 
@@ -26,5 +26,22 @@ export default class CSVParser {
   async getHeaders() {
     const rows = await this.parseFile();
     return rows[0];
+  }
+
+  getCsvHeaders(fileBufferString) {
+    return new Promise(resolve => {
+      const rows = [];
+      const csvStream = csvParser.parseString(fileBufferString);
+      const onData = function(row) {
+        rows.push(row);
+        if (rows.length === 1) {
+          csvStream.emit('donereading'); // custom event for convenience
+        }
+      };
+      csvStream.on('data', onData).on('donereading', function() {
+        csvStream.removeListener('data', onData);
+        return resolve(rows[0]);
+      });
+    });
   }
 }

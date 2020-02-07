@@ -9,17 +9,15 @@ const {
 config.setPromisesDependency(Promise);
 config.update({ region: 'us-west-2' });
 
-const dynamodb = new DocumentClient();
-
 class LoanData {
   constructor(loanid) {
     this.loanId = loanid;
-    this.docClient = new DocumentClient();
+    this.dynamodb = new DocumentClient();
     this.stage = process.env.STAGE;
   }
 
   async getSrcLoan() {
-    return dynamodb
+    return this.dynamodb
       .get({ TableName: `${this.stage}-loans`, Key: { id: this.loanId } })
       .promise()
       .get('Item');
@@ -38,7 +36,7 @@ class LoanData {
 
   async getContractReview() {
     console.log('getContractReview', this.loanId);
-    return this.docClient
+    return this.dynamodb
       .query({
         TableName: `${this.stage}-contract-review`,
         KeyConditionExpression: 'loanId = :loanId',
@@ -46,6 +44,16 @@ class LoanData {
       })
       .promise()
       .get('Items');
+  }
+
+  async putLoan(loan) {
+    console.log('putLoan', loan.id);
+    return this.dynamodb
+      .put({
+        TableName: `${process.env.STAGE}-loans`,
+        Item: loan
+      })
+      .promise();
   }
 }
 
