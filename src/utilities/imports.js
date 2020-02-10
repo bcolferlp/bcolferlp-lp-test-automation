@@ -5,7 +5,7 @@ require('dotenv').config();
 const AWS = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
-const { By, until } = require('selenium-webdriver');
+const { By, until, Key, error } = require('selenium-webdriver');
 const csv = require('fast-csv');
 const _ = require('lodash');
 const request = require('request');
@@ -26,9 +26,11 @@ module.exports = {
   format,
   By,
   until,
+  Key,
   csv,
   globals,
   urls,
   request,
-  logUpdate
+  logUpdate,
+  error
 };
