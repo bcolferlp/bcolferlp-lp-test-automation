@@ -32,5 +32,6 @@ module.exports = {
       .toLowerCase()
       .split(' ')
       .map(s => s.charAt(0).toUpperCase() + s.substring(1))
-      .join(' ')
+      .join(' '),
+  ssnDash: ssn => `${ssn.substr(0, 3)}-${ssn.substr(3, 2)}-${ssn.substr(5, 4)}`
 };
