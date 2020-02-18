@@ -1,20 +1,17 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable jest/valid-describe */
 import BaseTest from '../../../src/base/baseTest';
-import CSVParser from '../../../src/utilities/parseCSV';
 import LPAppPage from '../../../src/pages/loanpal/application/lpAppPage';
+import ClientData from '../../../src/utilities/clientData';
+import file from '../../../data/loanpal/application/approved-deferred-stip-data.csv';
 
 jest.setTimeout(60000 * 5);
-const { path } = require('../../../src/utilities/imports');
 
-const testFile = path.join(__dirname, '../../../data/loanpal/application/approved-deferred-stip-data.csv');
-const csv = new CSVParser(testFile);
 describe('Underwriter Portal Login', () => {
   let baseTest;
   let lpApp;
-  let data;
 
   beforeAll(async () => {
-    data = await csv.parseFile();
     baseTest = new BaseTest('chrome');
     lpApp = new LPAppPage(baseTest.webDriver);
   });
@@ -29,14 +26,17 @@ describe('Underwriter Portal Login', () => {
   //     if (baseTest) await baseTest.quit();
   //   });
 
-  test('Apply for a loan through the loanpal UI', async () => {
-    for (const record of data) {
-      console.log(record, 'record');
-
-      await lpApp.goToPage(record.url);
-      await lpApp.fillOutForm(record);
-      await lpApp.reviewInfo();
-      await lpApp.apply();
-    }
+  test.each(file)('Apply for a loan through the loanpal UI', async record => {
+    const clientData = new ClientData(record.partner);
+    const [clientConfig] = await clientData.getClientConfig();
+    const { loanOptionsMap } = clientConfig;
+    record = { ...record, loanOptionsMap };
+    console.log(record, 'clientConfig');
+    await lpApp.goToPage(record.url);
+    await lpApp.fillOutForm(record);
+    await lpApp.reviewInfo();
+    await lpApp.apply();
+    const loanID = await lpApp.getLoanID();
+    expect(loanID).toEqual(expect.stringMatching(/\d{2}-\d{2}-\d{6}/g));
   });
 });
