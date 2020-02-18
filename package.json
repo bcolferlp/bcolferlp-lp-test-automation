@@ -54,9 +54,12 @@
   "dependencies": {
     "archiver": "^3.1.1",
     "babel-eslint": "^10.0.3",
+    "bodybuilder": "^2.2.20",
     "dotenv": "^8.2.0",
+    "elasticsearch": "^16.6.0",
     "fast-csv": "^3.4.0",
     "html-to-text": "^5.1.1",
+    "http-aws-es": "^6.0.0",
     "imap": "^0.8.19",
     "imap-simple": "^4.3.0",
     "jest-2-testrail": "^1.0.8",
