@@ -139,7 +139,7 @@ export default class BasePageObject {
     } catch (error) {
       if (count < max) {
         console.log('Searching for element...');
-        const targetFile = await this.waitForTarget(locator, count);
+        const targetFile = await this.waitForTarget(locator, count, max);
         return targetFile;
       } else return;
     }
@@ -154,7 +154,7 @@ export default class BasePageObject {
       const found = await this.webDriver.findElement(locator);
       if (found && count < max) {
         console.log('Target still exists');
-        const targetFile = await this.waitForTargetRemoval(locator, count);
+        const targetFile = await this.waitForTargetRemoval(locator, count, max);
         return targetFile;
       }
       return new Error('Target removal timed out');
