@@ -84,6 +84,7 @@ export default class LPAppPage extends BasePageObject {
       loanTerm: value => By.xpath(`//select[option[contains(text(), "Select Loan Term")]]//option[@value="${value}"]`),
       // Primary Borrower
       addressState: value => By.xpath(`//select[@id="addressState"]//option[@value="${value}"]`),
+      addressStateDefault: By.xpath('//select[@id="addressState"]/option[2]'),
       dateOfBirth: {
         month: value => By.xpath(`//select[@id="birthdayMonth"]/option[@value="${value}"]`),
         day: value => By.xpath(`//select[@id="birthdayDay"]/option[@value="${value}"]`),
@@ -92,6 +93,7 @@ export default class LPAppPage extends BasePageObject {
       employmentStatus: value => By.xpath(`//select[@name="employmentStatus"]//option[@value="${value}"]`),
       // Secondary Borrower
       coAddressState: value => By.xpath(`//select[@id="addressState2"]//option[@value="${value}"]`),
+      coAddressStateDefault: By.xpath('//select[@id="addressState2"]/option[2]'),
       coDateOfBirth: {
         month: value => By.xpath(`//select[@id="birthdayMonth2"]/option[@value="${value}"]`),
         day: value => By.xpath(`//select[@id="birthdayDay2"]/option[@value="${value}"]`),
@@ -158,6 +160,7 @@ export default class LPAppPage extends BasePageObject {
       if (secondaryCity) await this.enterText(secondaryCity, record.coAddressCity);
       const [secondaryState] = await this.findElements(this.select.coAddressState(record.coAddressState || Object.keys(record.loanOptionsMap)[0]));
       if (secondaryState) await secondaryState.click();
+      else await this.findElement(this.select.coAddressStateDefault).then(e => e.click());
       const [secondaryZip] = await this.findElements(this.input.coAddressZip);
       if (secondaryZip) await this.enterText(secondaryZip, record.coAddressZip);
     } else {
@@ -218,6 +221,7 @@ export default class LPAppPage extends BasePageObject {
     if (primaryCity) await this.enterText(primaryCity, record.addressCity);
     const [primaryState] = await this.findElements(this.select.addressState(record.addressState || Object.keys(record.loanOptionsMap)[0]));
     if (primaryState) await primaryState.click();
+    else await this.findElement(this.select.addressStateDefault).then(e => e.click());
     const [primaryZip] = await this.findElements(this.input.addressZip);
     if (primaryZip) await this.enterText(primaryZip, record.addressZip);
     // Primary Mobile Phone
