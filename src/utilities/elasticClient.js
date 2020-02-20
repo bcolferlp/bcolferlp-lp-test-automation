@@ -18,14 +18,14 @@ class ElasticClient {
     return results.hits.hits.map(({ _source }) => _source);
   }
 
-  async getActiveLoans(ssn) {
-    if (!ssn.includes('-')) ssn = format.ssnDash(ssn);
+  async getActiveLoans(input) {
+    const ssn = input.includes('-') ? input : format.ssnDash(input);
     console.log('Searching active loans for', ssn);
     const body = bodybuilder()
-      .size(1000)
-      .filter('match', 'application.applicant.ssn', ssn)
+      .query('term', 'application.applicant.ssn', ssn)
       .notFilter('match', 'loanStatus.application', 'Declined')
       .notFilter('match', 'loanStatus.application', 'Canceled')
+      .size(1000)
       .build();
     const results = await this.executeQuery({ index: 'loans', size: 1000, source: ['id'], body });
     return results;
