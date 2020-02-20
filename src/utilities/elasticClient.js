@@ -5,7 +5,7 @@ const AWS = require('./aws');
 const format = require('./format');
 
 class ElasticClient {
-  async executeQuery({ index, source: _source, body, size = 20 }) {
+  async executeQuery({ index, source: _source, body, size = 20, score }) {
     const stage = process.env.STAGE;
     const ssm = new AWS.SSM();
     const { Parameter } = await ssm.getParameter({ Name: `/${stage}/env/elasticsearch-url` }).promise();
@@ -22,13 +22,13 @@ class ElasticClient {
     const ssn = input.includes('-') ? input : format.ssnDash(input);
     console.log('Searching active loans for', ssn);
     const body = bodybuilder()
-      .query('term', 'application.applicant.ssn', ssn)
+      .query('match', 'application.applicant.ssn', ssn)
       .notFilter('match', 'loanStatus.application', 'Declined')
       .notFilter('match', 'loanStatus.application', 'Canceled')
       .size(1000)
       .build();
-    const results = await this.executeQuery({ index: 'loans', size: 1000, source: ['id'], body });
-    return results;
+    const results = await this.executeQuery({ index: 'loans', size: 1000, source: ['id', 'application.applicant.ssn'], body });
+    return results.filter(x => x.application.applicant.ssn === ssn).map(x => x.id);
   }
 }
 // beforeEach
