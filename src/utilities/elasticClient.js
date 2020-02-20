@@ -5,7 +5,7 @@ const AWS = require('./aws');
 const format = require('./format');
 
 class ElasticClient {
-  async executeQuery({ index, source: _source, body, size = 20, score }) {
+  async executeQuery({ index, source: _source, body, size = 20 }) {
     const stage = process.env.STAGE;
     const ssm = new AWS.SSM();
     const { Parameter } = await ssm.getParameter({ Name: `/${stage}/env/elasticsearch-url` }).promise();
