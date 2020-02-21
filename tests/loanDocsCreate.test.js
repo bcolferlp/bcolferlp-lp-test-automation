@@ -4,7 +4,7 @@ import SingleBorrowerJSON from '../src/utilities/singleBorrowerJSON';
 import CoBorrowerJSON from '../src/utilities/coBorrowerJSON';
 // import { longStackTraces } from 'bluebird';
 
-const { fs, path } = require('../src/utilities/imports');
+const { fs, path, getRandomNum } = require('../src/utilities/imports');
 const TestNumber = require('../src/utilities/testNumber');
 const singleBorrSunRunData = require('../data/loanDocs/testData/singleBorrowerSunRunData');
 const singleBorrNonSunRunData = require('../data/loanDocs/testData/singleBorrowerNonSunRunData');
@@ -39,7 +39,7 @@ describe('Create Loans', () => {
         clientId,
         firstName,
         lastName,
-        street,
+        getRandomNum(4) + street,
         state,
         email,
         spokenLanguage,
@@ -69,7 +69,7 @@ describe('Create Loans', () => {
         clientId,
         firstName,
         lastName,
-        street,
+        getRandomNum(4) + street,
         state,
         email,
         spokenLanguage,
@@ -116,7 +116,7 @@ describe('Create Loans', () => {
         clientId,
         firstName,
         lastName,
-        street,
+        getRandomNum(4) + street,
         state,
         email,
         spokenLanguage,
@@ -124,7 +124,7 @@ describe('Create Loans', () => {
         salesRepEmail,
         coFirstName,
         coLastName,
-        coStreet,
+        getRandomNum(4) + coStreet,
         coState,
         coEmail,
         testNumber
@@ -168,7 +168,7 @@ describe('Create Loans', () => {
         clientId,
         firstName,
         lastName,
-        street,
+        getRandomNum(4) + street,
         state,
         email,
         spokenLanguage,
@@ -176,7 +176,7 @@ describe('Create Loans', () => {
         salesRepEmail,
         coFirstName,
         coLastName,
-        coStreet,
+        getRandomNum(4) + coStreet,
         coState,
         coEmail,
         testNumber
