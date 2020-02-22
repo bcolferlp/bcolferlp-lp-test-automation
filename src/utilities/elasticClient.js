@@ -22,13 +22,14 @@ class ElasticClient {
     const ssn = input.includes('-') ? input : format.ssnDash(input);
     console.log('Searching active loans for', ssn);
     const body = bodybuilder()
-      .query('match', 'application.applicant.ssn', ssn)
+      .orFilter('match', 'application.applicant.ssn.keyword', ssn)
+      .orFilter('match', 'application.applicant.ssn.keyword', input)
       .notFilter('match', 'loanStatus.application', 'Declined')
       .notFilter('match', 'loanStatus.application', 'Canceled')
       .size(1000)
       .build();
     const results = await this.executeQuery({ index: 'loans', size: 1000, source: ['id', 'application.applicant.ssn'], body });
-    return results.filter(x => x.application.applicant.ssn === ssn).map(x => x.id);
+    return results.filter(x => x.application.applicant.ssn === ssn || x.application.applicant.ssn === input).map(x => x.id);
   }
 }
 // beforeEach
