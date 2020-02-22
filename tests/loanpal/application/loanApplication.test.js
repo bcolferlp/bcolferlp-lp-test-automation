@@ -18,7 +18,7 @@ jest.setTimeout(60000 * 5);
 describe('LP Application', () => {
   let baseTest;
   let lpApp;
-  beforeAll(async () => {
+  beforeAll(() => {
     baseTest = new BaseTest('chrome');
     lpApp = new LPAppPage(baseTest.webDriver);
   });
@@ -29,7 +29,7 @@ describe('LP Application', () => {
 
   let loanID;
   let stips;
-  test.each(file)(`112714 Apply for a loan through the loanpal UI`, async record => {
+  test.each(file)(`112714 Apply for a loan through the loanpal UI, IP-426`, async record => {
     // Get an active loans for the applicant
     console.log('CHECKING ACTIVE LOANS');
     const esClient = new ElasticClient();
@@ -66,6 +66,7 @@ describe('LP Application', () => {
     stips = record.stips.split(',').map(item => item.trim());
     const newLoan = new LoanData(loanID);
     const newLoanData = await newLoan.getSrcLoan();
+    expect(newLoanData.loanStatus.hasDeferredStips).toBeTruthy();
     const expected = { loanId: loanID, stips: newLoanData.creditDecision.stipulations };
     const actual = { loanId: loanID, stips };
     expect(expected).toEqual(actual);
@@ -77,7 +78,7 @@ describe('LP Application', () => {
     const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanID);
     await uwLoanDetails.openURL();
     // Assert Loan Status
-    const loanStatus = await uwLoanDetails.validateLoanStatus('Approved');
+    const loanStatus = await uwLoanDetails.validateLoanStatus(record.status);
     expect(loanStatus).toBeTruthy();
     // Assert Approve Loan Button status
     const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton('disabled');
@@ -94,7 +95,7 @@ describe('LP Application', () => {
     await ppLogin.completeLogin();
     const ppLoanDetails = new PPLoanDetailsPage(baseTest.webDriver, loanID);
     await ppLoanDetails.goToPage();
-    const appStatus = await ppLoanDetails.validateAppStatus('Approved');
+    const appStatus = await ppLoanDetails.validateAppStatus(record.status);
     expect(appStatus).toBeTruthy();
     const timelineApproval = await ppLoanDetails.validateTimelineApproval();
     expect(timelineApproval).toBeTruthy();

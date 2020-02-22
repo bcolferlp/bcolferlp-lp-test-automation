@@ -75,3 +75,7 @@ package-lock.json
 
 yarn.lock
 
+*_TEST.csv
+
+log.txt
+
