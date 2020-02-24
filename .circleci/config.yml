@@ -16,8 +16,8 @@ jobs:
     executor: aws-ecr/default
     steps:
       - aws-ecr/ecr-login-for-secondary-account:
-          account-id: 362472370574
-          region: us-west-2
+          account-id: ${AWS_ACCESS_KEY_ID}
+          region: ${AWS_REGION}
 
 workflows:
   test:
