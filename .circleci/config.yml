@@ -11,7 +11,7 @@ jobs:
       - node/with-cache:
           steps:
             - run: npm install
-            - run: npm test -- test/cicd/alwaysTrue
+            - run: npm test -s bcolfer -- test/cicd/alwaysTrue
   docker-pull:
     docker:
       - image: 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
