@@ -27,11 +27,12 @@ jobs:
             chmod +x scripts/*.sh
             bash -vx scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
+            aws s3 ls
             aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
       - run:
           name: "docker pull"
           command: |
-            docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+            echo "DEBUG: docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation"
 workflows:
   build-and-test:
     jobs:
