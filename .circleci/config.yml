@@ -16,8 +16,8 @@ jobs:
     executor: aws-ecr/default
     steps:
       - aws-ecr/ecr-login:
-          account-id: ${AWS_ACCOUNT_ID}
-          region: ${AWS_REGION}
+          account-id: AWS_ACCOUNT_ID
+          region: AWS_REGION
 
 workflows:
   test:
