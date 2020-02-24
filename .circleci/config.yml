@@ -38,3 +38,6 @@ workflows:
     jobs:
       - build-and-test
       - docker-pull
+          requires:
+            - build-and-test
+
