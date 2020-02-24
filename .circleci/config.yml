@@ -37,7 +37,7 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-      - docker-pull
+      - docker-pull:
           requires:
             - build-and-test
 
