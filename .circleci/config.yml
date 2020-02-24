@@ -27,7 +27,11 @@ jobs:
             chmod +x scripts/*.sh
             bash -vx scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
-            AWS_PROFILE=bcolfer-profile aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+            export AWS_PROFILE=bcolfer-profile
+            export AWS_REGION=us-west-2
+            aws ecr get-login-password | docker login \
+                --username AWS \
+                --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
       - run:
           name: "docker pull"
           command: |
