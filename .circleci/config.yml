@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
-  aws-ecr: circleci/aws-ecr
+  aws-ecr: circleci/aws-ecr@0.0.2
 jobs:
   build-and-test:
     executor:
