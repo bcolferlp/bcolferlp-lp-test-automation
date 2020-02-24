@@ -22,7 +22,7 @@ jobs:
 workflows:
   test:
     jobs:
-      - ecr-pull
+      - ecr-pull:
           filters:
             branches:
               only:
