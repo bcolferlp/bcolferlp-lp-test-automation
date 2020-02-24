@@ -13,7 +13,8 @@ export default class PPLoanDetailsPage extends BasePageObject {
     };
     this.timeline = {
       icon: {
-        approvedGreen: By.xpath('//div[@id="two"][contains(@class, "success")]')
+        approvedGreen: By.xpath('//div[@id="two"][contains(@class, "success")]'),
+        approvedRed: By.xpath('//div[@id="two"][contains(@class, "danger")]')
       }
     };
   }
@@ -30,9 +31,10 @@ export default class PPLoanDetailsPage extends BasePageObject {
     return appStatus;
   }
 
-  async validateTimelineApproval() {
-    console.log('validateTimelineApproval');
-    const timelineApproved = await this.waitForElementLocated(this.timeline.icon.approvedGreen, 5000);
+  async validateTimelineApproval(status) {
+    console.log('validateTimelineApproval', status);
+    const icon = status === 'Approved' ? this.timeline.icon.approvedGreen : this.timeline.icon.approvedRed;
+    const timelineApproved = await this.waitForElementLocated(icon, 5000);
     return timelineApproved;
   }
 }

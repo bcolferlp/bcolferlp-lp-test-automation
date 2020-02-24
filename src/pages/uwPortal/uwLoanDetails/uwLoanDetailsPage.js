@@ -36,14 +36,14 @@ export default class UWLoanDetailsPage extends BasePageObject {
 
   async validateApproveLoanButton(status) {
     console.log('validateApproveLoanButton:', status);
-    const approvedLoanBtn = await this.waitForElementLocated(this.button.approveLoan);
+    const approvedLoanBtn = await this.waitForElementLocated(this.button.approveLoan, 5000);
     const buttonStatus = await approvedLoanBtn.getAttribute(status);
     return buttonStatus;
   }
 
   async validateListedStips(stip) {
     console.log('validateListedStips:', stip);
-    const stipElements = await this.waitForElementsLocated(this.div.stipulationsList(stip));
+    const stipElements = await this.waitForElementsLocated(this.div.stipulationsList(stip), 5000);
     return stipElements;
   }
 }

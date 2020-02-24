@@ -9,6 +9,7 @@ import PPLoanDetailsPage from '../../../src/pages/partnerPortal/ppLoanDetails/pp
 
 import sbFile from '../../../data/loanpal/application/sb-approved-deferred-stip-data_API.csv';
 import cbFile from '../../../data/loanpal/application/cb-approved-deferred-stip-data_API.csv';
+import testFile from '../../../data/loanpal/application/approved-deferred-stip-data_TEST.csv';
 
 const singleTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json');
 const combinedTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/coBorrowerLoanTemplate.json');
@@ -27,7 +28,7 @@ describe('LP Application API', () => {
     if (baseTest) await baseTest.close();
   });
 
-  describe.each(cbFile)('Deferred Stips, IP-426', record => {
+  describe.each(testFile)('Deferred Stips, IP-426', record => {
     test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -49,6 +50,7 @@ describe('LP Application API', () => {
       }
       const template = record.type === 'Combined' ? combinedTemplate : singleTemplate;
       // Assemble loan object
+      if (!record.mock) delete template.overrideResponse;
       template.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
       template.overrideResponse.Key = record.mock;
       template.clientId = record.partner;
@@ -63,7 +65,7 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: record.status }));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
@@ -74,9 +76,9 @@ describe('LP Application API', () => {
           resolve();
         }, 5000);
       });
-
       const newLoanData = await newLoan.getSrcLoan();
-      expect(newLoanData.loanStatus.hasDeferredStips).toBeTruthy();
+      const hasStips = record.hasDeferredStips === 'TRUE' ? true : record.hasDeferredStips === 'FALSE' ? false : undefined;
+      expect(newLoanData.loanStatus.hasDeferredStips).toBe(hasStips);
       const expected = { loanId, stips: newLoanData.creditDecision.stipulations };
       const actual = { loanId, stips };
       expect(expected).toEqual(actual);
@@ -107,7 +109,7 @@ describe('LP Application API', () => {
       await ppLoanDetails.goToPage();
       const appStatus = await ppLoanDetails.validateAppStatus(record.status);
       expect(appStatus).toBeTruthy();
-      const timelineApproval = await ppLoanDetails.validateTimelineApproval();
+      const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
       expect(timelineApproval).toBeTruthy();
     });
   });

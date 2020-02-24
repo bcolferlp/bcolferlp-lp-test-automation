@@ -9,7 +9,9 @@ import UWLoginPage from '../../../src/pages/uwPortal/uwLogin/uwLoginPage';
 import UWLoanDetailsPage from '../../../src/pages/uwPortal/uwLoanDetails/uwLoanDetailsPage';
 import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 import PPLoanDetailsPage from '../../../src/pages/partnerPortal/ppLoanDetails/ppLoanDetailsPage';
-import file from '../../../data/loanpal/application/approved-deferred-stip-data.csv';
+
+import testFile from '../../../data/loanpal/application/approved-deferred-stip-data_TEST.csv';
+import sub650File from '../../../data/loanpal/application/approved-deferred-stip-data_SUB650.csv';
 
 const { path, urls } = require('../../../src/utilities/imports');
 
@@ -23,17 +25,21 @@ describe('LP Application', () => {
     lpApp = new LPAppPage(baseTest.webDriver);
   });
 
-  afterAll(async () => {
-    if (baseTest) await baseTest.quit();
-  });
+  // afterAll(async () => {
+  //   if (baseTest) await baseTest.quit();
+  // });
 
   let loanID;
   let stips;
-  test.each(file)(`112714 Apply for a loan through the loanpal UI, IP-426`, async record => {
+  test.each(testFile)(`112714 Apply for a loan through the loanpal UI, IP-426`, async record => {
     // Get an active loans for the applicant
     console.log('CHECKING ACTIVE LOANS');
     const esClient = new ElasticClient();
-    const activeLoans = await esClient.getActiveLoans(record.ssn);
+    const activePrimaryLoans = await esClient.getActiveLoans(record.ssn);
+    console.log(activePrimaryLoans, 'activePrimaryLoans');
+    const activeSecondaryLoans = record.coSSN ? await esClient.getActiveLoans(record.coSSN) : [];
+    console.log(activeSecondaryLoans, 'activeSecondaryLoans');
+    const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
     console.log(activeLoans, 'activeLoans');
     if (process.env.STAGE === 'test' && activeLoans.length > 0) {
       // Change status to Canceled to avoid DupeKey
@@ -63,10 +69,11 @@ describe('LP Application', () => {
     expect(loanID).toEqual(expect.stringMatching(/\d{2}-\d{2}-\d{6}/g));
     // Assert that the provided stips match the database
     console.log('ASSERT LOAN STIPS');
-    stips = record.stips.split(',').map(item => item.trim());
+    stips = record.stips ? record.stips.split(',').map(item => item.trim()) : [];
     const newLoan = new LoanData(loanID);
     const newLoanData = await newLoan.getSrcLoan();
-    expect(newLoanData.loanStatus.hasDeferredStips).toBeTruthy();
+    const hasStips = record.hasDeferredStips === 'TRUE' ? true : record.hasDeferredStips === 'FALSE' ? false : undefined;
+    expect(newLoanData.loanStatus.hasDeferredStips).toBe(hasStips);
     const expected = { loanId: loanID, stips: newLoanData.creditDecision.stipulations };
     const actual = { loanId: loanID, stips };
     expect(expected).toEqual(actual);
@@ -97,7 +104,7 @@ describe('LP Application', () => {
     await ppLoanDetails.goToPage();
     const appStatus = await ppLoanDetails.validateAppStatus(record.status);
     expect(appStatus).toBeTruthy();
-    const timelineApproval = await ppLoanDetails.validateTimelineApproval();
+    const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
     expect(timelineApproval).toBeTruthy();
   });
 });

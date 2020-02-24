@@ -82,6 +82,7 @@ export default class LPAppPage extends BasePageObject {
     this.select = {
       language: value => By.xpath(`//label[contains(text(), "Preferred Language / Idioma Preferido")]/following-sibling::select//option[@value="${value}"]`),
       loanTerm: value => By.xpath(`//select[option[contains(text(), "Select Loan Term")]]//option[@value="${value}"]`),
+      loanTermDefault: By.xpath('//select/option[contains(text(),"Select Loan Term")]/following-sibling::option'),
       // Primary Borrower
       addressState: value => By.xpath(`//select[@id="addressState"]//option[@value="${value}"]`),
       addressStateDefault: By.xpath('//select[@id="addressState"]/option[2]'),
@@ -291,6 +292,7 @@ export default class LPAppPage extends BasePageObject {
     // Loan Term
     const [loanTerm] = await this.findElements(this.select.loanTerm(record.loanTerm || record.loanOptionsMap[Object.keys(record.loanOptionsMap)[0]][0]));
     if (loanTerm) await loanTerm.click();
+    else await this.findElement(this.select.loanTermDefault).then(e => e.click());
     // Reference Number
     const [refNum] = await this.findElements(this.input.referenceNumber);
     if (refNum) await this.enterText(refNum, record.referenceNumber);
@@ -326,7 +328,7 @@ export default class LPAppPage extends BasePageObject {
   async apply() {
     const [applyNowBtn] = await this.findElements(this.button.applyNow);
     if (applyNowBtn) await applyNowBtn.click();
-    await this.waitForTarget(this.header.keyLoanTerms, 0, 10);
+    await this.waitForTarget(this.header.loanID, 0, 20);
   }
 
   async getLoanID() {
