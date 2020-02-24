@@ -12,23 +12,20 @@ jobs:
           steps:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
-  docker-pull:
-    docker:
-      - image: 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
-        aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY_ID
-          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
-          aws_role_arn:  $AWS_ROLE_ARN
-      - run:
-          name: "test image"
-          command: |
-            node --version
+  ecr-pull:
+    executor: aws-ecr/default
+    steps:
+      - aws-ecr/ecr-login-for-secondary-account:
+          account-id: 362472370574
+          region: us-west-2
 
 workflows:
-  build-and-test:
+  test:
     jobs:
-      - build-and-test
-      - docker-pull:
-          requires:
-            - build-and-test
+      - ecr-pull
+          filters:
+            branches:
+              only:
+                - bcolfer/add-cricleci
+
 
