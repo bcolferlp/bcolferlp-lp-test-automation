@@ -21,7 +21,7 @@ jobs:
     steps:
       - run:
           name: "node version"
-          run: |
+          command: |
             node --version
 workflows:
   build-and-test:
