@@ -31,7 +31,7 @@ jobs:
             export AWS_REGION=us-west-2
             aws ecr get-login-password | docker login \
                 --username AWS \
-                --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+                --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
       - run:
           name: "docker pull"
           command: |
