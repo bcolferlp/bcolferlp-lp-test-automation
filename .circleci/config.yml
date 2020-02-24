@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  aws-ecr: circleci/aws-ecr
 jobs:
   build-and-test:
     executor:
@@ -11,6 +12,17 @@ jobs:
           steps:
             - run: npm install
             - run: npm test -- test/cicd/alwaysTrue
+  docker-pull:
+    docker:
+      - image: 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+        aws_auth:
+          aws_access_key_id: $AWS_ACCESS_KEY_ID_STAGING
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY_STAGING``
+    steps:
+      - run:
+          name: "node version"
+          run: |
+            node --version
 workflows:
   build-and-test:
     jobs:
