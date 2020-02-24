@@ -15,9 +15,9 @@ jobs:
   ecr-pull:
     executor: aws-ecr/default
     steps:
-      - aws-ecr/ecr-login-for-secondary-account:
-          account-id: "${AWS_ACCESS_KEY_ID}"
-          region: "${AWS_REGION}"
+      - aws-ecr/ecr-login:
+          account-id: ${AWS_ACCESS_KEY_ID}
+          region: ${AWS_REGION}
 
 workflows:
   test:
