@@ -24,6 +24,8 @@ jobs:
       - run:
           name: "ecr login"
           command: |
+            chmod +x scripts/*.sh
+            bash -vx scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
             aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
       - run:
