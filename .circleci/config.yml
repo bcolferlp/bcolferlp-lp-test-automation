@@ -1,7 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
-  aws-ecr: circleci/aws-ecr@0.0.10
+  aws-ecr: circleci/aws-ecr@6.7.0
 jobs:
   build-and-test:
     executor:
@@ -13,29 +13,17 @@ jobs:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   docker-pull:
-    executor:
-      name: node/default
-    steps:
-      - checkout
+    docker:
+      - image: 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+        aws_auth:
+          aws_access_key_id: $AWS_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
+          aws_role_arn:  $AWS_ROLE_ARN
       - run:
-          name: "Get utilities"
+          name: "test image"
           command: |
-            sudo apt-get install -y -qq awscli jq
-      - run:
-          name: "ecr login"
-          command: |
-            chmod +x scripts/*.sh
-            bash -vx scripts/write-aws-config.sh
-            source ./scripts/aws-cli-assumerole.sh
-            export AWS_PROFILE=bcolfer-profile
-            export AWS_REGION=us-west-2
-            aws ecr get-login-password | docker login \
-                --username AWS \
-                --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
-      - run:
-          name: "docker pull"
-          command: |
-            echo "DEBUG: docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation"
+            node --version
+
 workflows:
   build-and-test:
     jobs:
