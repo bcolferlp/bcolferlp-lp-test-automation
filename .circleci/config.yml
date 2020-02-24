@@ -16,8 +16,8 @@ jobs:
     docker:
       - image: 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
         aws_auth:
-          aws_access_key_id: $AWS_ACCESS_KEY_ID_STAGING
-          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY_STAGING``
+          aws_access_key_id: $AWS_ACCESS_KEY_ID
+          aws_secret_access_key: $AWS_SECRET_ACCESS_KEY
     steps:
       - run:
           name: "node version"
