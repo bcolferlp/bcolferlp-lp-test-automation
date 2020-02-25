@@ -25,7 +25,7 @@ jobs:
       - run:
           name: "test the aws ecr login"
           command: |
-            aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+            AWS_REGION=us-west-2 aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
 
 workflows:
   test:
