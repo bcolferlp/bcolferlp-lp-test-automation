@@ -21,7 +21,7 @@ jobs:
           name: "update and get the cli"
           command: |
             sudo apt-get update && sudo apt-get install -y -q python3 jq
-            sudo pip install aws-cli
+            sudo pip3 install aws-cli
 
 
 workflows:
