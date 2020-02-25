@@ -13,11 +13,13 @@ jobs:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   ecr-pull:
-    executor: aws-ecr/default
+    executor:
+      name: aws-ecr/default
     steps:
-      - aws-ecr/ecr-login-for-secondary-account:
-          account-id: AWS_ACCOUNT_ID
-          region: AWS_REGION
+      - run:
+          name: "ecr login"
+          command: |
+            aws ecr get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
 
 workflows:
   test:
