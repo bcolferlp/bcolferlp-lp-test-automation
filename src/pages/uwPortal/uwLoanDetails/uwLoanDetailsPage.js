@@ -16,10 +16,17 @@ export default class UWLoanDetailsPage extends BasePageObject {
       declineLoan: By.xpath('//button[@id="decline-loan-button"]'),
       cancelLoan: By.xpath('//button[@id="cancel-loan-button"]'),
       resendEmails: By.xpath('//button[@id="resend-emails-button"]'),
-      closeLoan: By.xpath('//button[@id="close-loan-button"]')
+      closeLoan: By.xpath('//button[@id="close-loan-button"]'),
+      fullReport: By.xpath('//div[@class="checkmark-circle"]/../../button[text()="Full Report"]')
     };
     this.div = {
       stipulationsList: value => By.xpath(`//div[contains(text(),"${value}")]`)
+    };
+    this.text = {
+      foreclosure: By.xpath('//p[contains(text(),"FOREC")]')
+    };
+    this.tab = {
+      credit: By.xpath('//a[@aria-controls="crefitinfo"]')
     };
   }
 
@@ -47,5 +54,16 @@ export default class UWLoanDetailsPage extends BasePageObject {
     console.log('validateListedStips:', stip);
     const stipElements = await this.waitForElementsLocated(this.div.stipulationsList(stip), 5000);
     return stipElements;
+  }
+
+  async viewFullReport() {
+    const creditTab = await this.waitForElementLocated(this.tab.credit, 5000);
+    await creditTab.click();
+    const fullReportBtn = await this.waitForElementLocated(this.button.fullReport, 5000);
+    await fullReportBtn.click();
+  }
+
+  async validateReportForeclosure() {
+    await this.waitForElementLocated(this.text.foreclosure, 5000);
   }
 }

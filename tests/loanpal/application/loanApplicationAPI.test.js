@@ -11,6 +11,7 @@ import sbFile from '../../../data/loanpal/application/sb-approved-deferred-stip-
 import cbFile from '../../../data/loanpal/application/cb-approved-deferred-stip-data_API.csv';
 import testFile from '../../../data/loanpal/application/approved-deferred-stip-data_TEST.csv';
 import IP432File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-432.csv';
+import IP427File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-427.csv';
 
 const singleTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json');
 const combinedTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/coBorrowerLoanTemplate.json');
@@ -26,10 +27,10 @@ describe('LP Application API', () => {
   });
 
   afterEach(async () => {
-    // if (baseTest) await baseTest.close();
+    if (baseTest) await baseTest.close();
   });
 
-  describe.each(testFile)('Deferred Stips, IP-426', record => {
+  describe.only.each(testFile)('Deferred Stips, IP-426', record => {
     test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -115,7 +116,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.only.each(IP432File)('Deferred Stips, IP-432', record => {
+  describe.each(IP432File)('Deferred Stips, IP-432', record => {
     test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       const template = record.type === 'Combined' ? combinedTemplate : singleTemplate;
       // Assemble loan object
@@ -164,6 +165,63 @@ describe('LP Application API', () => {
       // Assert Approve Loan Button status
       const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton(record.approvedButton);
       expect(appoveLoanBtn).toBeTruthy();
+      // Assert all listed stips
+      for (const stip of stips) {
+        const stipElem = await uwLoanDetails.validateListedStips(stip);
+        expect(stipElem).toBeTruthy();
+      }
+    });
+  });
+
+  describe.each(IP427File)('Deferred Stips, IP-427', record => {
+    test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
+      const template = record.type === 'Combined' || record.type === 'Primary' || record.type === 'Secondary' ? combinedTemplate : singleTemplate;
+      // Assemble loan object
+      if (!record.mock) delete template.overrideResponse;
+      template.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
+      template.overrideResponse.Key = record.mock;
+      template.clientId = record.partner;
+      template.applicant.firstName = record.firstName;
+      template.applicant.lastName = record.lastName;
+      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
+      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.email = record.email;
+      template.applicant.dob = record.dateOfBirth;
+      template.applicant.ssn = record.ssn;
+      template.applicant.spokenLanguage = record.language || 'english';
+      template.salesRep.email = record.srEmail;
+      const response = await new LoanAPI(template).getBody();
+      // Assert response
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      const { loanId } = response;
+      // UW validation
+      console.log('NAVIGATE TO UNDERWRITER');
+      const uwLogin = new UWLoginPage(baseTest.webDriver);
+      await uwLogin.completelogin();
+      const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanId);
+      await uwLoanDetails.openURL();
+      // Assert Loan Status
+      await uwLoanDetails.viewFullReport();
+
+      if (record.foreclosure) {
+        console.log('CHECKING FORECLOSURE');
+        await uwLoanDetails.validateReportForeclosure();
+      }
+
+      console.log('ASSERT LOAN STIPS', loanId);
+      const stips = record.stips ? record.stips.split(',').map(item => item.trim()) : [];
+      const newLoan = new LoanData(loanId);
+      console.log('Waiting for loan to update...');
+      await new Promise(resolve => {
+        setTimeout(() => {
+          resolve();
+        }, 5000);
+      });
+      const newLoanData = await newLoan.getSrcLoan();
+      const outcomeStips = newLoanData.outcome.stipulations;
+      for (const stip of outcomeStips) {
+        expect(stip.stipids).toEqual(stips);
+      }
       // Assert all listed stips
       for (const stip of stips) {
         const stipElem = await uwLoanDetails.validateListedStips(stip);
