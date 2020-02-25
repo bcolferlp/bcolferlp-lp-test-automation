@@ -36,9 +36,11 @@ export default class UWLoanDetailsPage extends BasePageObject {
 
   async validateApproveLoanButton(status) {
     console.log('validateApproveLoanButton:', status);
-    const approvedLoanBtn = await this.waitForElementLocated(this.button.approveLoan, 5000);
-    const buttonStatus = await approvedLoanBtn.getAttribute(status);
-    return buttonStatus;
+    const approvedLoanBtn =
+      status === 'disabled'
+        ? await this.waitForElementDisabled(this.button.approveLoan, 5000)
+        : await this.waitForElementEnabled(this.button.approveLoan, 5000);
+    return approvedLoanBtn;
   }
 
   async validateListedStips(stip) {

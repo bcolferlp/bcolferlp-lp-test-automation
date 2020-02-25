@@ -48,6 +48,18 @@ export default class BasePageObject {
     await this.webDriver.wait(until.elementTextContains(webElem, textContains), timeSec);
   }
 
+  async waitForElementEnabled(locator, timeSec) {
+    const webElem = await this.findElement(locator);
+    const elem = await this.webDriver.wait(until.elementIsEnabled(webElem), timeSec);
+    return elem;
+  }
+
+  async waitForElementDisabled(locator, timeSec) {
+    const webElem = await this.findElement(locator);
+    const elem = await this.webDriver.wait(until.elementIsDisabled(webElem), timeSec);
+    return elem;
+  }
+
   async getTextFromElement(locator) {
     const webElem = await this.findElement(locator);
     const text = await webElem.getText();
