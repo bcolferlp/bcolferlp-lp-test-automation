@@ -13,13 +13,16 @@ jobs:
           steps:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
-  ecr-pull:
-    executor: aws-cli/default
+  ecr-login:
+    docker:
+      image: unbuntu
     steps:
-      - aws-cli/setup:
-          profile-name: bcolfer-proflie
-          aws-region: AWS_REGION
-      - run: aws ecr --region us-west-2 get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+      - run:
+          name: "update and get the cli"
+          command: |
+            sudo apt-get update && sudo apt-get install -y -q python3 jq
+            sudo pip install aws-cli
+
 
 workflows:
   test:
