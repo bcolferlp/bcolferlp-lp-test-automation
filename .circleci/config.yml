@@ -20,7 +20,7 @@ jobs:
       - run:
           name: "update and get the cli"
           command: |
-            sudo apt-get update && sudo apt-get upgrade -y -q && sudo apt-get install -y -qq python3-pip
+            sudo apt-get update && sudo apt-get upgrade -y -q && sudo apt-get install -y -q python3-pip groff
             pip3 install awscli
       - run:
           name: "test the aws install"
