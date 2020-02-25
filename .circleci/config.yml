@@ -15,7 +15,7 @@ jobs:
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   ecr-login:
     docker:
-      - image: circleci/unbuntu
+      - image: cimg/base:2020.01
     steps:
       - run:
           name: "update and get the cli"
