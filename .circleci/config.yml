@@ -22,7 +22,10 @@ jobs:
           command: |
             sudo apt-get update && sudo apt-get upgrade -y -q && sudo apt-get install -y -qq python3-pip
             pip3 install awscli
-
+      - run:
+          name: "test the aws install"
+          command: |
+            aws help
 
 workflows:
   test:
