@@ -19,7 +19,7 @@ jobs:
       - aws-cli/setup:
           profile-name: bcolfer-proflie
           aws-region: AWS_REGION
-      - run: aws ecr get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+      - run: aws ecr --region us-west-2 get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
 
 workflows:
   test:
