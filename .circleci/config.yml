@@ -14,12 +14,11 @@ jobs:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   ecr-login:
-    docker:
-      - image: cimg/base:2020.01
+#    docker:
+#      - image: cimg/base:2020.01
+    machine: true
+    working_directory: ~/app
     steps:
-      - setup_remote_docker:
-          docker_layer_caching: true
-
       - checkout
       - run:
           name: "update and get the cli"
