@@ -20,8 +20,8 @@ jobs:
       - run:
           name: "update and get the cli"
           command: |
-            sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install -y -qq python3-pip
-            sudo pip3 install aws-cli
+            sudo apt-get update && sudo apt-get upgrade -y -q && sudo apt-get install -y -qq python3-pip
+            pip3 install aws-cli
 
 
 workflows:
