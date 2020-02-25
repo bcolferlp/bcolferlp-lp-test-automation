@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
+  aws-cli: circleci/aws-cli@0.1.20
   aws-ecr: circleci/aws-ecr@6.7.0
 jobs:
   build-and-test:
@@ -13,13 +14,12 @@ jobs:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   ecr-pull:
-    executor:
-      name: aws-ecr/default
+    executor: aws-cli/default
     steps:
-      - run:
-          name: "ecr login"
-          command: |
-            aws ecr get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+      - aws-cli/setup:
+          profile-name: bcolfer-proflie
+          aws-region: us-west-2
+      - run: aws ecr get-login-password | docker login --username AWS --password-stdin https://362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
 
 workflows:
   test:
