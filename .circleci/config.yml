@@ -14,8 +14,6 @@ jobs:
             - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
   ecr-login:
-#    docker:
-#      - image: cimg/base:2020.01
     machine: true
     working_directory: ~/app
     steps:
@@ -27,10 +25,6 @@ jobs:
             sudo apt install -y software-properties-common && sudo add-apt-repository ppa:deadsnakes/ppa && sudo apt update
             sudo apt install -y python3
             pip install awscli
-      - run:
-          name: "setup the aws config"
-          command: |
-            bash -xv ./scripts/write-aws-config.sh
       - run:
           name: "test the aws ecr login"
           command: |
