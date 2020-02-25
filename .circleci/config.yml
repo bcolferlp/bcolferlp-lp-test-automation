@@ -23,9 +23,9 @@ jobs:
             sudo apt-get update && sudo apt-get upgrade -y -q && sudo apt-get install -y -q python3-pip groff
             pip3 install awscli
       - run:
-          name: "test the aws install"
+          name: "test the aws ecr login"
           command: |
-            aws help
+            aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
 
 workflows:
   test:
