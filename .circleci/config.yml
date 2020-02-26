@@ -55,10 +55,10 @@ workflows:
   test:
     jobs:
       - node-build-unittest
-        filters:
-          branches:
-            only:
-              - bcolfer/add-cricleci
+          filters:
+            branches:
+              only:
+                - bcolfer/add-cricleci
       - build-docker-image:
           requires:
             - build-ocker-image
