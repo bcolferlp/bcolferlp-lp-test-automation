@@ -52,26 +52,16 @@ jobs:
             docker run --rm -e STAGE=bcolfer  ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
 
 workflows:
-  test:
+  build-push-test-app:
     jobs:
-      - node-build-unittest
+      - node-build-unittest:
           filters:
             branches:
               only:
                 - bcolfer/add-cricleci
       - build-docker-image:
           requires:
-            - build-ocker-image
-          filters:
-            branches:
-              only:
-                - bcolfer/add-cricleci
+            - node-build-unittest
       - push-docker-image:
           requires:
             - build-docker-image
-          filters:
-            branches:
-              only:
-                - bcolfer/add-cricleci
-
-
