@@ -12,7 +12,7 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm ci
+            - run: npm install
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
 
   build-push-docker-image:
