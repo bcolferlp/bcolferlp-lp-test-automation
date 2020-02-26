@@ -7,9 +7,9 @@ COPY data/ ./data/
 COPY src/ ./src/
 COPY tests/ ./tests/
 COPY jest.config.js ./
-COPY package-lock.json ./
 COPY package.json ./
 COPY reporter.js ./
 
-RUN  npm ci
+RUN npm install
+RUN STAGE=cicd npm run test -- tests/cicd/alwaysTrue
 
