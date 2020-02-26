@@ -34,12 +34,12 @@ jobs:
             source ./scripts/aws-cli-assumerole.sh
             aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
             docker build --quiet --tag 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation -f Dockerfile ./
-            docker push --quiet 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
+            docker push 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
       - run:
           name: "get the docker image and test it"
           command: |
-            docker pull -q 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
-            docker run --rm -e STAGE=bcolfer  362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
+            docker pull --quiet 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
+            docker run --rm -e STAGE=cicd  362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
 
 workflows:
   build-push-test-app:
