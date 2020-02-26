@@ -15,15 +15,7 @@ jobs:
             - run: npm ci
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
 
-  build-docker-image:
-    executor:
-      name: docker/default
-    working_directory: ~/app
-    steps:
-      - run: npm ci
-      - run: docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest -f Dockerfile ./
-
-  push-docker-image:
+  build-push-docker-image:
     machine: true
     working_directory: ~/app
     steps:
@@ -41,6 +33,7 @@ jobs:
             bash ./scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
             aws ecr get-login-password | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
+            docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest -f Dockerfile ./
             docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
       - run:
           name: "get the docker image"
