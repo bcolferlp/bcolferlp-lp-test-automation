@@ -32,8 +32,8 @@ jobs:
           command: |
             bash ./scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
-            aws ecr get-login-password | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
-            docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest -f Dockerfile ./
+            aws ecr get-login-password | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation
+            docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation -f Dockerfile ./
             docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
       - run:
           name: "get the docker image"
