@@ -12,4 +12,5 @@ COPY package-lock.json ./
 COPY package.json ./
 COPY reporter.js ./
 
-kRUN  npm ci
+RUN  npm ci
+
