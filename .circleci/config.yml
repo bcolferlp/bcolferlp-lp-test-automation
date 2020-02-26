@@ -4,15 +4,25 @@ orbs:
   aws-cli: circleci/aws-cli@0.1.20
   aws-ecr: circleci/aws-ecr@6.7.0
 jobs:
-  build-and-test:
+  build-package-test:
     executor:
       name: node/default
+    working_directory: ~/app
     steps:
       - checkout
       - node/with-cache:
           steps:
-            - run: npm install
+            - run: npm ci
             - run: STAGE=bcolfer npm test -- tests/cicd/alwaysTrue
+
+  build-and-push-docker-image:
+    executor:
+      name: docker/default
+    working_directory: ~/app
+    steps:
+      - run: npm ci
+      - run: docker build -t ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest -f Dockerfile ./
+
   ecr-login:
     machine: true
     working_directory: ~/app
@@ -26,19 +36,20 @@ jobs:
             sudo apt install -y python3
             pip install awscli
       - run:
-          name: "login to ecr"
+          name: "login to ecr and push the image"
           command: |
             bash ./scripts/write-aws-config.sh
             source ./scripts/aws-cli-assumerole.sh
-            aws ecr get-login-password | docker login --username AWS --password-stdin 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+            aws ecr get-login-password | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
+            docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
       - run:
           name: "get the docker image"
           command: |
-            docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation
+            docker pull ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest
       - run:
-          name: "minimal test"
+          name: "test the pushed image"
           command: |
-            docker run --rm -e STAGE=bcolfer  362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/test-automation /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
+            docker run --rm -e STAGE=bcolfer  ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amasonaws.com/loanpal-engineering/lp-test-automation:latest /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
 
 workflows:
   test:
