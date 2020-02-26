@@ -10,9 +10,10 @@ import UWLoanDetailsPage from '../../../src/pages/uwPortal/uwLoanDetails/uwLoanD
 import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 import PPLoanDetailsPage from '../../../src/pages/partnerPortal/ppLoanDetails/ppLoanDetailsPage';
 
-import testFile from '../../../data/loanpal/application/approved-deferred-stip-data_TEST.csv';
+import file from '../../../data/loanpal/application/approved-deferred-stip-data.csv';
 import sub650File from '../../../data/loanpal/application/approved-deferred-stip-data_SUB650.csv';
 
+const testFile = [file[0]];
 const { path, urls } = require('../../../src/utilities/imports');
 
 jest.setTimeout(60000 * 5);
@@ -78,33 +79,33 @@ describe('LP Application', () => {
     const actual = { loanId: loanID, stips };
     expect(expected).toEqual(actual);
 
-    // UW validation
-    console.log('NAVIGATE TO UNDERWRITER');
-    const uwLogin = new UWLoginPage(baseTest.webDriver);
-    await uwLogin.completelogin();
-    const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanID);
-    await uwLoanDetails.openURL();
-    // Assert Loan Status
-    const loanStatus = await uwLoanDetails.validateLoanStatus(record.status);
-    expect(loanStatus).toBeTruthy();
-    // Assert Approve Loan Button status
-    const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton('disabled');
-    expect(appoveLoanBtn).toBeTruthy();
-    // Assert all listed stips
-    for (const stip of stips) {
-      const stipElem = await uwLoanDetails.validateListedStips(stip);
-      expect(stipElem).toBeTruthy();
-    }
+    // // UW validation
+    // console.log('NAVIGATE TO UNDERWRITER');
+    // const uwLogin = new UWLoginPage(baseTest.webDriver);
+    // await uwLogin.completelogin();
+    // const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanID);
+    // await uwLoanDetails.openURL();
+    // // Assert Loan Status
+    // const loanStatus = await uwLoanDetails.validateLoanStatus(record.status);
+    // expect(loanStatus).toBeTruthy();
+    // // Assert Approve Loan Button status
+    // const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton('disabled');
+    // expect(appoveLoanBtn).toBeTruthy();
+    // // Assert all listed stips
+    // for (const stip of stips) {
+    //   const stipElem = await uwLoanDetails.validateListedStips(stip);
+    //   expect(stipElem).toBeTruthy();
+    // }
 
-    // PP validation
-    console.log('NAVIGATE TO PARTNER PORTAL');
-    const ppLogin = new PPLoginPage(baseTest.webDriver);
-    await ppLogin.completeLogin();
-    const ppLoanDetails = new PPLoanDetailsPage(baseTest.webDriver, loanID);
-    await ppLoanDetails.goToPage();
-    const appStatus = await ppLoanDetails.validateAppStatus(record.status);
-    expect(appStatus).toBeTruthy();
-    const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
-    expect(timelineApproval).toBeTruthy();
+    // // PP validation
+    // console.log('NAVIGATE TO PARTNER PORTAL');
+    // const ppLogin = new PPLoginPage(baseTest.webDriver);
+    // await ppLogin.completeLogin();
+    // const ppLoanDetails = new PPLoanDetailsPage(baseTest.webDriver, loanID);
+    // await ppLoanDetails.goToPage();
+    // const appStatus = await ppLoanDetails.validateAppStatus(record.status);
+    // expect(appStatus).toBeTruthy();
+    // const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
+    // expect(timelineApproval).toBeTruthy();
   });
 });
