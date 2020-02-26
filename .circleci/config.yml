@@ -38,7 +38,7 @@ jobs:
       - run:
           name: "get the docker image and test it"
           command: |
-            docker pull --quiet 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
+            docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
             docker run --rm -e STAGE=cicd  362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
 
 workflows:
