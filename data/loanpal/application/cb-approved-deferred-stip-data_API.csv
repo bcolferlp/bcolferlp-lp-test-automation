@@ -1,5 +1,5 @@
-scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCity,addressState,addressZip,dateOfBirth,mobilePhone,homePhone,ssn,email,employmentStatus,annualIncome,citizenship,language,coFirstName,coLastName,coAddressStreet,coAddressCity,coAddressState,coAddressZip,coDateOfBirth,coMobilePhone,coHomePhone,coSSN,coEmail,coEmploymentStatus,coAnnualIncome,coCitizenship,srFirstName,srLastName,srEmail,srMobilePhone,srCompanyName,loanTerm,systemCost,referenceNumber,status,hasDeferredStips,approvedButton,responseBody
-Combined loan with Deferred stips,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCity,addressState,addressZip,dateOfBirth,mobilePhone,homePhone,ssn,email,employmentStatus,annualIncome,citizenship,language,coFirstName,coLastName,coAddressStreet,coAddressCity,coAddressState,coAddressZip,coDateOfBirth,coMobilePhone,coHomePhone,coSSN,coEmail,coEmploymentStatus,coAnnualIncome,coCitizenship,srFirstName,srLastName,srEmail,srMobilePhone,srCompanyName,loanTerm,systemCost,referenceNumber,status,hasDeferredStips,approvedButton,nonDeferredMessage,hasNonDeferredStips,responseBody
+Combined loan with Deferred stips,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-14-000135"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -24,7 +24,7 @@ Combined loan with Deferred stips,ID/Fraud-Alert Contact,equifax-test-mocks/Sola
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xNC0wMDAxMzUiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2MjksImV4cCI6MTU4NTQxNDYyOX0.tMF2Rta8LYo_eOmpth-qkkpOW6A5E5QYoainhZmZccU"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0xNC0wMDAxMzUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjI5LCJleHAiOjE1ODU0MTQ2Mjl9.10ua2czIlyZdUFQGpRM87z0W-h_y0dANWB2FGnYzY7I""
 }"
-Combined loan with Deferred stips,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-14-000136"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -45,7 +45,7 @@ Combined loan with Deferred stips,ID/Fraud-Consumer Statement,equifax-test-mocks
   ],
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xNC0wMDAxMzYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjMxLCJleHAiOjE1ODU0MTQ2MzF9.CkSfxHV_We7WVEJZJVU-z_nIS0Be7ULdrFQh8kQ00GA""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000112"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -70,7 +70,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2MzMsImV4cCI6MTU4NTQxNDYzM30.SKsxQ_Z6XVyF-wPk7lU296rjTmbywazhkbZgxmU4830"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjMzLCJleHAiOjE1ODU0MTQ2MzN9.g35gfZcHOu82KHOBulZNwYP2omMdaXtOaLutzxeI3_s""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-02-000148"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -95,7 +95,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMi0wMDAxNDgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2MzUsImV4cCI6MTU4NTQxNDYzNX0.iFikIRbHGmHKIzjR-8dHnoKTO9N23nusrsS9S_4uRlg"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMi0wMDAxNDgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjM1LCJleHAiOjE1ODU0MTQ2MzV9.vgQhypyNKtUW2yVF0qbJCAjXzkqX_axF1FwE-IihfmI""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000113"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -120,7 +120,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-Consumer Statement,ID/Fraud
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2MzcsImV4cCI6MTU4NTQxNDYzN30.feJegH9uBZ_QX132XmuK1754BV_RQhRPnSPWICAZ1nI"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjM3LCJleHAiOjE1ODU0MTQ2Mzd9.nGVot0vWhSp3Ha0KgmclMZoAzfDI6XPhj7I51gkLyfU""
 }"
-Combined loan with Deferred stips,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-01-000127"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -143,7 +143,7 @@ Combined loan with Deferred stips,ID/Fraud-eID Error,equifax-test-mocks/Solar/st
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMS0wMDAxMjciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2MzksImV4cCI6MTU4NTQxNDYzOX0.GCrt2Tb2jO0e_QUp_BHKGHXFbe2jPNg4AzDmPo8Wu9Q"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMS0wMDAxMjciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjM5LCJleHAiOjE1ODU0MTQ2Mzl9.Es5ErVpEHd41yUPVYqwK-3LNbYRmm44zIZscc_-q-X4""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-01-000128"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -168,7 +168,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Alert Co
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMS0wMDAxMjgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NDIsImV4cCI6MTU4NTQxNDY0Mn0.RRBxzBLYsxJ1FdmxtVglUks6k2jvfNzo5fObPkRyk_c"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wMS0wMDAxMjgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjQyLCJleHAiOjE1ODU0MTQ2NDJ9.zK0wyL1ep_t71bfAxRu_7VffnWpcprJs9dC9e5usKNc""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-10-000129"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -193,7 +193,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Consumer
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xMC0wMDAxMjkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NDUsImV4cCI6MTU4NTQxNDY0NX0.-UracJiFUhDWzrIyqCebecwksO_uhiZztmDMlXRKgJw"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xMC0wMDAxMjkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjQ1LCJleHAiOjE1ODU0MTQ2NDV9.xFsR20bLMxfSsfQ4hYW7HvCGkKjrgTncCy9-tzmpewA""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-11-000120"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -218,7 +218,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraudule
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xMS0wMDAxMjAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NDcsImV4cCI6MTU4NTQxNDY0N30.Ba285Fk_NZa-Omq8OOQ3xVDb7TCC9EOQa7vJH112cMg"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0xMS0wMDAxMjAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjQ3LCJleHAiOjE1ODU0MTQ2NDd9.XFCAI6zFc1Mew3-kpz2-apVcM8PllK_eO1Gjgbxmkvg""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-10-000130"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -243,7 +243,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Error,ID/Fraud-Fraud Vi
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NDksImV4cCI6MTU4NTQxNDY0OX0.6UqwFcW9os47U17xKM6PMx0wNuSXElnk0W4rkc6teFw"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjQ5LCJleHAiOjE1ODU0MTQ2NDl9.FwkNgZ3ZIo-iJM61ZHDyuiCCRk82bIMcvuWqzsSvTv8""
 }"
-Combined loan with Deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000114"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -266,7 +266,7 @@ Combined loan with Deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/sti
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NTEsImV4cCI6MTU4NTQxNDY1MX0.NknZcmOqhbatfundMCJU3lBFSla1YdLtzV6A7D0ewZw"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjUxLCJleHAiOjE1ODU0MTQ2NTF9.uq_UTp04bFZzfTGq7IK-omZ4nRPyG1HdVx3WjUDAVBY""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-16-000130"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -291,7 +291,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Alert Con
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NTMsImV4cCI6MTU4NTQxNDY1M30.eDN_J7OyP0PwllhIKFjWu-yv0DZBrmVZv1oNJ2TV6h8"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjUzLCJleHAiOjE1ODU0MTQ2NTN9.YqBDB9U8gzj8mclA8lTjiMJv5rSwE78hweeUMMfx2q0""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000115"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -316,7 +316,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Consumer 
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTUiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NTUsImV4cCI6MTU4NTQxNDY1NX0.78-8kB9kaTo9r4bNFfwXZqAkwAZTgWBDX9eDOsnJMp0"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjU1LCJleHAiOjE1ODU0MTQ2NTV9.GrJHQTaBdL48gtlm-sO4HMqzJfbJZpfcRBSReWytrFE""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-16-000131"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -341,7 +341,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraudulen
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NTcsImV4cCI6MTU4NTQxNDY1N30.ETn4qyfADmGPP3MW7wYY0xFTqpw8GCmGOBweh44oln4"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjU3LCJleHAiOjE1ODU0MTQ2NTd9.cqAqwDzhcAQRcPEMV_l1h9mWzbKFzrfTHLjriKMbd-0""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-02-000149"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -366,7 +366,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Fraud Vic
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMi0wMDAxNDkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NTksImV4cCI6MTU4NTQxNDY1OX0.uDdkYLPPVuAW5GY39IPmhSr1SP5ZLrXf5qb6SAo7zCM"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMi0wMDAxNDkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjU5LCJleHAiOjE1ODU0MTQ2NTl9.Kfp096r7y2HtWf1GNe_9oS0XobZ-Lhq0R3CZfM2OVes""
 }"
-Combined loan with Deferred stips,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-06-000117"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -389,7 +389,7 @@ Combined loan with Deferred stips,ID/Fraud-eID unavailable,equifax-test-mocks/So
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NjEsImV4cCI6MTU4NTQxNDY2MX0.lvAun3dqK7K-wvYPM3cncRSRa_WvPLfTRoX9RaFyoJY"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjYxLCJleHAiOjE1ODU0MTQ2NjF9.Ht2F5Wh76CLd3NKZRceOdM1QTAxFJ4LEpqRj5ZKTTh0""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-16-000132"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -414,7 +414,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Al
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NjQsImV4cCI6MTU4NTQxNDY2NH0.eMoNiT5sr8ZDjv09AtqZ_UYqrimfDDhd-zgXMv9pLWI"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjY0LCJleHAiOjE1ODU0MTQ2NjR9.MKez-LenuXNL6aXuPG4DpBWmCiD2vqhoomdTmFgqzFc""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-15-000116"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -439,7 +439,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Co
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xNS0wMDAxMTYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NjYsImV4cCI6MTU4NTQxNDY2Nn0.v0lS2p-Y2QowGxhyPHrB2bGeu5-sLvZHrVESHbS7yZE"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xNS0wMDAxMTYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjY2LCJleHAiOjE1ODU0MTQ2NjZ9.mrNfeKFhSKH-D2RIVtJQGw5HrO2nTx4JeNtYmoGCiOY""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-14-000137"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -464,7 +464,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fr
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNC0wMDAxMzciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NjgsImV4cCI6MTU4NTQxNDY2OH0.rcc9whHpsbZXKXuqSaGA6UJSEbb5U31gRCmbB8LlgNA"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNC0wMDAxMzciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjY4LCJleHAiOjE1ODU0MTQ2Njh9.86X3YkS_IhmSv1YJeB-rP0ZIr0js1jKGj11JERGUJcs""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000116"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -489,7 +489,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-eID unavailable,ID/Fraud-Fr
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NzAsImV4cCI6MTU4NTQxNDY3MH0.lC050go0BvHoj0LsPSqsNboOznGo9GbqZYAOMWzrcKE"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjcwLCJleHAiOjE1ODU0MTQ2NzB9.61BOv1-a3dCrl2NOWmD0ylViSqkwimf6TKKzgtAILDI""
 }"
-Combined loan with Deferred stips,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-15-000117"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -514,7 +514,7 @@ Combined loan with Deferred stips,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xNS0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NzIsImV4cCI6MTU4NTQxNDY3Mn0.lW8zB1OPUDntgFsUmGTHgsoNOWm5S8qak1am2b-qUXc"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNS0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjcyLCJleHAiOjE1ODU0MTQ2NzJ9.dcZklcM3QbcbviqNFW2dLK8QXIXFquF7FRBDaYEjsfM""
 }"
-Combined loan with Deferred stips,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-05-000135"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -537,7 +537,7 @@ Combined loan with Deferred stips,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/c
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzUiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NzUsImV4cCI6MTU4NTQxNDY3NX0.4tUSALpFY0BOc0U_Uk6EnTehNRtXR8IZoinPoG4HSE4"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjc1LCJleHAiOjE1ODU0MTQ2NzV9.JO0YRsJS1Z9mrPID4lsV4kpTJV5pasddigjGPVpuo_U""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Alert Contact",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-05-000136"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -562,7 +562,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Alert Contact
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NzcsImV4cCI6MTU4NTQxNDY3N30._Xh1Oa806AJ7ysH_m_GiU1Zw2SkNq6lCwt-yph7KCzQ"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjc3LCJleHAiOjE1ODU0MTQ2Nzd9.YNZcKonRvKnmaSAsn2itQjkn1EBXhcb2gkyCKeaJMDo""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Consumer Statement",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-06-000118"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -587,7 +587,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Consumer Stat
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2NzksImV4cCI6MTU4NTQxNDY3OX0.yNiDWeEGxblZUp6qfyRFq-ppab83Jl3Ugyi-k1k8v6o"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjc5LCJleHAiOjE1ODU0MTQ2Nzl9.8Xa5enYBQll6LDXspmSllh9_RlRTX21SXnAeknAPC7E""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraudulent Inquiry",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-04-000128"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -612,7 +612,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraudulent In
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wNC0wMDAxMjgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2ODEsImV4cCI6MTU4NTQxNDY4MX0.lXgzl1dWK0klHtds3mH6fifAvNA3bSFBSMrPz1nAlOo"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wNC0wMDAxMjgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjgxLCJleHAiOjE1ODU0MTQ2ODF9.Vc4jKcHV39RtjaJHzN9fuzrIOJCdIJlmpd_wTPlU8b8""
 }"
-Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraud Victim Indicator",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-04-000129"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -637,7 +637,7 @@ Combined loan with multiple Deferred stips,"ID/Fraud-OFAC,ID/Fraud-Fraud Victim 
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNC0wMDAxMjkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2ODMsImV4cCI6MTU4NTQxNDY4M30.gqNTbH2R64ooD4Gx5Pd_y-2JP3xKkK6miQ71i6p3CpQ"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNC0wMDAxMjkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjgzLCJleHAiOjE1ODU0MTQ2ODN9.1o9rEIDqh0FINCiz_p0CW_CdlBbIoEdtMQsNuFV9ggs""
 }"
-Combined loan with Deferred stips,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with Deferred stips,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-08-000130"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -662,7 +662,7 @@ Combined loan with Deferred stips,ID/Fraud-Fraud Victim Indicator,equifax-test-m
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wOC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2ODUsImV4cCI6MTU4NTQxNDY4NX0.59r_jYN_GXsYfD2Y07s7UwI7Cc8u3xXccKB_XyY-__w"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wOC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNjg1LCJleHAiOjE1ODU0MTQ2ODV9.oRp9rlfzkyPqORYxaX22fLuB1HZOkrQVfDlRY4l-jME""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Alert Contact,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Alert Contact,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-03-000117"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -703,7 +703,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Alert Contact,Forecl
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNjg4LCJleHAiOjE1ODU0MTQ2ODh9.DkxWYMwEyIXx6hdyJNYBPMdi2-TYCXfnK_1K-Awz4vM"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2ODgsImV4cCI6MTU4NTQxNDY4OH0.MdoEHGtaWWmQjLbuiYu5uICll8QMZWdoIh-ieBLrSD4""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Consumer Statement,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Consumer Statement,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-14-000138"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -738,7 +738,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Consumer Statement,F
   ],
   ""isSub650"": false
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Error,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Error,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-07-000111"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -779,7 +779,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Error,Foreclosur
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNy0wMDAxMTEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNjkxLCJleHAiOjE1ODU0MTQ2OTF9.ULxCqDbDoMw-wJZPctBWirEq12jhTMyxsWLYwDbpJeQ"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNy0wMDAxMTEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2OTEsImV4cCI6MTU4NTQxNDY5MX0.oUIpL_rz9tpgvxkCTwBT6dgsMsz4L5qF2WgeCCP4-IQ""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Fail,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Fail,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-10-000131"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -820,7 +820,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID Fail,Foreclosure
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNjkzLCJleHAiOjE1ODU0MTQ2OTN9.HIkJD3yKO-RIuXQ8ZtBmYiMrawnjwTfQPParv6CwC0k"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2OTMsImV4cCI6MTU4NTQxNDY5M30.YPlkRjipgGfkovxCVylMScFvr8Gq8_4hN3TRGCdvqMY""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID unavailable,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID unavailable,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-16-000133"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -861,7 +861,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-eID unavailable,Fore
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNjk1LCJleHAiOjE1ODU0MTQ2OTV9.SiUIlwIL8E_uiahBcf3KJ116v0lDxML5u0Bbf3K8VC0"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xNi0wMDAxMzMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2OTUsImV4cCI6MTU4NTQxNDY5NX0.xzP-uWxWOzTJLODfzUQ1ykRBVjnbCBXbnzAhmQbvqrs""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraudulent Inquiry,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraudulent Inquiry,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-04-000130"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -902,7 +902,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraudulent Inquiry,F
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNjk4LCJleHAiOjE1ODU0MTQ2OTh9.7ba_ajvtzCwYXwj29Ib4oT-xoCy2KvHM0jBmf_TKoNU"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNC0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI2OTgsImV4cCI6MTU4NTQxNDY5OH0.UyuMe8iqvTFIF4abRwcYRbYQOiFriB8ifkCigJk40Do""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-OFAC,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-OFAC,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-06-000119"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -943,7 +943,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-OFAC,Foreclosure Rev
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNzAxLCJleHAiOjE1ODU0MTQ3MDF9.5JRmGyfjkJWH28ifG6NtSc42E2Zm1JP35ION9eDS0Ag"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNi0wMDAxMTkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI3MDEsImV4cCI6MTU4NTQxNDcwMX0.K-nTw7XILKqAZWyDjJxPGfcPuajl28InIrN9G-ZomIc""
 }"
-Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraud Victim Indicator,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"{
+Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraud Victim Indicator,Foreclosure Review",equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_AND_Foreclosure-Review.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-05-000137"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -984,7 +984,7 @@ Combined loan with Deferred and Non Deferred Stip,"ID/Fraud-Fraud Victim Indicat
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODIyNzAzLCJleHAiOjE1ODU0MTQ3MDN9.nA6LLYdmhQ0Bb1om3MzL7ZNXdKrhY2Hmhsizhs2AMUo"",
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wNS0wMDAxMzciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MjI3MDMsImV4cCI6MTU4NTQxNDcwM30.8fq1DtlBYfVEqJzEuuIRKYl6OazCWSqpKsFHNsYtSkc""
 }"
-Primary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-01-000129"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1013,7 +1013,7 @@ Primary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/com
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMS0wMDAxMjkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzA2LCJleHAiOjE1ODU0MTQ3MDZ9.Gz3JjM9pC_-2B22HTXgxAV7k_MsEd_zq9-EO2vWlgSU""
 }"
-Primary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-15-000118"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1038,7 +1038,7 @@ Primary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stip
   ],
   ""isSub650"": false
 }"
-Primary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-13-000134"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1067,7 +1067,7 @@ Primary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combine
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xMy0wMDAxMzQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzA4LCJleHAiOjE1ODU0MTQ3MDh9.ncdnX2TPDy0JrMQxkaOc9CPjx1hqRsJSFgxxhUFLi4E""
 }"
-Primary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-12-000139"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1096,7 +1096,7 @@ Primary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMi0wMDAxMzkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzExLCJleHAiOjE1ODU0MTQ3MTF9.o3x7hA0SzzVyP5fdyGy6MoLjr-0ECY_xYVTqtteAw4U""
 }"
-Primary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-06-000120"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1125,7 +1125,7 @@ Primary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/c
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNi0wMDAxMjAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzEzLCJleHAiOjE1ODU0MTQ3MTN9.uqUY8sWlB48JZe7Y5ZigFHJ3Y3HGE4SYDgCWFojDFWs""
 }"
-Primary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-04-000131"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1154,7 +1154,7 @@ Primary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stip
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNC0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzE1LCJleHAiOjE1ODU0MTQ3MTV9.JRLPFuzJTcmzg0pO_vTfDqvej-p1gjFrvlWq9klHfBc""
 }"
-Primary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-09-000132"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1183,7 +1183,7 @@ Primary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wOS0wMDAxMzIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzE2LCJleHAiOjE1ODU0MTQ3MTZ9.yOWe1wthEF5k7tz56QAzmkJf7vaKOee5k9I81b9iMeY""
 }"
-Primary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Primary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-13-000135"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -1212,7 +1212,7 @@ Primary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xMy0wMDAxMzUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzE4LCJleHAiOjE1ODU0MTQ3MTh9.SI5JZkZ8Npgub4Ow-xiF02XWNqI-vl5qWTJE8Vvuip8""
 }"
-Secondary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-08-000131"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1241,7 +1241,7 @@ Secondary loan with stip,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/c
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wOC0wMDAxMzEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzIxLCJleHAiOjE1ODU0MTQ3MjF9.qsmgWMQ7sdxAjiYFrquNAG3oZCZlcxLncAQ0ANi2sIc""
 }"
-Secondary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-16-000134"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1266,7 +1266,7 @@ Secondary loan with stip,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/st
   ],
   ""isSub650"": false
 }"
-Secondary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-15-000119"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1295,7 +1295,7 @@ Secondary loan with stip,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combi
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNS0wMDAxMTkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzI1LCJleHAiOjE1ODU0MTQ3MjV9.EhtHlUDabZsW3sDV8uzZG-rKBudexFj-xak_AQo1Qn8""
 }"
-Secondary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-01-000130"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1324,7 +1324,7 @@ Secondary loan with stip,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combin
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMS0wMDAxMzAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzI3LCJleHAiOjE1ODU0MTQ3Mjd9.1FJjv8ARZH1lI3yBpmW2ItMy80sUtJt94ZesC9xwzos""
 }"
-Secondary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-03-000118"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1353,7 +1353,7 @@ Secondary loan with stip,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMy0wMDAxMTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzI5LCJleHAiOjE1ODU0MTQ3Mjl9.mugT6oBqr8X7pRi3hQWdA4DreYcyqGdpPcZuqQ5MwVs""
 }"
-Secondary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-10-000132"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1382,7 +1382,7 @@ Secondary loan with stip,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/st
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzMxLCJleHAiOjE1ODU0MTQ3MzF9.NAgYE-R0uY_fLHyZHtNXSRgmVSApvarU7FOLX7wyvUs""
 }"
-Secondary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-07-000112"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1411,7 +1411,7 @@ Secondary loan with stip,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/I
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNy0wMDAxMTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzMzLCJleHAiOjE1ODU0MTQ3MzN9.ZQZM9CcnB6OFb8qkYV972xEwsbTUBRv73Aqv4eghyPg""
 }"
-Secondary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Secondary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"['Id', 'Title']",TRUE,"{
   ""loanId"": ""20-09-000133"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -1440,7 +1440,7 @@ Secondary loan with stip,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Sola
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wOS0wMDAxMzMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODIyNzM1LCJleHAiOjE1ODU0MTQ3MzV9.Xgq7DWkdM6pHr99P2ibzLX84R4VxH84i5GcDnGL-oTo""
 }"
-Combined loan with stip only on Primary,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-04-000140"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1462,7 +1462,7 @@ Combined loan with stip only on Primary,ID/Fraud-Alert Contact,equifax-test-mock
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNC0wMDAxNDAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDIwLCJleHAiOjE1ODU0Mjc0MjB9.6gLZLrYRkkdvhgyGvx2dmw8okzkKZDt2enisRI6QdNI"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNC0wMDAxNDAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDIwLCJleHAiOjE1ODU0Mjc0MjB9.99SuHAAu4af7mawhShXF_IBnVth9fbG9GJWGZlLORvI""
 }"
-Combined loan with stip only on Primary,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-04-000141"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1482,7 +1482,7 @@ Combined loan with stip only on Primary,ID/Fraud-Consumer Statement,equifax-test
   ],
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wNC0wMDAxNDEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDIzLCJleHAiOjE1ODU0Mjc0MjN9.EvT0UldlzXtoMCSBtZq4KIHMAg1WVwtk65mnNXAU3T0""
 }"
-Combined loan with stip only on Primary,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000123"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1503,7 +1503,7 @@ Combined loan with stip only on Primary,ID/Fraud-eID Error,equifax-test-mocks/So
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDI2LCJleHAiOjE1ODU0Mjc0MjZ9.aq_xdP5K26EzyQAlwdNZU6yy_jBDzfPx-TV3Q30lc4w"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDI2LCJleHAiOjE1ODU0Mjc0MjZ9.rSZUolQbr2S-eAmhf2SiuSwwLUnOBdLa83Fq4utQKiw""
 }"
-Combined loan with stip only on Primary,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000124"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1524,7 +1524,7 @@ Combined loan with stip only on Primary,ID/Fraud-eID Fail,equifax-test-mocks/Sol
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDI4LCJleHAiOjE1ODU0Mjc0Mjh9.PrHWY-MTi6ejasg6v9ttXWc1pvNsrdvGxcsj5pnnGZY"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDI4LCJleHAiOjE1ODU0Mjc0Mjh9.19ukAkeaS24fmE2B-LSC-lku6TLjkexjVqXFgZrwCto""
 }"
-Combined loan with stip only on Primary,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-02-000151"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1545,7 +1545,7 @@ Combined loan with stip only on Primary,ID/Fraud-eID unavailable,equifax-test-mo
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDMxLCJleHAiOjE1ODU0Mjc0MzF9.pgPPFTTo12n6jjmA2PZzwD8xEy8Iw2GCwI5uRmU_UQo"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDMxLCJleHAiOjE1ODU0Mjc0MzF9.sDpeTV5tN1-E8PMdIbwcrsEgOTUVwHpcSjvbjl2FWUM""
 }"
-Combined loan with stip only on Primary,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-12-000147"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1567,7 +1567,7 @@ Combined loan with stip only on Primary,ID/Fraud-Fraudulent Inquiry,equifax-test
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xMi0wMDAxNDciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDMzLCJleHAiOjE1ODU0Mjc0MzN9.n2qZEj13YSZcCJ9P0Bz2k_91fjF7H57So6JadJxiKPU"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xMi0wMDAxNDciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDMzLCJleHAiOjE1ODU0Mjc0MzN9.g5luxJdMHWZLxem6o55PvsjsScoG6muXn8tNHa6_4Fo""
 }"
-Combined loan with stip only on Primary,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-15-000124"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1588,7 +1588,7 @@ Combined loan with stip only on Primary,ID/Fraud-OFAC,equifax-test-mocks/Solar/s
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNS0wMDAxMjQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDM1LCJleHAiOjE1ODU0Mjc0MzV9.vGFc-AmMQ_bqS6e0btf8RQ3BqqP3yWKYRm8XurynZ0E"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xNS0wMDAxMjQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDM1LCJleHAiOjE1ODU0Mjc0MzV9.tlyeuHp-v4Pj3lJk_hltL3BFOTyn5IHtQ1WFJJrJoD4""
 }"
-Combined loan with stip only on Primary,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Primary,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_onPrimary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-02-000152"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1610,7 +1610,7 @@ Combined loan with stip only on Primary,ID/Fraud-Fraud Victim Indicator,equifax-
   ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgyODM1NDM5LCJleHAiOjE1ODU0Mjc0Mzl9.zlyjsekD0FSVz4PyppynhF2NyAe3y_GFCTDKgwyZbgc"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDM5LCJleHAiOjE1ODU0Mjc0Mzl9.f1ssRWMtgTxloXFaBE7cRrprpiFzw2Xdm-mdXl5XR6Q""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-09-000139"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1632,7 +1632,7 @@ Combined loan with stip only on Secondary,ID/Fraud-Alert Contact,equifax-test-mo
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wOS0wMDAxMzkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NDIsImV4cCI6MTU4NTQyNzQ0Mn0.soJS4wYW-VFFrE4HKXEWPfUDhYKVJAERXpxnZTDJF0o"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wOS0wMDAxMzkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDQyLCJleHAiOjE1ODU0Mjc0NDJ9.YNoxltVOqvfAP8kMta7_MQUAXB3PFzeNeQ0TcD06J8s""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-05-000141"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1652,7 +1652,7 @@ Combined loan with stip only on Secondary,ID/Fraud-Consumer Statement,equifax-te
   ],
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wNS0wMDAxNDEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDQ0LCJleHAiOjE1ODU0Mjc0NDR9.DZgqpIVyTsxsYnkpuQ_fsUZfi7JtLCTgtEY8zd1ZsAE""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-10-000136"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1673,7 +1673,7 @@ Combined loan with stip only on Secondary,ID/Fraud-eID Error,equifax-test-mocks/
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NTIsImV4cCI6MTU4NTQyNzQ1Mn0.DeVRASDNGmh8IuAtMkLaaZXhVg3AhUrFAtvAmsV2J7w"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0xMC0wMDAxMzYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDUyLCJleHAiOjE1ODU0Mjc0NTJ9.aWBDjxLtiVLlEgxXwNMgTeILyOsc8uEjj44epZEAM54""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-09-000140"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1694,7 +1694,7 @@ Combined loan with stip only on Secondary,ID/Fraud-eID Fail,equifax-test-mocks/S
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOS0wMDAxNDAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NTUsImV4cCI6MTU4NTQyNzQ1NX0.SC5Zrb__f618hsoqLEe8BBhm5Eqa-f4L2ctYux58Iwo"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wOS0wMDAxNDAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDU1LCJleHAiOjE1ODU0Mjc0NTV9.0EERv69_IE5SkLo2wd9KNrWRWVTMbnWU8Rc5k30wWzg""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-02-000153"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1715,7 +1715,7 @@ Combined loan with stip only on Secondary,ID/Fraud-eID unavailable,equifax-test-
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NTcsImV4cCI6MTU4NTQyNzQ1N30.PynHGToCMVcRov5ayGSfwOHQQYTZ7GTGvPq-qKbtcgI"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMi0wMDAxNTMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDU3LCJleHAiOjE1ODU0Mjc0NTd9.YxOOHgRyhCM-ujpO7sshMsX1nTPaMkslcWUT3MdM60U""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-14-000150"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1737,7 +1737,7 @@ Combined loan with stip only on Secondary,ID/Fraud-Fraudulent Inquiry,equifax-te
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0xNC0wMDAxNTAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NTksImV4cCI6MTU4NTQyNzQ1OX0.uQIQD0GzaqGvAehMKUOQWnkUCKUtjubtKcie989gLLs"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xNC0wMDAxNTAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDU5LCJleHAiOjE1ODU0Mjc0NTl9.5jG7wUjn4nKScRkhazStSLj36tNi8BBZVeER58vQma4""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-03-000125"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -1758,7 +1758,7 @@ Combined loan with stip only on Secondary,ID/Fraud-OFAC,equifax-test-mocks/Solar
   ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjUiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODI4MzU0NjIsImV4cCI6MTU4NTQyNzQ2Mn0.nzQ8x8wB2IDhRmEj_qRF0ag-5cnBDKTqLctO3dLEmIY"",
   ""docToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMy0wMDAxMjUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgyODM1NDYyLCJleHAiOjE1ODU0Mjc0NjJ9.qAcxz42zgu8E4tsC9sh6HCxhgLinHcsvO4FY-CQAQRU""
 }"
-Combined loan with stip only on Secondary,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,"{
+Combined loan with stip only on Secondary,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_onSecondary.json,Combined,1stLight,solar/1stlight/1stlight.html,VIRGINIA,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,MARY,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,"{
   ""loanId"": ""20-16-000140"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",

@@ -9,7 +9,12 @@ const emailRegex = require('../src/utilities/emailRegex');
 
 const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
 
-const testHtml = require('../data/email/html');
+const englishNextSteps12 = require('../data/email/deferred-stips/default-english/next-steps_1-2');
+const englishNextSteps13 = require('../data/email/deferred-stips/default-english/next-steps_1-3');
+const englishNextSteps123 = require('../data/email/deferred-stips/default-english/next-steps_1-2-3');
+const spanishNextSteps12 = require('../data/email/deferred-stips/default-spanish/next-steps_1-2');
+const spanishNextSteps13 = require('../data/email/deferred-stips/default-spanish/next-steps_1-3');
+const spanishNextSteps123 = require('../data/email/deferred-stips/default-spanish/next-steps_1-2-3');
 
 jest.setTimeout(60000);
 describe('Email', () => {
@@ -19,7 +24,7 @@ describe('Email', () => {
     console.log('SIGNING IN...');
     email = new LoanEmailPage(emailConfig);
     console.log('GETTING INBOX...');
-    inbox = await email.mailConnect('UNSEEN', 'Testing');
+    // inbox = await email.mailConnect('UNSEEN', 'Testing');
     // console.log(inbox, 'inbox');
   });
   describe('Email text validation', () => {
@@ -111,25 +116,53 @@ describe('Email', () => {
     });
   });
 
-  describe.only('IP-431', () => {
+  describe.only.each(['english', 'spanish'])('IP-449', language => {
+    let nextStep12;
+    let nextStep13;
+    let nextStep123;
+    beforeAll(() => {
+      console.log(language, 'language');
+      nextStep12 = language === 'english' ? englishNextSteps12 : spanishNextSteps12;
+      nextStep13 = language === 'english' ? englishNextSteps13 : spanishNextSteps13;
+      nextStep123 = language === 'english' ? englishNextSteps123 : spanishNextSteps123;
+    });
     // Solar Financing Decision email
-    test('validate Solar Financing Decision email text', async () => {
+    test.skip('validate Solar Financing Decision email text', async () => {
       console.log('VALIDATING SOLAR FINANCING DECISION EMAIL TEXT...');
-      const solarFinancingDecision = await email.getEmail(inbox, 'solarFinancingDecision');
-      // const htmlText = h2t.fromString(testHtml);
-      // console.log(htmlText);
-      const solarFinancingDecision1 = JSON.stringify(solarFinancingDecision).replace(/\\n/g, ' ');
-      // console.log(solarFinancingDecision);
-      // const newText = solarFinancingDecision.replace(/\\n/g, '');
-      // console.log(newText);
-      // expect(solarFinancingDecision).toBeTruthy();
-      for (const expression of emailRegex.solarFinancingDecision) {
-        expect(solarFinancingDecision1).toMatch(expression);
-      }
+      // const solarFinancingDecision = await email.getEmail(inbox, 'solarFinancingDecision');
+      const solarFinancingDecision = h2t.fromString(nextStep12, { wordwrap: false });
+      console.log(solarFinancingDecision);
+    });
 
-      // for (const expression of emailRegex.nextSteps) {
-      //   expect(solarFinancingDecision).toMatch(expression);
-      // }
+    test(`validate ${language} Solar Financing Decision with Next Steps 1,2`, () => {
+      const message = h2t.fromString(nextStep12, { wordwrap: false });
+      // console.log(message);
+      emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
+      // Next Steps
+      expect(message).toMatch(emailRegex[language].nextSteps.title);
+      emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+      emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
+      emailRegex[language].nextSteps.three.forEach(ex => expect(message).not.toMatch(ex));
+    });
+    test(`validate ${language} Solar Financing Decision with Next Steps 1,3`, () => {
+      const message = h2t.fromString(nextStep13, { wordwrap: false });
+      // console.log(message);
+      emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
+      // Next Steps
+      expect(message).toMatch(emailRegex[language].nextSteps.title);
+      emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+      emailRegex[language].nextSteps.two.forEach(ex => expect(message).not.toMatch(ex));
+      emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
+    });
+    test(`validate ${language} Solar Financing Decision with Next Steps 1,2,3`, () => {
+      const message = h2t.fromString(nextStep123, { wordwrap: false });
+      // console.log(message);
+      emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
+      // Next Steps
+      expect(message).toMatch(emailRegex[language].nextSteps.title);
+      emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+      emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
+      emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
     });
   });
 });
