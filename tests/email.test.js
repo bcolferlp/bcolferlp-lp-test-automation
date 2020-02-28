@@ -28,10 +28,6 @@ describe('Email', () => {
     // console.log(inbox, 'inbox');
   });
   describe('Email text validation', () => {
-    test.skip('testHtml', () => {
-      const message = h2t.fromString(testHtml);
-      console.log(message, 'message');
-    });
     // // DocuSign email
     test('validate docusign email text', async () => {
       const docuSignEmail = await email.getSplitEmail(inbox, 'docusign');
