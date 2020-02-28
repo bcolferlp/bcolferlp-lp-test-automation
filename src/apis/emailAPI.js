@@ -14,23 +14,23 @@ export default class EmailAPI {
       imap: {
         user,
         password,
-        host: 'mail.testemail.loanpal.com',
+        host: 'outlook.office365.com',
         port: 993,
         tls: true,
         authTimeout: 20000
       }
     };
-    this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
     };
   }
 
   // Connects to email with imap
-  mailConnect = async () => {
+  mailConnect = async (searchCriteria = 'ALL', box = 'INBOX') => {
+    const criteria = [searchCriteria];
     const connection = await imaps.connect(this.config);
-    await connection.openBox('INBOX');
-    const messages = await connection.search(this.searchCriteria, this.fetchOptions);
+    await connection.openBox(box);
+    const messages = await connection.search(criteria, this.fetchOptions);
     connection.end();
     const mail = await Promise.all(
       messages.map(item => {
@@ -43,10 +43,17 @@ export default class EmailAPI {
     return mail;
   };
 
-  deleteMail = async () => {
+  getBoxes = async () => {
     const connection = await imaps.connect(this.config);
-    await connection.openBox('INBOX');
-    const messages = await connection.search(this.searchCriteria, this.fetchOptions);
+    const boxes = await connection.getBoxes();
+    return boxes;
+  };
+
+  deleteMail = async (searchCriteria = 'ALL', box = 'INBOX') => {
+    const criteria = [searchCriteria];
+    const connection = await imaps.connect(this.config);
+    await connection.openBox(box);
+    const messages = await connection.search(criteria, this.fetchOptions);
     const taskList = messages.map(message => {
       return new Promise((resolve, reject) => {
         try {
@@ -79,7 +86,7 @@ export default class EmailAPI {
   };
 
   // Returns entire inbox
-  getInbox = () => this.mailConnect().then(mail => mail || Promise.reject(new Error('Unable to retrieve emails')));
+  getInbox = (searchCriteria, box) => this.mailConnect(searchCriteria, box).then(mail => mail || Promise.reject(new Error('Unable to retrieve emails')));
 
   // Returns all email subjects in an array
   getSubjects = inbox => inbox.map(({ subject }) => subject);
