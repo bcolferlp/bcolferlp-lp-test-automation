@@ -18,7 +18,7 @@ const spanishNextSteps123 = require('../data/email/deferred-stips/default-spanis
 
 jest.setTimeout(60000);
 describe('Email', () => {
-  describe('Check Inbox', () => {
+  describe.only('Check Inbox', () => {
     let email;
     let inbox;
     beforeAll(async () => {
@@ -26,7 +26,7 @@ describe('Email', () => {
       email = new LoanEmailPage(emailConfig);
       console.log('GETTING INBOX...');
       inbox = await email.mailConnect('UNSEEN', 'Testing');
-      console.log(inbox, 'inbox');
+      // console.log(inbox, 'inbox');
     });
     describe('Email text validation', () => {
       // // DocuSign email
@@ -39,12 +39,12 @@ describe('Email', () => {
       });
 
       // Solar Financing Decision email
-      test('validate Solar Financing Decision email text', async () => {
+      test.only('validate Solar Financing Decision email text', async () => {
         console.log('VALIDATING SOLAR FINANCING DECISION EMAIL TEXT...');
         const solarFinancingDecision = await email.getEmail(inbox, 'solarFinancingDecision');
         // console.log(solarFinancingDecision);
         expect(solarFinancingDecision).toBeTruthy();
-        for (const expression of emailRegex.solarFinancingDecision) {
+        for (const expression of emailRegex['english'].solarFinancingDecisionNextSteps) {
           expect(solarFinancingDecision).toMatch(expression);
         }
       });
@@ -112,12 +112,29 @@ describe('Email', () => {
         }
       });
     });
+
+    describe.only('IP-431', () => {
+      // Solar Financing Decision email
+      test.only('validate Solar Financing Decision email text', async () => {
+        const language = 'english';
+        const message = await email.getEmail(inbox, 'solarFinancingDecision');
+        // console.log(message);
+        expect(message).toBeTruthy();
+        // Main message
+        emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
+        // Next Steps
+        expect(message).toMatch(emailRegex[language].nextSteps.title);
+        emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+        emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
+        emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
+      });
+    });
   });
-  describe.only.each(['english', 'spanish'])('html text validation, IP-449', language => {
+  describe.each(['english', 'spanish'])('html text validation, IP-449', language => {
     let nextStep12;
     let nextStep13;
     let nextStep123;
-    beforeAll(() => {
+    beforeEach(() => {
       console.log(language, 'language');
       nextStep12 = language === 'english' ? englishNextSteps12 : spanishNextSteps12;
       nextStep13 = language === 'english' ? englishNextSteps13 : spanishNextSteps13;

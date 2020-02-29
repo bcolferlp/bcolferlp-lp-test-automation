@@ -98,10 +98,8 @@ export default class EmailAPI {
   getMessage(inbox, subjectText) {
     for (const mail of inbox) {
       const { subject, text, html } = mail;
-      let newText = text;
       if (subject.includes(subjectText)) {
-        if (!newText) newText = h2t.fromString(html);
-        return newText;
+        return h2t.fromString(html, { wordwrap: false });
       }
     }
     throw new Error('Unable to find email');

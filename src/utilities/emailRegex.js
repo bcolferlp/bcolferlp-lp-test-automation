@@ -1,32 +1,32 @@
 module.exports = {
   english: {
     solarFinancingDecision: [
-      /Congratulations, [A-Za-z]*!/g,
-      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/g,
-      /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/g,
-      /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./g,
-      /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./g,
-      /We take pride in our ability to help our clients with their financing needs, and we are excited for you to become a part of our Loanpal family\./g,
-      /Please copy and paste this link into your browser to 'Get your Loan'/g,
-      /Reference Number: .*/g,
-      /Application ID: \d{2}-\d{2}-\d{6}/g,
-      /Best Regards,/g,
-      /The Loanpal Team/g
+      /Congratulations, [A-Za-z]*!/,
+      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
+      /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/,
+      /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./,
+      /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./,
+      /We take pride in our ability to help our clients with their financing needs, and we are excited for you to become a part of our Loanpal family\./,
+      /Please copy and paste this link into your browser to 'Get your Loan'/,
+      /Reference Number: .*/,
+      /Application ID: \d{2}-\d{2}-\d{6}/,
+      /Best Regards,/,
+      /The Loanpal Team/
     ],
     solarFinancingDecision1: [
-      /You've applied for a solar loan\./g,
-      /Congratulations, [A-Za-z]*!/g,
-      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/g,
-      /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/g,
-      /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./g,
-      /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./g,
-      /We take pride in our ability to help our clients with their financing needs, and we are excited for you to become a part of our Loanpal family\./g,
-      /To get your loan please click the button below/g,
-      /Get your Loan/g,
-      /Reference Number: .*/g,
-      /Application ID: \d{2}-\d{2}-\d{6}/g,
-      /Best Regards,/g,
-      /The Loanpal Team/g
+      /You've applied for a solar loan\./,
+      /Congratulations, [A-Za-z]*!/,
+      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
+      /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/,
+      /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./,
+      /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./,
+      /We take pride in our ability to help our clients with their financing needs, and we are excited for you to become a part of our Loanpal family\./,
+      /To get your loan please click the button below/,
+      /Get your Loan/,
+      /Reference Number: .*/,
+      /Application ID: \d{2}-\d{2}-\d{6}/,
+      /Best Regards,/,
+      /The Loanpal Team/
     ],
     solarFinancingDecisionNextSteps: [
       /You've applied for a solar loan\./,
@@ -43,9 +43,12 @@ module.exports = {
     ],
     nextSteps: {
       title: /Next Steps/,
-      one: [/Get your loan docs by clicking the button below, once you receive them please review and sign\./, /Get loan docs \[secureLink\]/],
+      one: [
+        /Get your loan docs by clicking the button below, once you receive them please review and sign\./,
+        /Get loan docs \[https:\/\/\S*.partner-admin\.loanpal\.com\]/
+      ],
       two: [
-        /You can sign your loan docs now\. However, prior to funding your loan, we’ll need to validate your identification\. Please click the button below to upload your ID\. *Upload documentation/
+        /You can sign your loan docs now\. However, prior to funding your loan, we’ll need to validate your identification\. Please click the button below to upload your ID\. *Upload documentation \[https:\/\/\S*.stips\.loanpal\.com\]/
       ],
       three: [/You should also expect a call from Loanpal to validate your identity\./]
     },
@@ -223,10 +226,10 @@ module.exports = {
       title: /Próximos pasos/,
       one: [
         /Obtenga sus documents de préstamo haciendo clic en el botón a continuación, una vez que los reciba, revíselos y firme\./,
-        /Obtener documentos de préstamo \[secureLink\]/
+        /Obtener documentos de préstamo \[https:\/\/\S*.partner-admin\.loanpal\.com\]/
       ],
       two: [
-        /Puede firmar sus documents de préstamo ahora. Sin embargo, antes de financiar su préstamo, necesitaremos validar su identificación. Haga clic en el botón de abajo para subir su ID. *Subir documentación/
+        /Puede firmar sus documents de préstamo ahora. Sin embargo, antes de financiar su préstamo, necesitaremos validar su identificación. Haga clic en el botón de abajo para subir su ID. *Subir documentación \[https:\/\/\S*.stips\.loanpal\.com\]/
       ],
       three: [/También debe esperar una llamada de Loanpal para validar su identidad\./]
     }
