@@ -4,10 +4,46 @@
   "description": "Repository for all LoanPal automation tests",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "build": "babel src -d dist --source-maps",
+    "buildTests": "babel tests -d dist_tests --source-maps",
+    "test": "jest -runInBand --verbose",
+    "eslint": "eslint src/**/*.js --ignore-pattern \"node_modules\"",
     "report": "allure serve",
     "purge": "node src/utilities/purgeLoansResults.js && jest tests/deleteInbox.test.js",
     "e2eloans": "jest tests/loanDocsCreate.test.js && jest tests/loanDocsRequest.test.js && jest --runInBand tests/loanDocsSign.test.js && jest tests/loanDocsDownload.test.js && jest tests/loanDocsComparePDF.test.js"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": true
+          }
+        }
+      ]
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "eslintConfig": {
+    "plugins": [
+      "node",
+      "jest"
+    ],
+    "env": {
+      "jest/globals": true,
+      "node": true,
+      "es6": true
+    },
+    "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 2018
+    }
   },
   "repository": {
     "type": "git",
@@ -21,32 +57,40 @@
   },
   "homepage": "https://github.com/loanpal-engineering/lp-test-automation#readme",
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/node": "^7.8.4",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.6",
     "aws-sdk": "^2.576.0",
     "babel-core": "^6.26.3",
     "babel-jest": "^24.9.0",
     "bluebird": "^3.7.1",
     "diff": "^4.0.1",
-    "eslint": "^6.1.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-jest": "^23.8.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^11.0.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "jest-allure": "^0.1.1",
+    "jest-cli": "^25.1.0",
     "jest-each": "^24.9.0",
     "jsonload": "^1.2.0",
     "loadjson": "^1.1.2",
+    "nodemon": "^2.0.2",
     "pdf-parse": "^1.1.1",
+    "prettier": "^1.19.1",
     "selenium": "^2.20.0",
     "selenium-webdriver": "^4.0.0-alpha.5"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
     "archiver": "^3.1.1",
     "babel-eslint": "^10.0.3",
     "dotenv": "^8.2.0",
@@ -59,6 +103,7 @@
     "log-update": "^3.3.0",
     "mailparser": "^2.7.7",
     "moment": "^2.24.0",
+    "node-gyp": "^6.1.0",
     "numeral": "^2.0.6",
     "request": "^2.88.0",
     "strip-ansi": "^6.0.0",

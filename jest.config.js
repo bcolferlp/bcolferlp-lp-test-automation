@@ -8,4 +8,5 @@ module.exports = {
   reporters: ['default', './reporter.js'],
   setupFilesAfterEnv: ['jest-allure/dist/setup'],
   testEnvironment: 'node'
+
 };
