@@ -3,6 +3,10 @@ import h2t from 'html-to-text';
 
 import LoanEmailPage from '../src/pages/loanEmailPage';
 
+import IP431File from '../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
+
+const sbScenarios = [...IP431File.slice(0, 8), ...IP431File.slice(32, 40), ...IP431File.slice(64, 68), ...IP431File.slice(80, 83), ...IP431File.slice(92, 108)];
+
 require('dotenv').config();
 
 const emailRegex = require('../src/utilities/emailRegex');
@@ -39,7 +43,7 @@ describe('Email', () => {
       });
 
       // Solar Financing Decision email
-      test.only('validate Solar Financing Decision email text', async () => {
+      test('validate Solar Financing Decision email text', async () => {
         console.log('VALIDATING SOLAR FINANCING DECISION EMAIL TEXT...');
         const solarFinancingDecision = await email.getEmail(inbox, 'solarFinancingDecision');
         // console.log(solarFinancingDecision);
@@ -113,20 +117,53 @@ describe('Email', () => {
       });
     });
 
-    describe.only('IP-431', () => {
+    describe.only.each(IP431File.slice(32, 64))('IP-431', record => {
       // Solar Financing Decision email
-      test.only('validate Solar Financing Decision email text', async () => {
+      test.only(`Validate ${record.scenario} for a ${record.type}`, async () => {
         const language = 'english';
-        const message = await email.getEmail(inbox, 'solarFinancingDecision');
-        // console.log(message);
+        const responseBody = JSON.parse(record.responseBody);
+        const { availableNextSteps = [] } = responseBody;
+        const messages = await email.getAllMessages(inbox, 'solarFinancingDecision', language);
+        const stringSteps = availableNextSteps.toString();
+        console.log(stringSteps, 'availableNextSteps');
+
+        // console.log(messages);
+        const [message] = await messages.filter(
+          item => item.includes(`Congratulations, ${record.firstName}`) || item.includes(`Congratulations, ${record.coFirstName}`)
+        );
+        // console.log(message, 'filteredMessages');
         expect(message).toBeTruthy();
-        // Main message
-        emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
-        // Next Steps
-        expect(message).toMatch(emailRegex[language].nextSteps.title);
-        emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
-        emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
-        emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
+        // emailRegex[language].solarFinancingDecisionNextSteps.forEach(ex => expect(message).toMatch(ex));
+        if (availableNextSteps.length && !record.stips === 'ID/Fraud-Consumer Statement,Foreclosure Review') {
+          // Next Steps
+          if (!record.hasNonDeferredStips) expect(message).toMatch(emailRegex[language].nextSteps.title);
+          if (stringSteps.includes('GET') && stringSteps.includes('UPLOAD') && !stringSteps.includes('WAIT')) {
+            emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.three.forEach(ex => expect(message).not.toMatch(ex));
+          }
+          if (stringSteps.includes('GET') && !stringSteps.includes('UPLOAD') && stringSteps.includes('WAIT')) {
+            emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.two.forEach(ex => expect(message).not.toMatch(ex));
+            emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
+          }
+          if (!stringSteps.includes('GET') && stringSteps.includes('UPLOAD') && !stringSteps.includes('WAIT')) {
+            emailRegex[language].nextSteps.none.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.one.forEach(ex => expect(message).not.toMatch(ex));
+            emailRegex[language].nextSteps.two.forEach(ex => expect(message).not.toMatch(ex));
+            emailRegex[language].nextSteps.three.forEach(ex => expect(message).not.toMatch(ex));
+          }
+          if (stringSteps.includes('GET') && stringSteps.includes('UPLOAD') && stringSteps.includes('WAIT')) {
+            emailRegex[language].nextSteps.one.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.two.forEach(ex => expect(message).toMatch(ex));
+            emailRegex[language].nextSteps.three.forEach(ex => expect(message).toMatch(ex));
+          }
+        } else {
+          // emailRegex[language].solarFinancingDecision.forEach(ex => expect(message).toMatch(ex));
+          emailRegex[language].nextSteps.one.forEach(ex => expect(message).not.toMatch(ex));
+          emailRegex[language].nextSteps.two.forEach(ex => expect(message).not.toMatch(ex));
+          emailRegex[language].nextSteps.three.forEach(ex => expect(message).not.toMatch(ex));
+        }
       });
     });
   });

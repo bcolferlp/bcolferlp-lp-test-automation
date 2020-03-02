@@ -12,6 +12,7 @@ import cbFile from '../../../data/loanpal/application/cb-approved-deferred-stip-
 import IP432File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-432.csv';
 import IP427File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-427.csv';
 import IP442File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-442.csv';
+import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
 
 const singleTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json');
 const combinedTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/coBorrowerLoanTemplate.json');
@@ -35,7 +36,7 @@ describe('LP Application API', () => {
     if (responses.length) csv.writeToPath('./reponses.csv', responses);
   });
 
-  describe.skip.each([sbFile, cbFile])('getReponses', record => {
+  describe.only.each(IP431File.slice(32, 64))('getReponses', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -273,7 +274,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.only.each(IP442File)('API Actions, IP-442', record => {
+  describe.each(IP442File)('API Actions, IP-442', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');

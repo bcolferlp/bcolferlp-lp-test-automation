@@ -1,8 +1,8 @@
 module.exports = {
   english: {
     solarFinancingDecision: [
-      /Congratulations, [A-Za-z]*!/,
-      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
+      /Congratulations, \S*/,
+      /You (and \S* )?have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
       /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/,
       /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./,
       /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./,
@@ -15,8 +15,8 @@ module.exports = {
     ],
     solarFinancingDecision1: [
       /You've applied for a solar loan\./,
-      /Congratulations, [A-Za-z]*!/,
-      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
+      /Congratulations, \S*/,
+      /You (and \S* )?have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
       /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/,
       /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./,
       /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./,
@@ -30,8 +30,8 @@ module.exports = {
     ],
     solarFinancingDecisionNextSteps: [
       /You've applied for a solar loan\./,
-      /Congratulations, [A-Za-z]*!/,
-      /You have been approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
+      /Congratulations, \S*/,
+      /You (and \S* )?have been (conditionally )?approved for a Loanpal loan up to a maximum of [$0-9]*,[0-9]* to purchase a solar system for your home under the following products:/,
       /[0-9]* year[, ]*[0-9].[0-9]*% interest rate loan/,
       /Please do not hesitate to call the Loanpal team with any questions about the terms of the loan agreement at \(\d{3}\) \d{3}-\d{4}\./,
       /We look forward to funding your loan once the required documents are received and reviewed, final loan documents are signed, and your solar system is installed\./,
@@ -43,6 +43,7 @@ module.exports = {
     ],
     nextSteps: {
       title: /Next Steps/,
+      none: [/Please click the button below to upload your ID\./, /Upload documentation \[https:\/\/\S*.stips\.loanpal\.com\]/],
       one: [
         /Get your loan docs by clicking the button below, once you receive them please review and sign\./,
         /Get loan docs \[https:\/\/\S*.partner-admin\.loanpal\.com\]/
@@ -210,7 +211,7 @@ module.exports = {
   spanish: {
     solarFinancingDecisionNextSteps: [
       /Has solicitado un préstamo solar\./,
-      /¡Felicidades, [A-Za-z]*!/,
+      /¡Felicidades, \S*/,
       /Hemos aprobado tu aplicación para un préstamo Loanpal hasta un máximo de [$0-9]*,[0-9]* para comprar un sistema solar para tu casa con los productos siguientes/,
       /[0-9]* ano[, ]*[0-9].[0-9]*% tasa de interés fija/,
       /Si tienes cualquier pregunta sobre los términos del acuerdo del préstamo, favor de no dudar en llamar al equipo de Loanpal al \(\d{3}\) \d{3}-\d{4}\./,

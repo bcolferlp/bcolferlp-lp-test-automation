@@ -60,4 +60,9 @@ export default class LoanEmailPage extends EmailAPI {
     console.log(emailLink);
     return emailLink;
   }
+
+  async getAllText(inbox) {
+    const bodies = await this.getBodies(inbox);
+    return bodies;
+  }
 }

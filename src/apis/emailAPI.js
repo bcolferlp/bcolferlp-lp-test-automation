@@ -92,7 +92,7 @@ export default class EmailAPI {
   getSubjects = inbox => inbox.map(({ subject }) => subject);
 
   // Returns all email text as an array
-  getBodies = inbox => inbox.map(({ text }) => text);
+  getBodies = inbox => inbox.map(({ html }) => h2t.fromString(html, { wordwrap: false }));
 
   // Returns email text if subject is found
   getMessage(inbox, subjectText) {
@@ -106,7 +106,7 @@ export default class EmailAPI {
   }
 
   getMessagesBySubjects(inbox, subjectText) {
-    return inbox.filter(mail => mail.subject.includes(subjectText)).map(mail => mail.text);
+    return inbox.filter(mail => mail.subject.includes(subjectText)).map(({ html }) => h2t.fromString(html, { wordwrap: false }));
   }
 
   // Returns specific line in the message if the text is included
