@@ -23,7 +23,7 @@ export default class EmailPage extends BasePageObject {
     this.refreshBtn = By.xpath('//a[contains(@class, "buttonReload command no-disabled")]');
     // Environment variables
     this.emailUser = process.env.emailUser;
-    this.emailPass = process.env.emailPass;
+    this.emailPass = process.env.TESTPASS;
   }
 
   async goToEmail() {

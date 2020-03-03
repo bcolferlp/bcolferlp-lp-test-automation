@@ -21,8 +21,8 @@ export default class PPLoginPage extends BasePageObject {
     this.link = {
       profile: value => By.xpath(`//a[@title="${value}"]`)
     };
-    this.username = process.env.testEmail;
-    this.password = process.env.emailPass;
+    this.username = process.env.TESTEMAIL;
+    this.password = process.env.TESTPASS;
   }
 
   async completeLogin() {
@@ -37,6 +37,7 @@ export default class PPLoginPage extends BasePageObject {
     await this.enterEmail();
     await this.enterPassword();
     await this.loginClick();
+    await this.waitForTarget(this.button.logout);
   }
 
   async open() {

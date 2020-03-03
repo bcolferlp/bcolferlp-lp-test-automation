@@ -29,8 +29,8 @@ export default class UWLoginPage extends BasePageObject {
       profile: value => By.xpath(`//a[text()="${value}"]`)
     };
     // values
-    this.username = process.env.testEmail;
-    this.password = process.env.emailPass;
+    this.username = process.env.TESTEMAIL;
+    this.password = process.env.TESTPASS;
   }
 
   async completelogin() {

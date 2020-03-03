@@ -20,7 +20,6 @@ export default class PPLoanDetailsPage extends BasePageObject {
   }
 
   async goToPage() {
-    console.log(`URL: ${this.url}`);
     await this.sleep(2000);
     await this.openUrl(`${this.url}/loans/${this.loanId}`);
   }

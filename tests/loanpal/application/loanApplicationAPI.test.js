@@ -14,30 +14,37 @@ import IP427File from '../../../data/loanpal/application/approved-deferred-stip-
 import IP442File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-442.csv';
 import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
 
+const single = IP431File.filter(item => item.type === 'Single');
+const primary = IP431File.filter(item => item.type === 'Primary');
+const secondary = IP431File.filter(item => item.type === 'Secondary');
+const combined = IP431File.filter(item => item.type === 'Combined');
+
 const singleTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json');
 const combinedTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/coBorrowerLoanTemplate.json');
 
-const { getRandomNum, csv } = require('../../../src/utilities/imports');
+const { getRandomNum, csv, fs } = require('../../../src/utilities/imports');
 
 jest.setTimeout(60000 * 5);
 
 describe('LP Application API', () => {
   let baseTest;
   const responses = [];
-  beforeEach(() => {
-    // baseTest = new BaseTest('chrome');
-  });
-
-  afterEach(async () => {
-    if (baseTest) await baseTest.close();
-  });
+  let streetNum = 1000;
 
   afterAll(() => {
-    if (responses.length) csv.writeToPath('./reponses.csv', responses);
+    if (responses.length) {
+      csv.writeToPath('./reponses.csv', responses);
+      const loans = responses.map(res => {
+        const response = JSON.parse(res);
+        return JSON.stringify(response.loanId);
+      });
+      fs.writeFileSync('./createdLoans.json', loans);
+    }
   });
 
-  describe.only.each(IP431File.slice(32, 64))('getReponses', record => {
+  describe.each(IP431File)('getReponses', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
+      streetNum++;
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
       const esClient = new ElasticClient();
@@ -64,19 +71,29 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
-      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+      }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
       template.applicant.ssn = record.ssn;
-      template.applicant.spokenLanguage = record.language || 'english';
+      template.applicant.spokenLanguage = record.language || 'spanish';
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       responses.push([JSON.stringify(response, null, 2)]);
     });
   });
 
-  describe.each([sbFile, cbFile])('Deferred Stips, IP-426', record => {
+  describe.only.each()('Set deferred status to true for specified ID stips, IP-426', record => {
+    beforeEach(() => {
+      baseTest = new BaseTest('chrome');
+    });
+
+    afterEach(async () => {
+      if (baseTest) await baseTest.close();
+    });
     test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -104,8 +121,11 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
-      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+      }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
       template.applicant.ssn = record.ssn;
@@ -172,8 +192,11 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
-      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+      }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
       template.applicant.ssn = record.ssn;
@@ -229,8 +252,11 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
-      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+      }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
       template.applicant.ssn = record.ssn;
@@ -274,7 +300,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.each(IP442File)('API Actions, IP-442', record => {
+  describe.each(IP442File)('API availableNextSteps, IP-442', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -302,8 +328,11 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${getRandomNum(4)} lp ave.`;
-      if (record.coSSN) template.coApplicants[0].address.street = `${getRandomNum(4)} lp Blvd.`;
+      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+      }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
       template.applicant.ssn = record.ssn;

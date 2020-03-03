@@ -1,0 +1,808 @@
+scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCity,addressState,addressZip,dateOfBirth,mobilePhone,homePhone,ssn,email,employmentStatus,annualIncome,citizenship,language,coFirstName,coLastName,coAddressStreet,coAddressCity,coAddressState,coAddressZip,coDateOfBirth,coMobilePhone,coHomePhone,coSSN,coEmail,coEmploymentStatus,coAnnualIncome,coCitizenship,srFirstName,srLastName,srEmail,srMobilePhone,srCompanyName,loanTerm,systemCost,referenceNumber,status,hasDeferredStips,approvedButton,hasNonDeferredStips,primaryNonDeferredMessage,secondaryNonDeferredMessage,responseBody
+"single application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Fail.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-16-000192"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNi0wMDAxOTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1Mzk3LCJleHAiOjE1ODU3ODczOTd9.7saUIwj4RMvX0Lo-WU3UBhmwTj-HEZOfnAIGfjGW6tg""
+}"
+"single application returns with an ID/Fraud-eID unavailable stip, no non-deferred stips",ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-unavailable.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-08-000197"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wOC0wMDAxOTciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1Mzk5LCJleHAiOjE1ODU3ODczOTl9.BiQ8v31N0jQt1rSD-FD5MbPw2Vois2pm5h4aqKqfKA8""
+}"
+"single application returns with an ID/Fraud-eID Error stip, no non-deferred stips",ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Error.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-13-000198"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMy0wMDAxOTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAwLCJleHAiOjE1ODU3ODc0MDB9.U52Ts1PuehbSCdn7ZUpWkaTBWn-MUcGt9R7CLiHjlN0""
+}"
+"single application returns with an ID/Fraud-OFAC stip, no non-deferred stips",ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/single/ID-Fraud-OFAC.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-OFAC-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-02-000207"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAxLCJleHAiOjE1ODU3ODc0MDF9.GKwF-WY3MDTBG96a6aRQQT4bkV9Dmem7T0HHV0NQbGg""
+}"
+"single application returns with an ID/Fraud-Alert Contact stip, no non-deferred stips",ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/single/ID-Fraud-Alert-Contact.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-12-000202"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD"",
+    ""WAIT_CALL_PRIMARY""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xMi0wMDAyMDIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAyLCJleHAiOjE1ODU3ODc0MDJ9.T9w8fCRJUb-NiSSVIZV1jf1XCBypxXlxOFiMzD3EqzU""
+}"
+"single application returns with an ID/Fraud-Fraudulent Inquiry stip, no non-deferred stips",ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/single/ID-Fraud-Fraudulent-Inquiry.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-10-000184"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD"",
+    ""WAIT_CALL_PRIMARY""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xMC0wMDAxODQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAzLCJleHAiOjE1ODU3ODc0MDN9.U_Tcon5ukN56O6X63JKwWKWwQSkgsNUCVk7TE2myLd8""
+}"
+"single application returns with an ID/Fraud-Fraud Victim Indicator stip, no non-deferred stips",ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/single/ID-Fraud_Fraud-Victim-Indicator.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-08-000198"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD"",
+    ""WAIT_CALL_PRIMARY""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOC0wMDAxOTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA0LCJleHAiOjE1ODU3ODc0MDR9.XJyVLRaIlSMT9LCinnTFpUI78zdmFPqDuCxkWUv5KnQ""
+}"
+"single application returns with an ID/Fraud-Consumer Statement stip, no non-deferred stips",ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/single/ID-Fraud-Consumer-Statement.json,Single,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,,,,,,,,,,,,,,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-11-000181"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""WAIT_CALL_PRIMARY""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMS0wMDAxODEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA2LCJleHAiOjE1ODU3ODc0MDZ9.V7HAUya6oX7RbfQDDo8cnrCf3cuDqRVMK67nYTgNp90""
+}"
+"primary application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Fail-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-05-000193"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNS0wMDAxOTMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA4LCJleHAiOjE1ODU3ODc0MDh9.jg4LhD78XxHnL7krC5zr65GOB9Z6SojwEGj3BW--0_0""
+}"
+"primary application returns with an ID/Fraud-eID unavailable stip, no non-deferred stips",ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-unavailable-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-06-000190"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNi0wMDAxOTAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDEyLCJleHAiOjE1ODU3ODc0MTJ9.v0tLNzBpBMOd8nANefRcpnElxuIWejoIirnoeT60Doo""
+}"
+"primary application returns with an ID/Fraud-eID Error stip, no non-deferred stips",ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Error-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-08-000199"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOC0wMDAxOTkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDE1LCJleHAiOjE1ODU3ODc0MTV9.Y-svHL2BSfaVyI1-e1WimxTsofuCMt8W7FJIJTi_FQE""
+}"
+"primary application returns with an ID/Fraud-OFAC stip, no non-deferred stips",ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-OFAC-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-OFAC-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-12-000203"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMi0wMDAyMDMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDE3LCJleHAiOjE1ODU3ODc0MTd9.kaUfZjc1kgAVn3K5nktAF3V-sI4nftC_JcP_a6zEcTw""
+}"
+"primary application returns with an ID/Fraud-Alert Contact stip, no non-deferred stips",ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Alert-Contact-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-14-000204"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xNC0wMDAyMDQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDE5LCJleHAiOjE1ODU3ODc0MTl9.kiQ5H5QhR5b5maNtO4t9A87ZNQ3wjLlh-8Q_cyXNsJw""
+}"
+"primary application returns with an ID/Fraud-Fraudulent Inquiry stip, no non-deferred stips",ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraudulent-Inquiry-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-07-000175"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNy0wMDAxNzUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDIxLCJleHAiOjE1ODU3ODc0MjF9.RRcQQh6cbYRtrRrgBWohM3yCucJIM5O-wmz9m9k2w8U""
+}"
+"primary application returns with an ID/Fraud-Fraud Victim Indicator stip, no non-deferred stips",ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraud-Victim-Indicator-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-05-000194"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wNS0wMDAxOTQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDIzLCJleHAiOjE1ODU3ODc0MjN9._kjGniJcsVZzoIfWqp_FgFIWCc8xlcgdZQNfPOzEd18""
+}"
+"primary application returns with an ID/Fraud-Consumer Statement stip, no non-deferred stips",ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Primary.json,Primary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Consumer-Statement-primary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-05-000195"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"secondary application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Fail-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-14-000205"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xNC0wMDAyMDUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDI2LCJleHAiOjE1ODU3ODc0MjZ9.V6dggPz6q0JQQGu85AF_gdoZsbm7bnZD0zWyAIp3Y-I""
+}"
+"secondary application returns with an ID/Fraud-eID unavailable stip, no non-deferred stips",ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-unavailable-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-01-000188"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMS0wMDAxODgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDI4LCJleHAiOjE1ODU3ODc0Mjh9.pEA2CrWDv6re6yvKbE0YyeiuZsLoYnsRBhXFbKh9Wz4""
+}"
+"secondary application returns with an ID/Fraud-eID Error stip, no non-deferred stips",ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Error-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-06-000191"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wNi0wMDAxOTEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDMwLCJleHAiOjE1ODU3ODc0MzB9.Ex-nHhAdArwyJD8bSHcEfxQf3dF23aXVVwPbJAi7tgA""
+}"
+"secondary application returns with an ID/Fraud-OFAC stip, no non-deferred stips",ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-OFAC-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-OFAC-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-08-000200"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wOC0wMDAyMDAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDMyLCJleHAiOjE1ODU3ODc0MzJ9.aMp2ZEV8hHE54NpHV8bO37ISQriRiO9t7cwyVd0i6kU""
+}"
+"secondary application returns with an ID/Fraud-Alert Contact stip, no non-deferred stips",ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Alert-Contact-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-13-000199"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xMy0wMDAxOTkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDM0LCJleHAiOjE1ODU3ODc0MzR9.QIEfG7Uz1lmxIfnm-hKs-nnZ00mUvbIlyS3PnDc6AkY""
+}"
+"secondary application returns with an ID/Fraud-Fraudulent Inquiry stip, no non-deferred stips",ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraudulent-Inquiry-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-12-000204"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMi0wMDAyMDQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDM2LCJleHAiOjE1ODU3ODc0MzZ9.tO-_muktIe6quhdBnzB6hSxppQW_hmx8YMp-lXCTS8k""
+}"
+"secondary application returns with an ID/Fraud-Fraud Victim Indicator stip, no non-deferred stips",ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraud-Victim-Indicator-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-12-000205"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xMi0wMDAyMDUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDM4LCJleHAiOjE1ODU3ODc0Mzh9.zP0--5BOLC_hXSMp__2rLNV6Q_poszZs8Yt82S4ha_k""
+}"
+"secondary application returns with an ID/Fraud-Consumer Statement stip, no non-deferred stips",ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement_Secondary.json,Secondary,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Consumer-Statement-secondary-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
+  ""loanId"": ""20-15-000181"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"combined application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Fail-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-02-000208"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDQxLCJleHAiOjE1ODU3ODc0NDF9.9f96yT6puMGExsW8siFUA1dqdoWWFY7lbFkw9Sfe2Dw"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDgiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NDEsImV4cCI6MTU4NTc4NzQ0MX0.iqVH_1u1P-Ug4a_S_ugpHPqx9l0kUDDkvLF1jGbUMb0"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDQxLCJleHAiOjE1ODU3ODc0NDF9.6AuSH74WngwzBr1-VIM8j01nUGuAPp6CPOvgNVTjxro""
+}"
+"combined application returns with an ID/Fraud-eID unavailable stip, no non-deferred stips",ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-unavailable.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-unavailable-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-01-000189"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMS0wMDAxODkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDQzLCJleHAiOjE1ODU3ODc0NDN9.5CEm66Hb9e_VCRz-YJJ1N653rL4lmlERTdRqVIzAhK4"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMS0wMDAxODkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NDMsImV4cCI6MTU4NTc4NzQ0M30.EXyAnHqAiV0uhjNJluLWF6HUu1O4fRkggM0Sm8poDNM"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMS0wMDAxODkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDQzLCJleHAiOjE1ODU3ODc0NDN9.8-Ccg6knSel-jJaOpBN9AB5DXw6Ym3WQUvHwvqknnFU""
+}"
+"combined application returns with an ID/Fraud-eID Error stip, no non-deferred stips",ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Error.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-eID-Error-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-01-000190"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDQ1LCJleHAiOjE1ODU3ODc0NDV9.CsE_87DY6ny-o6eC-8yyEuZy57SCh7g6sLR3V3QDfkQ"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTAiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NDUsImV4cCI6MTU4NTc4NzQ0NX0.tpp0-wBD3Qw0u7awa0ytQKK0i-fNldXGsYBCeXAhWHw"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDQ1LCJleHAiOjE1ODU3ODc0NDV9.HlT7CrDsBYd2aLFsuXvpU2KHRC7TCSo0jsrgDZIyq-I""
+}"
+"combined application returns with an ID/Fraud-OFAC stip, no non-deferred stips",ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/combined/ID-Fraud-OFAC.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-OFAC-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-OFAC-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-02-000209"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDQ3LCJleHAiOjE1ODU3ODc0NDd9.RoYgX8_PAefL0fiXec-IPVfBtbv2cDB7Ig0iIt_RZ6A"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDkiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NDcsImV4cCI6MTU4NTc4NzQ0N30.2V4Fz6lM752SPPHrBXsPe3B4AikT6BlRIOAIzrF7eT4"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDQ3LCJleHAiOjE1ODU3ODc0NDd9.b_30jPeh9DB-ByI1QauVI6dQhbThiHaiIa2wW56QmBs""
+}"
+"combined application returns with an ID/Fraud-Alert Contact stip, no non-deferred stips",ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Alert-Contact.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Alert-Contact-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-09-000194"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY"",
+    ""WAIT_CALL_PRIMARY"",
+    ""WAIT_CALL_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOS0wMDAxOTQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDUyLCJleHAiOjE1ODU3ODc0NTJ9.kfC_Hby_lUM3PaGZ5eviPKd5w-i3QzMzeb87NqaSfuU"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wOS0wMDAxOTQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NTIsImV4cCI6MTU4NTc4NzQ1Mn0.LOkqnmAHsQoM-g6JS8GxCX8FXEUMLohAorFRgVNGZa0"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOS0wMDAxOTQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDUyLCJleHAiOjE1ODU3ODc0NTJ9.wDT8QDfKnFLfnpPB72opfFCij8quvJw6fchfQCe4osI""
+}"
+"combined application returns with an ID/Fraud-Fraudulent Inquiry stip, no non-deferred stips",ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Fraudulent-Inquiry.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraudulent-Inquiry-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-01-000191"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY"",
+    ""WAIT_CALL_PRIMARY"",
+    ""WAIT_CALL_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDU0LCJleHAiOjE1ODU3ODc0NTR9.kVQFdSq0Ezf0p0vBOS7iUFg4AA4trPi08Av-0_cwzoA"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NTQsImV4cCI6MTU4NTc4NzQ1NH0.h276Gd6XCONIsqogQV-QL5AHtYxYJdiq58z3EBnb7M4"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMS0wMDAxOTEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDU0LCJleHAiOjE1ODU3ODc0NTR9.mz0qJqKPaM3gbLbN21LNcJ3y6BYPH80eAPoql7PD1Mg""
+}"
+"combined application returns with an ID/Fraud-Fraud Victim Indicator stip, no non-deferred stips",ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/combined/ID-Fraud_Fraud-Victim-Indicator.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Fraud-Victim-Indicator-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-06-000192"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY"",
+    ""WAIT_CALL_PRIMARY"",
+    ""WAIT_CALL_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wNi0wMDAxOTIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTk1NDU1LCJleHAiOjE1ODU3ODc0NTV9.XDD5rERri2_zS8FKOLhmOpmKBtVE1D0PPscMnSEbg6Q"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNi0wMDAxOTIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxOTU0NTUsImV4cCI6MTU4NTc4NzQ1NX0.X19O_hBOA_4jns_DCJy0RRxVzJWZSYPeycMy0SvG_R4"",
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wNi0wMDAxOTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDU1LCJleHAiOjE1ODU3ODc0NTV9.pwBfljprtvmS5ooa5pGsXf-HYKjsq3lKDo2PdotTQaA""
+}"
+"combined application returns with an ID/Fraud-Consumer Statement stip, no non-deferred stips",ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/combined/ID-Fraud-Consumer-Statement.json,Combined,1stLight,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,english,ID-Fraud-Consumer-Statement-combined-2,BOLT,101 Fake st,Roseville,CA,95678,1987-06-25,9162342345,9163453456,666320691,,Employed,50000,us,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+  ""loanId"": ""20-14-000206"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""GET_DOCS"",
+    ""WAIT_CALL_PRIMARY"",
+    ""WAIT_CALL_SECONDARY""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xNC0wMDAyMDYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDU3LCJleHAiOjE1ODU3ODc0NTd9.XFZ1rHINIh6kdycT-3pmr2AfUWhfWdbRQc84JUTgr4Y""
+}"

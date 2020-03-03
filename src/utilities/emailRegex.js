@@ -49,7 +49,8 @@ module.exports = {
         /Get loan docs \[https:\/\/\S*.partner-admin\.loanpal\.com\]/
       ],
       two: [
-        /You can sign your loan docs now\. However, prior to funding your loan, we’ll need to validate your identification\. Please click the button below to upload your ID\. *Upload documentation \[https:\/\/\S*.stips\.loanpal\.com\]/
+        /You can sign your loan docs now\. However, prior to funding your loan, we’ll need to validate your identification\. Please click the button below to upload your ID\./,
+        /Upload documentation \[https:\/\/\S*.stips\.loanpal\.com\]/
       ],
       three: [/You should also expect a call from Loanpal to validate your identity\./]
     },
@@ -225,12 +226,14 @@ module.exports = {
     ],
     nextSteps: {
       title: /Próximos pasos/,
+      none: [/Haga clic en el botón de abajo para subir su ID\./, /Subir documentación \[https:\/\/\S*.stips\.loanpal\.com\]/],
       one: [
         /Obtenga sus documents de préstamo haciendo clic en el botón a continuación, una vez que los reciba, revíselos y firme\./,
         /Obtener documentos de préstamo \[https:\/\/\S*.partner-admin\.loanpal\.com\]/
       ],
       two: [
-        /Puede firmar sus documents de préstamo ahora. Sin embargo, antes de financiar su préstamo, necesitaremos validar su identificación. Haga clic en el botón de abajo para subir su ID. *Subir documentación \[https:\/\/\S*.stips\.loanpal\.com\]/
+        /Puede firmar sus documents de préstamo ahora. Sin embargo, antes de financiar su préstamo, necesitaremos validar su identificación\. Haga clic en el botón de abajo para subir su ID\./,
+        /Subir documentación \[https:\/\/\S*.stips\.loanpal\.com\]/
       ],
       three: [/También debe esperar una llamada de Loanpal para validar su identidad\./]
     }

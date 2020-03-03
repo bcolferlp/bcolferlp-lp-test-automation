@@ -29,7 +29,7 @@ describe.each(['chrome'])('Profile Settings', browser => {
     await ipProfilePage.goToProfilePage();
     // Verify Username
     const userNameText = await ipProfilePage.verifyUserName();
-    expect(userNameText).toBe(process.env.testEmail);
+    expect(userNameText).toBe(process.env.TESTEMAIL);
   });
 
   test.skip.each(profileData)('96689: Client ID - Admin user', async ({ clientId, clientVerify }) => {
