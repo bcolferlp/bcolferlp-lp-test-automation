@@ -61,7 +61,7 @@ describe('LP Application API', () => {
     }
   });
 
-  describe.only.each(primary)('E2E Deferred Stips', record => {
+  describe.only.each(primary.slice(8, 15))('E2E Deferred Stips', record => {
     beforeEach(() => {
       baseTest = new BaseTest('chrome');
     });
@@ -124,8 +124,15 @@ describe('LP Application API', () => {
       expect(appoveLoanBtn).toBeTruthy();
       // Assert all listed stips
       for (const stip of stips) {
-        const stipElem = await uwLoanDetails.validateListedStips(stip);
-        expect(stipElem).toBeTruthy();
+        if (stip === 'Foreclosure Review') {
+          await uwLoanDetails.viewStipTab('titleInternal');
+          await uwLoanDetails.viewTitleInternalStipsList();
+          const stipElem = await uwLoanDetails.validateTitleInternalStipList(stip);
+          expect(stipElem).toBeTruthy();
+        } else {
+          const stipElem = await uwLoanDetails.validateListedStips(stip);
+          expect(stipElem).toBeTruthy();
+        }
       }
 
       // PP validation
