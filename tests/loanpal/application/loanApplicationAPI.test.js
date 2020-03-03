@@ -134,7 +134,7 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
@@ -205,7 +205,7 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
@@ -265,7 +265,7 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
       const { loanId } = response;
       // UW validation
       console.log('NAVIGATE TO UNDERWRITER');

@@ -61,7 +61,7 @@ describe('LP Application API', () => {
     }
   });
 
-  describe.only.each(primary.slice(8, 15))('E2E Deferred Stips', record => {
+  describe.only.each(IP431File)('E2E Deferred Stips', record => {
     beforeEach(() => {
       baseTest = new BaseTest('chrome');
     });
@@ -91,7 +91,9 @@ describe('LP Application API', () => {
       const response = await new LoanAPI(template).getBody();
       responses.push([JSON.stringify(response, null, 2)]);
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      expect(response).toEqual(
+        expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String) })
+      );
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
