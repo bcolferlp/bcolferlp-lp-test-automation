@@ -70,7 +70,6 @@ describe('LP Application API', () => {
       if (baseTest) await baseTest.close();
     });
     test.each(['english', 'spanish'])(`Validate %s ${record.type} borrower ${record.stips}`, async language => {
-      streetNum++;
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
       if (!record.mock) delete template.overrideResponse;
@@ -79,10 +78,10 @@ describe('LP Application API', () => {
       template.clientId = record.partner;
       template.applicant.firstName = record.firstName;
       template.applicant.lastName = record.lastName;
-      template.applicant.address.street = `${streetNum} primarylp ave.`;
+      template.applicant.address.street = `${streetNum++} primarylp ave.`;
       if (record.type !== 'Single') {
         template.coApplicants[0].firstName = record.coFirstName;
-        template.coApplicants[0].address.street = `${streetNum} secondarylp Blvd.`;
+        template.coApplicants[0].address.street = `${streetNum++} secondarylp Blvd.`;
       }
       template.applicant.email = record.email;
       template.applicant.dob = record.dateOfBirth;
