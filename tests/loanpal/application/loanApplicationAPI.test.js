@@ -134,7 +134,9 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
+      expect(response).toEqual(
+        expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String) })
+      );
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
@@ -205,7 +207,10 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      if (!record.hasNonDeferredStips) {
+        expect(response).toEqual(expect.objectContaining({ token: expect.any(String) }));
+      }
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
@@ -265,7 +270,10 @@ describe('LP Application API', () => {
       template.salesRep.email = record.srEmail;
       const response = await new LoanAPI(template).getBody();
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String)}));
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      if (!record.hasNonDeferredStips) {
+        expect(response).toEqual(expect.objectContaining({ token: expect.any(String) }));
+      }
       const { loanId } = response;
       // UW validation
       console.log('NAVIGATE TO UNDERWRITER');
@@ -303,24 +311,6 @@ describe('LP Application API', () => {
 
   describe.each(IP442File)('API availableNextSteps, IP-442', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
-      // Get an active loans for the applicant
-      // console.log('CHECKING ACTIVE LOANS');
-      // const esClient = new ElasticClient();
-      // const activePrimaryLoans = await esClient.getActiveLoans(record.ssn);
-      // console.log(activePrimaryLoans, 'activePrimaryLoans');
-      // const activeSecondaryLoans = record.coSSN ? await esClient.getActiveLoans(record.coSSN) : [];
-      // console.log(activeSecondaryLoans, 'activeSecondaryLoans');
-      // const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
-      // console.log(activeLoans, 'activeLoans');
-      // if (process.env.STAGE === 'test' && activeLoans.length > 0) {
-      //   // Change status to Canceled to avoid DupeKey
-      //   for (const id of activeLoans) {
-      //     const ld = new LoanData(id);
-      //     const loan = await ld.getSrcLoan();
-      //     loan.loanStatus.application = 'Canceled';
-      //     await ld.putLoan(loan);
-      //   }
-      // }
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
       if (!record.mock) delete template.overrideResponse;
