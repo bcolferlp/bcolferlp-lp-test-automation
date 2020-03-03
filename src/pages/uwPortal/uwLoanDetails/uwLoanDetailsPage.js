@@ -76,12 +76,14 @@ export default class UWLoanDetailsPage extends BasePageObject {
     console.log('viewStipTab', stipType);
     const stipTab = await this.waitForElementLocated(this.tab[stipType], 5000);
     await stipTab.click();
+    await this.sleep(500);
   }
 
   async viewTitleInternalStipsList() {
     console.log('viewTitleInternalStipsList');
     const stipBtn = await this.waitForElementLocated(this.button.titleInternalStipList, 5000);
     await stipBtn.click();
+    await this.sleep(500);
   }
 
   async validateTitleInternalStipList(stip) {
