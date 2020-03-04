@@ -11,7 +11,9 @@ import PPLoginPage from '../../../src/pages/partnerPortal/ppLogin/ppLoginPage';
 import PPLoanDetailsPage from '../../../src/pages/partnerPortal/ppLoanDetails/ppLoanDetailsPage';
 
 import file from '../../../data/loanpal/application/approved-deferred-stip-data.csv';
-import sub650File from '../../../data/loanpal/application/approved-deferred-stip-data_SUB650.csv';
+import sub650File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-425.csv';
+
+import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
 
 const testFile = [file[0]];
 const { path, urls } = require('../../../src/utilities/imports');
@@ -32,7 +34,7 @@ describe('LP Application', () => {
 
   let loanID;
   let stips;
-  test.each(testFile)(`112714 Apply for a loan through the loanpal UI, IP-426`, async record => {
+  test.each([IP431File[0]])(`112714 Apply for a loan through the loanpal UI, IP-426`, async record => {
     // Get an active loans for the applicant
     console.log('CHECKING ACTIVE LOANS');
     const esClient = new ElasticClient();

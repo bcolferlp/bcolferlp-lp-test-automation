@@ -4,6 +4,7 @@ import h2t from 'html-to-text';
 import LoanEmailPage from '../../../src/pages/loanEmailPage';
 
 import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
+import PRODFile from '../../../data/loanpal/application/approved-deferred-stip-data_PROD-VERIFY.csv';
 
 const single = IP431File.filter(item => item.type === 'Single');
 const primary = IP431File.filter(item => item.type === 'Primary');
@@ -35,7 +36,7 @@ describe('Email', () => {
       inbox = await email.mailConnect('UNSEEN', 'Testing');
     });
 
-    describe.only.each(IP431File)('E2E Deferred Stips Email', record => {
+    describe.only.each(PRODFile)('E2E Deferred Stips Email', record => {
       // Solar Financing Decision email
       // console.log(record);
       test.only.each(['english', 'spanish'])(`Validate %s ${record.type} borrower ${record.stips} EMAIL`, async language => {

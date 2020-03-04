@@ -13,6 +13,7 @@ import IP432File from '../../../data/loanpal/application/approved-deferred-stip-
 import IP427File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-427.csv';
 import IP442File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-442.csv';
 import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
+import PRODFile from '../../../data/loanpal/application/approved-deferred-stip-data_PROD-VERIFY.csv';
 
 const single = IP431File.filter(item => item.type === 'Single');
 const primary = IP431File.filter(item => item.type === 'Primary');
@@ -61,7 +62,7 @@ describe('LP Application API', () => {
     }
   });
 
-  describe.only.each(IP431File)('E2E Deferred Stips', record => {
+  describe.only.each(PRODFile)('E2E Deferred Stips API', record => {
     beforeEach(() => {
       baseTest = new BaseTest('chrome');
     });
@@ -69,7 +70,7 @@ describe('LP Application API', () => {
     afterEach(async () => {
       if (baseTest) await baseTest.close();
     });
-    test.each(['english', 'spanish'])(`Validate %s ${record.type} borrower ${record.stips}`, async language => {
+    test.each(['english', 'spanish'])(`Validate %s ${record.scenario} ${record.type} borrower ${record.stips}`, async language => {
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
       if (!record.mock) delete template.overrideResponse;
@@ -91,9 +92,10 @@ describe('LP Application API', () => {
       const response = await new LoanAPI(template).getBody();
       responses.push([JSON.stringify(response, null, 2)]);
       // Assert response
-      expect(response).toEqual(
-        expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved', token: expect.any(String) })
-      );
+      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
+      if (!record.hasNonDeferredStips) {
+        expect(response).toEqual(expect.objectContaining({ token: expect.any(String) }));
+      }
       const { loanId } = response;
       console.log('ASSERT LOAN STIPS', loanId);
       const stips = record.stips.split(',').map(item => item.trim());
