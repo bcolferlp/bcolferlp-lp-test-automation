@@ -39,7 +39,8 @@ describe('Email', () => {
     describe.only.each(PRODFile)('E2E Deferred Stips Email', record => {
       // Solar Financing Decision email
       // console.log(record);
-      test.only.each(['english', 'spanish'])(`Validate %s ${record.type} borrower ${record.stips} EMAIL`, async language => {
+      test.only.each(['english', 'spanish'])(`Validate %s ${record.scenario} ${record.type} borrower ${record.stips} EMAIL`, async language => {
+        console.log(`Validate ${language} ${record.scenario} ${record.type} borrower ${record.stips} EMAIL`);
         const responseBody = JSON.parse(record.responseBody);
         const { availableNextSteps = [] } = responseBody;
         const messages = await email.getAllMessages(inbox, 'solarFinancingDecision', language);
@@ -47,9 +48,11 @@ describe('Email', () => {
 
         // console.log(messages);
         const [message] = await messages.filter(item => {
-          const congrats = language === 'english' ? 'Congratulations' : 'Felicidades';
-          if (record.type !== 'Single') return item.includes(`${congrats}, ${record.firstName}`) || item.includes(`${congrats}, ${record.coFirstName}`);
-          return item.includes(`${congrats}, ${record.firstName}`);
+          let greeting;
+          if (record.status === 'Declined') greeting = language === 'english' ? 'Dear' : 'Estimad(o/a)';
+          else greeting = language === 'english' ? 'Congratulations,' : 'Felicidades,';
+          if (record.type !== 'Single') return item.includes(`${greeting} ${record.firstName}`) || item.includes(`${greeting} ${record.coFirstName}`);
+          return item.includes(`${greeting} ${record.firstName}`);
         });
         console.log(JSON.stringify(message), 'filteredMessages');
         expect(message).toBeTruthy();

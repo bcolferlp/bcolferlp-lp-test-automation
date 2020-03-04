@@ -16,7 +16,7 @@ function assembleRand(num) {
 function main(num = 1) {
   const randNum = assembleRand(num);
   console.log('randNum:', randNum);
-  return randNum;
+  return +randNum;
 }
 
 module.exports.main = main;

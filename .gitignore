@@ -79,3 +79,7 @@ yarn.lock
 
 *.txt
 
+createdLoans*
+
+responses*
+

@@ -1,5 +1,5 @@
 scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCity,addressState,addressZip,dateOfBirth,mobilePhone,homePhone,ssn,email,employmentStatus,annualIncome,citizenship,language,coFirstName,coLastName,coAddressStreet,coAddressCity,coAddressState,coAddressZip,coDateOfBirth,coMobilePhone,coHomePhone,coSSN,coEmail,coEmploymentStatus,coAnnualIncome,coCitizenship,srFirstName,srLastName,srEmail,srMobilePhone,srCompanyName,loanTerm,systemCost,referenceNumber,status,hasDeferredStips,approvedButton,hasNonDeferredStips,primaryNonDeferredMessage,secondaryNonDeferredMessage,responseBody
-"single application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Fail.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Fail.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-16-000192"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -19,7 +19,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNi0wMDAxOTIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1Mzk3LCJleHAiOjE1ODU3ODczOTd9.7saUIwj4RMvX0Lo-WU3UBhmwTj-HEZOfnAIGfjGW6tg""
 }"
-"single application returns with an ID/Fraud-eID unavailable stip, no non-deferred stips",ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-unavailable.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-eID unavailable,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-unavailable.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-unavailable-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-08-000197"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -39,7 +39,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wOC0wMDAxOTciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1Mzk5LCJleHAiOjE1ODU3ODczOTl9.BiQ8v31N0jQt1rSD-FD5MbPw2Vois2pm5h4aqKqfKA8""
 }"
-"single application returns with an ID/Fraud-eID Error stip, no non-deferred stips",ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Error.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-eID Error,equifax-test-mocks/Solar/stips/single/ID-Fraud-eID-Error.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Error-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-13-000198"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -59,7 +59,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMy0wMDAxOTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAwLCJleHAiOjE1ODU3ODc0MDB9.U52Ts1PuehbSCdn7ZUpWkaTBWn-MUcGt9R7CLiHjlN0""
 }"
-"single application returns with an ID/Fraud-OFAC stip, no non-deferred stips",ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/single/ID-Fraud-OFAC.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-OFAC-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-OFAC,equifax-test-mocks/Solar/stips/single/ID-Fraud-OFAC.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-OFAC-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-02-000207"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -79,7 +79,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wMi0wMDAyMDciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAxLCJleHAiOjE1ODU3ODc0MDF9.GKwF-WY3MDTBG96a6aRQQT4bkV9Dmem7T0HHV0NQbGg""
 }"
-"single application returns with an ID/Fraud-Alert Contact stip, no non-deferred stips",ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/single/ID-Fraud-Alert-Contact.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-Alert Contact,equifax-test-mocks/Solar/stips/single/ID-Fraud-Alert-Contact.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Alert-Contact-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-12-000202"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -100,7 +100,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0xMi0wMDAyMDIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAyLCJleHAiOjE1ODU3ODc0MDJ9.T9w8fCRJUb-NiSSVIZV1jf1XCBypxXlxOFiMzD3EqzU""
 }"
-"single application returns with an ID/Fraud-Fraudulent Inquiry stip, no non-deferred stips",ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/single/ID-Fraud-Fraudulent-Inquiry.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-Fraudulent Inquiry,equifax-test-mocks/Solar/stips/single/ID-Fraud-Fraudulent-Inquiry.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Fraudulent-Inquiry-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-10-000184"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -121,7 +121,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0xMC0wMDAxODQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDAzLCJleHAiOjE1ODU3ODc0MDN9.U_Tcon5ukN56O6X63JKwWKWwQSkgsNUCVk7TE2myLd8""
 }"
-"single application returns with an ID/Fraud-Fraud Victim Indicator stip, no non-deferred stips",ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/single/ID-Fraud_Fraud-Victim-Indicator.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-Fraud Victim Indicator,equifax-test-mocks/Solar/stips/single/ID-Fraud_Fraud-Victim-Indicator.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Fraud-Victim-Indicator-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-08-000198"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -142,7 +142,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOC0wMDAxOTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA0LCJleHAiOjE1ODU3ODc0MDR9.XJyVLRaIlSMT9LCinnTFpUI78zdmFPqDuCxkWUv5KnQ""
 }"
-"single application returns with an ID/Fraud-Consumer Statement stip, no non-deferred stips",ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/single/ID-Fraud-Consumer-Statement.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Single Deferred stips and no non-deferred stips,ID/Fraud-Consumer Statement,equifax-test-mocks/Solar/stips/single/ID-Fraud-Consumer-Statement.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-Consumer-Statement-single-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-11-000181"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Single"",
@@ -162,7 +162,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMS0wMDAxODEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA2LCJleHAiOjE1ODU3ODc0MDZ9.V7HAUya6oX7RbfQDDo8cnrCf3cuDqRVMK67nYTgNp90""
 }"
-"primary application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Primary.json,Primary,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-primary-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,,,,"{
+Primary Deferred stips and no non-deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Primary.json,Primary,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-primary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-primary-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,TRUE,,"{
   ""loanId"": ""20-05-000193"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Primary"",
@@ -191,7 +191,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNS0wMDAxOTMiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDA4LCJleHAiOjE1ODU3ODc0MDh9.jg4LhD78XxHnL7krC5zr65GOB9Z6SojwEGj3BW--0_0""
 }"
-"secondary application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Secondary.json,Secondary,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-secondary-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,,,,"{
+Secondary Deferred stips and no non-deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail_Secondary.json,Secondary,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-secondary-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-secondary-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,TRUE,"{
   ""loanId"": ""20-14-000205"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Secondary"",
@@ -220,7 +220,7 @@ scenario,stips,mock,type,partner,url,firstName,lastName,addressStreet,addressCit
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0xNC0wMDAyMDUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NDI2LCJleHAiOjE1ODU3ODc0MjZ9.V6dggPz6q0JQQGu85AF_gdoZsbm7bnZD0zWyAIp3Y-I""
 }"
-"combined application returns with an ID/Fraud-eID Fail stip, no non-deferred stips",ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail.json,Combined,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-combined-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
+Combined Deferred stips and no non-deferred stips,ID/Fraud-eID Fail,equifax-test-mocks/Solar/stips/combined/ID-Fraud-eID-Fail.json,Combined,SolarSub650TestPartner,solar/1stlight/1stlight.html,ID-Fraud-eID-Fail-combined-1,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,ID-Fraud-eID-Fail-combined-2,BOLT,,,,,,,,666320691,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,TRUE,disabled,,,,"{
   ""loanId"": ""20-02-000208"",
   ""referenceNumber"": ""automated-run"",
   ""type"": ""Combined"",
@@ -318,48 +318,48 @@ Single loan with multiple Deferred stips,"ID/Fraud-eID Fail,ID/Fraud-Consumer St
   ],
   ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wOC0wMDAyMDIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTk1NTEzLCJleHAiOjE1ODU3ODc1MTN9.M-LnA5yS3AU-uNY3aqZ9CgyLMAYPvlcuHJk8NSkyOE4""
 }"
-Single Sub650 no Stips,,equifax-test-mocks/Solar/stips/single/Sub650_No_Stips_Single.json,Single,,,Single-Sub650-applicant,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,TRUE,disabled,TRUE,,,"{
-    ""loanId"": ""20-04-000332"",
-    ""referenceNumber"": ""deleteMe"",
-    ""type"": ""Single"",
-    ""status"": ""Approved"",
-    ""maxLoanAmount"": ""45000"",
-    ""totalSystemCost"": ""$30,000.00"",
-    ""stipulations"": [
-        {
-            ""type"": ""Title"",
-            ""internal"": false,
-            ""stipids"": [
-                ""Income-Mortgage Statement""
-            ]
-        },
-        {
-            ""type"": ""Income"",
-            ""internal"": true,
-            ""stipids"": [
-                ""Income/Verify-DTI""
-            ]
-        }
-    ],
-    ""isSub650"": true,
-    ""origLoanOptions"": {
-        ""id"": ""1"",
-        ""rate"": ""2.99"",
-        ""term"": ""10""
+Single Sub650 no Stips,,equifax-test-mocks/Solar/stips/single/Sub650_No_Stips_Single.json,Single,SolarSub650TestPartner,,Single-Sub650-applicant,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,ApprovedWithStips,,disabled,TRUE,,,"{
+  ""loanId"": ""20-04-000332"",
+  ""referenceNumber"": ""deleteMe"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""45000"",
+  ""totalSystemCost"": ""$30,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": false,
+      ""stipids"": [
+        ""Income-Mortgage Statement""
+      ]
     },
-    ""availableNextSteps"": [
-        ""UPLOAD""
-    ],
-    ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNC0wMDAzMzIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMjkwNzAyLCJleHAiOjE1ODU4ODI3MDJ9.kiOvU0YSGBN_DPO5IBY8ETqe3ofWq1JRc5q6lpEAp2Q""
+    {
+      ""type"": ""Income"",
+      ""internal"": true,
+      ""stipids"": [
+        ""Income/Verify-DTI""
+      ]
+    }
+  ],
+  ""isSub650"": true,
+  ""origLoanOptions"": {
+    ""id"": ""1"",
+    ""rate"": ""2.99"",
+    ""term"": ""10""
+  },
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNC0wMDAzMzIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMjkwNzAyLCJleHAiOjE1ODU4ODI3MDJ9.kiOvU0YSGBN_DPO5IBY8ETqe3ofWq1JRc5q6lpEAp2Q""
 }"
-Single Sub650 Score Too Low,,equifax-test-mocks/Solar/stips/single/Sub650_No_Stips_Single_ScoreTooLow.json,Single,,,Single-Sub650-applicant-STL,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Declined,TRUE,disabled,TRUE,,,"{
+Single Sub650 Score Too Low,,equifax-test-mocks/Solar/stips/single/Sub650_No_Stips_Single_ScoreTooLow.json,Single,SolarSub650TestPartner,,Single-Sub650-applicant-STL,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Declined,,enabled,,,,"{
     ""loanId"": ""20-03-000318"",
     ""referenceNumber"": ""deleteMe"",
     ""type"": ""Single"",
     ""status"": ""Declined"",
     ""totalSystemCost"": ""30000""
 }"
-Single Fully Approved,,equifax-dev-mocks/approved/Solar/800.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,SB-Fully-Aprroved,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,,disabled,,,,"{
+Single Fully Approved,,equifax-dev-mocks/approved/Solar/FullyApproved.json,Single,SolarSub650TestPartner,solar/1stlight/1stlight.html,SB-Fully-Aprroved,FRANK,1251 RAINTREE NE,ARAB,AL,35016,1987-06-25,91623452345,91623452345,666072358,ngonzalez@loanpal.com,Employed,100000,us,,,,,,,,,,,,,,,,Nick,Gonzalez,ngonzalez@loanpal.com,9163453456,Loanpal,,30000,deleteMe,Approved,,disabled,,,,"{
     ""loanId"": ""20-15-000304"",
     ""referenceNumber"": ""deleteMe"",
     ""type"": ""Single"",

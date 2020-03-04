@@ -1,3 +1,4 @@
+import moment from 'moment';
 import BaseTest from '../../../src/base/baseTest';
 import LoanAPI from '../../../src/apis/loanAPI';
 import LoanData from '../../../src/utilities/loanData';
@@ -30,7 +31,7 @@ jest.setTimeout(60000 * 5);
 describe('LP Application API', () => {
   let baseTest;
   const responses = [];
-  let streetNum = 1000;
+  let streetNum = getRandomNum(4);
   beforeAll(async () => {
     // Get an active loans for the applicant
     console.log('CHECKING ACTIVE LOANS');
@@ -39,9 +40,9 @@ describe('LP Application API', () => {
     console.log(activePrimaryLoans, 'activePrimaryLoans');
     const activeSecondaryLoans = await esClient.getActiveLoans('666320691');
     console.log(activeSecondaryLoans, 'activeSecondaryLoans');
-    const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
+    const activeLoans = activePrimaryLoans.concat(activeSecondaryLoans);
     console.log(activeLoans, 'activeLoans');
-    if (process.env.STAGE === 'test' && activeLoans.length > 0) {
+    if (activeLoans.length > 0) {
       // Change status to Canceled to avoid DupeKey
       for (const id of activeLoans) {
         const ld = new LoanData(id);
@@ -58,7 +59,7 @@ describe('LP Application API', () => {
         const response = JSON.parse(res);
         return JSON.stringify(response.loanId);
       });
-      fs.writeFileSync('./createdLoans.json', `[${loans}]`);
+      fs.writeFileSync(`./createdLoans_${moment().format('YYYYMMDDHHmm')}.json`, `[${loans}]`);
     }
   });
 
@@ -71,6 +72,7 @@ describe('LP Application API', () => {
       if (baseTest) await baseTest.close();
     });
     test.each(['english', 'spanish'])(`Validate %s ${record.scenario} ${record.type} borrower ${record.stips}`, async language => {
+      console.log(`Validate ${language} ${record.scenario} ${record.type} borrower ${record.stips}`);
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
       if (!record.mock) delete template.overrideResponse;
@@ -92,62 +94,70 @@ describe('LP Application API', () => {
       const response = await new LoanAPI(template).getBody();
       responses.push([JSON.stringify(response, null, 2)]);
       // Assert response
-      expect(response).toEqual(expect.objectContaining({ loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g), type: record.type, status: 'Approved' }));
-      if (!record.hasNonDeferredStips) {
-        expect(response).toEqual(expect.objectContaining({ token: expect.any(String) }));
-      }
-      const { loanId } = response;
-      console.log('ASSERT LOAN STIPS', loanId);
-      const stips = record.stips.split(',').map(item => item.trim());
-      const newLoan = new LoanData(loanId);
-      console.log('Waiting for loan to update...');
-      await new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, 5000);
-      });
-      const newLoanData = await newLoan.getSrcLoan();
-      const hasStips = record.hasDeferredStips === 'TRUE' ? true : record.hasDeferredStips === 'FALSE' ? false : undefined;
-      expect(newLoanData.loanStatus.hasDeferredStips).toBe(hasStips);
-      const expected = { loanId, stips: newLoanData.creditDecision.stipulations };
-      const actual = { loanId, stips };
-      expect(expected).toEqual(actual);
-
-      // UW validation
-      console.log('NAVIGATE TO UNDERWRITER');
-      const uwLogin = new UWLoginPage(baseTest.webDriver);
-      await uwLogin.completelogin();
-      const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanId);
-      await uwLoanDetails.openURL();
-      // Assert Loan Status
-      const loanStatus = await uwLoanDetails.validateLoanStatus(record.status);
-      expect(loanStatus).toBeTruthy();
-      // Assert Approve Loan Button status
-      const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton(record.approvedButton);
-      expect(appoveLoanBtn).toBeTruthy();
-      // Assert all listed stips
-      for (const stip of stips) {
-        if (stip === 'Foreclosure Review') {
-          await uwLoanDetails.viewStipTab('titleInternal');
-          await uwLoanDetails.viewTitleInternalStipsList();
-          const stipElem = await uwLoanDetails.validateTitleInternalStipList(stip);
-          expect(stipElem).toBeTruthy();
-        } else {
-          const stipElem = await uwLoanDetails.validateListedStips(stip);
-          expect(stipElem).toBeTruthy();
+      expect(response).toEqual(
+        expect.objectContaining({
+          loanId: expect.stringMatching(/\d{2}-\d{2}-\d{6}/g),
+          type: record.type,
+          status: record.status === 'Declined' ? 'Declined' : 'Approved'
+        })
+      );
+      if (record.status !== 'Declined') {
+        if (!record.hasNonDeferredStips) {
+          expect(response).toEqual(expect.objectContaining({ token: expect.any(String) }));
         }
-      }
+        const { loanId } = response;
+        console.log('ASSERT LOAN STIPS', loanId);
+        const stips = record.stips ? record.stips.split(',').map(item => item.trim()) : [];
+        const newLoan = new LoanData(loanId);
+        console.log('Waiting for loan to update...');
+        await new Promise(resolve => {
+          setTimeout(() => {
+            resolve();
+          }, 5000);
+        });
+        const newLoanData = await newLoan.getSrcLoan();
+        const hasStips = record.hasDeferredStips === 'TRUE' ? true : record.hasDeferredStips === 'FALSE' ? false : undefined;
+        expect(newLoanData.loanStatus.hasDeferredStips).toBe(hasStips);
+        const expected = { loanId, stips: newLoanData.creditDecision.stipulations };
+        const actual = { loanId, stips };
+        expect(expected).toEqual(actual);
 
-      // PP validation
-      console.log('NAVIGATE TO PARTNER PORTAL');
-      const ppLogin = new PPLoginPage(baseTest.webDriver);
-      await ppLogin.completeLogin();
-      const ppLoanDetails = new PPLoanDetailsPage(baseTest.webDriver, loanId);
-      await ppLoanDetails.goToPage();
-      const appStatus = await ppLoanDetails.validateAppStatus(record.status);
-      expect(appStatus).toBeTruthy();
-      const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
-      expect(timelineApproval).toBeTruthy();
+        // UW validation
+        console.log('NAVIGATE TO UNDERWRITER');
+        const uwLogin = new UWLoginPage(baseTest.webDriver);
+        await uwLogin.completelogin();
+        const uwLoanDetails = new UWLoanDetailsPage(baseTest.webDriver, loanId);
+        await uwLoanDetails.openURL();
+        // Assert Loan Status
+        const loanStatus = await uwLoanDetails.validateLoanStatus(record.status);
+        expect(loanStatus).toBeTruthy();
+        // Assert Approve Loan Button status
+        const appoveLoanBtn = await uwLoanDetails.validateApproveLoanButton(record.approvedButton);
+        expect(appoveLoanBtn).toBeTruthy();
+        // Assert all listed stips
+        for (const stip of stips) {
+          if (stip === 'Foreclosure Review') {
+            await uwLoanDetails.viewStipTab('titleInternal');
+            await uwLoanDetails.viewTitleInternalStipsList();
+            const stipElem = await uwLoanDetails.validateTitleInternalStipList(stip);
+            expect(stipElem).toBeTruthy();
+          } else {
+            const stipElem = await uwLoanDetails.validateListedStips(stip);
+            expect(stipElem).toBeTruthy();
+          }
+        }
+
+        // PP validation
+        console.log('NAVIGATE TO PARTNER PORTAL');
+        const ppLogin = new PPLoginPage(baseTest.webDriver);
+        await ppLogin.completeLogin();
+        const ppLoanDetails = new PPLoanDetailsPage(baseTest.webDriver, loanId);
+        await ppLoanDetails.goToPage();
+        const appStatus = await ppLoanDetails.validateAppStatus(record.status);
+        expect(appStatus).toBeTruthy();
+        const timelineApproval = await ppLoanDetails.validateTimelineApproval(record.status);
+        expect(timelineApproval).toBeTruthy();
+      }
     });
   });
 });

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import BaseTest from '../../../src/base/baseTest';
 import LoanAPI from '../../../src/apis/loanAPI';
 import LoanData from '../../../src/utilities/loanData';
@@ -14,6 +15,7 @@ import IP427File from '../../../data/loanpal/application/approved-deferred-stip-
 import IP431File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-431.csv';
 import IP432File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-432.csv';
 import IP442File from '../../../data/loanpal/application/approved-deferred-stip-data_IP-442.csv';
+import PRODFile from '../../../data/loanpal/application/approved-deferred-stip-data_PROD-VERIFY.csv';
 
 const single = IP431File.filter(item => item.type === 'Single');
 const primary = IP431File.filter(item => item.type === 'Primary');
@@ -41,7 +43,7 @@ describe('LP Application API', () => {
     console.log(activeSecondaryLoans, 'activeSecondaryLoans');
     const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
     console.log(activeLoans, 'activeLoans');
-    if (process.env.STAGE === 'test' && activeLoans.length > 0) {
+    if (activeLoans.length) {
       // Change status to Canceled to avoid DupeKey
       for (const id of activeLoans) {
         const ld = new LoanData(id);
@@ -66,52 +68,52 @@ describe('LP Application API', () => {
         const response = JSON.parse(res);
         return JSON.stringify(response.loanId);
       });
-      fs.writeFileSync('./createdLoans.json', loans);
+      fs.writeFileSync(`./createdLoans_${process.env.STAGE === 'prod' && 'PROD'}${moment().format('YYYYMMDDHHmm')}.json`, `[${loans}]`);
     }
   });
 
-  // describe.skip.each(IP431File)('getReponses', record => {
-  //   test(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async () => {
-  //     // Get an active loans for the applicant
-  //     console.log('CHECKING ACTIVE LOANS');
-  //     const esClient = new ElasticClient();
-  //     const activePrimaryLoans = await esClient.getActiveLoans(record.ssn);
-  //     console.log(activePrimaryLoans, 'activePrimaryLoans');
-  //     const activeSecondaryLoans = record.coSSN ? await esClient.getActiveLoans(record.coSSN) : [];
-  //     console.log(activeSecondaryLoans, 'activeSecondaryLoans');
-  //     const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
-  //     console.log(activeLoans, 'activeLoans');
-  //     if (process.env.STAGE === 'test' && activeLoans.length > 0) {
-  //       // Change status to Canceled to avoid DupeKey
-  //       for (const id of activeLoans) {
-  //         const ld = new LoanData(id);
-  //         const loan = await ld.getSrcLoan();
-  //         loan.loanStatus.application = 'Canceled';
-  //         await ld.putLoan(loan);
-  //       }
-  //     }
-  //     const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
-  //     // Assemble loan object
-  //     if (!record.mock) delete template.overrideResponse;
-  //     template.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
-  //     template.overrideResponse.Key = record.mock;
-  //     template.clientId = record.partner;
-  //     template.applicant.firstName = record.firstName;
-  //     template.applicant.lastName = record.lastName;
-  //     template.applicant.address.street = `${streetNum++} primarylp ave.`;
-  //     if (record.type !== 'Single') {
-  //       template.coApplicants[0].firstName = record.coFirstName;
-  //       template.coApplicants[0].address.street = `${streetNum++} secondarylp Blvd.`;
-  //     }
-  //     template.applicant.email = record.email;
-  //     template.applicant.dob = record.dateOfBirth;
-  //     template.applicant.ssn = record.ssn;
-  //     template.applicant.spokenLanguage = record.language || 'spanish';
-  //     template.salesRep.email = record.srEmail;
-  //     const response = await new LoanAPI(template).getBody();
-  //     responses.push([JSON.stringify(response, null, 2)]);
-  //   });
-  // });
+  describe.each(PRODFile)('getReponses', record => {
+    test.each(['english', 'spanish'])(`Validate ${record.scenario} ${record.type} borrower ${record.stips}`, async language => {
+      // Get an active loans for the applicant
+      console.log('CHECKING ACTIVE LOANS');
+      const esClient = new ElasticClient();
+      const activePrimaryLoans = await esClient.getActiveLoans(record.ssn);
+      console.log(activePrimaryLoans, 'activePrimaryLoans');
+      const activeSecondaryLoans = record.coSSN ? await esClient.getActiveLoans(record.coSSN) : [];
+      console.log(activeSecondaryLoans, 'activeSecondaryLoans');
+      const activeLoans = [...activePrimaryLoans, ...activeSecondaryLoans];
+      console.log(activeLoans, 'activeLoans');
+      if (process.env.STAGE === 'test' && activeLoans.length > 0) {
+        // Change status to Canceled to avoid DupeKey
+        for (const id of activeLoans) {
+          const ld = new LoanData(id);
+          const loan = await ld.getSrcLoan();
+          loan.loanStatus.application = 'Canceled';
+          await ld.putLoan(loan);
+        }
+      }
+      const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
+      // Assemble loan object
+      if (!record.mock) delete template.overrideResponse;
+      template.overrideResponse.Bucket = `${process.env.STAGE}-core.loanpal.com`;
+      template.overrideResponse.Key = record.mock;
+      template.clientId = record.partner;
+      template.applicant.firstName = record.firstName;
+      template.applicant.lastName = record.lastName;
+      template.applicant.address.street = `${streetNum++} primarylp ave.`;
+      if (record.type !== 'Single') {
+        template.coApplicants[0].firstName = record.coFirstName;
+        template.coApplicants[0].address.street = `${streetNum++} secondarylp Blvd.`;
+      }
+      template.applicant.email = record.email;
+      template.applicant.dob = record.dateOfBirth;
+      template.applicant.ssn = record.ssn;
+      template.applicant.spokenLanguage = language;
+      template.salesRep.email = record.srEmail;
+      const response = await new LoanAPI(template).getBody();
+      responses.push([JSON.stringify(response, null, 2)]);
+    });
+  });
 
   describe.skip.each([])('Set deferred status to true for specified ID stips, IP-426', record => {
     test(`Validate ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
@@ -186,7 +188,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.only.each(IP425File)('Sub650 Deferred Stips, IP-425', record => {
+  describe.only.each(IP425File.slice(0, 1))('Sub650 Deferred Stips, IP-425', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -272,7 +274,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.each(IP427File)('Deferred Stips, IP-427', record => {
+  describe.each(IP427File.slice(0, 1))('Deferred Stips, IP-427', record => {
     test(`Validate ${record.scenario}`, async () => {
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
