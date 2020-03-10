@@ -25,7 +25,7 @@ const combined = IP431File.filter(item => item.type === 'Combined');
 const singleTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/singleBorrowerLoanTemplate.json');
 const combinedTemplate = require('../../../data/loanDocs/newLoanTemplatesJSON/coBorrowerLoanTemplate.json');
 
-const { getRandomNum, csv, fs } = require('../../../src/utilities/imports');
+const { csv, fs } = require('../../../src/utilities/imports');
 
 jest.setTimeout(60000 * 5);
 
@@ -188,7 +188,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.only.each(IP425File.slice(0, 1))('Sub650 Deferred Stips, IP-425', record => {
+  describe.only.each(IP425File)('Sub650 Deferred Stips, IP-425', record => {
     test(`Validate ${record.scenario} ${record.type} borrower ${record.stips} for a loan created through loanpal API`, async () => {
       // Get an active loans for the applicant
       console.log('CHECKING ACTIVE LOANS');
@@ -274,7 +274,7 @@ describe('LP Application API', () => {
     });
   });
 
-  describe.each(IP427File.slice(0, 1))('Deferred Stips, IP-427', record => {
+  describe.each(IP427File)('Deferred Stips, IP-427', record => {
     test(`Validate ${record.scenario}`, async () => {
       const template = record.type === 'Single' ? singleTemplate : combinedTemplate;
       // Assemble loan object
