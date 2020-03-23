@@ -11,7 +11,7 @@ export default class CSVParser {
     const data = [];
     const readCSVData = await new Promise(resolve => {
       fs.createReadStream(this.file)
-        .pipe(csvParser.parse({ headers: false }))
+        .pipe(csvParser.parse({ headers: true }))
         .on('data', row => data.push(row))
         .on('end', () => resolve(data));
     });

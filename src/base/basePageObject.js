@@ -48,6 +48,18 @@ export default class BasePageObject {
     await this.webDriver.wait(until.elementTextContains(webElem, textContains), timeSec);
   }
 
+  async waitForElementEnabled(locator, timeSec) {
+    const webElem = await this.findElement(locator);
+    const elem = await this.webDriver.wait(until.elementIsEnabled(webElem), timeSec);
+    return elem;
+  }
+
+  async waitForElementDisabled(locator, timeSec) {
+    const webElem = await this.findElement(locator);
+    const elem = await this.webDriver.wait(until.elementIsDisabled(webElem), timeSec);
+    return elem;
+  }
+
   async getTextFromElement(locator) {
     const webElem = await this.findElement(locator);
     const text = await webElem.getText();
@@ -139,7 +151,7 @@ export default class BasePageObject {
     } catch (error) {
       if (count < max) {
         console.log('Searching for element...');
-        const targetFile = await this.waitForTarget(locator, count);
+        const targetFile = await this.waitForTarget(locator, count, max);
         return targetFile;
       } else return;
     }
@@ -154,7 +166,7 @@ export default class BasePageObject {
       const found = await this.webDriver.findElement(locator);
       if (found && count < max) {
         console.log('Target still exists');
-        const targetFile = await this.waitForTargetRemoval(locator, count);
+        const targetFile = await this.waitForTargetRemoval(locator, count, max);
         return targetFile;
       }
       return new Error('Target removal timed out');

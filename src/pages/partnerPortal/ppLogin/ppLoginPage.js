@@ -8,26 +8,42 @@ export default class PPLoginPage extends BasePageObject {
     // Url
     this.loginPageUrl = urls.partnerPortal;
     // Xpath
+    this.img = {
+      lpLogo: By.xpath('//img[contains(@alt,"Loanpal")]')
+    };
     this.emailInput = By.xpath('//input[@id="username"]');
     this.passwordInput = By.xpath('//input[@id="password"]');
-    this.loginBtn = By.xpath('//button[@id ="loginButton"]');
+    this.button = {
+      login: By.xpath('//button[contains(text(), "Let me in")]'),
+      logout: By.xpath('//a[@title="Logout"]')
+    };
 
-    this.username = process.env.ppBlueRaven;
-    this.password = process.env.ppBlueRavenPass;
+    this.link = {
+      profile: value => By.xpath(`//a[@title="${value}"]`)
+    };
+    this.username = process.env.TESTEMAIL;
+    this.password = process.env.TESTPASS;
   }
 
   async completeLogin() {
     console.log('Complete Login');
     await this.fullScreen();
     await this.open();
+    const [profile] = await this.findElements(this.link.profile(this.username));
+    if (profile) {
+      console.log('Already Logged in');
+      return;
+    }
     await this.enterEmail();
     await this.enterPassword();
     await this.loginClick();
+    await this.waitForTarget(this.button.logout);
   }
 
   async open() {
     await this.openUrl(this.loginPageUrl);
     console.log('Opening URL', this.loginPageUrl);
+    await this.waitForTarget(this.img.lpLogo);
   }
 
   async enterEmail(email) {
@@ -45,7 +61,7 @@ export default class PPLoginPage extends BasePageObject {
   }
 
   async loginClick() {
-    const loginBtn = await this.findElement(this.loginBtn);
+    const loginBtn = await this.findElement(this.button.login);
     await loginBtn.click();
     console.log('Logging in');
   }
@@ -57,7 +73,7 @@ export default class PPLoginPage extends BasePageObject {
   }
 
   async logOut() {
-    const logoutBtn = await this.waitForElementLocated(this.logoutBtn, 20000);
+    const logoutBtn = await this.waitForElementLocated(this.button.logout, 20000);
     await logoutBtn.click();
   }
 

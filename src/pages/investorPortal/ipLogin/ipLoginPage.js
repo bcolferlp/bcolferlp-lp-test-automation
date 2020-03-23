@@ -15,8 +15,8 @@ export default class IPLoginPage extends BasePageObject {
     this.errorMessage = By.xpath('//div[@id="errorMessage"]');
     this.dashboardTarget = By.xpath('//h6[contains(text(), "Dashboard")]');
     // Values
-    this.username = process.env.testEmail;
-    this.password = process.env.emailPass;
+    this.username = process.env.TESTEMAIL;
+    this.password = process.env.TESTPASS;
   }
 
   async standardLogin({ username, password }) {

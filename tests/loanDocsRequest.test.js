@@ -7,7 +7,7 @@ import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 const { _ } = require('../src/utilities/imports');
 
-const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
+const emailConfig = { user: process.env.emailUser, password: process.env.TESTPASS };
 
 jest.setTimeout(300000);
 

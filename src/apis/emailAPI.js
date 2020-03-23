@@ -20,17 +20,17 @@ export default class EmailAPI {
         authTimeout: 20000
       }
     };
-    this.searchCriteria = ['ALL'];
     this.fetchOptions = {
       bodies: ['HEADER', 'TEXT', '']
     };
   }
 
   // Connects to email with imap
-  mailConnect = async () => {
+  mailConnect = async (searchCriteria = 'ALL', box = 'INBOX') => {
+    const criteria = [searchCriteria];
     const connection = await imaps.connect(this.config);
-    await connection.openBox('INBOX');
-    const messages = await connection.search(this.searchCriteria, this.fetchOptions);
+    await connection.openBox(box);
+    const messages = await connection.search(criteria, this.fetchOptions);
     connection.end();
     const mail = await Promise.all(
       messages.map(item => {
@@ -43,10 +43,17 @@ export default class EmailAPI {
     return mail;
   };
 
-  deleteMail = async () => {
+  getBoxes = async () => {
     const connection = await imaps.connect(this.config);
-    await connection.openBox('INBOX');
-    const messages = await connection.search(this.searchCriteria, this.fetchOptions);
+    const boxes = await connection.getBoxes();
+    return boxes;
+  };
+
+  deleteMail = async (searchCriteria = 'ALL', box = 'INBOX') => {
+    const criteria = [searchCriteria];
+    const connection = await imaps.connect(this.config);
+    await connection.openBox(box);
+    const messages = await connection.search(criteria, this.fetchOptions);
     const taskList = messages.map(message => {
       return new Promise((resolve, reject) => {
         try {
@@ -79,29 +86,27 @@ export default class EmailAPI {
   };
 
   // Returns entire inbox
-  getInbox = () => this.mailConnect().then(mail => mail || Promise.reject(new Error('Unable to retrieve emails')));
+  getInbox = (searchCriteria, box) => this.mailConnect(searchCriteria, box).then(mail => mail || Promise.reject(new Error('Unable to retrieve emails')));
 
   // Returns all email subjects in an array
   getSubjects = inbox => inbox.map(({ subject }) => subject);
 
   // Returns all email text as an array
-  getBodies = inbox => inbox.map(({ text }) => text);
+  getBodies = inbox => inbox.map(({ html }) => h2t.fromString(html, { wordwrap: false }));
 
   // Returns email text if subject is found
   getMessage(inbox, subjectText) {
     for (const mail of inbox) {
       const { subject, text, html } = mail;
-      let newText = text;
       if (subject.includes(subjectText)) {
-        if (!newText) newText = h2t.fromString(html);
-        return newText;
+        return h2t.fromString(html, { wordwrap: false });
       }
     }
     throw new Error('Unable to find email');
   }
 
   getMessagesBySubjects(inbox, subjectText) {
-    return inbox.filter(mail => mail.subject.includes(subjectText)).map(mail => mail.text);
+    return inbox.filter(mail => mail.subject.includes(subjectText)).map(({ html }) => h2t.fromString(html, { wordwrap: false }));
   }
 
   // Returns specific line in the message if the text is included

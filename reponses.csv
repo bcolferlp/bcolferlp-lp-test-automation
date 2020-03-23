@@ -1,0 +1,1022 @@
+"{
+  ""loanId"": ""20-13-000170"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0xMy0wMDAxNzAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk0LCJleHAiOjE1ODU3Nzc1OTR9.UFEXplWVZqpRF4e2UJ4gr_xpSOGbiO0yH-kY2wYonas""
+}"
+"{
+  ""loanId"": ""20-03-000153"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"{
+  ""loanId"": ""20-10-000151"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0xMC0wMDAxNTEiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk1LCJleHAiOjE1ODU3Nzc1OTV9.QlJuWZkkmgxchkJYM-BEAY4RYtiH8lMqIgmfOc_oU94""
+}"
+"{
+  ""loanId"": ""20-07-000139"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wNy0wMDAxMzkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk2LCJleHAiOjE1ODU3Nzc1OTZ9.W993McAeATaiCzsxqpv5bX9cPrIw047-_HfBq7AWmgY""
+}"
+"{
+  ""loanId"": ""20-06-000156"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNi0wMDAxNTYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk3LCJleHAiOjE1ODU3Nzc1OTd9.JuayAZdVBHKtuqzVBobMLLA4NWRevfQxMMQS-Yk5h2c""
+}"
+"{
+  ""loanId"": ""20-01-000155"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wMS0wMDAxNTUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk4LCJleHAiOjE1ODU3Nzc1OTh9.TytyhT949PDPQ5sQoILBC9ZwJLVVdxV42GQJ7tMgTNE""
+}"
+"{
+  ""loanId"": ""20-01-000156"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMS0wMDAxNTYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NTk5LCJleHAiOjE1ODU3Nzc1OTl9.3x3aCCfqF3Qt1opyo-pRHvciWMRyFE_cchcsLQtSxSA""
+}"
+"{
+  ""loanId"": ""20-07-000140"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Single"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNy0wMDAxNDAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjAwLCJleHAiOjE1ODU3Nzc2MDB9.K7NIYvdDxgb8OrCesyG1LIdRfkuaqAHlYyYtzS8i44k""
+}"
+"{
+  ""loanId"": ""20-03-000154"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTQiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjAyLCJleHAiOjE1ODU3Nzc2MDJ9.MvHs8ej3-MTGHc7PCcjYPH-XCoakg7JRPRinEsYn5wk""
+}"
+"{
+  ""loanId"": ""20-12-000166"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"{
+  ""loanId"": ""20-08-000160"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wOC0wMDAxNjAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjA3LCJleHAiOjE1ODU3Nzc2MDd9.Z3W3nx6qX3k-9lwCYGss9GmOtrWZW9s-HUZ4_y0PrQs""
+}"
+"{
+  ""loanId"": ""20-14-000166"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0xNC0wMDAxNjYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjEwLCJleHAiOjE1ODU3Nzc2MTB9.wPfkUqbuROl1NfaylEDihMitSUyQqUiJUM5gtQ9f5KI""
+}"
+"{
+  ""loanId"": ""20-12-000167"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMi0wMDAxNjciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjEyLCJleHAiOjE1ODU3Nzc2MTJ9.r_pMd2Crm2K5q3Ho7RJPvQf3OahqoSg-xfXmeWjWad0""
+}"
+"{
+  ""loanId"": ""20-02-000168"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMi0wMDAxNjgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjE1LCJleHAiOjE1ODU3Nzc2MTV9.vGpY9zquVRPu6lI3cvowR2DOEvAf3fGkk0ea51o1k-M""
+}"
+"{
+  ""loanId"": ""20-11-000150"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xMS0wMDAxNTAiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjE4LCJleHAiOjE1ODU3Nzc2MTh9.MlvNgO83JM9eY7-3bgSTviNcjqYLnxYwHRAxHKt839A""
+}"
+"{
+  ""loanId"": ""20-04-000175"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Primary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNC0wMDAxNzUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjIwLCJleHAiOjE1ODU3Nzc2MjB9.wdO1_XitBRwc15UricniWIHpXpwAo4Cdx1igGctLPz0""
+}"
+"{
+  ""loanId"": ""20-16-000166"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xNi0wMDAxNjYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjIzLCJleHAiOjE1ODU3Nzc2MjN9.LANRVVwLH4aB7zsuFkveoe1YONwUPlPtBYdArhraxf4""
+}"
+"{
+  ""loanId"": ""20-01-000157"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"{
+  ""loanId"": ""20-04-000176"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNC0wMDAxNzYiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjI5LCJleHAiOjE1ODU3Nzc2Mjl9.FQ7iRjVcmubNpmpoJE2bx84CKCEiBWIRf-UrO7tSiHc""
+}"
+"{
+  ""loanId"": ""20-06-000157"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNi0wMDAxNTciLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjMxLCJleHAiOjE1ODU3Nzc2MzF9.9FTvJdrkKRQO-6K2ItWRkRDWAaSQTeCp4DJxgp6M8rs""
+}"
+"{
+  ""loanId"": ""20-01-000158"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wMS0wMDAxNTgiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjMzLCJleHAiOjE1ODU3Nzc2MzN9.tDbAEzHARaSmEgSeHPRF0k6e9XfEiZwR-Dv-9-q_ttQ""
+}"
+"{
+  ""loanId"": ""20-05-000162"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjIifQ.eyJzdWIiOiIyMC0wNS0wMDAxNjIiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjM1LCJleHAiOjE1ODU3Nzc2MzV9.ix-618Lt9_jbdFmOUfg4wVmuecXab9FnduJI1qKQ-OE""
+}"
+"{
+  ""loanId"": ""20-03-000155"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTUiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjM3LCJleHAiOjE1ODU3Nzc2Mzd9.ljkQ54-WG822v30LNQRWqiTR80RzjMPv9HGwFYNxPeQ""
+}"
+"{
+  ""loanId"": ""20-01-000159"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Secondary"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review"",
+        ""Home Title-Ownership/Trust Issue""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD""
+  ],
+  ""token"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjMifQ.eyJzdWIiOiIyMC0wMS0wMDAxNTkiLCJleHBpcmVzSW4iOjMwMCwiaWF0IjoxNTgzMTg1NjM5LCJleHAiOjE1ODU3Nzc2Mzl9.LV-JUhnk3ryV8SWVUY8BvYfLTbW1HfFU-JlL4DPuBEY""
+}"
+"{
+  ""loanId"": ""20-03-000156"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjQxLCJleHAiOjE1ODU3Nzc2NDF9.Nmk5x54RNA57aU9lFw7CS_isweFA41MGHlY1bp-WXsM"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTYiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NDEsImV4cCI6MTU4NTc3NzY0MX0.zU6WUv8h1R2t3-9qdCjIxcZ2QZsMj3NgvFf0-tGILTc""
+}"
+"{
+  ""loanId"": ""20-02-000169"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false
+}"
+"{
+  ""loanId"": ""20-05-000163"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0wNS0wMDAxNjMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjQ1LCJleHAiOjE1ODU3Nzc2NDV9.FnsO7akmtXjyWdGvtJqIlc5wiQosr9sMI8DdjKmsNYU"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wNS0wMDAxNjMiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NDUsImV4cCI6MTU4NTc3NzY0NX0.24GfQOFcwXbpRhGpYt0ldWNYwTFYaSDiLi3hOtdcNLs""
+}"
+"{
+  ""loanId"": ""20-08-000161"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjUifQ.eyJzdWIiOiIyMC0wOC0wMDAxNjEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjQ2LCJleHAiOjE1ODU3Nzc2NDZ9.5P4tcP1ujrt-q7Y5-5EpsEfQ6P10sYeHava8jvIc7ik"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjcifQ.eyJzdWIiOiIyMC0wOC0wMDAxNjEiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NDYsImV4cCI6MTU4NTc3NzY0Nn0.QrN1qOenDuu8DZQ_eA0U_O95d9vIgXubSI5YY2BB974""
+}"
+"{
+  ""loanId"": ""20-08-000162"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wOC0wMDAxNjIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjQ4LCJleHAiOjE1ODU3Nzc2NDh9.r_BtWyo42hAWD_THV_WqUeFVKk8Eg1zX6qozSLZFxE8"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjEifQ.eyJzdWIiOiIyMC0wOC0wMDAxNjIiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NDgsImV4cCI6MTU4NTc3NzY0OH0.ikvwyipLBqdoZxF8ror5x_N-Vjjq_wkOA1nCiMnrPNo""
+}"
+"{
+  ""loanId"": ""20-03-000157"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjUwLCJleHAiOjE1ODU3Nzc2NTB9.yxIVceTfkrfjNjdIt7WjjzPxEFEa7vgzh6gBn03Siog"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjgifQ.eyJzdWIiOiIyMC0wMy0wMDAxNTciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NTAsImV4cCI6MTU4NTc3NzY1MH0._ycSgmHFAoJl3ELxVwnPytYD-5jshw27fVhuDfM1PzY""
+}"
+"{
+  ""loanId"": ""20-05-000164"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjYifQ.eyJzdWIiOiIyMC0wNS0wMDAxNjQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjUyLCJleHAiOjE1ODU3Nzc2NTJ9.TooLkFKxPjVpKncMgGc_gFY29bhYYJO7T7noXqPmd0s"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0wNS0wMDAxNjQiLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NTIsImV4cCI6MTU4NTc3NzY1Mn0.Zve37h12qqCq4FQrfhf8ZPOUZQCR5k91SbIsi42n5o8""
+}"
+"{
+  ""loanId"": ""20-16-000167"",
+  ""referenceNumber"": ""automated-run"",
+  ""type"": ""Combined"",
+  ""status"": ""Approved"",
+  ""maxLoanAmount"": ""100000"",
+  ""loanOptions"": {
+    ""term"": ""10"",
+    ""id"": ""1"",
+    ""rate"": ""3.99"",
+    ""programFee"": 14.25
+  },
+  ""totalSystemCost"": ""$23,000.00"",
+  ""stipulations"": [
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Primary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    },
+    {
+      ""type"": ""Title"",
+      ""internal"": true,
+      ""borrower"": ""Secondary"",
+      ""deferred"": false,
+      ""stipids"": [
+        ""Foreclosure Review""
+      ]
+    }
+  ],
+  ""isSub650"": false,
+  ""availableNextSteps"": [
+    ""UPLOAD_PRIMARY"",
+    ""UPLOAD_SECONDARY""
+  ],
+  ""primaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjQifQ.eyJzdWIiOiIyMC0xNi0wMDAxNjciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJQcmltYXJ5IiwiaWF0IjoxNTgzMTg1NjU0LCJleHAiOjE1ODU3Nzc2NTR9.hRAwC-MGnRnch9TenBIbFMsKjzTvo-GNjxSTdUw77I0"",
+  ""secondaryToken"": ""eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjkifQ.eyJzdWIiOiIyMC0xNi0wMDAxNjciLCJleHBpcmVzSW4iOjMwMCwiYm9ycm93ZXIiOiJTZWNvbmRhcnkiLCJpYXQiOjE1ODMxODU2NTQsImV4cCI6MTU4NTc3NzY1NH0.filWybhx4mfCJHumt6gOE_TDiMXtkTfvN2CvLFS0Pxo""
+}"

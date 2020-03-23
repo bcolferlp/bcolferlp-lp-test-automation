@@ -1,4 +1,4 @@
-const AWS = require('aws-sdk');
+const AWS = require('./aws');
 
 const Lambda = new AWS.Lambda();
 

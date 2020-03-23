@@ -75,3 +75,11 @@ package-lock.json
 
 yarn.lock
 
+*_TEST.csv
+
+*.txt
+
+createdLoans*
+
+responses*
+

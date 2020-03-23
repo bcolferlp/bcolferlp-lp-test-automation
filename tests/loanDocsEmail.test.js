@@ -8,8 +8,8 @@ import LoanDocsResultsFiles from '../src/utilities/loanDocsResultFiles';
 
 const { _ } = require('../src/utilities/imports');
 
-const emailConfig = { user: process.env.emailUser, password: process.env.emailPass };
-const coboConfig = { user: process.env.coboUser, password: process.env.emailPass };
+const emailConfig = { user: process.env.emailUser, password: process.env.TESTPASS };
+const coboConfig = { user: process.env.coboUser, password: process.env.TESTPASS };
 
 jest.setTimeout(300000);
 

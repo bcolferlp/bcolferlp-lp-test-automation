@@ -16,15 +16,16 @@ const subject = {
 };
 
 export default class LoanEmailPage extends EmailAPI {
-  async getEmail(inbox, mailType) {
-    const message = this.getMessage(inbox, subject[mailType]);
+  async getEmail(inbox, mailType, spokenLanguage = 'english') {
+    const subjectText = _.get(subject, `${mailType}.${spokenLanguage}`);
+    const message = this.getMessage(inbox, subjectText);
     return message;
   }
 
-  async getSplitEmail(inbox, mailType) {
-    // console.log("inbox",inbox);
-    const message = this.getMessage(inbox, subject[mailType]);
-    console.log('Message', message);
+  async getSplitEmail(inbox, mailType, spokenLanguage = 'english') {
+    const subjectText = _.get(subject, `${mailType}.${spokenLanguage}`);
+    const message = this.getMessage(inbox, subjectText);
+    // console.log('Message', message);
     return message.split('\n');
   }
 
@@ -33,7 +34,7 @@ export default class LoanEmailPage extends EmailAPI {
     return line;
   }
 
-  async getAllMessages(inbox, mailType, spokenLanguage) {
+  async getAllMessages(inbox, mailType, spokenLanguage = 'english') {
     const subjectText = _.get(subject, `${mailType}.${spokenLanguage}`);
     const messages = this.getMessagesBySubjects(inbox, subjectText);
     return messages;
@@ -58,5 +59,10 @@ export default class LoanEmailPage extends EmailAPI {
     const emailLink = await this.getLineToValidate(emailBod[0], 'docusign');
     console.log(emailLink);
     return emailLink;
+  }
+
+  async getAllText(inbox) {
+    const bodies = await this.getBodies(inbox);
+    return bodies;
   }
 }
