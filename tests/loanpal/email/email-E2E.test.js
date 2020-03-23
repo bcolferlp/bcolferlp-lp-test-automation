@@ -36,7 +36,7 @@ describe('Email', () => {
       inbox = await email.mailConnect('UNSEEN', 'Testing');
     });
 
-    describe.only.each(PRODFile)('E2E Deferred Stips Email', record => {
+    describe.each(PRODFile)('E2E Deferred Stips Email', record => {
       // Solar Financing Decision email
       // console.log(record);
       test.only.each(['english', 'spanish'])(`Validate %s ${record.scenario} ${record.type} borrower ${record.stips} EMAIL`, async language => {
@@ -60,6 +60,7 @@ describe('Email', () => {
         if (availableNextSteps.length && record.stips !== 'ID/Fraud-Consumer Statement,Foreclosure Review') {
           console.log(stringSteps, 'availableNextSteps');
           // Next Steps
+          // GET_DOCS, UPLOAD, WAIT FOR CALL
           if (stringSteps.includes('GET') && stringSteps.includes('UPLOAD') && !stringSteps.includes('WAIT')) {
             console.log('Assertion 1');
             expect(message).toMatch(emailRegex[language].nextSteps.title);
