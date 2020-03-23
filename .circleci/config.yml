@@ -75,13 +75,19 @@ jobs:
           name: Cucumber Test
           command: npm test ./tests/uwPortal/uwLogin/uwLogin
 workflows:
-  build-push-test-app:
-    jobs:
-      - node-build-unittest:
-          filters:
-            branches:
-              only:
-                - bcolfer/add-cricleci
-      - build-push-docker-image:
-          requires:
-            - node-build-unittest
+   build-push-test-app:
+     jobs:
+        - run-ui-test:
+            filters:
+              branches:
+                only:
+                  - bcolfer/test-run-exp1
+
+  #     - node-build-unittest:
+  #         filters:
+  #           branches:
+  #             only:
+  #               - bcolfer/add-cricleci
+  #     - build-push-docker-image:
+  #         requires:
+  #           - node-build-unittest
