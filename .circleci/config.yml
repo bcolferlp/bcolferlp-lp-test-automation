@@ -40,7 +40,40 @@ jobs:
           command: |
             docker pull 362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation
             docker run --rm -e STAGE=cicd  362472370574.dkr.ecr.us-west-2.amazonaws.com/loanpal-engineering/lp-test-automation /bin/bash -c 'npm run test  -- tests/cicd/alwaysTrue'
-
+  run-ui-test:
+    docker:
+      - image: circleci/node:10.15.3-jessie-browsers
+    steps:
+      - checkout
+      - run:
+          name: Create files and folders
+          command: |
+            mkdir Downloads
+            mkdir test-reports
+            mkdir report
+            touch report/cucumber_report.json
+            touch report/testResults.js
+      - run:
+          name: Download Selenium
+          command: curl -O http://selenium-release.storage.googleapis.com/3.5/selenium-server-standalone-3.5.3.jar
+      - run:
+          name: Start Selenium
+          command: java -jar selenium-server-standalone-3.5.3.jar -log test-reports/selenium.log
+          background: true
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package-lock.json" }}
+            # fallback to using the latest cache if no exact match is found
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package-lock.json" }}
+      # run tests!
+      - run:
+          name: Cucumber Test
+          command: npm test ./tests/uwPortal/uwLogin/uwLogin
 workflows:
   build-push-test-app:
     jobs:
