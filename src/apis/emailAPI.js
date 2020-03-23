@@ -14,7 +14,7 @@ export default class EmailAPI {
       imap: {
         user,
         password,
-        host: 'outlook.office365.com',
+        host: 'mail.testemail.loanpal.com',
         port: 993,
         tls: true,
         authTimeout: 20000
