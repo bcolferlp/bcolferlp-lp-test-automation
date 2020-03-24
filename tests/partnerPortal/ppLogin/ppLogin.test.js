@@ -15,9 +15,12 @@ each(['chrome']).describe('PP Login Test', browser => {
     await baseTest.close();
   });
 
-  test.only('Positive login test', async done => {
+  test('Positive login test', async done => {
     const ppLoginPage = await new PPLoginPage(baseTest.webDriver);
-    await ppLoginPage.completelogin();
+    await ppLoginPage.completeLogin();
+    await ppLoginPage.validateLogin();
+    await ppLoginPage.logOut();
+    await ppLoginPage.validateLogout();
     done();
   }, 30000);
 
