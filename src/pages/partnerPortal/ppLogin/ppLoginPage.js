@@ -7,20 +7,19 @@ export default class PPLoginPage extends BasePageObject {
     super(webDriver);
     // Url
     this.loginPageUrl = urls.partnerPortal;
-    // Xpath
-    this.img = {
-      lpLogo: By.xpath('//img[contains(@alt,"Loanpal")]')
-    };
-    this.emailInput = By.xpath('//input[@id="username"]');
-    this.passwordInput = By.xpath('//input[@id="password"]');
-    this.button = {
-      login: By.xpath('//button[contains(text(), "Let me in")]'),
-      logout: By.xpath('//a[@title="Logout"]')
-    };
 
-    this.link = {
-      profile: value => By.xpath(`//a[@title="${value}"]`)
-    };
+    // Xpath
+    this.lpLogoImage = By.xpath('//img[contains(@alt,"Loanpal")]');
+
+    this.usernameInput = By.id('username');
+    this.passwordInput = By.id('password');
+    this.loginBtn = By.id('loginButton');
+
+    this.logoutBtn = By.xpath('//a[@title="Logout"]//small[text()="Logout"]/../..');
+    this.loanList = By.xpath("//a[@title='All Loans']");
+
+    this.errorMessage = By.id('errorMessage');
+
     this.username = process.env.TESTEMAIL;
     this.password = process.env.TESTPASS;
   }
@@ -29,26 +28,22 @@ export default class PPLoginPage extends BasePageObject {
     console.log('Complete Login');
     await this.fullScreen();
     await this.open();
-    const [profile] = await this.findElements(this.link.profile(this.username));
-    if (profile) {
-      console.log('Already Logged in');
-      return;
-    }
     await this.enterEmail();
     await this.enterPassword();
     await this.loginClick();
-    await this.waitForTarget(this.button.logout);
+    await this.waitForElementLocated(this.loanList);
+    await this.waitForElementLocated(this.logoutBtn);
   }
 
   async open() {
     await this.openUrl(this.loginPageUrl);
     console.log('Opening URL', this.loginPageUrl);
-    await this.waitForTarget(this.img.lpLogo);
+    await this.waitForTarget(this.lpLogoImage);
   }
 
   async enterEmail(email) {
     if (email) this.username = email;
-    const emailInput = await this.findElement(this.emailInput);
+    const emailInput = await this.findElement(this.usernameInput);
     await emailInput.sendKeys(this.username);
     console.log('Email entered');
   }
@@ -61,19 +56,24 @@ export default class PPLoginPage extends BasePageObject {
   }
 
   async loginClick() {
-    const loginBtn = await this.findElement(this.button.login);
+    const loginBtn = await this.findElement(this.loginBtn);
     await loginBtn.click();
     console.log('Logging in');
   }
 
+  async validateLogin() {
+    const loginConfirmation = await this.waitForElementLocated(this.loanList);
+    console.log('Loan List button is displayed');
+    return loginConfirmation;
+  }
   async validateLogout() {
-    const logoutConf = await this.waitForElementLocated(this.logoutConf, 20000);
+    const logoutConf = await this.waitForElementLocated(this.loginBtn, 20000);
     console.log('Logout Confirmed');
     return logoutConf;
   }
 
   async logOut() {
-    const logoutBtn = await this.waitForElementLocated(this.button.logout, 20000);
+    const logoutBtn = await this.waitForElementLocated(this.logoutBtn, 20000);
     await logoutBtn.click();
   }
 
