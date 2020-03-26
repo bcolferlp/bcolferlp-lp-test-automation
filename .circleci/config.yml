@@ -1,8 +1,6 @@
 version: 2.1
 jobs:
    build-push-docker-image:
-    docker:
-      - image: circleci/debian
     working_directory: ~/repo    
     steps:
       - checkout      
