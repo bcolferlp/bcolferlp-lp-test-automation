@@ -75,6 +75,12 @@ package-lock.json
 
 yarn.lock
 
+# mac OS
+.DS_Store
+
+#Chrome driver
+chromedriver
+
 *_TEST.csv
 
 *.txt
