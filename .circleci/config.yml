@@ -17,9 +17,10 @@ jobs:
             echo ${DOCKER_HUB_TOKEN} | docker login --username ${DOCKER_USER} --password-stdin 
             docker push logicgraphy/lp-test-automation
 workflows:
-  build-push-docker-image:
+  build-push:
     jobs:
-      - build-and-push
-        filters:
+      - build-push-docker-image:
+          filters:
             branches:
-              - rndp/exp1
+              only: rndp-exp1                
+        
