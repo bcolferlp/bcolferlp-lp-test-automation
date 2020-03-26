@@ -7,5 +7,9 @@ if (process.env.STAGE === 'prod') {
 module.exports = {
   reporters: ['default', './reporter.js'],
   setupFilesAfterEnv: ['jest-allure/dist/setup'],
-  testEnvironment: 'node'
+  testEnvironment: 'node',
+  transform: {
+    '^.+\\.csv$': './jest-csv-transformer.js',
+    '^.+\\.[t|j]sx?$': 'babel-jest'
+  }
 };

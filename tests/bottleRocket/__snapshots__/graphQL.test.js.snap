@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GraphQL 97460: LPLBACK-8 Get terms and Conditions 1`] = `
+Object {
+  "terms": Array [
+    Object {
+      "current": true,
+      "id": "TRMS-ddd9dec5-1ea8-46ef-b103-7ff74bd66456",
+      "sections": Array [
+        Object {
+          "sort": 6,
+          "subTitle": null,
+          "text": "The Services are provided “As Is” and “As Available”.  Loanpal disclaims all representations and warranties, express, implied, or statutory not expressly set out in there terms, including the implied warranties of merchantability, fitness for a particular purpose and non-infringement. ",
+          "title": null,
+        },
+        Object {
+          "sort": 5,
+          "subTitle": null,
+          "text": "You agree that Loanpal may contact you by email, phone or text messages at any of the contact number/addresses you provided.",
+          "title": null,
+        },
+        Object {
+          "sort": 4,
+          "subTitle": null,
+          "text": "The Services are provided pursuant to the terms of the Partner’s Solar/Storage Financing Program Agreement which terms are incorporated herein by reference.",
+          "title": null,
+        },
+        Object {
+          "sort": 3,
+          "subTitle": null,
+          "text": "In order to use the Services you must register for and maintain an active “User Account”.  You must be at least 18 years of age.  You may not authorize or transfer your User Account to any other person or entity. You are responsible for obtaining the data network access necessary to use the Services.",
+          "title": null,
+        },
+        Object {
+          "sort": 2,
+          "subTitle": null,
+          "text": "The information provided in the Services are and shall remain the property of Loanpal.",
+          "title": null,
+        },
+        Object {
+          "sort": 1,
+          "subTitle": null,
+          "text": "You must allow the applicant to provide their own information without undue pressure or influence and in a manner that preserves the integrity and confidentiality of the information that they have provided",
+          "title": null,
+        },
+        Object {
+          "sort": 0,
+          "subTitle": null,
+          "text": "You must not request or nor accept information which you reasonably believe to be false or misleading,",
+          "title": null,
+        },
+      ],
+      "version": "1.0.0",
+    },
+  ],
+}
+`;

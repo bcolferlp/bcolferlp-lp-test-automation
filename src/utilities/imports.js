@@ -12,6 +12,8 @@ const request = require('request');
 const logUpdate = require('log-update');
 // SCRIPTS
 const { main: getNewestFile } = require('./getNewestFile');
+const { main: parseCSV } = require('./parseCSV');
+const { main: getRandomNum } = require('./getRandomNum');
 // SUPPORT
 const format = require('./format');
 const globals = require('./globals');
@@ -32,5 +34,7 @@ module.exports = {
   urls,
   request,
   logUpdate,
-  error
+  error,
+  parseCSV,
+  getRandomNum
 };

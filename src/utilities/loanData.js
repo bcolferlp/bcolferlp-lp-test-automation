@@ -1,13 +1,10 @@
 require('dotenv').config();
-const AWS = require('aws-sdk');
-const Promise = require('bluebird');
+
+const AWS = require('../utilities/aws');
 
 const {
-  config,
   DynamoDB: { DocumentClient }
 } = AWS;
-config.setPromisesDependency(Promise);
-config.update({ region: 'us-west-2' });
 
 class LoanData {
   constructor(loanid) {
@@ -17,10 +14,8 @@ class LoanData {
   }
 
   async getSrcLoan() {
-    return this.dynamodb
-      .get({ TableName: `${this.stage}-loans`, Key: { id: this.loanId } })
-      .promise()
-      .get('Item');
+    const { Item } = await this.dynamodb.get({ TableName: `${this.stage}-loans`, Key: { id: this.loanId } }).promise();
+    return Item;
   }
 
   async getLoanData() {
@@ -36,14 +31,14 @@ class LoanData {
 
   async getContractReview() {
     console.log('getContractReview', this.loanId);
-    return this.dynamodb
+    const { Items } = await this.dynamodb
       .query({
         TableName: `${this.stage}-contract-review`,
         KeyConditionExpression: 'loanId = :loanId',
         ExpressionAttributeValues: { ':loanId': this.loanId }
       })
-      .promise()
-      .get('Items');
+      .promise();
+    return Items;
   }
 
   async putLoan(loan) {
