@@ -20,7 +20,7 @@ workflows:
   version: 2.1
   build-push:
     jobs:
-      - build-push-docker-image
+      - build-push-docker-image:
           filters:
             branches:
               only:
