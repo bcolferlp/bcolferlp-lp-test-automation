@@ -16,7 +16,9 @@ jobs:
           command: |
             echo ${DOCKER_HUB_TOKEN} | docker login --username ${DOCKER_USER} --password-stdin 
             docker push logicgraphy/lp-test-automation
+
 workflows:
+  version: 2.1
   build-push:
     jobs:
       - build-push-docker-image:
