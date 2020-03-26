@@ -1,11 +1,10 @@
 version: 2.1
 jobs:
    build-push-docker-image:
-    docker:
-      - image: cimg/base:2020.01
+    machine: true
     working_directory: ~/repo    
     steps:
-      - checkout      
+      - checkout
       - run:
           name: "Build docker image"
           command: |            
