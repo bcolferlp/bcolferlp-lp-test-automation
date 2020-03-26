@@ -8,13 +8,13 @@ jobs:
       - run:
           name: "Build docker image"
           command: |            
-            docker build --quiet --tag logicgraphy/lp-test-automation -f Dockerfile ./
+            docker build --quiet --tag loanpaldevops/lp-test-automation -f Dockerfile ./
             
       - run:
           name: "Push docker file on Docker repository"
           command: |
             echo ${DOCKER_HUB_TOKEN} | docker login --username ${DOCKER_USER} --password-stdin 
-            docker push logicgraphy/lp-test-automation
+            docker push loanpaldevops/lp-test-automation
 
 workflows:  
   build-push:
