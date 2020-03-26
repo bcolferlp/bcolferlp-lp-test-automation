@@ -3,7 +3,7 @@ process.env = {
   AWS_REGION: 'us-west-2'
 };
 const Promise = require('bluebird');
-const AWS = require('aws-sdk');
+const AWS = require('./aws');
 
 const {
   config,

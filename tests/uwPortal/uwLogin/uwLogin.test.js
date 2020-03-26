@@ -26,8 +26,8 @@ describe('Underwriter Portal Login', () => {
   });
 
   test.each([
-    { email: process.env.testEmail, password: 'BadPassword' },
-    { email: 'badEmail@email.com', password: process.env.emailPass }
+    { email: process.env.TESTEMAIL, password: 'BadPassword' },
+    { email: 'badEmail@email.com', password: process.env.TESTPASS }
   ])('97878: Informed when login information is incorrect', async ({ email, password }) => {
     const message = 'The Username or Password are invalid. Please try again!';
     await uwPage.fullScreen();

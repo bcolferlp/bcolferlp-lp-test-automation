@@ -8,6 +8,9 @@ export default class UWLoginPage extends BasePageObject {
     // URLs
     this.loginPageUrl = urls.underwriterPortal;
     // XPath
+    this.img = {
+      lpLogo: By.xpath('//img[contains(@alt,"Loanpal")]')
+    };
     this.label = {
       errorMessage: text => By.xpath(`//*[contains(text(), "${text}")]`)
     };
@@ -22,17 +25,23 @@ export default class UWLoginPage extends BasePageObject {
     this.checkBox = {};
     this.link = {
       forgotPassword: By.xpath('//div[contains(@class,"password-help")]'),
-      backToLogin: By.xpath('//input[@id="acceso"]')
+      backToLogin: By.xpath('//input[@id="acceso"]'),
+      profile: value => By.xpath(`//a[text()="${value}"]`)
     };
     // values
-    this.username = process.env.testEmail;
-    this.password = process.env.emailPass;
+    this.username = process.env.TESTEMAIL;
+    this.password = process.env.TESTPASS;
   }
 
   async completelogin() {
     console.log('Complete Login');
     await this.fullScreen();
     await this.open();
+    const [profile] = await this.findElements(this.button.logout);
+    if (profile) {
+      console.log('Already Logged in');
+      return;
+    }
     await this.enterEmail();
     await this.enterPassword();
     await this.loginClick();
@@ -42,6 +51,7 @@ export default class UWLoginPage extends BasePageObject {
   async open() {
     await this.openUrl(this.loginPageUrl);
     console.log('Opening URL', this.loginPageUrl);
+    await this.waitForTarget(this.img.lpLogo);
   }
 
   async enterEmail(email) {

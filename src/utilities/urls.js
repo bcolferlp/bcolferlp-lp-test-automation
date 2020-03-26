@@ -11,5 +11,6 @@ module.exports = {
   }/restapi/v1/public/applications/`,
   loanCalc: `https://${process.env.STAGE !== 'dev' && process.env.STAGE !== 'prod' ? `${process.env.STAGE}-client` : ''}api.loanpal.com/${
     process.env.STAGE
-  }/restapi/v1/loanCalc`
+  }/restapi/v1/loanCalc`,
+  loanApp: `https://${process.env.STAGE !== 'prod' ? `${process.env.STAGE}-` : ''}www.loanpal.com/`
 };
