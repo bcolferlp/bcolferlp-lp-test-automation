@@ -1,17 +1,25 @@
 version: 2.1
-orbs:
-  node: circleci/node@1.1.6
 jobs:
-  build-and-test:
-    executor:
-      name: node/default
+   build-push-docker-image:
+    docker:
+      - image: circleci/debian
+    working_directory: ~/repo    
     steps:
-      - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
-            - run: npm test
+      - checkout      
+      - run:
+          name: "Build docker image"
+          command: |            
+            docker build --quiet --tag logicgraphy/lp-test-automation -f Dockerfile ./
+            
+      - run:
+          name: "Push docker file on Docker repository"
+          command: |
+            echo ${DOCKER_HUB_TOKEN} | docker login --username ${DOCKER_USER} --password-stdin 
+            docker push logicgraphy/lp-test-automation
 workflows:
-  build-and-test:
+  build-push-docker-image:
     jobs:
-      - build-and-test
+      - build-and-push
+        filters:
+            branches:
+              - rndp/exp1

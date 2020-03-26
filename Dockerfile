@@ -10,10 +10,9 @@ RUN sudo unzip ./chromedriver_linux.zip -d ./ && sudo chown circleci chromedrive
 COPY --chown=circleci data/ ./data/
 COPY --chown=circleci src/ ./src/
 COPY --chown=circleci tests/ ./tests/
-COPY --chown=circleci jest.config.js ./
-COPY --chown=circleci package.json ./
+COPY --chown=circleci jest*.js ./
+COPY --chown=circleci package*.json ./
 COPY --chown=circleci reporter.js ./
-COPY --chown=circleci .env/ ./
 COPY --chown=circleci .babelrc/ ./
 RUN npm install
 
