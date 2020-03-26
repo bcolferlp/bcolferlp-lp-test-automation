@@ -21,8 +21,5 @@ workflows:
   version: 2.1
   build-push:
     jobs:
-      - build-push-docker-image:
-          filters:
-            branches:
-              only: rndp-exp1                
+      - build-push-docker-image                         
         
